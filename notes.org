@@ -1,0 +1,27 @@
+* Lecture 2 <2018-10-17 Wed>
+
+** Examples of metric spaces
+
+*** The set of continuous functions $C[a, b]$
+    With a metric $d(f, g) = \max\vert f(x) - g(x)\vert$
+
+*** The space $l^p$ of sequences $x=(x_1, x_2 \cdots,)$ with $\Vert x \Vert _p < \infty$. 
+    The metric is the norm of the difference. 
+
+    To prove that this is indeed a metric, we need the Minkowiski inequality.
+
+    There was a complicated proof of the Minkowski inequality that was discussed
+    in the lecture. I think one can prove in a simpler fashion. 
+
+    The proof involved showing that $\alpha \cdot \beta \le \alpha^{p}/p +
+    \beta^{q}/q$ (This is the young inequality.)
+
+    The next step was to prove the Holder inequality. 
+
+    The next step is to use Holder on Minkowski. 
+
+    Holder: [[https://en.wikipedia.org/wiki/H%C3%B6lder%27s_inequality]]
+
+    Minkowski: [[https://en.wikipedia.org/wiki/Minkowski_inequality]]
+
+    For $p=q=2$, we obtain the Cauchy-Schwarz inequality. 
