@@ -25,3 +25,47 @@
     Minkowski: [[https://en.wikipedia.org/wiki/Minkowski_inequality]]
 
     For $p=q=2$, we obtain the Cauchy-Schwarz inequality. 
+
+** Definitions involving metric spaces
+
+*** Open ball
+    $B(x_0, r)$ is the set of all points $x$ such that the distance from $x$ to $x_0$ is less than $r$.
+
+*** Closed ball
+    Similar to open ball, except that the distance can be less than or /equal to/ $r$.
+
+*** Sphere
+    The set of all points $x$ such that the distance from $x_0$ to $x$ is exactly $r$.
+
+*** Relation
+    If we subtract a sphere from the closed ball, we get the open ball.
+
+*** Definition of open
+    For every point $x$, we can find an epsilon ball that is inside the set. 
+
+*** Definition of closed
+    Basically the complement of the set is open.
+
+*** Remark ($\varepsilon$ neighbourhood)
+    An open ball $B(x_0, \verepsilon)$ of radius $\varepsilon$ is often called
+    an $\varepsilon$ neighbourhood. A neighbourhood of $X$ is that contains an
+    $\varepsilon$ neighbourhood of $X$
+
+    We will use these definition for separable spaces.
+
+*** Interior point 
+    We call $x_0$ an interior point if there exist an neighbourhood of $x_0$
+    contained inside the space.
+
+*** Continuity
+    About a function from one metric space to another. It's basically the
+    standard definition. (the definition in the lecture was an $\varepsilon$,
+    $\delta$ definition.) 
+
+    The definition was about continuity at a point $x$. Then a function is
+    defined to be continuous if it is continuous at every point $x$.
+
+*** Accumulation point
+    $A$ be a subset of $X$. Then $x_0 \in X$ (not necessarily in $A$) is called
+    accumulation point of $A$ if every neighbourhood of $X_0$ contains at least
+    one point $y \in A$, $y \neq x_0$.
