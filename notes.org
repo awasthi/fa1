@@ -77,3 +77,123 @@
     $A$ be a subset of $X$. Then $x_0 \in X$ (not necessarily in $A$) is called
     accumulation point of $A$ if every neighbourhood of $X_0$ contains at least
     one point $y \in A$, $y \neq x_0$.
+
+* Lecture 3 <2018-10-23 Tue>
+  [fn:1]
+** More definitions
+*** Closure of a set
+*** A dense subset of $X$
+*** Separable
+    If there is a countable subset that is dense in $X$. $X$ is defined to be
+    separable.
+
+    Example:
+    1. Real numbers are separable.
+    2. $l^p$ for $1 \le p \le \infty$ is separable.
+    3. $l^\infty$ not separable. Proof idea: For any set of indices $I\subset
+       \N$, define $(e_I)_n$ is $1$ is $h\in I$ and $0$ otherwise. For every $I
+       \neq y$, we can compute the distance $d(e_I, e_J) = 1$. How many such
+       functions are there? The number of such elements are uncountable. (The
+       proof of this theorem is similar to how $\{0, 1\}^\N$ is uncountable.)[fn:2]
+*** Definition of convergence
+    Definition was about the limit of distance going to 0. Note that the limit
+    $X$ must be a point in $X$ (Why?)
+*** Definition of bounded set
+*** Definition of boundedness of a sequence
+*** Lemma
+    If $x_n$ is convergent, then it is bounded the limit is unique.
+*** Lemma
+    If $x_n$ converges to $x$ and $y_n$ converges to $y$, then $d(x_n, y_n)$
+    converges to $d(x, y)$.
+*** About convergence and Cauchy sequences
+*** Completeness
+    The idea that if a sequence is Cauchy, then it is convergent.
+*** Theorem about subsets of complete metric space
+    $X$ be a metric space. A subspace $A$ of $X$ is complete if and only if $A$ is closed in $X$.
+*** Condition about continuity with respect to convergence
+    A map $T\colon X \rightarrow Y$ is continuous if and only if $x_n
+    \rightarrow x_0 \implies T(x_n) \rightarrow T(x_0)$.
+*** Definition of isometry between metric spaces
+** Theorem: $C[a, b]$ is complete
+   Given a closed interval $[a, b]$, the $C[a, b]$ is complete. 
+*** Proof
+    Given a Cauchy sequence in this space. We use the completeness of $\R$ to
+    define a function to which the Cauchy sequence will converge to. We need
+    uniform convergence here.
+** The set of polynomials on a $[a, b]$ is not complete
+   $p_n(x) = \sum_i \left(\frac{x}{2}\right)^i$. 
+
+* Lecture 4 <2018-10-25 Thu>
+** Clarification
+   Some sources say that an Isometry need not be surjective. 
+
+   Let $T\colon X \rightarrow Y$ be injective and $d(x, y) = \tilde{d}(Tx, Ty)
+   \forall x, y \in X$.
+
+   Then $T$ is called isometry (from $X$) into $Y$. 
+
+   A couple of examples of isometry were discussed. 
+
+   Also we talked about uniform convergence, and also an example of a sequence
+   that is not uniformly convergent was also discussed. (The idea is that on a
+   compact set [fn:3], if a uniformly convergent function converges to a
+   function is continuous.)
+
+   Recall that we have already shown that $C[0, 1]$ is a complete space, meaning
+   that if a sequence is Cauchy, then it has a limit in the space. Which means
+   that the limit must also be continuous. (Kinda similar to how uniform
+   convergence works.)
+** Normed spaces and Banach spaces
+   A Banach space is just a complete normed space.
+*** Norm
+    A metric space can be obtained by equipping a vector space with a metric
+    defined in terms of the union, resulting in the *normed space*. Complete
+    normed spaces are called *Banach space*.
+
+    A mapping from one normed space to another is called an *operator* ($T\colon
+    X \rightarrow Y). A mapping from a normed space to $\R$ is called a
+    *functional* ($T\colon X \rightarrow \R$)
+
+    It can be shown that a linear operator is continuous if and only if it is
+    bounded.
+
+    The set of all bounded linear operators from a space $X$ to a space $Y$ is
+    again a normed space.
+
+    Similarly, the set of all bounded linear functionals is a normed space, the
+    dual space $X'$ of $X$.
+*** Vector space
+    I didn't write this down. But it's pretty clear. 
+*** Examples
+    1. $\R^n$
+    2. $C[a, b]$. It's kinda clear how to define a vector space structure on it. 
+*** Subspace
+    We defined a subspace of a vector space. 
+*** Span
+    Span was defined.
+*** Linear independence
+*** Definition of dimension
+*** Basis of space
+    To construct basis for finite dimensional spaces are clear. 
+
+    One can prove the existence of a basis for infinite dimensional spaces, but
+    the proof is not constructive.
+** Normed spaces
+*** Definition of a norm
+*** Examples
+    1. $\R^n$
+    2. $C[a, b]$ with $\Vert f \Vert$ with $\Vert f\Vert = \max_{x \in [a, b]}
+       \vert f (x) \vert$. Is also a Banach space.
+    3. $\Omega \in \R^n$ be a measurable set, then the space $L^p(\Omega)$ is
+       the set of all Lebesgue measurable functions from $\Omega \rightarrow
+       \R$. We can define the norm in a straightforward manner.
+
+       We can show that this space is a Banach space.
+* Footnotes
+
+[fn:3] Is compactness needed?
+
+[fn:2] Look up at proofs of this fact
+
+[fn:1] A14 1126 tutorial
+
