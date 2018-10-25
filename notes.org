@@ -1,3 +1,11 @@
+#+TITLE: Functional Analysis 1
+#+LATEX_HEADER: \usepackage[left=2cm, right=2cm, bottom=2cm, top=2cm]{geometry}
+#+LATEX_HEADER: \usepackage{parskip}
+#+LATEX_HEADER: \def\R{\mathbb{R}}
+#+LATEX_HEADER: \def\Z{\mathbb{Z}}
+#+LATEX_HEADER: \def\pos{\operatorname{pos}}
+#+LATEX_HEADER: \def\conv{\operatorname{Conv}}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
 * Lecture 2 <2018-10-17 Wed>
 
 ** Examples of metric spaces
