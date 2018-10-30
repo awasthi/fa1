@@ -189,7 +189,102 @@
        \R$. We can define the norm in a straightforward manner.
 
        We can show that this space is a Banach space.
+* Lecture 5 <2018-10-30 Tue>
+** Remark
+   Not every metric is induced by a norm.
+
+   Assume discrete metric is induced by a norm, i.e., $d(x, y) = \Vert x -
+   y\Vert$. The proof is easy.
+** Convergence of sequences in normed spaces
+   1. A sequence $(x_n)$ in a normed space $X$ is convergent if there is an $x\in
+      X$ with $\lim_{n\rightarrow \infty} \Vert x_n - x\Vert = 0$. We write again
+      $\lim_{n\rightarrow \infty} x_n = x$.
+   2. A sequence is called a cauchy sequence if for all $\epsilon > 0$, there
+      exists $N$, $\Vert x_m - x_m \Vert < \epsilon$ for all $m, n > N$. [fn:4]
+** Absolute convergence
+   A series $S$ is called absolutely convergent if $\sum \Vert x_i \Vert$
+   converges. If $X$ is complete, absolute convergence implies convergence.
+
+   Example 1. The alternating sum $\sum (-1)^n/n$ is convergent, but not
+   absolutely convergent. This converges to $-ln(2)$.
+
+   Example 2. $X = \Q$, $a_n = \sum \left(\frac{1}{2^{i} - \frac1{(i+1)!}
+   \right). The first part converges to $1$. The second element converges to
+   $e-2$. The total is $3-e$. Let $b_n$ be $\sum \frac{-1}{(i+1)!}$. This
+   converges to $2 - e$. Now $a + b = 5 - 2e$. $a - b = 1$. One of them
+   converges to an element in $\Q$ whereas the other one does not convert to an
+   element in $\Q$. Now we construct a new sequence with one element from the
+   first one and the next element from the second one and continue doing this
+   $(a_1, b_1, a_2, b_2, \cdots)$. $S_n$ will be the partial sums. Then $\sum
+   x_i$ converges to $a+b$, but $\sum \vert x_i \vert $ converges to $a - b =
+   1$.
+** Definition of basis
+   We can now define a basis as follows: Assume that the normed space $X$
+   contains a sequence $(e_n)_n$. Such that every $x \in X$ in the normed space
+   $X$, can be expressed in terms of $(e_n)_n$, i.e., every $x$ can be expressed
+   as a weighted combination or linear sums of $(e_n)_n$. $\Vert x - \sum
+   \alpha_i e_i \Vert \rightarrow 0$ as $n \rightarrow \infty$ and this
+   expansion is also unique.
+
+   If such a basis exists, then $X$ is separable.
+** Theorem about completeness
+   Every finite dimensional subspace $Y$ of a complete normed space $X$ is
+   complete, which implies that all finite dimensional normed spaces are
+   complete. [fn:5]
+** Norm equivalence
+   We have two norms. We want to say when two norms are equivalent.
+
+   A norm $\Vert \Vert_1$ on $X$ is said to be equivalent to a norm $\Vert
+   \Vert_2$ if there exists $a, b > 0$ such that
+
+   $a \Vert x \vert_1 \le \Vert x \vert_2 \le b \Vert x \Vert_2$.
+
+   An example: For finite-dimension vector space, then all norms are equivalent.
+
+   We'll show that $\Vert \Vert_2$, and $\Vert \Vert_\infty$ are equivalent.
+
+   Given any $X \in \R^n$, $\Vert x\Vert_2^2 = \sum_{i=1}^{n} x_i^2 \ge \max_i
+   x_i^2 = \Vert x\Vert_\infty$. Also $\Vert x \Vert_2^2 = \sum_{i=1}^{n} x_i^2
+   \le n \cdot \max x_i^2 = n \Vert x \Vert_\infty$. Thus $\Vert x \Vert_\infty
+   \le \Vert x\Vert_2 \le \sqrt{n}\Vert x \Vert_\infty$.
+
+   *A non-example*: Consider $X = C[0, 1]$ and define $f_n(X) = X^n$. Clearly,
+   $f_n \in C[0, 1]$ for al l$n$.
+
+   $\Vert f_n \Vert_\infty = \max_{x\in [0, 1]} \vert f_n(x)\vert$. Now we
+   introduce another norm which is the Lebesgue integral. For $f_n$, this would
+   evaluate to $1/{n+1}$. The contradiction is the fact that the maximal norm
+   would be $1$ always, whereas, the Lebesgue norm would tend to $0$ as
+   $n\rightarrow \infty$. There is a clear contradiction here.
+** Compactness in metric spaces
+   A metric space is defined to be compact if every sequence in $X$ has a
+   convergent subsequence. A subset $M$ of $X$ is defined to be compact if $M$
+   considered as a subspace is compact, i.e., every sequence has a convergent
+   subsequence and the limit is in $M$.
+** Theorem
+   If $X$ is a fininte-dimensional normed space, then any subset $M \subset X$
+   is compact if and only if $M is closed and bounded.
+
+   Consider the sequence $\{x_n\}$ with $x_n = (-1)^n$, then $(x_n)$ does not
+   converge, but it has convergent subsequences.
+** Bolzano-Weistrass theorem
+   Any bounded sequence $(x_n) \in l^{\infty}$ has a convergent subsequence.
+*** Proof
+    Without loss of generality, we assume that all elements are with $[0, 1]$,
+    otherwise we an shift it and normalize it (can we do this?) Divide the
+    interval $\{0, 1/2\}$ and $\{1/2, 1\}$, then one of them must have
+    infinitely many points. (We can repeat the argument), we have a new sequence
+    which are elements of $x_n$ that are in the interval (the interval with
+    infinitely many points.) We can repeat this process again and the length of
+    the intervals go to zero. It is clear how to construct a convergent
+    subsequence.
+*** Extension to bounded sub-sequences in $\R^n$.
 * Footnotes
+
+[fn:5] The proof wasn't done in the class. But the idea is the all Cauchy
+sequences converges.
+
+[fn:4] This might be needed for the next exercises.
 
 [fn:3] Is compactness needed?
 
