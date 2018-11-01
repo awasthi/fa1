@@ -279,7 +279,107 @@
     the intervals go to zero. It is clear how to construct a convergent
     subsequence.
 *** Extension to bounded sub-sequences in $\R^n$.
+* Lecture 5 <2018-11-01 Thu>
+** Review
+   In $\R^n$, the compact subsets are the closed and bounded subsets so that
+   close-ness and boundedness can be used to define compactness. This can only
+   be used for finite dimensional cases.
+** Riesz's lemma
+   Given a normed space $X$ with a closed subspace $y$ and a subspace $z$ such
+   that $y$ is a subset of $z$. Given any number $\theta\in (0, 1)$, there
+   exists, $z\in Z$ such that $\vert z \vert = 1$, and the distance $\Vert z - y
+   \Vert \ge \theta$, for all $y \in Y$.
+*** Proof
+    Let $v\in Z \textminus Y$, define $a = \inf_{y \in Y} \Vert v - y\Vert$ to
+    be the distance to $y$. Since $y$ is closed, $a>0$. Choose $\theta \in (0,
+    1)$, then there exits a $y_0 \in y$, with $a \le \Vert v - y_0 \Vert \le
+    \frac{a}{\theta}$.
+
+    Define $z = \vert{1}{\Vert V = y_0}(V-y_0)$. Clearly, $\Vert z\Vert = 1$.
+    Furthermore, given $y\in Y$, it holds that $\Vert z - y\Vert =
+    \Vert\frac{1}{\Vert v - y_0\Vert}(v -y_0) - y\Vert = \frac{1}{\Vert v -
+    y_0\Vert} \Vert v - y_0 - \Vert v-y_0\Vert\cdot y\Vert$.
+
+    Since $Y$ is a subspace, $y_1 \in Y$ and $\Vert v - y_1\Vert \ge a$ (since a
+    is the infimum.)
+
+    $\Vert z - y\Vert = \frac{1}{\Vert v - y_0\Vert} \Vert V - y_1\Vert \le
+    \frac{\theta}{a}a = \theta$
+** Theorem 
+   If the closed unit ball $M=\{X \vert \Vert X \Vert \le 1\}$ of a normed space
+   $X$ is compact, then $X$ is finite-dimensional.
+
+   The proof uses Riesz's lemma. Assume that $M$ is compact set but $\dim X =
+   \infty$, this leads to a contradiction. Compact sets have compact images
+   under continuous mappings.
+** Theorem
+   Suppose $X$ and $Y$ are metric spaces and $T \colon X \rightarrow X$ is
+   continuous. Then any compact subset of $X$ is mapped to a compact subset of
+   $Y$.
+*** Proof
+    Proof is easy.
+** Corollary
+   Given a continuous mapping $T \colon M \rightarrow \R$, where $M$ is a
+   compact subset of $X$. Then $T$ assumes a maximum and a minimum at some
+   points of $M$.
+*** Proof
+    The proof is easy. It's something like take the infimum, it has to be a
+    point in the space because closed.
+** Example
+   The closed unit ball $M=\{f \colon \Vert f \Vert \le 1 \}$ of $C[0, 1]$ is
+   not compact. To see this, define $f(X) = \max(1 - \vert X \vert, 0)$ and
+   $f_n(X) = f(2n\cdot (n+1)(x - \frac{1}{n}))$ (functions with center $1/n$ and
+   decreasing bandwidth converges to the zero function) [fn:6]
+
+   Now $f_n \in C[0, 1]$ and $\Vert f_n \Vert_\infty = 1$. Since supports of $f_n$ do not overlap.
+
+   $\Vert f_n f_m\Vert = \max_{X \in \{0, 1\}} \vert f_n(X) - f_m(X)\vert = 1$
+   and the sequence does not have a convergent subsequence.
+** Linear Operators
+   We now consider linear operators and their properties.
+*** Definition
+    Let $T$ be an operator, $D(T)$ its domain and $R(T)$ its range. The operator
+    is called linear if $T(x + y) = Tx+Ty$ and $T(\alpha x) = \alpha Tx$
+
+    Note that we typically write $Tx$ and not $T(x)$ as it is done for functions.
+
+    The null set $N(T)$ is defined $N(T) = \{x \in D(T) \colon Tx = 0\}$
+
+    In particular, linearity implies $T0 = 0$.
+*** Example
+    Define $T$ by $(Tf)(x) = \int_{a}{x} f(\tilde x) d \tilde x$ for $f\in C[a,
+    b]$. Then $T(cf + cg) = cTf + dTg$. It is easy to show that the operator is
+    linear.
+*** Example
+    1. Let $X$ be the space of all polynomials defined on $[a, b]$. We can define a
+       linear operator to be the derivative, $Tf = f'$. [fn:7]
+    2. Given $A \in \R^{m\times n}$, $T \colon \R^n \rightarrow \R^m$, $X
+       \righarrow Ax$ is linear $T(ax + by) = aAx + bAy = aTx + bYy$.
+    3. Let $k$ be a square-integrable function on $[a, b]^2$ and $X=L_2[a, b]$,
+       then define $f\mapsto\int_{a}^{b} h(x, \cdot) f(x)\ dx$[fn:8] [fn:9]
+** Theorem about linear operators
+   Suppose that $T$ is linear, then
+   1. $R(T)$ is a vector space
+   2. $N(T)$ is a vector space.
+
+   I think $R$ and $N$ are range and kernel, respectively. The proof is kinda
+   easy.
 * Footnotes
+
+[fn:9] Idea of machine learning. We have two sets of points, we need to find a
+function (often linear) that separates the points. But it may not be easy. So
+one idea is to find a linear function to a higher dimensional space and then one
+may be able to separate the points in the higher dimensional space.
+
+[fn:8] These are called Kernels. But kernels in Machine learning is $k(x, y)
+=\langle \phi(x), \phi(y)\rangle$, for example $h(x, y) = \exp(-\Vert x -
+y\Vert/\varepsilon$ is called a Gaussian kernel. Another example is $h(x, y) =
+(1+\langle x, y\rangle)^p$ polynomial kernel
+
+[fn:7] This is an unbounded operator. We still haven't defined what bounded
+operators are, though.
+
+[fn:6] We might not need this property. 
 
 [fn:5] The proof wasn't done in the class. But the idea is the all Cauchy
 sequences converges.
