@@ -364,6 +364,118 @@
 
    I think $R$ and $N$ are range and kernel, respectively. The proof is kinda
    easy.
+* Lecture 6 <2018-11-06 Tue> 
+** Regarding convergence of a function
+   $\supp(f_n)\subset [0, 2/n]$, $f_n(0) = 0$, consider fixed $x\in [0, 1]$.
+   Given any $\varepsilon > 0$, choose $N > 2/X$, then $X > 2/N > 2/N$ for
+   $n>N$. Thus $x \in \supp(f_n)$ and $f_n(x) = 0$, $f_n$ converges point-wise to
+   $0$.
+
+   $f_n(x) = f(2n(n+1)(x - 1/2))$
+** Injectivity of operators
+   If $T$ is injective, there exists $T^{-1}\colon R(T) \rightarrow D(T)$ with
+   $T^{-1}y =x$ for $Tx =y$, i.e., the inverse of $T$. It follows that $T^{-1}Tx
+   = T^{-1}Ty = x$ and $TT^{-1}y = Tx = y$.
+
+   Example: Given $A\in \R^{n\times n}$, $T\colon \R^n \rightarrow \R^m$, $x
+   \mapsto Ax$.
+
+   If $m < n$, $T$ can be injective if the rank of $A = n$, but it cannot be
+   surjective. When $m > n$, then $T$ can be surjective, when the Rank of $A =
+   m$, but it cannot be injective. If $m = n$, then $T$ is bijective if and only
+   if the rank of $A = m = n$.
+** Theorem
+   Given vector spaces $X$ and $Y$, and a linear operator $T \colon D(T)
+   \rightarrow Y$, then
+   1. $T^{-1}\colon R(T) \rightarrow D(T)$ exists if and only if $T(x) = 0
+      \implies x = 0$, i.e., the null space $N(T) = 0$. Then $T^{-1}$ is also a
+      linear operator.
+   2. If the dimension of the domain of $T$ is smaller than $\infty$, and
+      $T^{-1}$ exists, then $\dim R(T) = \dim D(T)$.
+*** Proof
+    Assume that $T^{-1}$ exists then $T$ is injective and $Tx = 0 \implies x =
+    0$. Conversely, assume $Tx_1 = Tx_2$, then $Tx_1 - Tx_2 = T(x_1 - x_2) = 0$.
+    Thus, by assumption $x_1 - x_2 = 0 \implies x_1 = x_2$ and $T$ is injective.
+    Hence the inverse $T^{-1}$ exists.
+
+    To show that $T^{-1}$ is a linear operator: Given $y_i = T x_i$ and $x_i =
+    T^{-1}y$, for $i = 1, 2$, then it follows that $T(\alpha x_1 + \beta x_2) =
+    \alpha T x_1 + \beta T x_2 = \alpha y_1 + \beta y_2$ and $T^{-1}T(\alpha
+    x_1 + \beta x_2) = T^{-1}(\alpha y_1 + \beta y_2)$. From this one can show
+    that if $T^{-1}$ exists, it is also a linear operator.
+
+    1. Let $\dim D(T) = n < \infty$, then $\dim R(T) \le n$, i.e., $\dim R(T)
+       \le \dim D(T)$. This can be seen as follows: choose $n+1$ elements $y_1,
+       \cdots, y_{n+1} \in R(T)$ and we choose them arbitrary, then we can find
+       pre-images $x_1, \cdots, x_{n+1}\in D(T)$, it holds that $Tx_i = y_i$,
+       for all $i$. Since we assumed $\dim D(T) = n$, the $x_i$ are linearly
+       dependent, i.e., there exist $\alpha_i \in \R$ such that $\sum \alpha_i
+       x_i = 0$ where not all $\alpha_i$ are zero. Now $T \sum_i^{n+1} \alpha_i
+       x_i= \sum_{i=1}^{n+1} \alpha_i y = 0$, but not all $\alpha_i$ are zero.
+       Thus we have found a set of linearly dependent vectors. Since we chose
+       the vectors arbitrarily, we see that the dimension must be less than or
+       equal to $n$.
+
+       If we apply the same reasoning to the inverse operator, which we assume
+       exists, we obtain in similar fashion that the $\dim D(T) \le \dim R(T)$.
+       Thus, $\dim R(T) = \dim D(T)$.
+** Lemma
+   Let $X, Y, Z$ be vector spaces $T \colon X \rightarrow Y$, and $S \colon Y
+   \rightarrow Z$ bijective operators, then we claim that $(ST)^{-1} = T^{-1}
+   S^{-1}$.
+** Definition: Bounded operators
+   Given normed spaces $X$ and $Y$ and a linear operator, $T \colon D(T)
+   \rightarrow Y$, $D(T) \subset X$, $T$ is defined to be bounded if there
+   exists a constant $c$ such that $\Vert Tx \Vert \le c \Vert x \Vert$ and this
+   has to hold for all $x \in D(T)$. A bounded linear operator maps bounded sets
+   in $D(T)$ onto bounded sets in $Y$.
+
+   We define the norm $\Vert T \Vert = \sup_{x \in D(T), \lambda \neq 0}
+   \frac{\Vert T x \Vert}{\Vert x \Vert}$ to be the norm of $T$. It is
+   straightforward to verify that this satisfies the properties for norm.
+
+   For bounded linear operators, the bound can be computed by the supremum over
+   $\Vert x \Vert = 1$. This is straightforward to see.
+** Example
+   Given $A \in \R^{n \times n}$, the linear operator $T \colon \R^{n}
+   \rightarrow \R^{n}$ is bounded since $(\sup_{\Vert x \Vert= 1} \Vert A x
+   \Vert)^2 = \sup x^{T} A^{T} A x = \lambda \max(A^T A)$, the largest
+   eigenvalue of $A^{T}A$ (Rayleigh-Ritz theorem.)
+
+   Note that for $A = U \sum V^T$, so that $A^{T} A = V \sigma^2 V^{T}$, thus
+   $\lambda_{\max} = \delta_{1}^2$, where $\delta_1$ is the largest singular
+   value of $A$.
+
+   Let $X$ be the space of all polynomials on $[0, 1]$ and $\Vert f \Vert =
+   \max_{x \in [0, 1]} \vert f (x) \vert$. The differentiation operator $T$ with
+   $Tf = f'$ is not bounded. Since for $f_n(x) = x^n$, $\Vert f_n\Vert = 1$, all
+   these functions are bounded above by $1$, hence the norm is $1$, whereas, the
+   norm of the derivative is $n$ and this is unbounded.
+
+   $T \colon C[0, 1] \rightarrow C[0, 1]$ by $(Tf)(x) = \int_{0}^{x} f(t)\ dt$.
+   Then $\Vert T f\Vert = \max_{x \in [0, 1]} \vert \int_{0}^{1} f(t)\ dt\vert
+   \le \max_{x \in [0, 1]} \int_{0}^{1} \vert f(t) \vert dt \le (1-0) \max_{x\in
+   [0, 1]} \vert f(x) \vert = \Vert f \Vert$, thus $\Vert T \Vert \le 1$, but we
+   can choose the function identical to $1$, then the norm is exactly equal to
+   $1$.
+
+   Define $c = \{x_n \in l_1 \vert \exits N \in \N\colon x_n = 0, \forall n >
+   N\}$, with the $l_1$ norm. We define the operator $T\colon (x_1, x_2, x_3,
+   \cdots) = (x_1, 2x_2, 3x_3, \cdots)$ is unbounded, we can compute $\Vert T
+   e_i \Vert = i$, so if we have the sequence but the $\Vert e_i \Vert = 1$.
+** Theorem
+   Every linear operator on a finite dimensional normed space is bounded.
+*** Proof
+    Let $n$ be the dimension of $X$ and $\{e_1, \cdots, e_n\}$ a basis.
+
+    Any $x\in X$ can be written as $X = \sum \alpha_i e_i$, thus $\Vert Tx \Vert
+    = \Vert T \sum \alpha_i e_i\Vert \le \sum \Vert T \alpha_i e_i\Vert = \sum
+    \vert \alpha_i \vert \le \max_{i} \Vert T e_i \Vert . \sum \vert \alpha_i
+    \vert$. We define $\Vert x \Vert_0 = \sum \vert \alpha_i \vert$ defines a
+    norm. Since all norms on finite-dimensional spaces are equivalent, there
+    exist $c$ such that $\Vert x \Vert_0 \le c \Vert x \Vert$. Thus $\Vert T
+    x\Vert \le \max \Vert T e_i \Vert \cdot c \cdot \Vert x \Vert$ and $T$ is
+    bounded.
 * Footnotes
 
 [fn:9] Idea of machine learning. We have two sets of points, we need to find a
