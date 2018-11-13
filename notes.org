@@ -2,7 +2,10 @@
 #+LATEX_HEADER: \usepackage[left=2cm, right=2cm, bottom=2cm, top=2cm]{geometry}
 #+LATEX_HEADER: \usepackage{parskip}
 #+LATEX_HEADER: \def\R{\mathbb{R}}
+#+LATEX_HEADER: \def\C{\mathbb{C}}
+#+LATEX_HEADER: \def\N{\mathbb{N}}
 #+LATEX_HEADER: \def\Z{\mathbb{Z}}
+#+LATEX_HEADER: \def\Q{\mathbb{Q}}
 #+LATEX_HEADER: \def\pos{\operatorname{pos}}
 #+LATEX_HEADER: \def\conv{\operatorname{Conv}}
 #+LATEX_HEADER: \usepackage[T1]{fontenc}
@@ -55,7 +58,7 @@
     Basically the complement of the set is open.
 
 *** Remark ($\varepsilon$ neighbourhood)
-    An open ball $B(x_0, \verepsilon)$ of radius $\varepsilon$ is often called
+    An open ball $B(x_0, \varepsilon)$ of radius $\varepsilon$ is often called
     an $\varepsilon$ neighbourhood. A neighbourhood of $X$ is that contains an
     $\varepsilon$ neighbourhood of $X$
 
@@ -208,16 +211,16 @@
    Example 1. The alternating sum $\sum (-1)^n/n$ is convergent, but not
    absolutely convergent. This converges to $-ln(2)$.
 
-   Example 2. $X = \Q$, $a_n = \sum \left(\frac{1}{2^{i} - \frac1{(i+1)!}
-   \right). The first part converges to $1$. The second element converges to
-   $e-2$. The total is $3-e$. Let $b_n$ be $\sum \frac{-1}{(i+1)!}$. This
-   converges to $2 - e$. Now $a + b = 5 - 2e$. $a - b = 1$. One of them
-   converges to an element in $\Q$ whereas the other one does not convert to an
-   element in $\Q$. Now we construct a new sequence with one element from the
-   first one and the next element from the second one and continue doing this
-   $(a_1, b_1, a_2, b_2, \cdots)$. $S_n$ will be the partial sums. Then $\sum
-   x_i$ converges to $a+b$, but $\sum \vert x_i \vert $ converges to $a - b =
-   1$.
+   Example 2. $X = \Q$, $a_n = \sum \left(\frac{1}{2^{i}} -
+   \frac1{(i+1)!}\right)$. The first part converges to $1$. The second element
+   converges to $e-2$. The total is $3-e$. Let $b_n$ be $\sum
+   \frac{-1}{(i+1)!}$. This converges to $2 - e$. Now $a + b = 5 - 2e$. $a - b =
+   1$. One of them converges to an element in $\Q$ whereas the other one does
+   not convert to an element in $\Q$. Now we construct a new sequence with one
+   element from the first one and the next element from the second one and
+   continue doing this $(a_1, b_1, a_2, b_2, \cdots)$. $S_n$ will be the partial
+   sums. Then $\sum x_i$ converges to $a+b$, but $\sum \vert x_i \vert $
+   converges to $a - b = 1$.
 ** Definition of basis
    We can now define a basis as follows: Assume that the normed space $X$
    contains a sequence $(e_n)_n$. Such that every $x \in X$ in the normed space
@@ -366,9 +369,9 @@
    easy.
 * Lecture 6 <2018-11-06 Tue> 
 ** Regarding convergence of a function
-   $\supp(f_n)\subset [0, 2/n]$, $f_n(0) = 0$, consider fixed $x\in [0, 1]$.
+   $\sup(f_n)\subset [0, 2/n]$, $f_n(0) = 0$, consider fixed $x\in [0, 1]$.
    Given any $\varepsilon > 0$, choose $N > 2/X$, then $X > 2/N > 2/N$ for
-   $n>N$. Thus $x \in \supp(f_n)$ and $f_n(x) = 0$, $f_n$ converges point-wise to
+   $n>N$. Thus $x \in \sup(f_n)$ and $f_n(x) = 0$, $f_n$ converges point-wise to
    $0$.
 
    $f_n(x) = f(2n(n+1)(x - 1/2))$
@@ -476,6 +479,104 @@
     exist $c$ such that $\Vert x \Vert_0 \le c \Vert x \Vert$. Thus $\Vert T
     x\Vert \le \max \Vert T e_i \Vert \cdot c \cdot \Vert x \Vert$ and $T$ is
     bounded.
+* Lecture 7 <2018-11-08 Thu> 
+** Theorem about Bounded operators
+   For linear operators, continuity and boundedness are equivalent.
+
+   Continuity of $T$ means that $\forall \varepsilon > 0$, there exists a
+   $\delta > 0$, such that $\Vert x - x_0 \Vert < \delta \implies \vert Tx -
+   Tx_0 \vert < \varepsilon$.
+*** Proof
+    There is nothing to show for $T=0$, now we assume that $T$ is not the zero
+    operator, i.e., $\exists r$ such that $\Vert T x \Vert \le r \Vert x \Vert$.
+    Using linearity, we can write that $\Vert Tx - Tx_0\Vert = \Vert T (x -
+    x_0)\Vert \le \delta \Vert x - x_0\Vert$. Choose $\delta =
+    \varepsilon/\delta$, thus $\Vert x -x_0 \Vert < \delta \implies \Vert Tx -
+    Tx_0 \Vert \delta \Vert x - x_0\Vert\le \gamma\cdot \delta =\varepsilon$ and
+    $T$ is continuous.
+
+    Conversely, assume that $T$ is continuous. Take arbitrary $y\in D(T)$,
+    define $X = X_0 + \frac{\delta}{\Vert y \Vert} y$. Thus $\Vert x - x_0 \Vert
+    = \Vert \frac{\delta}{\Vert y \Vert} \cdot y \Vert = \delta$. Since $T$ is
+    continuous, $\Vert Tx - Tx_0 \Vert < \varepsilon$. Now $\Vert Tx - Tx_0\Vert
+    = \Vert T \delta/\Vert y \Vert y \Vert = \frac{\delta}{\Vert y \Vert}\Vert T
+    y \Vert < \varepsilon$ Multiplying by $\Vert y \Vert / \delta$, we get
+    $\Vert T y \Vert < \varepsilon/\delta$\cdot \Vert y \Vert$ We call the last
+    term $\gamma$.
+
+    The second part of the proof shows that continuity in one point suffices to
+    show boundedness. And boundedness means continuity at all points. Thus
+    continuity at one point implies continuity at all points. Pretty interesting!
+** Corollary
+   Given a linear bounded operator $T$, it holds that 
+   1. $x_n \rightarrow x$ implies that $Tx_n \rightarrow Tx$
+   2. The null space of such an operator is closed
+*** Proof
+    These are basically properties of continuous functions.
+** Definition
+   We write that $T_1 = T_2$ if $D(T_1) = D(T_2)$ and $T_1x = T_2x$ for all $x
+   \in D(T_1) = D(T_2)$. Furthermore $T\vert_B$ denotes the restriction to the
+   set $B$, i.e., $T\vert_B \colon B \rightarrow Y$ with $T\vert_B x = Tx$ for
+   all $x \in B$.
+
+   The extension of $T$, denoted by $\tilde{T}\colon M \rightarrow Y$ where $D(T)
+   \subset M$ is defined by $\tilde{T}x = Tx$, for all $x\in D(T)$.
+
+   Example of extension. The set $X = Y = \R$, define $T$ by $Tx=x$, and $D(T) =
+   [0, 1]. Then $\tilde{T}$ defined by $\tilde{T}x = \vert x \vert$ with
+   $D(\tilde{T}) = [-1, 1]$ is an extension of $T$
+** Theorem
+   If $T \colon D(T) \rightarrow Y$ is a bounded linear operator, $D(T)$, part
+   of a normed space, $Y$, a Banach space, then there is an extension
+   $\tilde{T}\colon \bar{D(T)} \rightarrow Y$ with $\Vert \tilde{T} \Vert =
+   \Vert T \Vert$. Furthermore, $\tilde{T}$ is a bounded linear operator.
+*** Proof
+    For any $x \in \bar{D}(T)$ consider the sequence $(x_n)_n$ in $D(T)$ that
+    converges to $x$.
+
+    $\Vert Tx_n - Tx_m \Vert = \Vert T(x_n - x_m)\Vert \le \Vert T \Vert \Vert
+    x_n - x_m\Vert$. Since $x_m$ converges, $Tx_n$ is Cauchy and converges as we
+    assumed $Y$ to be complete. The rest of the argument is trivial.
+** Linear functionals
+   A functional is a map from $X$ to $\R$ or $\C$. Given a functional $f$,
+   $D(f)$ denotes the domain, $R(f)$ denotes the range of $f$. 
+
+   For functionals, we typically write $f(x)$ and not $fx$, although $f$ is
+   still an operator.
+*** Example
+    1. For a normed space $X$, $\Vert . \Vert \colon X \rightarrow \R$ is a functional.
+    2. For $X=\R$, and $x_0 in X$, $f\colon X\rightarrow \R$, $x\mapsto x_0^{T}x
+       = \langle x_0, x\rangle$.
+    3. Linearity is defined as before, with the difference that $y$ is now $\R$
+       if $X$ is a real or $\C$, if $X$ is a complex space.
+*** Example
+    1. The norm functional is not a linear functional. $\Vert \alpha x + \beta y
+       \Vert \neq \alpha \Vert x \Vert + \beta \Vert y \Vert$. This is not true
+       in general.
+    2. Define $f(x) = x_0^{T}x$ is linear, clearly, because the scalar product
+       is bilinear. It is linear in each variable.
+    3. The evaluation functional given by the Dirac delta function $\delta_x f =
+       f(x)$.
+    4. The definite integral is a functional. Let $l$ denote the functional such
+       that for $f$ in $C[a, b]$, $l(f) = \int_{a}^{b} f(x) dx$, then it is
+       straightforward to verify that this is linear.
+*** Remark
+    Similarly, boundedness is again defined as: A linear functional is bounded
+    if there exists a constant $c$ such that $\vert f(x) \vert \le c \cdot \Vert
+    x \Vert$. and $\Vert v \Vert = \sup \vert f(x) \vert / \Vert x \Vert =
+    \sup_{\Vert x \Vert = 1} \vert f(x) \vert$.
+*** Theorem
+    Let $f\colon D(f) \rightarrow K$ be a linear functional, then $f$ is
+    continuous if and only if it is bounded.
+*** Example
+    1. For integrable functions on $[a, b]$, it is easy to see that the integral
+       functional is bounded.
+    2. The dot product example can be extended to $l_2$ by choosing a fixed
+       element $a$ in $l_2$ and setting $f(x) = \sum a_i x_i$. Due to
+       Cauchy-Schwarz inequality $\vert \langle x, y\rangle\vert \le \Vert x
+       \Vert \cdot \Vert y \Vert$.
+* Lecture 8 <2018-11-07 Wed> 
+  
 * Footnotes
 
 [fn:9] Idea of machine learning. We have two sets of points, we need to find a
