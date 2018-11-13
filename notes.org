@@ -576,7 +576,56 @@
        Cauchy-Schwarz inequality $\vert \langle x, y\rangle\vert \le \Vert x
        \Vert \cdot \Vert y \Vert$.
 * Lecture 8 <2018-11-07 Wed> 
-  
+** Example
+   $(x_n)_n$, it's basically a sequence of sequences. $x_n \in l_\infty$.
+
+   $\delta_X f = f(x)$.
+
+   The evaluation functional $\delta_X$ on $C[a, b]$ with norm $\Vert \cdot
+   \Vert_\infty$ is bounded. But it might be unbounded with respect to another
+   norm.
+** Linear functionals
+   The set of all linear functionals forms a vector space denoted by $X^{*}$.
+   
+   The algebraic dual space. For defining a vector vector space, we need the
+   basic operations $+$ (addition) and $.$ scalar multiplication, which can be
+   defined as follows: we take two functionals $f_1$ and $f_2$ and a scalar
+   $\alpa$, is easy to write $(f_1 + f_2)(x) = f_1(x) + f_2(x)$ etc. This part
+   is obvious.
+
+   We can also consider the dual of the dual space $X^{**}$, the second
+   algebraic dual space. It is clear that there is a canonical isomorphism
+   between $X$ and $X^{**}$.
+
+   There was an example with $V$ along with an orthogonal basis.
+** Definition of isomorphism of vector spaces
+** About finite linear operators
+   Let us now consider finite dimensional vector spaces. Any linear operator
+   between two fininte-dimensional vector space can be regarded as a matrix. To
+   see this we have two finite dimensional spaces $X$ and $Y$ and a linear
+   operator $T \colon X \rightarrow Y$. let $\{x_1, \cdots, x_n\}$ be a basis of
+   $X$ and $\{z_1, \cdots, z_n\}$ be a basis of $Y$. 
+
+   Then for each $x\in X$, we can write $X = \sum \alpha_i X_i$ and $y = Tx =
+   \sum \alpha_i Tx_i$ and define $Tx_i = y_i$. Thus by knowing the images
+   $y_i$, $T$ is uniquely defined. For any $z \in Y$, it can be written as $z =
+   \sum \beta_j z_j$ as well as $y_j = Tx_i = \sum \gamma_{ji}z_j$.
+
+   Now we have two representations in $z_j$, $j = 1, \cdots, m$. It follows that
+   $\beta_j = \sum_{i=1}{n} \gamma_{ji} \alpha_i$ and that $y = Tx$ is
+   determined by knowing the coefficients $\gamm_{ji}$, which can be written in
+   matrix form as
+
+   $$T_\mu = [\gamma_{ji}]_{j=1, \cdots m; i =1, \cdots m}$$
+   
+   Then $\beta = T_\mu \alpha$.
+** Example
+   Consider the discrete dynamical system $\phi \colon \R^2 \rightarrow \R^2$ by
+   $\phi(x) = [\lambda x_n, \mu x_2 + (\lambda^2 - \mu)x^2n]^T$
+
+   The Korpman operator $K$ is an infinite-dimensional operator defined by $Kf =
+   f\circ \phi$, i.e., $(Kf)(\lambda) = f(\phi(x))$ for $f \in L_{\infty}$. This
+   operator apparently plays an important role in Dynamical system.
 * Footnotes
 
 [fn:9] Idea of machine learning. We have two sets of points, we need to find a
