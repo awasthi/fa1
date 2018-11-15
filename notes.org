@@ -626,7 +626,125 @@
    The Korpman operator $K$ is an infinite-dimensional operator defined by $Kf =
    f\circ \phi$, i.e., $(Kf)(\lambda) = f(\phi(x))$ for $f \in L_{\infty}$. This
    operator apparently plays an important role in Dynamical system.
+* Lecture 10 <2018-11-15 Thu>
+** Koopman operator
+   $Kf = f\circ I$
+
+   Consider the discrete dynamical system $\phi \colon \R^2 \rightarrow \R^2$ by
+   $\phi(x) = [\lambda x_n, \mu x_2 + (\lambda^2 - \mu)x^2n]^T$
+
+   Then the space is spanned by functions $\{x_1, x_2, x_1^2\} forms a so-called
+   Koopman-invariant subspace. Let $f_1(\bf{x}) = x_1$, $f_2(\bf{x}) = x_2$,
+   $f_e(\bf{x}) = x_n^2$, then any function from this subspace can be written as
+   $f = \sum_{i=1}^{3} \alpha_i f_i$ and $g=Kf = K\sum(\alpha_i f_i) = \sum
+   \alpha_i Kf_i$. We call the term $Kf_i = g_i$.
+
+   $g_1(x) = Kf_1(x) = f_1(\phi(x)) = \lambda x_1 =\lambda f_1(x)$.
+
+   $g_2(x) = Kf_2(x) = f_2(\phi(x)) =\mu x_2 + (\lambda^2 - \mu)x_1^2 - \mu
+   f_2(x) + (\lambda^2 - \mu)f_3(\lambda)$
+   
+   $g_3(x) = Kf_3(x) = f_3(\phi(x)) = \lambda^2 x_1^2 = \lambda^2 f_3(x)$
+
+   Thus $g = Kf = \alpha_1 \lambda f_1 + \alpha_2[\mu f_2 + (\lambda^2 -
+   \mu)f_3] + \alpha_3 \lambda^2 f_3 = \lapha_1\lambda f_1 + \alpha_2 \mu f_2 +
+   (\alpha_2(\lambda^2 - \mu) + \alpha_3 \lambda^2)f_3$
+
+   Now we can write this as a matrix.
+
+   It follows that
+
+   $\gamma_{11} = \lambda$, $\gamma_{12} = 0$, $\gamma_{13} = 0$
+
+   $\gamma_{21} = 0, \gamma_{22} = \mu, \gamma_{13} = 0$
+
+   $\gamma_{31} = 0, \gamma_{32} = \lambda^2 - \mu, \gamma_{23} = \lambda^2$
+
+   The following is a matrix representation: 
+
+   | $\mu$ | 0             | 0           |
+   | 0     | $\mu$         | $0$         |
+   | $0$   | $\mu^2 - \mu$ | $\lambda^2$ |
+   
+   That is defining, $\bar{f} = [f1, f2, f3]^T$ and $\alpha = [\alpha_1,
+   \alpha_2, \alpha_3]^T$.
+
+   We obtain $f = \alpha^T f$ and $g=(T_\mu \alpha)^T\bar{f}$.
+
+   Note that $\varphi_1(x) = x_1$, $\varphi_2(x)=x_2 - x_n^2$, $\varphi_3(x) = x_1-x_n^2$ are
+   eigenfunctions. Corresponding to the eigenvalues
+
+   $\lambda_1 = \lambda \cdot; Ke_1 = \lambda \varphi_1$
+
+   $\lambda_2 = \lambda^2; K\varphi_2 = \lambda^2e_2$
+
+   $\lambda_3 = \mu; Ke_3 = [\mu X_2 + (\lambda^2 - \mu)x_1^2 - \lambda^2 x_n^2]
+   = \mu x_2 - \mu x_n^2 = \mu(x_2 - x_n^2) = \mu \varphi_3$
+** Matrix representation
+   Assume now again that $X$ is a vector space with $\dim X = n$ and that
+   $\{x_1, \cdots, x_n\}$ forms a basis. Given a linear functional $f$, we
+   obtain for $X = \sum_{i=1}^{n} \alpha_i X_i$ that $f(x) = f(\sum \alpha_i
+   x_i) = \sum \alpha_i f(x_i) = \sum\alpha_ic_i$. We call the last term our
+   coefficient $c_i = f(x_i)$. Thus $f$ is uniquely determined by the values
+   $c_i, i=1, \cdots, n$.
+
+   Conversely, any set of values values $\alpha_i, i =1, \cdots, n$ uniquely
+   defines a linear functional. A special set of functionals is defined as
+   follows: $f_j(x_i) = \delta_{ij}$. It's one when $i=j$, and $0$ otherwise. We
+   call this the dual basis of $\{x_1, \cdots, x_n\}$.
+** Theorem
+   Let $X$ be again an $n$-dimensional vector space with basis $\{x_1, \cdots,
+   x_n\}$. Then $\{f_1, \cdots, f_n\}$ as defined above is a basis of $X^{*}$.
+   As a result, we have $\dim X^{*} = \dim X$.
+*** Proof
+    It's kinda easy. We just show that the maps $f_j$ is a basis and we're done.
+** Theorem
+   A fininte-dimensional vector space is algebraically reflexive, i.e., the
+   canonical embedding is an isomorphism between $X$ and $X^{**}$.
+** Normed space of operators
+   Let $X$ and $Y$ be arbitrary normed spaces, then the set $B(X, Y)$ of all
+   bounded linear operators from $X$ to $Y$ is again a normed space.
+
+   We need addition, scalar multiplication and a norm, and define:
+   1. $(T_1 + T_2)x = T_1 x + T_2x$ for any $T_1, T_2 \in B(X, Y)$
+   2. $(\alpha T) x = \alpha Tx$ for any $T\in B(X, Y), \alpha \in K$
+   3. $\Vert T\Vert$ is the supremum norm that we have already defined.
+** Theorem
+   $B(X, Y)$ is a Banach space if $Y$ is a Banach space, i.e., $B(X, Y)$ is
+   complete if $Y$ is complete.[fn:10]
+** Definition
+   The set of all bounded linear functionals on $X$ is a normed space with
+   $\Vert f \Vert = \sup \vert f x\vert / \Vert x \Vert$ for $x \neq 0$.
+
+   From the above theorem, since $\R$ is complete, the space of all bounded
+   linear functionals converge. This is called this *dual space* (the
+   continuous/topological dual) and is denoted by  $X'$.
+
+   Remark: The algebraic dual space $X^{*}$ contains all linear functionals of
+   $X$, whereas $X'$ contains only the bounded linear operators. 
+** About $X'$ and $X^{*}$
+   The space of all bounded linear functionals on $X$, given by $X'$, forms a
+   linear subspace of $X^{*}$.
+
+   Assume that $f$ and $g$ are bounded by $a$ and $b$, $\vert f(x) \vert \le a
+   \Vert x \Vert$, $\vert g(x) \vert \le b \Vert x \Vert \forall x\in X$.
+
+   Using triangle inequality, we can see that $af + bg$ is bounded if $f$ and
+   $g$ are bounded. For scalars multiplication, it is similarly true. Thus it
+   forms a linear subspace.
+** Examples
+   1. $(\R^n)' = \R^n$
+   2. $(l^1)' = l^{\infty}$
+   3. For $1 < p < \infty$ and $\frac{1}{p} + \frac{1}{q} = 1$, $(l^p)' = l^q$.
+      Here $=$ means there exists an isomorphism.
+** About $l^p$ and $l^q$
+   Given $1 \le p \le \infty$, with $\frac{1}{p} + \frac{1}{q} = 1$. Take any
+   $(y_n)_n \in l^p$, then $f\colon l^p \rightarrow \R$, $(x_n)_n \mapsto \sum
+   x_n y_n$ is a bounded linear functional. The norm of this functional is
+   $\Vert f \Vert = \Vert y \Vert_q$.
 * Footnotes
+
+[fn:10] We didn't prove this.
 
 [fn:9] Idea of machine learning. We have two sets of points, we need to find a
 function (often linear) that separates the points. But it may not be easy. So

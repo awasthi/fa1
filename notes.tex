@@ -1,0 +1,738 @@
+% Created 2018-11-13 Tue 10:16
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[left=2cm, right=2cm, bottom=2cm, top=2cm]{geometry}
+\usepackage{parskip}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\pos{\operatorname{pos}}
+\def\conv{\operatorname{Conv}}
+\usepackage[T1]{fontenc}
+\author{Harikrishnan Mulackal}
+\date{\today}
+\title{Functional Analysis 1}
+\hypersetup{
+ pdfauthor={Harikrishnan Mulackal},
+ pdftitle={Functional Analysis 1},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.1 (Org mode 9.1.13)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Lecture 2 \textit{<2018-10-17 Wed>}}
+\label{sec:org9598a56}
+
+\subsection{Examples of metric spaces}
+\label{sec:org90ec58f}
+
+\subsubsection{The set of continuous functions \(C[a, b]\)}
+\label{sec:org9bd1187}
+With a metric \(d(f, g) = \max\vert f(x) - g(x)\vert\)
+
+\subsubsection{The space \(l^p\) of sequences \(x=(x_1, x_2 \cdots,)\) with \(\Vert x \Vert _p < \infty\).}
+\label{sec:orgb0331ff}
+The metric is the norm of the difference. 
+
+To prove that this is indeed a metric, we need the Minkowiski inequality.
+
+There was a complicated proof of the Minkowski inequality that was discussed
+in the lecture. I think one can prove in a simpler fashion. 
+
+The proof involved showing that \(\alpha \cdot \beta \le \alpha^{p}/p +
+    \beta^{q}/q\) (This is the young inequality.)
+
+The next step was to prove the Holder inequality. 
+
+The next step is to use Holder on Minkowski. 
+
+Holder: \url{https://en.wikipedia.org/wiki/H\%C3\%B6lder\%27s\_inequality}
+
+Minkowski: \url{https://en.wikipedia.org/wiki/Minkowski\_inequality}
+
+For \(p=q=2\), we obtain the Cauchy-Schwarz inequality. 
+
+\subsection{Definitions involving metric spaces}
+\label{sec:org3efca50}
+
+\subsubsection{Open ball}
+\label{sec:org270c649}
+\(B(x_0, r)\) is the set of all points \(x\) such that the distance from \(x\) to \(x_0\) is less than \(r\).
+
+\subsubsection{Closed ball}
+\label{sec:org7defc7b}
+Similar to open ball, except that the distance can be less than or \emph{equal to} \(r\).
+
+\subsubsection{Sphere}
+\label{sec:orgcab4fb2}
+The set of all points \(x\) such that the distance from \(x_0\) to \(x\) is exactly \(r\).
+
+\subsubsection{Relation}
+\label{sec:org4a58fb1}
+If we subtract a sphere from the closed ball, we get the open ball.
+
+\subsubsection{Definition of open}
+\label{sec:org5f0e5bb}
+For every point \(x\), we can find an epsilon ball that is inside the set. 
+
+\subsubsection{Definition of closed}
+\label{sec:org2532c78}
+Basically the complement of the set is open.
+
+\subsubsection{Remark (\(\varepsilon\) neighbourhood)}
+\label{sec:org65f62d1}
+An open ball \(B(x_0, \varepsilon)\) of radius \(\varepsilon\) is often called
+an \(\varepsilon\) neighbourhood. A neighbourhood of \(X\) is that contains an
+\(\varepsilon\) neighbourhood of \(X\)
+
+We will use these definition for separable spaces.
+
+\subsubsection{Interior point}
+\label{sec:orgd8518ab}
+We call \(x_0\) an interior point if there exist an neighbourhood of \(x_0\)
+contained inside the space.
+
+\subsubsection{Continuity}
+\label{sec:org5cf8032}
+About a function from one metric space to another. It's basically the
+standard definition. (the definition in the lecture was an \(\varepsilon\),
+\(\delta\) definition.) 
+
+The definition was about continuity at a point \(x\). Then a function is
+defined to be continuous if it is continuous at every point \(x\).
+
+\subsubsection{Accumulation point}
+\label{sec:org356c3c2}
+\(A\) be a subset of \(X\). Then \(x_0 \in X\) (not necessarily in \(A\)) is called
+accumulation point of \(A\) if every neighbourhood of \(X_0\) contains at least
+one point \(y \in A\), \(y \neq x_0\).
+
+\section{Lecture 3 \textit{<2018-10-23 Tue>}}
+\label{sec:org487cc3d}
+\footnote{A14 1126 tutorial}
+\subsection{More definitions}
+\label{sec:orgb7f8f02}
+\subsubsection{Closure of a set}
+\label{sec:orgacda8cc}
+\subsubsection{A dense subset of \(X\)}
+\label{sec:orga6bf048}
+\subsubsection{Separable}
+\label{sec:org1f9636d}
+If there is a countable subset that is dense in \(X\). \(X\) is defined to be
+separable.
+
+Example:
+\begin{enumerate}
+\item Real numbers are separable.
+\item \(l^p\) for \(1 \le p \le \infty\) is separable.
+\item \(l^\infty\) not separable. Proof idea: For any set of indices \(I\subset
+       \N\), define \((e_I)_n\) is \(1\) is \(h\in I\) and \(0\) otherwise. For every \(I
+       \neq y\), we can compute the distance \(d(e_I, e_J) = 1\). How many such
+functions are there? The number of such elements are uncountable. (The
+proof of this theorem is similar to how \(\{0, 1\}^\N\) is uncountable.)\footnote{Look up at proofs of this fact}
+\end{enumerate}
+\subsubsection{Definition of convergence}
+\label{sec:org8b43edd}
+Definition was about the limit of distance going to 0. Note that the limit
+\(X\) must be a point in \(X\) (Why?)
+\subsubsection{Definition of bounded set}
+\label{sec:orgb942951}
+\subsubsection{Definition of boundedness of a sequence}
+\label{sec:org51000bd}
+\subsubsection{Lemma}
+\label{sec:org8faf052}
+If \(x_n\) is convergent, then it is bounded the limit is unique.
+\subsubsection{Lemma}
+\label{sec:orgc6066e5}
+If \(x_n\) converges to \(x\) and \(y_n\) converges to \(y\), then \(d(x_n, y_n)\)
+converges to \(d(x, y)\).
+\subsubsection{About convergence and Cauchy sequences}
+\label{sec:org68d7030}
+\subsubsection{Completeness}
+\label{sec:org5a21fd7}
+The idea that if a sequence is Cauchy, then it is convergent.
+\subsubsection{Theorem about subsets of complete metric space}
+\label{sec:org9f548cb}
+\(X\) be a metric space. A subspace \(A\) of \(X\) is complete if and only if \(A\) is closed in \(X\).
+\subsubsection{Condition about continuity with respect to convergence}
+\label{sec:org84c5a8a}
+A map \(T\colon X \rightarrow Y\) is continuous if and only if \(x_n
+    \rightarrow x_0 \implies T(x_n) \rightarrow T(x_0)\).
+\subsubsection{Definition of isometry between metric spaces}
+\label{sec:orgb517dbb}
+\subsection{Theorem: \(C[a, b]\) is complete}
+\label{sec:org65185c6}
+Given a closed interval \([a, b]\), the \(C[a, b]\) is complete. 
+\subsubsection{Proof}
+\label{sec:org68312ba}
+Given a Cauchy sequence in this space. We use the completeness of \(\R\) to
+define a function to which the Cauchy sequence will converge to. We need
+uniform convergence here.
+\subsection{The set of polynomials on a \([a, b]\) is not complete}
+\label{sec:orgba1be6e}
+\(p_n(x) = \sum_i \left(\frac{x}{2}\right)^i\). 
+
+\section{Lecture 4 \textit{<2018-10-25 Thu>}}
+\label{sec:orge500bc4}
+\subsection{Clarification}
+\label{sec:orgb47ffb4}
+Some sources say that an Isometry need not be surjective. 
+
+Let \(T\colon X \rightarrow Y\) be injective and \(d(x, y) = \tilde{d}(Tx, Ty)
+   \forall x, y \in X\).
+
+Then \(T\) is called isometry (from \(X\)) into \(Y\). 
+
+A couple of examples of isometry were discussed. 
+
+Also we talked about uniform convergence, and also an example of a sequence
+that is not uniformly convergent was also discussed. (The idea is that on a
+compact set \footnote{Is compactness needed?}, if a uniformly convergent function converges to a
+function is continuous.)
+
+Recall that we have already shown that \(C[0, 1]\) is a complete space, meaning
+that if a sequence is Cauchy, then it has a limit in the space. Which means
+that the limit must also be continuous. (Kinda similar to how uniform
+convergence works.)
+\subsection{Normed spaces and Banach spaces}
+\label{sec:orgefcd264}
+A Banach space is just a complete normed space.
+\subsubsection{Norm}
+\label{sec:orga7c82d6}
+A metric space can be obtained by equipping a vector space with a metric
+defined in terms of the union, resulting in the \textbf{normed space}. Complete
+normed spaces are called \textbf{Banach space}.
+
+A mapping from one normed space to another is called an \textbf{operator} (\$T\(\colon\)
+X \(\rightarrow\) Y). A mapping from a normed space to \(\R\) is called a
+\textbf{functional} (\(T\colon X \rightarrow \R\))
+
+It can be shown that a linear operator is continuous if and only if it is
+bounded.
+
+The set of all bounded linear operators from a space \(X\) to a space \(Y\) is
+again a normed space.
+
+Similarly, the set of all bounded linear functionals is a normed space, the
+dual space \(X'\) of \(X\).
+\subsubsection{Vector space}
+\label{sec:org0aaa25d}
+I didn't write this down. But it's pretty clear. 
+\subsubsection{Examples}
+\label{sec:org8d1e80f}
+\begin{enumerate}
+\item \(\R^n\)
+\item \(C[a, b]\). It's kinda clear how to define a vector space structure on it.
+\end{enumerate}
+\subsubsection{Subspace}
+\label{sec:orgab7ea26}
+We defined a subspace of a vector space. 
+\subsubsection{Span}
+\label{sec:org5fc4de8}
+Span was defined.
+\subsubsection{Linear independence}
+\label{sec:org1afca67}
+\subsubsection{Definition of dimension}
+\label{sec:org8af8f02}
+\subsubsection{Basis of space}
+\label{sec:orgd36ddc9}
+To construct basis for finite dimensional spaces are clear. 
+
+One can prove the existence of a basis for infinite dimensional spaces, but
+the proof is not constructive.
+\subsection{Normed spaces}
+\label{sec:orge46fdae}
+\subsubsection{Definition of a norm}
+\label{sec:org739e0bb}
+\subsubsection{Examples}
+\label{sec:org52e327c}
+\begin{enumerate}
+\item \(\R^n\)
+\item \(C[a, b]\) with \(\Vert f \Vert\) with \(\Vert f\Vert = \max_{x \in [a, b]}
+       \vert f (x) \vert\). Is also a Banach space.
+\item \(\Omega \in \R^n\) be a measurable set, then the space \(L^p(\Omega)\) is
+the set of all Lebesgue measurable functions from \(\Omega \rightarrow
+       \R\). We can define the norm in a straightforward manner.
+
+We can show that this space is a Banach space.
+\end{enumerate}
+\section{Lecture 5 \textit{<2018-10-30 Tue>}}
+\label{sec:org9bee54a}
+\subsection{Remark}
+\label{sec:org52759f9}
+Not every metric is induced by a norm.
+
+Assume discrete metric is induced by a norm, i.e., \(d(x, y) = \Vert x -
+   y\Vert\). The proof is easy.
+\subsection{Convergence of sequences in normed spaces}
+\label{sec:org28e9998}
+\begin{enumerate}
+\item A sequence \((x_n)\) in a normed space \(X\) is convergent if there is an \(x\in
+      X\) with \(\lim_{n\rightarrow \infty} \Vert x_n - x\Vert = 0\). We write again
+\(\lim_{n\rightarrow \infty} x_n = x\).
+\item A sequence is called a cauchy sequence if for all \(\epsilon > 0\), there
+exists \(N\), \(\Vert x_m - x_m \Vert < \epsilon\) for all \(m, n > N\). \footnote{This might be needed for the next exercises.}
+\end{enumerate}
+\subsection{Absolute convergence}
+\label{sec:org1d4dbf2}
+A series \(S\) is called absolutely convergent if \(\sum \Vert x_i \Vert\)
+converges. If \(X\) is complete, absolute convergence implies convergence.
+
+Example 1. The alternating sum \(\sum (-1)^n/n\) is convergent, but not
+absolutely convergent. This converges to \(-ln(2)\).
+
+Example 2. \(X = \Q\), \(a_n = \sum \left(\frac{1}{2^{i}} -
+   \frac1{(i+1)!}\right)\). The first part converges to \(1\). The second element
+converges to \(e-2\). The total is \(3-e\). Let \(b_n\) be \(\sum
+   \frac{-1}{(i+1)!}\). This converges to \(2 - e\). Now \(a + b = 5 - 2e\). \(a - b =
+   1\). One of them converges to an element in \(\Q\) whereas the other one does
+not convert to an element in \(\Q\). Now we construct a new sequence with one
+element from the first one and the next element from the second one and
+continue doing this \((a_1, b_1, a_2, b_2, \cdots)\). \(S_n\) will be the partial
+sums. Then \(\sum x_i\) converges to \(a+b\), but \$\(\sum\) \(\vert{}\) x\(_{\text{i}}\) \(\vert{}\) \$
+converges to \(a - b = 1\).
+\subsection{Definition of basis}
+\label{sec:orgba78cac}
+We can now define a basis as follows: Assume that the normed space \(X\)
+contains a sequence \((e_n)_n\). Such that every \(x \in X\) in the normed space
+\(X\), can be expressed in terms of \((e_n)_n\), i.e., every \(x\) can be expressed
+as a weighted combination or linear sums of \((e_n)_n\). \(\Vert x - \sum
+   \alpha_i e_i \Vert \rightarrow 0\) as \(n \rightarrow \infty\) and this
+expansion is also unique.
+
+If such a basis exists, then \(X\) is separable.
+\subsection{Theorem about completeness}
+\label{sec:org119ff56}
+Every finite dimensional subspace \(Y\) of a complete normed space \(X\) is
+complete, which implies that all finite dimensional normed spaces are
+complete. \footnote{The proof wasn't done in the class. But the idea is the all Cauchy
+sequences converges.}
+\subsection{Norm equivalence}
+\label{sec:org5d6b5e5}
+We have two norms. We want to say when two norms are equivalent.
+
+A norm \(\Vert \Vert_1\) on \(X\) is said to be equivalent to a norm \(\Vert
+   \Vert_2\) if there exists \(a, b > 0\) such that
+
+\(a \Vert x \vert_1 \le \Vert x \vert_2 \le b \Vert x \Vert_2\).
+
+An example: For finite-dimension vector space, then all norms are equivalent.
+
+We'll show that \(\Vert \Vert_2\), and \(\Vert \Vert_\infty\) are equivalent.
+
+Given any \(X \in \R^n\), \(\Vert x\Vert_2^2 = \sum_{i=1}^{n} x_i^2 \ge \max_i
+   x_i^2 = \Vert x\Vert_\infty\). Also \(\Vert x \Vert_2^2 = \sum_{i=1}^{n} x_i^2
+   \le n \cdot \max x_i^2 = n \Vert x \Vert_\infty\). Thus \(\Vert x \Vert_\infty
+   \le \Vert x\Vert_2 \le \sqrt{n}\Vert x \Vert_\infty\).
+
+\textbf{A non-example}: Consider \(X = C[0, 1]\) and define \(f_n(X) = X^n\). Clearly,
+\(f_n \in C[0, 1]\) for al l\(n\).
+
+\(\Vert f_n \Vert_\infty = \max_{x\in [0, 1]} \vert f_n(x)\vert\). Now we
+introduce another norm which is the Lebesgue integral. For \(f_n\), this would
+evaluate to \(1/{n+1}\). The contradiction is the fact that the maximal norm
+would be \(1\) always, whereas, the Lebesgue norm would tend to \(0\) as
+\(n\rightarrow \infty\). There is a clear contradiction here.
+\subsection{Compactness in metric spaces}
+\label{sec:org84c6f5e}
+A metric space is defined to be compact if every sequence in \(X\) has a
+convergent subsequence. A subset \(M\) of \(X\) is defined to be compact if \(M\)
+considered as a subspace is compact, i.e., every sequence has a convergent
+subsequence and the limit is in \(M\).
+\subsection{Theorem}
+\label{sec:orgad04966}
+If \(X\) is a fininte-dimensional normed space, then any subset \(M \subset X\)
+is compact if and only if \$M is closed and bounded.
+
+Consider the sequence \(\{x_n\}\) with \(x_n = (-1)^n\), then \((x_n)\) does not
+converge, but it has convergent subsequences.
+\subsection{Bolzano-Weistrass theorem}
+\label{sec:orgf28c52b}
+Any bounded sequence \((x_n) \in l^{\infty}\) has a convergent subsequence.
+\subsubsection{Proof}
+\label{sec:org79da30a}
+Without loss of generality, we assume that all elements are with \([0, 1]\),
+otherwise we an shift it and normalize it (can we do this?) Divide the
+interval \(\{0, 1/2\}\) and \(\{1/2, 1\}\), then one of them must have
+infinitely many points. (We can repeat the argument), we have a new sequence
+which are elements of \(x_n\) that are in the interval (the interval with
+infinitely many points.) We can repeat this process again and the length of
+the intervals go to zero. It is clear how to construct a convergent
+subsequence.
+\subsubsection{Extension to bounded sub-sequences in \(\R^n\).}
+\label{sec:orga050725}
+\section{Lecture 5 \textit{<2018-11-01 Thu>}}
+\label{sec:orgb7b9715}
+\subsection{Review}
+\label{sec:orgba49295}
+In \(\R^n\), the compact subsets are the closed and bounded subsets so that
+close-ness and boundedness can be used to define compactness. This can only
+be used for finite dimensional cases.
+\subsection{Riesz's lemma}
+\label{sec:org1015300}
+Given a normed space \(X\) with a closed subspace \(y\) and a subspace \(z\) such
+that \(y\) is a subset of \(z\). Given any number \(\theta\in (0, 1)\), there
+exists, \(z\in Z\) such that \(\vert z \vert = 1\), and the distance \(\Vert z - y
+   \Vert \ge \theta\), for all \(y \in Y\).
+\subsubsection{Proof}
+\label{sec:org8b40176}
+Let \(v\in Z \textminus Y\), define \(a = \inf_{y \in Y} \Vert v - y\Vert\) to
+be the distance to \(y\). Since \(y\) is closed, \(a>0\). Choose \(\theta \in (0,
+    1)\), then there exits a \(y_0 \in y\), with \(a \le \Vert v - y_0 \Vert \le
+    \frac{a}{\theta}\).
+
+Define \(z = \vert{1}{\Vert V = y_0}(V-y_0)\). Clearly, \(\Vert z\Vert = 1\).
+Furthermore, given \(y\in Y\), it holds that \(\Vert z - y\Vert =
+    \Vert\frac{1}{\Vert v - y_0\Vert}(v -y_0) - y\Vert = \frac{1}{\Vert v -
+    y_0\Vert} \Vert v - y_0 - \Vert v-y_0\Vert\cdot y\Vert\).
+
+Since \(Y\) is a subspace, \(y_1 \in Y\) and \(\Vert v - y_1\Vert \ge a\) (since a
+is the infimum.)
+
+\(\Vert z - y\Vert = \frac{1}{\Vert v - y_0\Vert} \Vert V - y_1\Vert \le
+    \frac{\theta}{a}a = \theta\)
+\subsection{Theorem}
+\label{sec:orgfd3350c}
+If the closed unit ball \(M=\{X \vert \Vert X \Vert \le 1\}\) of a normed space
+\(X\) is compact, then \(X\) is finite-dimensional.
+
+The proof uses Riesz's lemma. Assume that \(M\) is compact set but \(\dim X =
+   \infty\), this leads to a contradiction. Compact sets have compact images
+under continuous mappings.
+\subsection{Theorem}
+\label{sec:org59af6cf}
+Suppose \(X\) and \(Y\) are metric spaces and \(T \colon X \rightarrow X\) is
+continuous. Then any compact subset of \(X\) is mapped to a compact subset of
+\(Y\).
+\subsubsection{Proof}
+\label{sec:orgcb86579}
+Proof is easy.
+\subsection{Corollary}
+\label{sec:org58db106}
+Given a continuous mapping \(T \colon M \rightarrow \R\), where \(M\) is a
+compact subset of \(X\). Then \(T\) assumes a maximum and a minimum at some
+points of \(M\).
+\subsubsection{Proof}
+\label{sec:org362128d}
+The proof is easy. It's something like take the infimum, it has to be a
+point in the space because closed.
+\subsection{Example}
+\label{sec:orga8c4438}
+The closed unit ball \(M=\{f \colon \Vert f \Vert \le 1 \}\) of \(C[0, 1]\) is
+not compact. To see this, define \(f(X) = \max(1 - \vert X \vert, 0)\) and
+\(f_n(X) = f(2n\cdot (n+1)(x - \frac{1}{n}))\) (functions with center \(1/n\) and
+decreasing bandwidth converges to the zero function) \footnote{We might not need this property.}
+
+Now \(f_n \in C[0, 1]\) and \(\Vert f_n \Vert_\infty = 1\). Since supports of \(f_n\) do not overlap.
+
+\(\Vert f_n f_m\Vert = \max_{X \in \{0, 1\}} \vert f_n(X) - f_m(X)\vert = 1\)
+and the sequence does not have a convergent subsequence.
+\subsection{Linear Operators}
+\label{sec:orge8007a9}
+We now consider linear operators and their properties.
+\subsubsection{Definition}
+\label{sec:orgcf477e9}
+Let \(T\) be an operator, \(D(T)\) its domain and \(R(T)\) its range. The operator
+is called linear if \(T(x + y) = Tx+Ty\) and \(T(\alpha x) = \alpha Tx\)
+
+Note that we typically write \(Tx\) and not \(T(x)\) as it is done for functions.
+
+The null set \(N(T)\) is defined \(N(T) = \{x \in D(T) \colon Tx = 0\}\)
+
+In particular, linearity implies \(T0 = 0\).
+\subsubsection{Example}
+\label{sec:orgfde6af4}
+Define \(T\) by \((Tf)(x) = \int_{a}{x} f(\tilde x) d \tilde x\) for \(f\in C[a,
+    b]\). Then \(T(cf + cg) = cTf + dTg\). It is easy to show that the operator is
+linear.
+\subsubsection{Example}
+\label{sec:org6ae6a7d}
+\begin{enumerate}
+\item Let \(X\) be the space of all polynomials defined on \([a, b]\). We can define a
+linear operator to be the derivative, \(Tf = f'\). \footnote{This is an unbounded operator. We still haven't defined what bounded
+operators are, though.}
+\item Given \(A \in \R^{m\times n}\), \(T \colon \R^n \rightarrow \R^m\), \(X
+       \righarrow Ax\) is linear \(T(ax + by) = aAx + bAy = aTx + bYy\).
+\item Let \(k\) be a square-integrable function on \([a, b]^2\) and \(X=L_2[a, b]\),
+then define \(f\mapsto\int_{a}^{b} h(x, \cdot) f(x)\ dx\)\footnote{These are called Kernels. But kernels in Machine learning is \(k(x, y)
+=\langle \phi(x), \phi(y)\rangle\), for example \(h(x, y) = \exp(-\Vert x -
+y\Vert/\varepsilon\) is called a Gaussian kernel. Another example is \(h(x, y) =
+(1+\langle x, y\rangle)^p\) polynomial kernel} \textsuperscript{,}\,\footnote{Idea of machine learning. We have two sets of points, we need to find a
+function (often linear) that separates the points. But it may not be easy. So
+one idea is to find a linear function to a higher dimensional space and then one
+may be able to separate the points in the higher dimensional space.}
+\end{enumerate}
+\subsection{Theorem about linear operators}
+\label{sec:org3453e52}
+Suppose that \(T\) is linear, then
+\begin{enumerate}
+\item \(R(T)\) is a vector space
+\item \(N(T)\) is a vector space.
+\end{enumerate}
+
+I think \(R\) and \(N\) are range and kernel, respectively. The proof is kinda
+easy.
+\section{Lecture 6 \textit{<2018-11-06 Tue>}}
+\label{sec:orgb1cab7f}
+\subsection{Regarding convergence of a function}
+\label{sec:org39582a6}
+\(\sup(f_n)\subset [0, 2/n]\), \(f_n(0) = 0\), consider fixed \(x\in [0, 1]\).
+Given any \(\varepsilon > 0\), choose \(N > 2/X\), then \(X > 2/N > 2/N\) for
+\(n>N\). Thus \(x \in \sup(f_n)\) and \(f_n(x) = 0\), \(f_n\) converges point-wise to
+\(0\).
+
+\(f_n(x) = f(2n(n+1)(x - 1/2))\)
+\subsection{Injectivity of operators}
+\label{sec:org9a9bad6}
+If \(T\) is injective, there exists \(T^{-1}\colon R(T) \rightarrow D(T)\) with
+\(T^{-1}y =x\) for \(Tx =y\), i.e., the inverse of \(T\). It follows that \(T^{-1}Tx
+   = T^{-1}Ty = x\) and \(TT^{-1}y = Tx = y\).
+
+Example: Given \(A\in \R^{n\times n}\), \(T\colon \R^n \rightarrow \R^m\), \(x
+   \mapsto Ax\).
+
+If \(m < n\), \(T\) can be injective if the rank of \(A = n\), but it cannot be
+surjective. When \(m > n\), then \(T\) can be surjective, when the Rank of \(A =
+   m\), but it cannot be injective. If \(m = n\), then \(T\) is bijective if and only
+if the rank of \(A = m = n\).
+\subsection{Theorem}
+\label{sec:orgcb431d8}
+Given vector spaces \(X\) and \(Y\), and a linear operator \(T \colon D(T)
+   \rightarrow Y\), then
+\begin{enumerate}
+\item \(T^{-1}\colon R(T) \rightarrow D(T)\) exists if and only if \(T(x) = 0
+      \implies x = 0\), i.e., the null space \(N(T) = 0\). Then \(T^{-1}\) is also a
+linear operator.
+\item If the dimension of the domain of \(T\) is smaller than \(\infty\), and
+\(T^{-1}\) exists, then \(\dim R(T) = \dim D(T)\).
+\end{enumerate}
+\subsubsection{Proof}
+\label{sec:org28eee20}
+Assume that \(T^{-1}\) exists then \(T\) is injective and \(Tx = 0 \implies x =
+    0\). Conversely, assume \(Tx_1 = Tx_2\), then \(Tx_1 - Tx_2 = T(x_1 - x_2) = 0\).
+Thus, by assumption \(x_1 - x_2 = 0 \implies x_1 = x_2\) and \(T\) is injective.
+Hence the inverse \(T^{-1}\) exists.
+
+To show that \(T^{-1}\) is a linear operator: Given \(y_i = T x_i\) and \(x_i =
+    T^{-1}y\), for \(i = 1, 2\), then it follows that \(T(\alpha x_1 + \beta x_2) =
+    \alpha T x_1 + \beta T x_2 = \alpha y_1 + \beta y_2\) and \(T^{-1}T(\alpha
+    x_1 + \beta x_2) = T^{-1}(\alpha y_1 + \beta y_2)\). From this one can show
+that if \(T^{-1}\) exists, it is also a linear operator.
+
+\begin{enumerate}
+\item Let \(\dim D(T) = n < \infty\), then \(\dim R(T) \le n\), i.e., \(\dim R(T)
+       \le \dim D(T)\). This can be seen as follows: choose \(n+1\) elements \(y_1,
+       \cdots, y_{n+1} \in R(T)\) and we choose them arbitrary, then we can find
+pre-images \(x_1, \cdots, x_{n+1}\in D(T)\), it holds that \(Tx_i = y_i\),
+for all \(i\). Since we assumed \(\dim D(T) = n\), the \(x_i\) are linearly
+dependent, i.e., there exist \(\alpha_i \in \R\) such that \(\sum \alpha_i
+       x_i = 0\) where not all \(\alpha_i\) are zero. Now \(T \sum_i^{n+1} \alpha_i
+       x_i= \sum_{i=1}^{n+1} \alpha_i y = 0\), but not all \(\alpha_i\) are zero.
+Thus we have found a set of linearly dependent vectors. Since we chose
+the vectors arbitrarily, we see that the dimension must be less than or
+equal to \(n\).
+
+If we apply the same reasoning to the inverse operator, which we assume
+exists, we obtain in similar fashion that the \(\dim D(T) \le \dim R(T)\).
+Thus, \(\dim R(T) = \dim D(T)\).
+\end{enumerate}
+\subsection{Lemma}
+\label{sec:org9e273c4}
+Let \(X, Y, Z\) be vector spaces \(T \colon X \rightarrow Y\), and \(S \colon Y
+   \rightarrow Z\) bijective operators, then we claim that \((ST)^{-1} = T^{-1}
+   S^{-1}\).
+\subsection{Definition: Bounded operators}
+\label{sec:org68becd6}
+Given normed spaces \(X\) and \(Y\) and a linear operator, \(T \colon D(T)
+   \rightarrow Y\), \(D(T) \subset X\), \(T\) is defined to be bounded if there
+exists a constant \(c\) such that \(\Vert Tx \Vert \le c \Vert x \Vert\) and this
+has to hold for all \(x \in D(T)\). A bounded linear operator maps bounded sets
+in \(D(T)\) onto bounded sets in \(Y\).
+
+We define the norm \(\Vert T \Vert = \sup_{x \in D(T), \lambda \neq 0}
+   \frac{\Vert T x \Vert}{\Vert x \Vert}\) to be the norm of \(T\). It is
+straightforward to verify that this satisfies the properties for norm.
+
+For bounded linear operators, the bound can be computed by the supremum over
+\(\Vert x \Vert = 1\). This is straightforward to see.
+\subsection{Example}
+\label{sec:org964ebe0}
+Given \(A \in \R^{n \times n}\), the linear operator \(T \colon \R^{n}
+   \rightarrow \R^{n}\) is bounded since \((\sup_{\Vert x \Vert= 1} \Vert A x
+   \Vert)^2 = \sup x^{T} A^{T} A x = \lambda \max(A^T A)\), the largest
+eigenvalue of \(A^{T}A\) (Rayleigh-Ritz theorem.)
+
+Note that for \(A = U \sum V^T\), so that \(A^{T} A = V \sigma^2 V^{T}\), thus
+\(\lambda_{\max} = \delta_{1}^2\), where \(\delta_1\) is the largest singular
+value of \(A\).
+
+Let \(X\) be the space of all polynomials on \([0, 1]\) and \(\Vert f \Vert =
+   \max_{x \in [0, 1]} \vert f (x) \vert\). The differentiation operator \(T\) with
+\(Tf = f'\) is not bounded. Since for \(f_n(x) = x^n\), \(\Vert f_n\Vert = 1\), all
+these functions are bounded above by \(1\), hence the norm is \(1\), whereas, the
+norm of the derivative is \(n\) and this is unbounded.
+
+\(T \colon C[0, 1] \rightarrow C[0, 1]\) by \((Tf)(x) = \int_{0}^{x} f(t)\ dt\).
+Then \(\Vert T f\Vert = \max_{x \in [0, 1]} \vert \int_{0}^{1} f(t)\ dt\vert
+   \le \max_{x \in [0, 1]} \int_{0}^{1} \vert f(t) \vert dt \le (1-0) \max_{x\in
+   [0, 1]} \vert f(x) \vert = \Vert f \Vert\), thus \(\Vert T \Vert \le 1\), but we
+can choose the function identical to \(1\), then the norm is exactly equal to
+\(1\).
+
+Define \(c = \{x_n \in l_1 \vert \exits N \in \N\colon x_n = 0, \forall n >
+   N\}\), with the \(l_1\) norm. We define the operator \(T\colon (x_1, x_2, x_3,
+   \cdots) = (x_1, 2x_2, 3x_3, \cdots)\) is unbounded, we can compute \(\Vert T
+   e_i \Vert = i\), so if we have the sequence but the \(\Vert e_i \Vert = 1\).
+\subsection{Theorem}
+\label{sec:org3e0da78}
+Every linear operator on a finite dimensional normed space is bounded.
+\subsubsection{Proof}
+\label{sec:orgc31f30b}
+Let \(n\) be the dimension of \(X\) and \(\{e_1, \cdots, e_n\}\) a basis.
+
+Any \(x\in X\) can be written as \(X = \sum \alpha_i e_i\), thus \(\Vert Tx \Vert
+    = \Vert T \sum \alpha_i e_i\Vert \le \sum \Vert T \alpha_i e_i\Vert = \sum
+    \vert \alpha_i \vert \le \max_{i} \Vert T e_i \Vert . \sum \vert \alpha_i
+    \vert\). We define \(\Vert x \Vert_0 = \sum \vert \alpha_i \vert\) defines a
+norm. Since all norms on finite-dimensional spaces are equivalent, there
+exist \(c\) such that \(\Vert x \Vert_0 \le c \Vert x \Vert\). Thus \(\Vert T
+    x\Vert \le \max \Vert T e_i \Vert \cdot c \cdot \Vert x \Vert\) and \(T\) is
+bounded.
+\section{Lecture 7 \textit{<2018-11-08 Thu>}}
+\label{sec:org985d2c1}
+\subsection{Theorem about Bounded operators}
+\label{sec:org357a37f}
+For linear operators, continuity and boundedness are equivalent.
+
+Continuity of \(T\) means that \(\forall \varepsilon > 0\), there exists a
+\(\delta > 0\), such that \(\Vert x - x_0 \Vert < \delta \implies \vert Tx -
+   Tx_0 \vert < \varepsilon\).
+\subsubsection{Proof}
+\label{sec:org57cdbbc}
+There is nothing to show for \(T=0\), now we assume that \(T\) is not the zero
+operator, i.e., \(\exists r\) such that \(\Vert T x \Vert \le r \Vert x \Vert\).
+Using linearity, we can write that \(\Vert Tx - Tx_0\Vert = \Vert T (x -
+    x_0)\Vert \le \delta \Vert x - x_0\Vert\). Choose \(\delta =
+    \varepsilon/\delta\), thus \(\Vert x -x_0 \Vert < \delta \implies \Vert Tx -
+    Tx_0 \Vert \delta \Vert x - x_0\Vert\le \gamma\cdot \delta =\varepsilon\) and
+\(T\) is continuous.
+
+Conversely, assume that \(T\) is continuous. Take arbitrary \(y\in D(T)\),
+define \(X = X_0 + \frac{\delta}{\Vert y \Vert} y\). Thus \(\Vert x - x_0 \Vert
+    = \Vert \frac{\delta}{\Vert y \Vert} \cdot y \Vert = \delta\). Since \(T\) is
+continuous, \(\Vert Tx - Tx_0 \Vert < \varepsilon\). Now \(\Vert Tx - Tx_0\Vert
+    = \Vert T \delta/\Vert y \Vert y \Vert = \frac{\delta}{\Vert y \Vert}\Vert T
+    y \Vert < \varepsilon\) Multiplying by \(\Vert y \Vert / \delta\), we get
+\$\Vert T y \Vert < \(\varepsilon\)/\(\delta \cdot \Vert y \Vert\) We call the last
+term \(\gamma\).
+
+The second part of the proof shows that continuity in one point suffices to
+show boundedness. And boundedness means continuity at all points. Thus
+continuity at one point implies continuity at all points. Pretty interesting!
+\subsection{Corollary}
+\label{sec:orgb6100f3}
+Given a linear bounded operator \(T\), it holds that 
+\begin{enumerate}
+\item \(x_n \rightarrow x\) implies that \(Tx_n \rightarrow Tx\)
+\item The null space of such an operator is closed
+\end{enumerate}
+\subsubsection{Proof}
+\label{sec:org18352b1}
+These are basically properties of continuous functions.
+\subsection{Definition}
+\label{sec:org4a19808}
+We write that \(T_1 = T_2\) if \(D(T_1) = D(T_2)\) and \(T_1x = T_2x\) for all \(x
+   \in D(T_1) = D(T_2)\). Furthermore \(T\vert_B\) denotes the restriction to the
+set \(B\), i.e., \(T\vert_B \colon B \rightarrow Y\) with \(T\vert_B x = Tx\) for
+all \(x \in B\).
+
+The extension of \(T\), denoted by \(\tilde{T}\colon M \rightarrow Y\) where \(D(T)
+   \subset M\) is defined by \(\tilde{T}x = Tx\), for all \(x\in D(T)\).
+
+Example of extension. The set \(X = Y = \R\), define \(T\) by \(Tx=x\), and \$D(T) =
+[0, 1]. Then \(\tilde{T}\) defined by \(\tilde{T}x = \vert x \vert\) with
+\(D(\tilde{T}) = [-1, 1]\) is an extension of \(T\)
+\subsection{Theorem}
+\label{sec:org14c7885}
+If \(T \colon D(T) \rightarrow Y\) is a bounded linear operator, \(D(T)\), part
+of a normed space, \(Y\), a Banach space, then there is an extension
+\(\tilde{T}\colon \bar{D(T)} \rightarrow Y\) with \(\Vert \tilde{T} \Vert =
+   \Vert T \Vert\). Furthermore, \(\tilde{T}\) is a bounded linear operator.
+\subsubsection{Proof}
+\label{sec:org634dfdc}
+For any \(x \in \bar{D}(T)\) consider the sequence \((x_n)_n\) in \(D(T)\) that
+converges to \(x\).
+
+\(\Vert Tx_n - Tx_m \Vert = \Vert T(x_n - x_m)\Vert \le \Vert T \Vert \Vert
+    x_n - x_m\Vert\). Since \(x_m\) converges, \(Tx_n\) is Cauchy and converges as we
+assumed \(Y\) to be complete. The rest of the argument is trivial.
+\subsection{Linear functionals}
+\label{sec:org917507d}
+A functional is a map from \(X\) to \(\R\) or \(\C\). Given a functional \(f\),
+\(D(f)\) denotes the domain, \(R(f)\) denotes the range of \(f\). 
+
+For functionals, we typically write \(f(x)\) and not \(fx\), although \(f\) is
+still an operator.
+\subsubsection{Example}
+\label{sec:org1d8d307}
+\begin{enumerate}
+\item For a normed space \(X\), \(\Vert . \Vert \colon X \rightarrow \R\) is a functional.
+\item For \(X=\R\), and \(x_0 in X\), \(f\colon X\rightarrow \R\), \(x\mapsto x_0^{T}x
+       = \langle x_0, x\rangle\).
+\item Linearity is defined as before, with the difference that \(y\) is now \(\R\)
+if \(X\) is a real or \(\C\), if \(X\) is a complex space.
+\end{enumerate}
+\subsubsection{Example}
+\label{sec:orgec6184d}
+\begin{enumerate}
+\item The norm functional is not a linear functional. \(\Vert \alpha x + \beta y
+       \Vert \neq \alpha \Vert x \Vert + \beta \Vert y \Vert\). This is not true
+in general.
+\item Define \(f(x) = x_0^{T}x\) is linear, clearly, because the scalar product
+is bilinear. It is linear in each variable.
+\item The evaluation functional given by the Dirac delta function \(\delta_x f =
+       f(x)\).
+\item The definite integral is a functional. Let \(l\) denote the functional such
+that for \(f\) in \(C[a, b]\), \(l(f) = \int_{a}^{b} f(x) dx\), then it is
+straightforward to verify that this is linear.
+\end{enumerate}
+\subsubsection{Remark}
+\label{sec:org19b197a}
+Similarly, boundedness is again defined as: A linear functional is bounded
+if there exists a constant \(c\) such that \(\vert f(x) \vert \le c \cdot \Vert
+    x \Vert\). and \(\Vert v \Vert = \sup \vert f(x) \vert / \Vert x \Vert =
+    \sup_{\Vert x \Vert = 1} \vert f(x) \vert\).
+\subsubsection{Theorem}
+\label{sec:org8b9ad1d}
+Let \(f\colon D(f) \rightarrow K\) be a linear functional, then \(f\) is
+continuous if and only if it is bounded.
+\subsubsection{Example}
+\label{sec:org78ed98d}
+\begin{enumerate}
+\item For integrable functions on \([a, b]\), it is easy to see that the integral
+functional is bounded.
+\item The dot product example can be extended to \(l_2\) by choosing a fixed
+element \(a\) in \(l_2\) and setting \(f(x) = \sum a_i x_i\). Due to
+Cauchy-Schwarz inequality \(\vert \langle x, y\rangle\vert \le \Vert x
+       \Vert \cdot \Vert y \Vert\).
+\end{enumerate}
+\end{document}
