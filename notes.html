@@ -1,0 +1,2353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2018-11-20 Tue 11:46 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Functional Analysis 1</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Harikrishnan Mulackal" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Functional Analysis 1</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7471a99">1. Lecture 2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-17 Wed&gt;</span></span></a>
+<ul>
+<li><a href="#org9e6357e">1.1. Examples of metric spaces</a>
+<ul>
+<li><a href="#orgacdfa4a">1.1.1. The set of continuous functions \(C[a, b]\)</a></li>
+<li><a href="#orgfa71e6f">1.1.2. The space \(l^p\) of sequences \(x=(x_1, x_2 \cdots,)\) with \(\Vert x \Vert _p < \infty\).</a></li>
+</ul>
+</li>
+<li><a href="#org534a9f7">1.2. Definitions involving metric spaces</a>
+<ul>
+<li><a href="#orgcd7d55e">1.2.1. Open ball</a></li>
+<li><a href="#org2cad356">1.2.2. Closed ball</a></li>
+<li><a href="#org017c94a">1.2.3. Sphere</a></li>
+<li><a href="#org9524b03">1.2.4. Relation</a></li>
+<li><a href="#org976c12d">1.2.5. Definition of open</a></li>
+<li><a href="#org1217269">1.2.6. Definition of closed</a></li>
+<li><a href="#orgc23422d">1.2.7. Remark (\(\varepsilon\) neighbourhood)</a></li>
+<li><a href="#org9acc587">1.2.8. Interior point</a></li>
+<li><a href="#org7248d2e">1.2.9. Continuity</a></li>
+<li><a href="#org39d3371">1.2.10. Accumulation point</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgcc1ac2a">2. Lecture 3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-23 Tue&gt;</span></span></a>
+<ul>
+<li><a href="#org01fd365">2.1. More definitions</a>
+<ul>
+<li><a href="#org716ceea">2.1.1. Closure of a set</a></li>
+<li><a href="#org7c71863">2.1.2. A dense subset of \(X\)</a></li>
+<li><a href="#org88825b6">2.1.3. Separable</a></li>
+<li><a href="#orgeedc0e5">2.1.4. Definition of convergence</a></li>
+<li><a href="#org1b989b2">2.1.5. Definition of bounded set</a></li>
+<li><a href="#org8e2294b">2.1.6. Definition of boundedness of a sequence</a></li>
+<li><a href="#orgc05f51f">2.1.7. Lemma</a></li>
+<li><a href="#orgee2318d">2.1.8. Lemma</a></li>
+<li><a href="#orgcd77141">2.1.9. About convergence and Cauchy sequences</a></li>
+<li><a href="#orgf763dc9">2.1.10. Completeness</a></li>
+<li><a href="#orgd984158">2.1.11. Theorem about subsets of complete metric space</a></li>
+<li><a href="#org8d8d103">2.1.12. Condition about continuity with respect to convergence</a></li>
+<li><a href="#orgdc2c9d4">2.1.13. Definition of isometry between metric spaces</a></li>
+</ul>
+</li>
+<li><a href="#org16fbd87">2.2. Theorem: \(C[a, b]\) is complete</a>
+<ul>
+<li><a href="#org4d4f0b8">2.2.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org7e084ad">2.3. The set of polynomials on a \([a, b]\) is not complete</a></li>
+</ul>
+</li>
+<li><a href="#orgf6b2a89">3. Lecture 4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-25 Thu&gt;</span></span></a>
+<ul>
+<li><a href="#org92ca989">3.1. Clarification</a></li>
+<li><a href="#org44c3a42">3.2. Normed spaces and Banach spaces</a>
+<ul>
+<li><a href="#orgfe62a05">3.2.1. Norm</a></li>
+<li><a href="#org157eba6">3.2.2. Vector space</a></li>
+<li><a href="#org6f32dce">3.2.3. Examples</a></li>
+<li><a href="#org468ff39">3.2.4. Subspace</a></li>
+<li><a href="#org67864d5">3.2.5. Span</a></li>
+<li><a href="#org63a3f6f">3.2.6. Linear independence</a></li>
+<li><a href="#org01a0f9c">3.2.7. Definition of dimension</a></li>
+<li><a href="#org338e82c">3.2.8. Basis of space</a></li>
+</ul>
+</li>
+<li><a href="#org16540bf">3.3. Normed spaces</a>
+<ul>
+<li><a href="#org26b7b85">3.3.1. Definition of a norm</a></li>
+<li><a href="#org0b562ca">3.3.2. Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb87af31">4. Lecture 5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-30 Tue&gt;</span></span></a>
+<ul>
+<li><a href="#org4219247">4.1. Remark</a></li>
+<li><a href="#org79f28cd">4.2. Convergence of sequences in normed spaces</a></li>
+<li><a href="#orge80c59c">4.3. Absolute convergence</a></li>
+<li><a href="#orgf56e8f7">4.4. Definition of basis</a></li>
+<li><a href="#org2aa0d81">4.5. Theorem about completeness</a></li>
+<li><a href="#org94100aa">4.6. Norm equivalence</a></li>
+<li><a href="#orgdd9b597">4.7. Compactness in metric spaces</a></li>
+<li><a href="#orgcd8ca39">4.8. Theorem</a></li>
+<li><a href="#orge34649c">4.9. Bolzano-Weistrass theorem</a>
+<ul>
+<li><a href="#orga8d583a">4.9.1. Proof</a></li>
+<li><a href="#org7cd57ba">4.9.2. Extension to bounded sub-sequences in \(\R^n\).</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org663bd99">5. Lecture 5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-01 Thu&gt;</span></span></a>
+<ul>
+<li><a href="#org5751995">5.1. Review</a></li>
+<li><a href="#orgb1d1f82">5.2. Riesz's lemma</a>
+<ul>
+<li><a href="#org9e1fd4d">5.2.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org8283ef3">5.3. Theorem</a></li>
+<li><a href="#org86e3c92">5.4. Theorem</a>
+<ul>
+<li><a href="#org5b45985">5.4.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org30353e7">5.5. Corollary</a>
+<ul>
+<li><a href="#org88f77a5">5.5.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org37dccad">5.6. Example</a></li>
+<li><a href="#org0862cf2">5.7. Linear Operators</a>
+<ul>
+<li><a href="#org3e2351f">5.7.1. Definition</a></li>
+<li><a href="#orgf9c35a4">5.7.2. Example</a></li>
+<li><a href="#org4b19b00">5.7.3. Example</a></li>
+</ul>
+</li>
+<li><a href="#orgb07c0ed">5.8. Theorem about linear operators</a></li>
+</ul>
+</li>
+<li><a href="#orgb912c4d">6. Lecture 6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-06 Tue&gt;</span></span></a>
+<ul>
+<li><a href="#org78e32a3">6.1. Regarding convergence of a function</a></li>
+<li><a href="#orgf9df8db">6.2. Injectivity of operators</a></li>
+<li><a href="#org234c78b">6.3. Theorem</a>
+<ul>
+<li><a href="#org60baf21">6.3.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org2c4487c">6.4. Lemma</a></li>
+<li><a href="#org08c941a">6.5. Definition: Bounded operators</a></li>
+<li><a href="#orgd74c423">6.6. Example</a></li>
+<li><a href="#orgdce3779">6.7. Theorem</a>
+<ul>
+<li><a href="#orga0734e3">6.7.1. Proof</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb3d3808">7. Lecture 7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-08 Thu&gt;</span></span></a>
+<ul>
+<li><a href="#org278b870">7.1. Theorem about Bounded operators</a>
+<ul>
+<li><a href="#org67962a4">7.1.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#orgbbb0f01">7.2. Corollary</a>
+<ul>
+<li><a href="#org2af7df8">7.2.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org47c1b0b">7.3. Definition</a></li>
+<li><a href="#org67a016f">7.4. Theorem</a>
+<ul>
+<li><a href="#orgd4cd24a">7.4.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org086512b">7.5. Linear functionals</a>
+<ul>
+<li><a href="#org0c14950">7.5.1. Example</a></li>
+<li><a href="#org72617c4">7.5.2. Example</a></li>
+<li><a href="#org21689fe">7.5.3. Remark</a></li>
+<li><a href="#org1b99885">7.5.4. Theorem</a></li>
+<li><a href="#orgef9f108">7.5.5. Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgd10ac61">8. Lecture 8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-07 Wed&gt;</span></span></a>
+<ul>
+<li><a href="#org52adaef">8.1. Example</a></li>
+<li><a href="#org6c87ce3">8.2. Linear functionals</a></li>
+<li><a href="#org8321cdc">8.3. Definition of isomorphism of vector spaces</a></li>
+<li><a href="#org94a27a3">8.4. About finite linear operators</a></li>
+<li><a href="#orge38fd79">8.5. Example</a></li>
+</ul>
+</li>
+<li><a href="#orgb8bb1a0">9. Lecture 10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-15 Thu&gt;</span></span></a>
+<ul>
+<li><a href="#org794ba80">9.1. Koopman operator</a></li>
+<li><a href="#org64ef06b">9.2. Matrix representation</a></li>
+<li><a href="#org3ec21d2">9.3. Theorem</a>
+<ul>
+<li><a href="#org825f589">9.3.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org91197a1">9.4. Theorem</a></li>
+<li><a href="#org262d7d4">9.5. Normed space of operators</a></li>
+<li><a href="#orge0131cc">9.6. Theorem</a></li>
+<li><a href="#org0b4a5cf">9.7. Definition</a></li>
+<li><a href="#org1fbb935">9.8. About \(X'\) and \(X^{*}\)</a></li>
+<li><a href="#org80fe735">9.9. Examples</a></li>
+<li><a href="#org613b6a4">9.10. About \(l^p\) and \(l^q\)</a></li>
+</ul>
+</li>
+<li><a href="#orgaae68bb">10. Lecture 11 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-20 Tue&gt;</span></span></a>
+<ul>
+<li><a href="#org94078a3">10.1. About \(l^p\) and \(l^q\)</a></li>
+<li><a href="#org6eafddf">10.2. Theorem</a>
+<ul>
+<li><a href="#orgba8ac01">10.2.1. Proof</a></li>
+</ul>
+</li>
+<li><a href="#org5849ce9">10.3. About reflexiveness</a></li>
+<li><a href="#org07da69a">10.4. Inner Product spaces and Hilbert spaces</a>
+<ul>
+<li><a href="#orgc52ecd1">10.4.1. Definition</a></li>
+<li><a href="#org83dbe0f">10.4.2. Definition</a></li>
+<li><a href="#org018af06">10.4.3. Remark</a></li>
+<li><a href="#org8d30ed9">10.4.4. Theorem</a></li>
+<li><a href="#org554522a">10.4.5. Lemma</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7471a99" class="outline-2">
+<h2 id="org7471a99"><span class="section-number-2">1</span> Lecture 2 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-17 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org9e6357e" class="outline-3">
+<h3 id="org9e6357e"><span class="section-number-3">1.1</span> Examples of metric spaces</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgacdfa4a" class="outline-4">
+<h4 id="orgacdfa4a"><span class="section-number-4">1.1.1</span> The set of continuous functions \(C[a, b]\)</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+With a metric \(d(f, g) = \max\vert f(x) - g(x)\vert\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfa71e6f" class="outline-4">
+<h4 id="orgfa71e6f"><span class="section-number-4">1.1.2</span> The space \(l^p\) of sequences \(x=(x_1, x_2 \cdots,)\) with \(\Vert x \Vert _p < \infty\).</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+The metric is the norm of the difference. 
+</p>
+
+<p>
+To prove that this is indeed a metric, we need the Minkowiski inequality.
+</p>
+
+<p>
+There was a complicated proof of the Minkowski inequality that was discussed
+in the lecture. I think one can prove in a simpler fashion. 
+</p>
+
+<p>
+The proof involved showing that \(\alpha \cdot \beta \le \alpha^{p}/p +
+    \beta^{q}/q\) (This is the young inequality.)
+</p>
+
+<p>
+The next step was to prove the Holder inequality. 
+</p>
+
+<p>
+The next step is to use Holder on Minkowski. 
+</p>
+
+<p>
+Holder: <a href="https://en.wikipedia.org/wiki/H%C3%B6lder's_inequality">https://en.wikipedia.org/wiki/Hölder's_inequality</a>
+</p>
+
+<p>
+Minkowski: <a href="https://en.wikipedia.org/wiki/Minkowski_inequality">https://en.wikipedia.org/wiki/Minkowski_inequality</a>
+</p>
+
+<p>
+For \(p=q=2\), we obtain the Cauchy-Schwarz inequality. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org534a9f7" class="outline-3">
+<h3 id="org534a9f7"><span class="section-number-3">1.2</span> Definitions involving metric spaces</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgcd7d55e" class="outline-4">
+<h4 id="orgcd7d55e"><span class="section-number-4">1.2.1</span> Open ball</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+\(B(x_0, r)\) is the set of all points \(x\) such that the distance from \(x\) to \(x_0\) is less than \(r\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2cad356" class="outline-4">
+<h4 id="org2cad356"><span class="section-number-4">1.2.2</span> Closed ball</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+Similar to open ball, except that the distance can be less than or <i>equal to</i> \(r\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org017c94a" class="outline-4">
+<h4 id="org017c94a"><span class="section-number-4">1.2.3</span> Sphere</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+The set of all points \(x\) such that the distance from \(x_0\) to \(x\) is exactly \(r\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9524b03" class="outline-4">
+<h4 id="org9524b03"><span class="section-number-4">1.2.4</span> Relation</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+If we subtract a sphere from the closed ball, we get the open ball.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org976c12d" class="outline-4">
+<h4 id="org976c12d"><span class="section-number-4">1.2.5</span> Definition of open</h4>
+<div class="outline-text-4" id="text-1-2-5">
+<p>
+For every point \(x\), we can find an epsilon ball that is inside the set. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1217269" class="outline-4">
+<h4 id="org1217269"><span class="section-number-4">1.2.6</span> Definition of closed</h4>
+<div class="outline-text-4" id="text-1-2-6">
+<p>
+Basically the complement of the set is open.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc23422d" class="outline-4">
+<h4 id="orgc23422d"><span class="section-number-4">1.2.7</span> Remark (\(\varepsilon\) neighbourhood)</h4>
+<div class="outline-text-4" id="text-1-2-7">
+<p>
+An open ball \(B(x_0, \varepsilon)\) of radius \(\varepsilon\) is often called
+an \(\varepsilon\) neighbourhood. A neighbourhood of \(X\) is that contains an
+\(\varepsilon\) neighbourhood of \(X\)
+</p>
+
+<p>
+We will use these definition for separable spaces.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9acc587" class="outline-4">
+<h4 id="org9acc587"><span class="section-number-4">1.2.8</span> Interior point</h4>
+<div class="outline-text-4" id="text-1-2-8">
+<p>
+We call \(x_0\) an interior point if there exist an neighbourhood of \(x_0\)
+contained inside the space.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7248d2e" class="outline-4">
+<h4 id="org7248d2e"><span class="section-number-4">1.2.9</span> Continuity</h4>
+<div class="outline-text-4" id="text-1-2-9">
+<p>
+About a function from one metric space to another. It's basically the
+standard definition. (the definition in the lecture was an \(\varepsilon\),
+\(\delta\) definition.) 
+</p>
+
+<p>
+The definition was about continuity at a point \(x\). Then a function is
+defined to be continuous if it is continuous at every point \(x\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org39d3371" class="outline-4">
+<h4 id="org39d3371"><span class="section-number-4">1.2.10</span> Accumulation point</h4>
+<div class="outline-text-4" id="text-1-2-10">
+<p>
+\(A\) be a subset of \(X\). Then \(x_0 \in X\) (not necessarily in \(A\)) is called
+accumulation point of \(A\) if every neighbourhood of \(X_0\) contains at least
+one point \(y \in A\), \(y \neq x_0\).
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcc1ac2a" class="outline-2">
+<h2 id="orgcc1ac2a"><span class="section-number-2">2</span> Lecture 3 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-23 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+</p>
+</div>
+<div id="outline-container-org01fd365" class="outline-3">
+<h3 id="org01fd365"><span class="section-number-3">2.1</span> More definitions</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org716ceea" class="outline-4">
+<h4 id="org716ceea"><span class="section-number-4">2.1.1</span> Closure of a set</h4>
+</div>
+<div id="outline-container-org7c71863" class="outline-4">
+<h4 id="org7c71863"><span class="section-number-4">2.1.2</span> A dense subset of \(X\)</h4>
+</div>
+<div id="outline-container-org88825b6" class="outline-4">
+<h4 id="org88825b6"><span class="section-number-4">2.1.3</span> Separable</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+If there is a countable subset that is dense in \(X\). \(X\) is defined to be
+separable.
+</p>
+
+<p>
+Example:
+</p>
+<ol class="org-ol">
+<li>Real numbers are separable.</li>
+<li>\(l^p\) for \(1 \le p \le \infty\) is separable.</li>
+<li>\(l^\infty\) not separable. Proof idea: For any set of indices \(I\subset
+       \N\), define \((e_I)_n\) is \(1\) is \(h\in I\) and \(0\) otherwise. For every \(I
+       \neq y\), we can compute the distance \(d(e_I, e_J) = 1\). How many such
+functions are there? The number of such elements are uncountable. (The
+proof of this theorem is similar to how \(\{0, 1\}^\N\) is uncountable.)<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgeedc0e5" class="outline-4">
+<h4 id="orgeedc0e5"><span class="section-number-4">2.1.4</span> Definition of convergence</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<p>
+Definition was about the limit of distance going to 0. Note that the limit
+\(X\) must be a point in \(X\) (Why?)
+</p>
+</div>
+</div>
+<div id="outline-container-org1b989b2" class="outline-4">
+<h4 id="org1b989b2"><span class="section-number-4">2.1.5</span> Definition of bounded set</h4>
+</div>
+<div id="outline-container-org8e2294b" class="outline-4">
+<h4 id="org8e2294b"><span class="section-number-4">2.1.6</span> Definition of boundedness of a sequence</h4>
+</div>
+<div id="outline-container-orgc05f51f" class="outline-4">
+<h4 id="orgc05f51f"><span class="section-number-4">2.1.7</span> Lemma</h4>
+<div class="outline-text-4" id="text-2-1-7">
+<p>
+If \(x_n\) is convergent, then it is bounded the limit is unique.
+</p>
+</div>
+</div>
+<div id="outline-container-orgee2318d" class="outline-4">
+<h4 id="orgee2318d"><span class="section-number-4">2.1.8</span> Lemma</h4>
+<div class="outline-text-4" id="text-2-1-8">
+<p>
+If \(x_n\) converges to \(x\) and \(y_n\) converges to \(y\), then \(d(x_n, y_n)\)
+converges to \(d(x, y)\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgcd77141" class="outline-4">
+<h4 id="orgcd77141"><span class="section-number-4">2.1.9</span> About convergence and Cauchy sequences</h4>
+</div>
+<div id="outline-container-orgf763dc9" class="outline-4">
+<h4 id="orgf763dc9"><span class="section-number-4">2.1.10</span> Completeness</h4>
+<div class="outline-text-4" id="text-2-1-10">
+<p>
+The idea that if a sequence is Cauchy, then it is convergent.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd984158" class="outline-4">
+<h4 id="orgd984158"><span class="section-number-4">2.1.11</span> Theorem about subsets of complete metric space</h4>
+<div class="outline-text-4" id="text-2-1-11">
+<p>
+\(X\) be a metric space. A subspace \(A\) of \(X\) is complete if and only if \(A\) is closed in \(X\).
+</p>
+</div>
+</div>
+<div id="outline-container-org8d8d103" class="outline-4">
+<h4 id="org8d8d103"><span class="section-number-4">2.1.12</span> Condition about continuity with respect to convergence</h4>
+<div class="outline-text-4" id="text-2-1-12">
+<p>
+A map \(T\colon X \rightarrow Y\) is continuous if and only if \(x_n
+    \rightarrow x_0 \implies T(x_n) \rightarrow T(x_0)\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgdc2c9d4" class="outline-4">
+<h4 id="orgdc2c9d4"><span class="section-number-4">2.1.13</span> Definition of isometry between metric spaces</h4>
+</div>
+</div>
+<div id="outline-container-org16fbd87" class="outline-3">
+<h3 id="org16fbd87"><span class="section-number-3">2.2</span> Theorem: \(C[a, b]\) is complete</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Given a closed interval \([a, b]\), the \(C[a, b]\) is complete. 
+</p>
+</div>
+<div id="outline-container-org4d4f0b8" class="outline-4">
+<h4 id="org4d4f0b8"><span class="section-number-4">2.2.1</span> Proof</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+Given a Cauchy sequence in this space. We use the completeness of \(\R\) to
+define a function to which the Cauchy sequence will converge to. We need
+uniform convergence here.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7e084ad" class="outline-3">
+<h3 id="org7e084ad"><span class="section-number-3">2.3</span> The set of polynomials on a \([a, b]\) is not complete</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+\(p_n(x) = \sum_i \left(\frac{x}{2}\right)^i\). 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf6b2a89" class="outline-2">
+<h2 id="orgf6b2a89"><span class="section-number-2">3</span> Lecture 4 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-25 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org92ca989" class="outline-3">
+<h3 id="org92ca989"><span class="section-number-3">3.1</span> Clarification</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Some sources say that an Isometry need not be surjective. 
+</p>
+
+<p>
+Let \(T\colon X \rightarrow Y\) be injective and \(d(x, y) = \tilde{d}(Tx, Ty)
+   \forall x, y \in X\).
+</p>
+
+<p>
+Then \(T\) is called isometry (from \(X\)) into \(Y\). 
+</p>
+
+<p>
+A couple of examples of isometry were discussed. 
+</p>
+
+<p>
+Also we talked about uniform convergence, and also an example of a sequence
+that is not uniformly convergent was also discussed. (The idea is that on a
+compact set <sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>, if a uniformly convergent function converges to a
+function is continuous.)
+</p>
+
+<p>
+Recall that we have already shown that \(C[0, 1]\) is a complete space, meaning
+that if a sequence is Cauchy, then it has a limit in the space. Which means
+that the limit must also be continuous. (Kinda similar to how uniform
+convergence works.)
+</p>
+</div>
+</div>
+<div id="outline-container-org44c3a42" class="outline-3">
+<h3 id="org44c3a42"><span class="section-number-3">3.2</span> Normed spaces and Banach spaces</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+A Banach space is just a complete normed space.
+</p>
+</div>
+<div id="outline-container-orgfe62a05" class="outline-4">
+<h4 id="orgfe62a05"><span class="section-number-4">3.2.1</span> Norm</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+A metric space can be obtained by equipping a vector space with a metric
+defined in terms of the union, resulting in the <b>normed space</b>. Complete
+normed spaces are called <b>Banach space</b>.
+</p>
+
+<p>
+A mapping from one normed space to another is called an <b>operator</b> ($T:
+X &rarr; Y). A mapping from a normed space to \(\R\) is called a
+<b>functional</b> (\(T\colon X \rightarrow \R\))
+</p>
+
+<p>
+It can be shown that a linear operator is continuous if and only if it is
+bounded.
+</p>
+
+<p>
+The set of all bounded linear operators from a space \(X\) to a space \(Y\) is
+again a normed space.
+</p>
+
+<p>
+Similarly, the set of all bounded linear functionals is a normed space, the
+dual space \(X'\) of \(X\).
+</p>
+</div>
+</div>
+<div id="outline-container-org157eba6" class="outline-4">
+<h4 id="org157eba6"><span class="section-number-4">3.2.2</span> Vector space</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+I didn't write this down. But it's pretty clear. 
+</p>
+</div>
+</div>
+<div id="outline-container-org6f32dce" class="outline-4">
+<h4 id="org6f32dce"><span class="section-number-4">3.2.3</span> Examples</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<ol class="org-ol">
+<li>\(\R^n\)</li>
+<li>\(C[a, b]\). It's kinda clear how to define a vector space structure on it.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org468ff39" class="outline-4">
+<h4 id="org468ff39"><span class="section-number-4">3.2.4</span> Subspace</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<p>
+We defined a subspace of a vector space. 
+</p>
+</div>
+</div>
+<div id="outline-container-org67864d5" class="outline-4">
+<h4 id="org67864d5"><span class="section-number-4">3.2.5</span> Span</h4>
+<div class="outline-text-4" id="text-3-2-5">
+<p>
+Span was defined.
+</p>
+</div>
+</div>
+<div id="outline-container-org63a3f6f" class="outline-4">
+<h4 id="org63a3f6f"><span class="section-number-4">3.2.6</span> Linear independence</h4>
+</div>
+<div id="outline-container-org01a0f9c" class="outline-4">
+<h4 id="org01a0f9c"><span class="section-number-4">3.2.7</span> Definition of dimension</h4>
+</div>
+<div id="outline-container-org338e82c" class="outline-4">
+<h4 id="org338e82c"><span class="section-number-4">3.2.8</span> Basis of space</h4>
+<div class="outline-text-4" id="text-3-2-8">
+<p>
+To construct basis for finite dimensional spaces are clear. 
+</p>
+
+<p>
+One can prove the existence of a basis for infinite dimensional spaces, but
+the proof is not constructive.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org16540bf" class="outline-3">
+<h3 id="org16540bf"><span class="section-number-3">3.3</span> Normed spaces</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-org26b7b85" class="outline-4">
+<h4 id="org26b7b85"><span class="section-number-4">3.3.1</span> Definition of a norm</h4>
+</div>
+<div id="outline-container-org0b562ca" class="outline-4">
+<h4 id="org0b562ca"><span class="section-number-4">3.3.2</span> Examples</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<ol class="org-ol">
+<li>\(\R^n\)</li>
+<li>\(C[a, b]\) with \(\Vert f \Vert\) with \(\Vert f\Vert = \max_{x \in [a, b]}
+       \vert f (x) \vert\). Is also a Banach space.</li>
+<li><p>
+\(\Omega \in \R^n\) be a measurable set, then the space \(L^p(\Omega)\) is
+the set of all Lebesgue measurable functions from \(\Omega \rightarrow
+       \R\). We can define the norm in a straightforward manner.
+</p>
+
+<p>
+We can show that this space is a Banach space.
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb87af31" class="outline-2">
+<h2 id="orgb87af31"><span class="section-number-2">4</span> Lecture 5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-10-30 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org4219247" class="outline-3">
+<h3 id="org4219247"><span class="section-number-3">4.1</span> Remark</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Not every metric is induced by a norm.
+</p>
+
+<p>
+Assume discrete metric is induced by a norm, i.e., \(d(x, y) = \Vert x -
+   y\Vert\). The proof is easy.
+</p>
+</div>
+</div>
+<div id="outline-container-org79f28cd" class="outline-3">
+<h3 id="org79f28cd"><span class="section-number-3">4.2</span> Convergence of sequences in normed spaces</h3>
+<div class="outline-text-3" id="text-4-2">
+<ol class="org-ol">
+<li>A sequence \((x_n)\) in a normed space \(X\) is convergent if there is an \(x\in
+      X\) with \(\lim_{n\rightarrow \infty} \Vert x_n - x\Vert = 0\). We write again
+\(\lim_{n\rightarrow \infty} x_n = x\).</li>
+<li>A sequence is called a cauchy sequence if for all \(\epsilon > 0\), there
+exists \(N\), \(\Vert x_m - x_m \Vert < \epsilon\) for all \(m, n > N\). <sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orge80c59c" class="outline-3">
+<h3 id="orge80c59c"><span class="section-number-3">4.3</span> Absolute convergence</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+A series \(S\) is called absolutely convergent if \(\sum \Vert x_i \Vert\)
+converges. If \(X\) is complete, absolute convergence implies convergence.
+</p>
+
+<p>
+Example 1. The alternating sum \(\sum (-1)^n/n\) is convergent, but not
+absolutely convergent. This converges to \(-ln(2)\).
+</p>
+
+<p>
+Example 2. \(X = \Q\), \(a_n = \sum \left(\frac{1}{2^{i}} -
+   \frac1{(i+1)!}\right)\). The first part converges to \(1\). The second element
+converges to \(e-2\). The total is \(3-e\). Let \(b_n\) be \(\sum
+   \frac{-1}{(i+1)!}\). This converges to \(2 - e\). Now \(a + b = 5 - 2e\). \(a - b =
+   1\). One of them converges to an element in \(\Q\) whereas the other one does
+not convert to an element in \(\Q\). Now we construct a new sequence with one
+element from the first one and the next element from the second one and
+continue doing this \((a_1, b_1, a_2, b_2, \cdots)\). \(S_n\) will be the partial
+sums. Then \(\sum x_i\) converges to \(a+b\), but $&sum; &vert; x<sub>i</sub> &vert; $
+converges to \(a - b = 1\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgf56e8f7" class="outline-3">
+<h3 id="orgf56e8f7"><span class="section-number-3">4.4</span> Definition of basis</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+We can now define a basis as follows: Assume that the normed space \(X\)
+contains a sequence \((e_n)_n\). Such that every \(x \in X\) in the normed space
+\(X\), can be expressed in terms of \((e_n)_n\), i.e., every \(x\) can be expressed
+as a weighted combination or linear sums of \((e_n)_n\). \(\Vert x - \sum
+   \alpha_i e_i \Vert \rightarrow 0\) as \(n \rightarrow \infty\) and this
+expansion is also unique.
+</p>
+
+<p>
+If such a basis exists, then \(X\) is separable.
+</p>
+</div>
+</div>
+<div id="outline-container-org2aa0d81" class="outline-3">
+<h3 id="org2aa0d81"><span class="section-number-3">4.5</span> Theorem about completeness</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+Every finite dimensional subspace \(Y\) of a complete normed space \(X\) is
+complete, which implies that all finite dimensional normed spaces are
+complete. <sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>
+</p>
+</div>
+</div>
+<div id="outline-container-org94100aa" class="outline-3">
+<h3 id="org94100aa"><span class="section-number-3">4.6</span> Norm equivalence</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+We have two norms. We want to say when two norms are equivalent.
+</p>
+
+<p>
+A norm \(\Vert \Vert_1\) on \(X\) is said to be equivalent to a norm \(\Vert
+   \Vert_2\) if there exists \(a, b > 0\) such that
+</p>
+
+<p>
+\(a \Vert x \vert_1 \le \Vert x \vert_2 \le b \Vert x \Vert_2\).
+</p>
+
+<p>
+An example: For finite-dimension vector space, then all norms are equivalent.
+</p>
+
+<p>
+We'll show that \(\Vert \Vert_2\), and \(\Vert \Vert_\infty\) are equivalent.
+</p>
+
+<p>
+Given any \(X \in \R^n\), \(\Vert x\Vert_2^2 = \sum_{i=1}^{n} x_i^2 \ge \max_i
+   x_i^2 = \Vert x\Vert_\infty\). Also \(\Vert x \Vert_2^2 = \sum_{i=1}^{n} x_i^2
+   \le n \cdot \max x_i^2 = n \Vert x \Vert_\infty\). Thus \(\Vert x \Vert_\infty
+   \le \Vert x\Vert_2 \le \sqrt{n}\Vert x \Vert_\infty\).
+</p>
+
+<p>
+<b>A non-example</b>: Consider \(X = C[0, 1]\) and define \(f_n(X) = X^n\). Clearly,
+\(f_n \in C[0, 1]\) for al l\(n\).
+</p>
+
+<p>
+\(\Vert f_n \Vert_\infty = \max_{x\in [0, 1]} \vert f_n(x)\vert\). Now we
+introduce another norm which is the Lebesgue integral. For \(f_n\), this would
+evaluate to \(1/{n+1}\). The contradiction is the fact that the maximal norm
+would be \(1\) always, whereas, the Lebesgue norm would tend to \(0\) as
+\(n\rightarrow \infty\). There is a clear contradiction here.
+</p>
+</div>
+</div>
+<div id="outline-container-orgdd9b597" class="outline-3">
+<h3 id="orgdd9b597"><span class="section-number-3">4.7</span> Compactness in metric spaces</h3>
+<div class="outline-text-3" id="text-4-7">
+<p>
+A metric space is defined to be compact if every sequence in \(X\) has a
+convergent subsequence. A subset \(M\) of \(X\) is defined to be compact if \(M\)
+considered as a subspace is compact, i.e., every sequence has a convergent
+subsequence and the limit is in \(M\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgcd8ca39" class="outline-3">
+<h3 id="orgcd8ca39"><span class="section-number-3">4.8</span> Theorem</h3>
+<div class="outline-text-3" id="text-4-8">
+<p>
+If \(X\) is a fininte-dimensional normed space, then any subset \(M \subset X\)
+is compact if and only if $M is closed and bounded.
+</p>
+
+<p>
+Consider the sequence \(\{x_n\}\) with \(x_n = (-1)^n\), then \((x_n)\) does not
+converge, but it has convergent subsequences.
+</p>
+</div>
+</div>
+<div id="outline-container-orge34649c" class="outline-3">
+<h3 id="orge34649c"><span class="section-number-3">4.9</span> Bolzano-Weistrass theorem</h3>
+<div class="outline-text-3" id="text-4-9">
+<p>
+Any bounded sequence \((x_n) \in l^{\infty}\) has a convergent subsequence.
+</p>
+</div>
+<div id="outline-container-orga8d583a" class="outline-4">
+<h4 id="orga8d583a"><span class="section-number-4">4.9.1</span> Proof</h4>
+<div class="outline-text-4" id="text-4-9-1">
+<p>
+Without loss of generality, we assume that all elements are with \([0, 1]\),
+otherwise we an shift it and normalize it (can we do this?) Divide the
+interval \(\{0, 1/2\}\) and \(\{1/2, 1\}\), then one of them must have
+infinitely many points. (We can repeat the argument), we have a new sequence
+which are elements of \(x_n\) that are in the interval (the interval with
+infinitely many points.) We can repeat this process again and the length of
+the intervals go to zero. It is clear how to construct a convergent
+subsequence.
+</p>
+</div>
+</div>
+<div id="outline-container-org7cd57ba" class="outline-4">
+<h4 id="org7cd57ba"><span class="section-number-4">4.9.2</span> Extension to bounded sub-sequences in \(\R^n\).</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-org663bd99" class="outline-2">
+<h2 id="org663bd99"><span class="section-number-2">5</span> Lecture 5 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-01 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org5751995" class="outline-3">
+<h3 id="org5751995"><span class="section-number-3">5.1</span> Review</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+In \(\R^n\), the compact subsets are the closed and bounded subsets so that
+close-ness and boundedness can be used to define compactness. This can only
+be used for finite dimensional cases.
+</p>
+</div>
+</div>
+<div id="outline-container-orgb1d1f82" class="outline-3">
+<h3 id="orgb1d1f82"><span class="section-number-3">5.2</span> Riesz's lemma</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Given a normed space \(X\) with a closed subspace \(y\) and a subspace \(z\) such
+that \(y\) is a subset of \(z\). Given any number \(\theta\in (0, 1)\), there
+exists, \(z\in Z\) such that \(\vert z \vert = 1\), and the distance \(\Vert z - y
+   \Vert \ge \theta\), for all \(y \in Y\).
+</p>
+</div>
+<div id="outline-container-org9e1fd4d" class="outline-4">
+<h4 id="org9e1fd4d"><span class="section-number-4">5.2.1</span> Proof</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<p>
+Let \(v\in Z \setminus Y\), define \(a = \inf_{y \in Y} \Vert v - y\Vert\) to
+be the distance to \(y\). Since \(y\) is closed, \(a>0\). Choose \(\theta \in (0,
+    1)\), then there exits a \(y_0 \in y\), with \(a \le \Vert v - y_0 \Vert \le
+    \frac{a}{\theta}\).
+</p>
+
+<p>
+Define \(z = \vert{1}{\Vert V = y_0}(V-y_0)\). Clearly, \(\Vert z\Vert = 1\).
+Furthermore, given \(y\in Y\), it holds that \(\Vert z - y\Vert =
+    \Vert\frac{1}{\Vert v - y_0\Vert}(v -y_0) - y\Vert = \frac{1}{\Vert v -
+    y_0\Vert} \Vert v - y_0 - \Vert v-y_0\Vert\cdot y\Vert\).
+</p>
+
+<p>
+Since \(Y\) is a subspace, \(y_1 \in Y\) and \(\Vert v - y_1\Vert \ge a\) (since a
+is the infimum.)
+</p>
+
+<p>
+\(\Vert z - y\Vert = \frac{1}{\Vert v - y_0\Vert} \Vert V - y_1\Vert \le
+    \frac{\theta}{a}a = \theta\)
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org8283ef3" class="outline-3">
+<h3 id="org8283ef3"><span class="section-number-3">5.3</span> Theorem</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+If the closed unit ball \(M=\{X \vert \Vert X \Vert \le 1\}\) of a normed space
+\(X\) is compact, then \(X\) is finite-dimensional.
+</p>
+
+<p>
+The proof uses Riesz's lemma. Assume that \(M\) is compact set but \(\dim X =
+   \infty\), this leads to a contradiction. Compact sets have compact images
+under continuous mappings.
+</p>
+</div>
+</div>
+<div id="outline-container-org86e3c92" class="outline-3">
+<h3 id="org86e3c92"><span class="section-number-3">5.4</span> Theorem</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+Suppose \(X\) and \(Y\) are metric spaces and \(T \colon X \rightarrow X\) is
+continuous. Then any compact subset of \(X\) is mapped to a compact subset of
+\(Y\).
+</p>
+</div>
+<div id="outline-container-org5b45985" class="outline-4">
+<h4 id="org5b45985"><span class="section-number-4">5.4.1</span> Proof</h4>
+<div class="outline-text-4" id="text-5-4-1">
+<p>
+Proof is easy.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org30353e7" class="outline-3">
+<h3 id="org30353e7"><span class="section-number-3">5.5</span> Corollary</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+Given a continuous mapping \(T \colon M \rightarrow \R\), where \(M\) is a
+compact subset of \(X\). Then \(T\) assumes a maximum and a minimum at some
+points of \(M\).
+</p>
+</div>
+<div id="outline-container-org88f77a5" class="outline-4">
+<h4 id="org88f77a5"><span class="section-number-4">5.5.1</span> Proof</h4>
+<div class="outline-text-4" id="text-5-5-1">
+<p>
+The proof is easy. It's something like take the infimum, it has to be a
+point in the space because closed.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org37dccad" class="outline-3">
+<h3 id="org37dccad"><span class="section-number-3">5.6</span> Example</h3>
+<div class="outline-text-3" id="text-5-6">
+<p>
+The closed unit ball \(M=\{f \colon \Vert f \Vert \le 1 \}\) of \(C[0, 1]\) is
+not compact. To see this, define \(f(X) = \max(1 - \vert X \vert, 0)\) and
+\(f_n(X) = f(2n\cdot (n+1)(x - \frac{1}{n}))\) (functions with center \(1/n\) and
+decreasing bandwidth converges to the zero function) <sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>
+</p>
+
+<p>
+Now \(f_n \in C[0, 1]\) and \(\Vert f_n \Vert_\infty = 1\). Since supports of \(f_n\) do not overlap.
+</p>
+
+<p>
+\(\Vert f_n f_m\Vert = \max_{X \in \{0, 1\}} \vert f_n(X) - f_m(X)\vert = 1\)
+and the sequence does not have a convergent subsequence.
+</p>
+</div>
+</div>
+<div id="outline-container-org0862cf2" class="outline-3">
+<h3 id="org0862cf2"><span class="section-number-3">5.7</span> Linear Operators</h3>
+<div class="outline-text-3" id="text-5-7">
+<p>
+We now consider linear operators and their properties.
+</p>
+</div>
+<div id="outline-container-org3e2351f" class="outline-4">
+<h4 id="org3e2351f"><span class="section-number-4">5.7.1</span> Definition</h4>
+<div class="outline-text-4" id="text-5-7-1">
+<p>
+Let \(T\) be an operator, \(D(T)\) its domain and \(R(T)\) its range. The operator
+is called linear if \(T(x + y) = Tx+Ty\) and \(T(\alpha x) = \alpha Tx\)
+</p>
+
+<p>
+Note that we typically write \(Tx\) and not \(T(x)\) as it is done for functions.
+</p>
+
+<p>
+The null set \(N(T)\) is defined \(N(T) = \{x \in D(T) \colon Tx = 0\}\)
+</p>
+
+<p>
+In particular, linearity implies \(T0 = 0\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgf9c35a4" class="outline-4">
+<h4 id="orgf9c35a4"><span class="section-number-4">5.7.2</span> Example</h4>
+<div class="outline-text-4" id="text-5-7-2">
+<p>
+Define \(T\) by \((Tf)(x) = \int_{a}{x} f(\tilde x) d \tilde x\) for \(f\in C[a,
+    b]\). Then \(T(cf + cg) = cTf + dTg\). It is easy to show that the operator is
+linear.
+</p>
+</div>
+</div>
+<div id="outline-container-org4b19b00" class="outline-4">
+<h4 id="org4b19b00"><span class="section-number-4">5.7.3</span> Example</h4>
+<div class="outline-text-4" id="text-5-7-3">
+<ol class="org-ol">
+<li>Let \(X\) be the space of all polynomials defined on \([a, b]\). We can define a
+linear operator to be the derivative, \(Tf = f'\). <sup><a id="fnr.7" class="footref" href="#fn.7">7</a></sup></li>
+<li>Given \(A \in \R^{m\times n}\), \(T \colon \R^n \rightarrow \R^m\), \(X
+       \rightarrow Ax\) is linear \(T(ax + by) = aAx + bAy = aTx + bYy\).</li>
+<li>Let \(k\) be a square-integrable function on \([a, b]^2\) and \(X=L_2[a, b]\),
+then define \(f\mapsto\int_{a}^{b} h(x, \cdot) f(x)\ dx\)<sup><a id="fnr.8" class="footref" href="#fn.8">8</a></sup> <sup>, </sup><sup><a id="fnr.9" class="footref" href="#fn.9">9</a></sup></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb07c0ed" class="outline-3">
+<h3 id="orgb07c0ed"><span class="section-number-3">5.8</span> Theorem about linear operators</h3>
+<div class="outline-text-3" id="text-5-8">
+<p>
+Suppose that \(T\) is linear, then
+</p>
+<ol class="org-ol">
+<li>\(R(T)\) is a vector space</li>
+<li>\(N(T)\) is a vector space.</li>
+</ol>
+
+<p>
+I think \(R\) and \(N\) are range and kernel, respectively. The proof is kinda
+easy.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb912c4d" class="outline-2">
+<h2 id="orgb912c4d"><span class="section-number-2">6</span> Lecture 6 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-06 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org78e32a3" class="outline-3">
+<h3 id="org78e32a3"><span class="section-number-3">6.1</span> Regarding convergence of a function</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+\(\sup(f_n)\subset [0, 2/n]\), \(f_n(0) = 0\), consider fixed \(x\in [0, 1]\).
+Given any \(\varepsilon > 0\), choose \(N > 2/X\), then \(X > 2/N > 2/N\) for
+\(n>N\). Thus \(x \in \sup(f_n)\) and \(f_n(x) = 0\), \(f_n\) converges point-wise to
+\(0\).
+</p>
+
+<p>
+\(f_n(x) = f(2n(n+1)(x - 1/2))\)
+</p>
+</div>
+</div>
+<div id="outline-container-orgf9df8db" class="outline-3">
+<h3 id="orgf9df8db"><span class="section-number-3">6.2</span> Injectivity of operators</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+If \(T\) is injective, there exists \(T^{-1}\colon R(T) \rightarrow D(T)\) with
+\(T^{-1}y =x\) for \(Tx =y\), i.e., the inverse of \(T\). It follows that \(T^{-1}Tx
+   = T^{-1}Ty = x\) and \(TT^{-1}y = Tx = y\).
+</p>
+
+<p>
+Example: Given \(A\in \R^{n\times n}\), \(T\colon \R^n \rightarrow \R^m\), \(x
+   \mapsto Ax\).
+</p>
+
+<p>
+If \(m < n\), \(T\) can be injective if the rank of \(A = n\), but it cannot be
+surjective. When \(m > n\), then \(T\) can be surjective, when the Rank of \(A =
+   m\), but it cannot be injective. If \(m = n\), then \(T\) is bijective if and only
+if the rank of \(A = m = n\).
+</p>
+</div>
+</div>
+<div id="outline-container-org234c78b" class="outline-3">
+<h3 id="org234c78b"><span class="section-number-3">6.3</span> Theorem</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+Given vector spaces \(X\) and \(Y\), and a linear operator \(T \colon D(T)
+   \rightarrow Y\), then
+</p>
+<ol class="org-ol">
+<li>\(T^{-1}\colon R(T) \rightarrow D(T)\) exists if and only if \(T(x) = 0
+      \implies x = 0\), i.e., the null space \(N(T) = 0\). Then \(T^{-1}\) is also a
+linear operator.</li>
+<li>If the dimension of the domain of \(T\) is smaller than \(\infty\), and
+\(T^{-1}\) exists, then \(\dim R(T) = \dim D(T)\).</li>
+</ol>
+</div>
+<div id="outline-container-org60baf21" class="outline-4">
+<h4 id="org60baf21"><span class="section-number-4">6.3.1</span> Proof</h4>
+<div class="outline-text-4" id="text-6-3-1">
+<p>
+Assume that \(T^{-1}\) exists then \(T\) is injective and \(Tx = 0 \implies x =
+    0\). Conversely, assume \(Tx_1 = Tx_2\), then \(Tx_1 - Tx_2 = T(x_1 - x_2) = 0\).
+Thus, by assumption \(x_1 - x_2 = 0 \implies x_1 = x_2\) and \(T\) is injective.
+Hence the inverse \(T^{-1}\) exists.
+</p>
+
+<p>
+To show that \(T^{-1}\) is a linear operator: Given \(y_i = T x_i\) and \(x_i =
+    T^{-1}y\), for \(i = 1, 2\), then it follows that \(T(\alpha x_1 + \beta x_2) =
+    \alpha T x_1 + \beta T x_2 = \alpha y_1 + \beta y_2\) and \(T^{-1}T(\alpha
+    x_1 + \beta x_2) = T^{-1}(\alpha y_1 + \beta y_2)\). From this one can show
+that if \(T^{-1}\) exists, it is also a linear operator.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Let \(\dim D(T) = n < \infty\), then \(\dim R(T) \le n\), i.e., \(\dim R(T)
+       \le \dim D(T)\). This can be seen as follows: choose \(n+1\) elements \(y_1,
+       \cdots, y_{n+1} \in R(T)\) and we choose them arbitrary, then we can find
+pre-images \(x_1, \cdots, x_{n+1}\in D(T)\), it holds that \(Tx_i = y_i\),
+for all \(i\). Since we assumed \(\dim D(T) = n\), the \(x_i\) are linearly
+dependent, i.e., there exist \(\alpha_i \in \R\) such that \(\sum \alpha_i
+       x_i = 0\) where not all \(\alpha_i\) are zero. Now \(T \sum_i^{n+1} \alpha_i
+       x_i= \sum_{i=1}^{n+1} \alpha_i y = 0\), but not all \(\alpha_i\) are zero.
+Thus we have found a set of linearly dependent vectors. Since we chose
+the vectors arbitrarily, we see that the dimension must be less than or
+equal to \(n\).
+</p>
+
+<p>
+If we apply the same reasoning to the inverse operator, which we assume
+exists, we obtain in similar fashion that the \(\dim D(T) \le \dim R(T)\).
+Thus, \(\dim R(T) = \dim D(T)\).
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org2c4487c" class="outline-3">
+<h3 id="org2c4487c"><span class="section-number-3">6.4</span> Lemma</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+Let \(X, Y, Z\) be vector spaces \(T \colon X \rightarrow Y\), and \(S \colon Y
+   \rightarrow Z\) bijective operators, then we claim that \((ST)^{-1} = T^{-1}
+   S^{-1}\).
+</p>
+</div>
+</div>
+<div id="outline-container-org08c941a" class="outline-3">
+<h3 id="org08c941a"><span class="section-number-3">6.5</span> Definition: Bounded operators</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+Given normed spaces \(X\) and \(Y\) and a linear operator, \(T \colon D(T)
+   \rightarrow Y\), \(D(T) \subset X\), \(T\) is defined to be bounded if there
+exists a constant \(c\) such that \(\Vert Tx \Vert \le c \Vert x \Vert\) and this
+has to hold for all \(x \in D(T)\). A bounded linear operator maps bounded sets
+in \(D(T)\) onto bounded sets in \(Y\).
+</p>
+
+<p>
+We define the norm \(\Vert T \Vert = \sup_{x \in D(T), \lambda \neq 0}
+   \frac{\Vert T x \Vert}{\Vert x \Vert}\) to be the norm of \(T\). It is
+straightforward to verify that this satisfies the properties for norm.
+</p>
+
+<p>
+For bounded linear operators, the bound can be computed by the supremum over
+\(\Vert x \Vert = 1\). This is straightforward to see.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd74c423" class="outline-3">
+<h3 id="orgd74c423"><span class="section-number-3">6.6</span> Example</h3>
+<div class="outline-text-3" id="text-6-6">
+<p>
+Given \(A \in \R^{n \times n}\), the linear operator \(T \colon \R^{n}
+   \rightarrow \R^{n}\) is bounded since \((\sup_{\Vert x \Vert= 1} \Vert A x
+   \Vert)^2 = \sup x^{T} A^{T} A x = \lambda \max(A^T A)\), the largest
+eigenvalue of \(A^{T}A\) (Rayleigh-Ritz theorem.)
+</p>
+
+<p>
+Note that for \(A = U \sum V^T\), so that \(A^{T} A = V \sigma^2 V^{T}\), thus
+\(\lambda_{\max} = \delta_{1}^2\), where \(\delta_1\) is the largest singular
+value of \(A\).
+</p>
+
+<p>
+Let \(X\) be the space of all polynomials on \([0, 1]\) and \(\Vert f \Vert =
+   \max_{x \in [0, 1]} \vert f (x) \vert\). The differentiation operator \(T\) with
+\(Tf = f'\) is not bounded. Since for \(f_n(x) = x^n\), \(\Vert f_n\Vert = 1\), all
+these functions are bounded above by \(1\), hence the norm is \(1\), whereas, the
+norm of the derivative is \(n\) and this is unbounded.
+</p>
+
+<p>
+\(T \colon C[0, 1] \rightarrow C[0, 1]\) by \((Tf)(x) = \int_{0}^{x} f(t)\ dt\).
+Then \(\Vert T f\Vert = \max_{x \in [0, 1]} \vert \int_{0}^{1} f(t)\ dt\vert
+   \le \max_{x \in [0, 1]} \int_{0}^{1} \vert f(t) \vert dt \le (1-0) \max_{x\in
+   [0, 1]} \vert f(x) \vert = \Vert f \Vert\), thus \(\Vert T \Vert \le 1\), but we
+can choose the function identical to \(1\), then the norm is exactly equal to
+\(1\).
+</p>
+
+<p>
+Define \(c = \{x_n \in l_1 \vert \exists N \in \N \colon x_n = 0, \forall n >
+   N\}\), with the \(l_1\) norm. We define the operator \(T\colon (x_1, x_2, x_3,
+   \cdots) = (x_1, 2x_2, 3x_3, \cdots)\) is unbounded, we can compute \(\Vert T
+   e_i \Vert = i\), so if we have the sequence but the \(\Vert e_i \Vert = 1\).
+</p>
+</div>
+</div>
+<div id="outline-container-orgdce3779" class="outline-3">
+<h3 id="orgdce3779"><span class="section-number-3">6.7</span> Theorem</h3>
+<div class="outline-text-3" id="text-6-7">
+<p>
+Every linear operator on a finite dimensional normed space is bounded.
+</p>
+</div>
+<div id="outline-container-orga0734e3" class="outline-4">
+<h4 id="orga0734e3"><span class="section-number-4">6.7.1</span> Proof</h4>
+<div class="outline-text-4" id="text-6-7-1">
+<p>
+Let \(n\) be the dimension of \(X\) and \(\{e_1, \cdots, e_n\}\) a basis.
+</p>
+
+<p>
+Any \(x\in X\) can be written as \(X = \sum \alpha_i e_i\), thus \(\Vert Tx \Vert
+    = \Vert T \sum \alpha_i e_i\Vert \le \sum \Vert T \alpha_i e_i\Vert = \sum
+    \vert \alpha_i \vert \le \max_{i} \Vert T e_i \Vert . \sum \vert \alpha_i
+    \vert\). We define \(\Vert x \Vert_0 = \sum \vert \alpha_i \vert\) defines a
+norm. Since all norms on finite-dimensional spaces are equivalent, there
+exist \(c\) such that \(\Vert x \Vert_0 \le c \Vert x \Vert\). Thus \(\Vert T
+    x\Vert \le \max \Vert T e_i \Vert \cdot c \cdot \Vert x \Vert\) and \(T\) is
+bounded.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb3d3808" class="outline-2">
+<h2 id="orgb3d3808"><span class="section-number-2">7</span> Lecture 7 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-08 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org278b870" class="outline-3">
+<h3 id="org278b870"><span class="section-number-3">7.1</span> Theorem about Bounded operators</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+For linear operators, continuity and boundedness are equivalent.
+</p>
+
+<p>
+Continuity of \(T\) means that \(\forall \varepsilon > 0\), there exists a
+\(\delta > 0\), such that \(\Vert x - x_0 \Vert < \delta \implies \vert Tx -
+   Tx_0 \vert < \varepsilon\).
+</p>
+</div>
+<div id="outline-container-org67962a4" class="outline-4">
+<h4 id="org67962a4"><span class="section-number-4">7.1.1</span> Proof</h4>
+<div class="outline-text-4" id="text-7-1-1">
+<p>
+There is nothing to show for \(T=0\), now we assume that \(T\) is not the zero
+operator, i.e., \(\exists r\) such that \(\Vert T x \Vert \le r \Vert x \Vert\).
+Using linearity, we can write that \(\Vert Tx - Tx_0\Vert = \Vert T (x -
+    x_0)\Vert \le \delta \Vert x - x_0\Vert\). Choose \(\delta =
+    \varepsilon/\delta\), thus \(\Vert x -x_0 \Vert < \delta \implies \Vert Tx -
+    Tx_0 \Vert \delta \Vert x - x_0\Vert\le \gamma\cdot \delta =\varepsilon\) and
+\(T\) is continuous.
+</p>
+
+<p>
+Conversely, assume that \(T\) is continuous. Take arbitrary \(y\in D(T)\),
+define \(X = X_0 + \frac{\delta}{\Vert y \Vert} y\). Thus \(\Vert x - x_0 \Vert
+    = \Vert \frac{\delta}{\Vert y \Vert} \cdot y \Vert = \delta\). Since \(T\) is
+continuous, \(\Vert Tx - Tx_0 \Vert < \varepsilon\). Now \(\Vert Tx - Tx_0\Vert
+    = \Vert T \delta/\Vert y \Vert y \Vert = \frac{\delta}{\Vert y \Vert}\Vert T
+    y \Vert < \varepsilon\) Multiplying by \(\Vert y \Vert / \delta\), we get
+$\Vert T y \Vert &lt; &epsilon;/&delta;\(\cdot \Vert y \Vert\) We call the last
+term \(\gamma\).
+</p>
+
+<p>
+The second part of the proof shows that continuity in one point suffices to
+show boundedness. And boundedness means continuity at all points. Thus
+continuity at one point implies continuity at all points. Pretty interesting!
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbbb0f01" class="outline-3">
+<h3 id="orgbbb0f01"><span class="section-number-3">7.2</span> Corollary</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+Given a linear bounded operator \(T\), it holds that 
+</p>
+<ol class="org-ol">
+<li>\(x_n \rightarrow x\) implies that \(Tx_n \rightarrow Tx\)</li>
+<li>The null space of such an operator is closed</li>
+</ol>
+</div>
+<div id="outline-container-org2af7df8" class="outline-4">
+<h4 id="org2af7df8"><span class="section-number-4">7.2.1</span> Proof</h4>
+<div class="outline-text-4" id="text-7-2-1">
+<p>
+These are basically properties of continuous functions.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org47c1b0b" class="outline-3">
+<h3 id="org47c1b0b"><span class="section-number-3">7.3</span> Definition</h3>
+<div class="outline-text-3" id="text-7-3">
+<p>
+We write that \(T_1 = T_2\) if \(D(T_1) = D(T_2)\) and \(T_1x = T_2x\) for all \(x
+   \in D(T_1) = D(T_2)\). Furthermore \(T\vert_B\) denotes the restriction to the
+set \(B\), i.e., \(T\vert_B \colon B \rightarrow Y\) with \(T\vert_B x = Tx\) for
+all \(x \in B\).
+</p>
+
+<p>
+The extension of \(T\), denoted by \(\tilde{T}\colon M \rightarrow Y\) where \(D(T)
+   \subset M\) is defined by \(\tilde{T}x = Tx\), for all \(x\in D(T)\).
+</p>
+
+<p>
+Example of extension. The set \(X = Y = \R\), define \(T\) by \(Tx=x\), and $D(T) =
+[0, 1]. Then \(\tilde{T}\) defined by \(\tilde{T}x = \vert x \vert\) with
+\(D(\tilde{T}) = [-1, 1]\) is an extension of \(T\)
+</p>
+</div>
+</div>
+<div id="outline-container-org67a016f" class="outline-3">
+<h3 id="org67a016f"><span class="section-number-3">7.4</span> Theorem</h3>
+<div class="outline-text-3" id="text-7-4">
+<p>
+If \(T \colon D(T) \rightarrow Y\) is a bounded linear operator, \(D(T)\), part
+of a normed space, \(Y\), a Banach space, then there is an extension
+\(\tilde{T}\colon \bar{D(T)} \rightarrow Y\) with \(\Vert \tilde{T} \Vert =
+   \Vert T \Vert\). Furthermore, \(\tilde{T}\) is a bounded linear operator.
+</p>
+</div>
+<div id="outline-container-orgd4cd24a" class="outline-4">
+<h4 id="orgd4cd24a"><span class="section-number-4">7.4.1</span> Proof</h4>
+<div class="outline-text-4" id="text-7-4-1">
+<p>
+For any \(x \in \bar{D}(T)\) consider the sequence \((x_n)_n\) in \(D(T)\) that
+converges to \(x\).
+</p>
+
+<p>
+\(\Vert Tx_n - Tx_m \Vert = \Vert T(x_n - x_m)\Vert \le \Vert T \Vert \Vert
+    x_n - x_m\Vert\). Since \(x_m\) converges, \(Tx_n\) is Cauchy and converges as we
+assumed \(Y\) to be complete. The rest of the argument is trivial.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org086512b" class="outline-3">
+<h3 id="org086512b"><span class="section-number-3">7.5</span> Linear functionals</h3>
+<div class="outline-text-3" id="text-7-5">
+<p>
+A functional is a map from \(X\) to \(\R\) or \(\C\). Given a functional \(f\),
+\(D(f)\) denotes the domain, \(R(f)\) denotes the range of \(f\). 
+</p>
+
+<p>
+For functionals, we typically write \(f(x)\) and not \(fx\), although \(f\) is
+still an operator.
+</p>
+</div>
+<div id="outline-container-org0c14950" class="outline-4">
+<h4 id="org0c14950"><span class="section-number-4">7.5.1</span> Example</h4>
+<div class="outline-text-4" id="text-7-5-1">
+<ol class="org-ol">
+<li>For a normed space \(X\), \(\Vert . \Vert \colon X \rightarrow \R\) is a functional.</li>
+<li>For \(X=\R\), and \(x_0 in X\), \(f\colon X\rightarrow \R\), \(x\mapsto x_0^{T}x
+       = \langle x_0, x\rangle\).</li>
+<li>Linearity is defined as before, with the difference that \(y\) is now \(\R\)
+if \(X\) is a real or \(\C\), if \(X\) is a complex space.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org72617c4" class="outline-4">
+<h4 id="org72617c4"><span class="section-number-4">7.5.2</span> Example</h4>
+<div class="outline-text-4" id="text-7-5-2">
+<ol class="org-ol">
+<li>The norm functional is not a linear functional. \(\Vert \alpha x + \beta y
+       \Vert \neq \alpha \Vert x \Vert + \beta \Vert y \Vert\). This is not true
+in general.</li>
+<li>Define \(f(x) = x_0^{T}x\) is linear, clearly, because the scalar product
+is bilinear. It is linear in each variable.</li>
+<li>The evaluation functional given by the Dirac delta function \(\delta_x f =
+       f(x)\).</li>
+<li>The definite integral is a functional. Let \(l\) denote the functional such
+that for \(f\) in \(C[a, b]\), \(l(f) = \int_{a}^{b} f(x) dx\), then it is
+straightforward to verify that this is linear.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org21689fe" class="outline-4">
+<h4 id="org21689fe"><span class="section-number-4">7.5.3</span> Remark</h4>
+<div class="outline-text-4" id="text-7-5-3">
+<p>
+Similarly, boundedness is again defined as: A linear functional is bounded
+if there exists a constant \(c\) such that \(\vert f(x) \vert \le c \cdot \Vert
+    x \Vert\). and \(\Vert v \Vert = \sup \vert f(x) \vert / \Vert x \Vert =
+    \sup_{\Vert x \Vert = 1} \vert f(x) \vert\).
+</p>
+</div>
+</div>
+<div id="outline-container-org1b99885" class="outline-4">
+<h4 id="org1b99885"><span class="section-number-4">7.5.4</span> Theorem</h4>
+<div class="outline-text-4" id="text-7-5-4">
+<p>
+Let \(f\colon D(f) \rightarrow K\) be a linear functional, then \(f\) is
+continuous if and only if it is bounded.
+</p>
+</div>
+</div>
+<div id="outline-container-orgef9f108" class="outline-4">
+<h4 id="orgef9f108"><span class="section-number-4">7.5.5</span> Example</h4>
+<div class="outline-text-4" id="text-7-5-5">
+<ol class="org-ol">
+<li>For integrable functions on \([a, b]\), it is easy to see that the integral
+functional is bounded.</li>
+<li>The dot product example can be extended to \(l_2\) by choosing a fixed
+element \(a\) in \(l_2\) and setting \(f(x) = \sum a_i x_i\). Due to
+Cauchy-Schwarz inequality \(\vert \langle x, y\rangle\vert \le \Vert x
+       \Vert \cdot \Vert y \Vert\).</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd10ac61" class="outline-2">
+<h2 id="orgd10ac61"><span class="section-number-2">8</span> Lecture 8 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-07 Wed&gt;</span></span></h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org52adaef" class="outline-3">
+<h3 id="org52adaef"><span class="section-number-3">8.1</span> Example</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+\((x_n)_n\), it's basically a sequence of sequences. \(x_n \in l_\infty\).
+</p>
+
+<p>
+\(\delta_X f = f(x)\).
+</p>
+
+<p>
+The evaluation functional \(\delta_X\) on \(C[a, b]\) with norm \(\Vert \cdot
+   \Vert_\infty\) is bounded. But it might be unbounded with respect to another
+norm.
+</p>
+</div>
+</div>
+<div id="outline-container-org6c87ce3" class="outline-3">
+<h3 id="org6c87ce3"><span class="section-number-3">8.2</span> Linear functionals</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+The set of all linear functionals forms a vector space denoted by \(X^{*}\).
+</p>
+
+<p>
+The algebraic dual space. For defining a vector vector space, we need the
+basic operations \(+\) (addition) and $.$ scalar multiplication, which can be
+defined as follows: we take two functionals \(f_1\) and \(f_2\) and a scalar
+\(\alpha\), is easy to write \((f_1 + f_2)(x) = f_1(x) + f_2(x)\) etc. This part
+is obvious.
+</p>
+
+<p>
+We can also consider the dual of the dual space \(X^{**}\), the second
+algebraic dual space. It is clear that there is a canonical isomorphism
+between \(X\) and \(X^{**}\).
+</p>
+
+<p>
+There was an example with \(V\) along with an orthogonal basis.
+</p>
+</div>
+</div>
+<div id="outline-container-org8321cdc" class="outline-3">
+<h3 id="org8321cdc"><span class="section-number-3">8.3</span> Definition of isomorphism of vector spaces</h3>
+</div>
+<div id="outline-container-org94a27a3" class="outline-3">
+<h3 id="org94a27a3"><span class="section-number-3">8.4</span> About finite linear operators</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+Let us now consider finite dimensional vector spaces. Any linear operator
+between two fininte-dimensional vector space can be regarded as a matrix. To
+see this we have two finite dimensional spaces \(X\) and \(Y\) and a linear
+operator \(T \colon X \rightarrow Y\). let \(\{x_1, \cdots, x_n\}\) be a basis of
+\(X\) and \(\{z_1, \cdots, z_n\}\) be a basis of \(Y\). 
+</p>
+
+<p>
+Then for each \(x\in X\), we can write \(X = \sum \alpha_i X_i\) and \(y = Tx =
+   \sum \alpha_i Tx_i\) and define \(Tx_i = y_i\). Thus by knowing the images
+\(y_i\), \(T\) is uniquely defined. For any \(z \in Y\), it can be written as \(z =
+   \sum \beta_j z_j\) as well as \(y_j = Tx_i = \sum \gamma_{ji}z_j\).
+</p>
+
+<p>
+Now we have two representations in \(z_j\), \(j = 1, \cdots, m\). It follows that
+\(\beta_j = \sum_{i=1}{n} \gamma_{ji} \alpha_i\) and that \(y = Tx\) is
+determined by knowing the coefficients \(\gamma_{ji}\), which can be written in
+matrix form as
+</p>
+
+<p>
+\[T_\mu = [\gamma_{ji}]_{j=1, \cdots m; i =1, \cdots m}\]
+</p>
+
+<p>
+Then \(\beta = T_\mu \alpha\).
+</p>
+</div>
+</div>
+<div id="outline-container-orge38fd79" class="outline-3">
+<h3 id="orge38fd79"><span class="section-number-3">8.5</span> Example</h3>
+<div class="outline-text-3" id="text-8-5">
+<p>
+Consider the discrete dynamical system \(\phi \colon \R^2 \rightarrow \R^2\) by
+\(\phi(x) = [\lambda x_n, \mu x_2 + (\lambda^2 - \mu)x^2n]^T\)
+</p>
+
+<p>
+The Korpman operator \(K\) is an infinite-dimensional operator defined by \(Kf =
+   f\circ \phi\), i.e., \((Kf)(\lambda) = f(\phi(x))\) for \(f \in L_{\infty}\). This
+operator apparently plays an important role in Dynamical system.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb8bb1a0" class="outline-2">
+<h2 id="orgb8bb1a0"><span class="section-number-2">9</span> Lecture 10 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-15 Thu&gt;</span></span></h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-org794ba80" class="outline-3">
+<h3 id="org794ba80"><span class="section-number-3">9.1</span> Koopman operator</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+\(Kf = f\circ I\)
+</p>
+
+<p>
+Consider the discrete dynamical system \(\phi \colon \R^2 \rightarrow \R^2\) by
+\(\phi(x) = [\lambda x_n, \mu x_2 + (\lambda^2 - \mu)x^2n]^T\)
+</p>
+
+<p>
+Then the space is spanned by functions $\{x<sub>1</sub>, x<sub>2</sub>, x<sub>1</sub><sup>2</sup>\} forms a so-called
+Koopman-invariant subspace. Let \(f_1(\bf{x}) = x_1\), \(f_2(\bf{x}) = x_2\),
+\(f_e(\bf{x}) = x_n^2\), then any function from this subspace can be written as
+\(f = \sum_{i=1}^{3} \alpha_i f_i\) and \(g=Kf = K\sum(\alpha_i f_i) = \sum
+   \alpha_i Kf_i\). We call the term \(Kf_i = g_i\).
+</p>
+
+<p>
+\(g_1(x) = Kf_1(x) = f_1(\phi(x)) = \lambda x_1 =\lambda f_1(x)\).
+</p>
+
+<p>
+\(g_2(x) = Kf_2(x) = f_2(\phi(x)) =\mu x_2 + (\lambda^2 - \mu)x_1^2 - \mu
+   f_2(x) + (\lambda^2 - \mu)f_3(\lambda)\)
+</p>
+
+<p>
+\(g_3(x) = Kf_3(x) = f_3(\phi(x)) = \lambda^2 x_1^2 = \lambda^2 f_3(x)\)
+</p>
+
+<p>
+Thus \(g = Kf = \alpha_1 \lambda f_1 + \alpha_2[\mu f_2 + (\lambda^2 -
+   \mu)f_3] + \alpha_3 \lambda^2 f_3 = \alpha_1\lambda f_1 + \alpha_2 \mu f_2 +
+   (\alpha_2(\lambda^2 - \mu) + \alpha_3 \lambda^2)f_3\)
+</p>
+
+<p>
+Now we can write this as a matrix.
+</p>
+
+<p>
+It follows that
+</p>
+
+<p>
+\(\gamma_{11} = \lambda\), \(\gamma_{12} = 0\), \(\gamma_{13} = 0\)
+</p>
+
+<p>
+\(\gamma_{21} = 0, \gamma_{22} = \mu, \gamma_{13} = 0\)
+</p>
+
+<p>
+\(\gamma_{31} = 0, \gamma_{32} = \lambda^2 - \mu, \gamma_{23} = \lambda^2\)
+</p>
+
+<p>
+The following is a matrix representation: 
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\(\mu\)</td>
+<td class="org-left">0</td>
+<td class="org-left">0</td>
+</tr>
+
+<tr>
+<td class="org-left">0</td>
+<td class="org-left">\(\mu\)</td>
+<td class="org-left">\(0\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(0\)</td>
+<td class="org-left">\(\mu^2 - \mu\)</td>
+<td class="org-left">\(\lambda^2\)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+That is defining, \(\bar{f} = [f1, f2, f3]^T\) and \(\alpha = [\alpha_1,
+   \alpha_2, \alpha_3]^T\).
+</p>
+
+<p>
+We obtain \(f = \alpha^T f\) and \(g=(T_\mu \alpha)^T\bar{f}\).
+</p>
+
+<p>
+Note that \(\varphi_1(x) = x_1\), \(\varphi_2(x)=x_2 - x_n^2\), \(\varphi_3(x) = x_1-x_n^2\) are
+eigenfunctions. Corresponding to the eigenvalues
+</p>
+
+<p>
+\(\lambda_1 = \lambda \cdot; Ke_1 = \lambda \varphi_1\)
+</p>
+
+<p>
+\(\lambda_2 = \lambda^2; K\varphi_2 = \lambda^2e_2\)
+</p>
+
+<p>
+\(\lambda_3 = \mu; Ke_3 = [\mu X_2 + (\lambda^2 - \mu)x_1^2 - \lambda^2 x_n^2]
+   = \mu x_2 - \mu x_n^2 = \mu(x_2 - x_n^2) = \mu \varphi_3\)
+</p>
+</div>
+</div>
+<div id="outline-container-org64ef06b" class="outline-3">
+<h3 id="org64ef06b"><span class="section-number-3">9.2</span> Matrix representation</h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+Assume now again that \(X\) is a vector space with \(\dim X = n\) and that
+\(\{x_1, \cdots, x_n\}\) forms a basis. Given a linear functional \(f\), we
+obtain for \(X = \sum_{i=1}^{n} \alpha_i X_i\) that \(f(x) = f(\sum \alpha_i
+   x_i) = \sum \alpha_i f(x_i) = \sum\alpha_ic_i\). We call the last term our
+coefficient \(c_i = f(x_i)\). Thus \(f\) is uniquely determined by the values
+\(c_i, i=1, \cdots, n\).
+</p>
+
+<p>
+Conversely, any set of values values \(\alpha_i, i =1, \cdots, n\) uniquely
+defines a linear functional. A special set of functionals is defined as
+follows: \(f_j(x_i) = \delta_{ij}\). It's one when \(i=j\), and \(0\) otherwise. We
+call this the dual basis of \(\{x_1, \cdots, x_n\}\).
+</p>
+</div>
+</div>
+<div id="outline-container-org3ec21d2" class="outline-3">
+<h3 id="org3ec21d2"><span class="section-number-3">9.3</span> Theorem</h3>
+<div class="outline-text-3" id="text-9-3">
+<p>
+Let \(X\) be again an $n$-dimensional vector space with basis \(\{x_1, \cdots,
+   x_n\}\). Then \(\{f_1, \cdots, f_n\}\) as defined above is a basis of \(X^{*}\).
+As a result, we have \(\dim X^{*} = \dim X\).
+</p>
+</div>
+<div id="outline-container-org825f589" class="outline-4">
+<h4 id="org825f589"><span class="section-number-4">9.3.1</span> Proof</h4>
+<div class="outline-text-4" id="text-9-3-1">
+<p>
+It's kinda easy. We just show that the maps \(f_j\) is a basis and we're done.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org91197a1" class="outline-3">
+<h3 id="org91197a1"><span class="section-number-3">9.4</span> Theorem</h3>
+<div class="outline-text-3" id="text-9-4">
+<p>
+A fininte-dimensional vector space is algebraically reflexive, i.e., the
+canonical embedding is an isomorphism between \(X\) and \(X^{**}\).
+</p>
+</div>
+</div>
+<div id="outline-container-org262d7d4" class="outline-3">
+<h3 id="org262d7d4"><span class="section-number-3">9.5</span> Normed space of operators</h3>
+<div class="outline-text-3" id="text-9-5">
+<p>
+Let \(X\) and \(Y\) be arbitrary normed spaces, then the set \(B(X, Y)\) of all
+bounded linear operators from \(X\) to \(Y\) is again a normed space.
+</p>
+
+<p>
+We need addition, scalar multiplication and a norm, and define:
+</p>
+<ol class="org-ol">
+<li>\((T_1 + T_2)x = T_1 x + T_2x\) for any \(T_1, T_2 \in B(X, Y)\)</li>
+<li>\((\alpha T) x = \alpha Tx\) for any \(T\in B(X, Y), \alpha \in K\)</li>
+<li>\(\Vert T\Vert\) is the supremum norm that we have already defined.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orge0131cc" class="outline-3">
+<h3 id="orge0131cc"><span class="section-number-3">9.6</span> Theorem</h3>
+<div class="outline-text-3" id="text-9-6">
+<p>
+\(B(X, Y)\) is a Banach space if \(Y\) is a Banach space, i.e., \(B(X, Y)\) is
+complete if \(Y\) is complete.<sup><a id="fnr.10" class="footref" href="#fn.10">10</a></sup>
+</p>
+</div>
+</div>
+<div id="outline-container-org0b4a5cf" class="outline-3">
+<h3 id="org0b4a5cf"><span class="section-number-3">9.7</span> Definition</h3>
+<div class="outline-text-3" id="text-9-7">
+<p>
+The set of all bounded linear functionals on \(X\) is a normed space with
+\(\Vert f \Vert = \sup \vert f x\vert / \Vert x \Vert\) for \(x \neq 0\).
+</p>
+
+<p>
+From the above theorem, since \(\R\) is complete, the space of all bounded
+linear functionals converge. This is called this <b>dual space</b> (the
+continuous/topological dual) and is denoted by  \(X'\).
+</p>
+
+<p>
+Remark: The algebraic dual space \(X^{*}\) contains all linear functionals of
+\(X\), whereas \(X'\) contains only the bounded linear operators. 
+</p>
+</div>
+</div>
+<div id="outline-container-org1fbb935" class="outline-3">
+<h3 id="org1fbb935"><span class="section-number-3">9.8</span> About \(X'\) and \(X^{*}\)</h3>
+<div class="outline-text-3" id="text-9-8">
+<p>
+The space of all bounded linear functionals on \(X\), given by \(X'\), forms a
+linear subspace of \(X^{*}\).
+</p>
+
+<p>
+Assume that \(f\) and \(g\) are bounded by \(a\) and \(b\), \(\vert f(x) \vert \le a
+   \Vert x \Vert\), \(\vert g(x) \vert \le b \Vert x \Vert \forall x\in X\).
+</p>
+
+<p>
+Using triangle inequality, we can see that \(af + bg\) is bounded if \(f\) and
+\(g\) are bounded. For scalars multiplication, it is similarly true. Thus it
+forms a linear subspace.
+</p>
+</div>
+</div>
+<div id="outline-container-org80fe735" class="outline-3">
+<h3 id="org80fe735"><span class="section-number-3">9.9</span> Examples</h3>
+<div class="outline-text-3" id="text-9-9">
+<ol class="org-ol">
+<li>\((\R^n)' = \R^n\)</li>
+<li>\((l^1)' = l^{\infty}\)</li>
+<li>For \(1 < p < \infty\) and \(\frac{1}{p} + \frac{1}{q} = 1\), \((l^p)' = l^q\).
+Here \(=\) means there exists an isomorphism.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org613b6a4" class="outline-3">
+<h3 id="org613b6a4"><span class="section-number-3">9.10</span> About \(l^p\) and \(l^q\)</h3>
+<div class="outline-text-3" id="text-9-10">
+<p>
+Given \(1 \le p \le \infty\), with \(\frac{1}{p} + \frac{1}{q} = 1\). Take any
+\((y_n)_n \in l^p\), then \(f\colon l^p \rightarrow \R\), \((x_n)_n \mapsto \sum
+   x_n y_n\) is a bounded linear functional. The norm of this functional is
+\(\Vert f \Vert = \Vert y \Vert_q\).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaae68bb" class="outline-2">
+<h2 id="orgaae68bb"><span class="section-number-2">10</span> Lecture 11 <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-11-20 Tue&gt;</span></span></h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org94078a3" class="outline-3">
+<h3 id="org94078a3"><span class="section-number-3">10.1</span> About \(l^p\) and \(l^q\)</h3>
+<div class="outline-text-3" id="text-10-1">
+<p>
+\(\frac{1}{q} + \frac1p = 1\), \((y_n)_n \in L^q\), \(f\colon l^p \rightarrow \R\),
+\((x_n)_n \mapsto \sum x_n y_n\)
+</p>
+
+<p>
+Note that \(\sum \vert x_n y_n\vert \le \Vert x \Vert_p \cdot \Vert x \Vert_q\)
+done to the Holder inequality.
+</p>
+</div>
+</div>
+<div id="outline-container-org6eafddf" class="outline-3">
+<h3 id="org6eafddf"><span class="section-number-3">10.2</span> Theorem</h3>
+<div class="outline-text-3" id="text-10-2">
+<p>
+For \(1\le p < \infty\), \((l^p)' \equiv l^q\) and an isometric isomorphism is
+given by \(T \colon l^q \rightarrow (l^p)'\), \((Ty)(x) = \sum_{n=1}^{\infty}
+   x_n y_n\).
+</p>
+</div>
+<div id="outline-container-orgba8ac01" class="outline-4">
+<h4 id="orgba8ac01"><span class="section-number-4">10.2.1</span> Proof</h4>
+<div class="outline-text-4" id="text-10-2-1">
+<p>
+\(\Vert Tt \Vert_{l^p}' = \Vert y \Vert_q\) as shown above and \(T\) is linear.
+The \(N(T)\) is only the sequence \(0\), meaning that the mapping is injective.
+Show that the mapping is also surjective. So for any given functional, we
+need to find a corresponding \(y\).
+</p>
+
+<p>
+Take any \(x' \in (l^p)^{*}\) and define \(y = (y_n)_n\) with \(y_n = x'(e_n)\)
+then \(y \in l^q\): Fix \(N \in \N\) for \(p > 1\), (can be shown for \(p=1\))
+construct the sequence: \(\sum_{n=1}^{N} \vert y_n \vert^q = \vert_{n=1}^{N}
+    \vert y_n \vert^q = \sum \frac{\vert y_n \vert^q}{y_n} y_n = \sum
+    \frac{\vert y_n\vert^q}{y_n} x'(e_n) = x'(\sum \frac{\vert y_n \vert^q}{y_n}
+    e_n\) (this is using the linearity). Now we can use that \(x'\) is bounded.
+</p>
+
+<p>
+\(X'(\sum \frac{\vert y_n \vert^q}{y_n} e_n \le \Vert X' \Vert \sum \vert
+    y_n\vert^q}{y_n} e_n \Vert = \Vert X'\Vert \left(\sum (\vert
+    y_n\vert^{q-1})^p\right)^{1/p} = \Vert X'\Vert \left( \vert y_n
+    \vert^q\right)^{1/p}\)
+</p>
+
+<p>
+Here \(\frac1p + \frac1q = 1\) implies that \(\frac1p = \frac{q-1}{q} \implies
+    (q-1)p = q\).
+</p>
+
+<p>
+Divide by \(\sum_{i=1}^{N} \vert y_n \vert^q)^{1/p}\), then
+\(\left(\sum_{n=1}^{N} \vert y_n \vert^q\right)^{1-1/p} \le \Vert X'\Vert\).
+For \(N \rightarrow \infty\), we obtain \(\Vert y \Vert_q \le \Vert X'\Vert <
+    \infty\)
+</p>
+
+<p>
+We have shown \(y\in l^q\), i.e., for each functional \(x'\), we can find such a
+\(y\). Now, \((T_y)(e_n) = (y_n)\) and also we define \(y_n = X'(e_n)\). This
+means that it is really an isomorphism.
+</p>
+
+<p>
+Thus \(Ty = x'\) on span \(\{e_1, \cdots,\}\) which is a basis of \(l^p\).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5849ce9" class="outline-3">
+<h3 id="org5849ce9"><span class="section-number-3">10.3</span> About reflexiveness</h3>
+<div class="outline-text-3" id="text-10-3">
+<p>
+The dual of \(l^\infty\) is not \(l^1\), but a different one.
+</p>
+</div>
+</div>
+<div id="outline-container-org07da69a" class="outline-3">
+<h3 id="org07da69a"><span class="section-number-3">10.4</span> Inner Product spaces and Hilbert spaces</h3>
+<div class="outline-text-3" id="text-10-4">
+</div>
+<div id="outline-container-orgc52ecd1" class="outline-4">
+<h4 id="orgc52ecd1"><span class="section-number-4">10.4.1</span> Definition</h4>
+<div class="outline-text-4" id="text-10-4-1">
+<p>
+In vector spaces we have addition and scalar multiplication. In normed
+vector spaces, we additionally have a norm \(\Vert . \Vert\) which gives us
+lengths of vectors. A norm induces a metric by \(d(x, y) = \Vert x - y
+    \Vert\).
+</p>
+
+<p>
+However, we have not yet defined the notion of orthogonality in \(\R^n\). Two
+vectors are orthogonal if \(\langle x, y \rangle = x^{T} y = x \cdot y = 0\).
+</p>
+
+<p>
+The inner product induces a norm and thus also a metric by \(\Vert x \vert =
+    \langle x, x \rangle^{1/2}\). Here \(\langle x, x \rangle = x^{T} x =
+    \sum_{i=1}^{n} \hat{x}_i = \Vert x \Vert_2^2\) induces the standard Euclidean
+norm.
+</p>
+
+<p>
+With the inner product, we can thus compute angles in \(\R^n\). This concept
+will be generalized in what follows. The resulting space with the inner
+product is called an inner product space. Inner product spaces that are
+complete are called <b>Hilbert spaces</b>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">normed space</td>
+<td class="org-left">complete normed space = Banach Space</td>
+</tr>
+
+<tr>
+<td class="org-left">inner product space</td>
+<td class="org-left">complete inner product space = Hilbert space</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org83dbe0f" class="outline-4">
+<h4 id="org83dbe0f"><span class="section-number-4">10.4.2</span> Definition</h4>
+<div class="outline-text-4" id="text-10-4-2">
+<p>
+Let \(X\) be a vector space. A mapping \(\langle ., \cdot \rangle \colon X
+    \times X \rightarrow K\) (\(=\R\) or \(=\C\) as usual) is called an inner product
+space (or scalar product.) if 
+</p>
+<ol class="org-ol">
+<li>\(\langle x_1 + x_2 , y \rangle = \langle x_n , y \rangle + \langle x_2, y\rangle\), \(x_1, x_2, y \in X\)</li>
+<li>\(\langle \lambda x, y \rangle = \lambda \langle x, y \rangle\), \(x, y, \in X, \lambda \in K\).</li>
+<li>\(\langle x, y\rangle = \overline{\langle y, x \rangle}\)</li>
+<li>\(\langle x, x \rangle \ge 0\), for all \(x\in X\).</li>
+<li>\(\langle x, x \rangle = 0 \iff x = 0\).</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org018af06" class="outline-4">
+<h4 id="org018af06"><span class="section-number-4">10.4.3</span> Remark</h4>
+<div class="outline-text-4" id="text-10-4-3">
+<p>
+It follows \(\langle x, y_1 + y_2 \rangle = \overline{\langle y_1 + y_2, x
+    \rangle} = \overline{\langle y_1, x\rangle} + \overline{\langle y_2,
+    x\rangle}\) and
+</p>
+
+<p>
+\(\langle x, \lambda y\rangle = \lambda \langle x, y\rangle\) similarly.
+</p>
+</div>
+</div>
+<div id="outline-container-org8d30ed9" class="outline-4">
+<h4 id="org8d30ed9"><span class="section-number-4">10.4.4</span> Theorem</h4>
+<div class="outline-text-4" id="text-10-4-4">
+<p>
+Let \(X\) be a vector space and \(\langle . , . \rangle\) an inner product, then
+\(\vert \langle x, y \rangle\vert^2 = \langle x, x \rangle \cdot \langle y, y
+    \rangle\) for all \(x, y \in X\). Equality when \(x\) and \(y\) are linearly
+dependent.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgcf5a9f0"></a>Proof<br />
+<div class="outline-text-5" id="text-10-4-4-1">
+<p>
+For arbitrary \(\lambda \in K\), we can write \(0 \le \langle x + \lambda y,
+     x + \lambda y \rangle = \langle x, x \rangle + \langle \lambda y, x
+     \rangle + \langle x, \lambda y \rangle + \langle \lambda x, \lambda y
+     \rangle\).
+</p>
+
+<p>
+Now it's kinda easy to see when we put \(\lambda = -\frac{\langle x, y
+     \rangle}{\langle y, y \rangle}\) for \(y \neq 0\).
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org554522a" class="outline-4">
+<h4 id="org554522a"><span class="section-number-4">10.4.5</span> Lemma</h4>
+<div class="outline-text-4" id="text-10-4-5">
+<p>
+Assigning \(x \mapsto \langle x, x \rangle^{1/2}\) indeed defines a norm.
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="orgb198381"></a>Proof<br />
+<div class="outline-text-5" id="text-10-4-5-1">
+<p>
+The proof is not too hard hence skipped.
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+A14 1126 tutorial
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+Look up at proofs of this fact
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+Is compactness needed?
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+This might be needed for the next exercises.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">
+The proof wasn't done in the class. But the idea is the all Cauchy
+sequences converges.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"><p class="footpara">
+We might not need this property. 
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.7" class="footnum" href="#fnr.7">7</a></sup> <div class="footpara"><p class="footpara">
+This is an unbounded operator. We still haven't defined what bounded
+operators are, though.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.8" class="footnum" href="#fnr.8">8</a></sup> <div class="footpara"><p class="footpara">
+These are called Kernels. But kernels in Machine learning is \(k(x, y)
+=\langle \phi(x), \phi(y)\rangle\), for example \(h(x, y) = \exp(-\Vert x -
+y\Vert/\varepsilon\) is called a Gaussian kernel. Another example is \(h(x, y) =
+(1+\langle x, y\rangle)^p\) polynomial kernel
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.9" class="footnum" href="#fnr.9">9</a></sup> <div class="footpara"><p class="footpara">
+Idea of machine learning. We have two sets of points, we need to find a
+function (often linear) that separates the points. But it may not be easy. So
+one idea is to find a linear function to a higher dimensional space and then one
+may be able to separate the points in the higher dimensional space.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.10" class="footnum" href="#fnr.10">10</a></sup> <div class="footpara"><p class="footpara">
+We didn't prove this.
+</p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: Harikrishnan Mulackal</p>
+<p class="date">Created: 2018-11-20 Tue 11:46</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

@@ -293,7 +293,7 @@
    exists, $z\in Z$ such that $\vert z \vert = 1$, and the distance $\Vert z - y
    \Vert \ge \theta$, for all $y \in Y$.
 *** Proof
-    Let $v\in Z \textminus Y$, define $a = \inf_{y \in Y} \Vert v - y\Vert$ to
+    Let $v\in Z \setminus Y$, define $a = \inf_{y \in Y} \Vert v - y\Vert$ to
     be the distance to $y$. Since $y$ is closed, $a>0$. Choose $\theta \in (0,
     1)$, then there exits a $y_0 \in y$, with $a \le \Vert v - y_0 \Vert \le
     \frac{a}{\theta}$.
@@ -357,7 +357,7 @@
     1. Let $X$ be the space of all polynomials defined on $[a, b]$. We can define a
        linear operator to be the derivative, $Tf = f'$. [fn:7]
     2. Given $A \in \R^{m\times n}$, $T \colon \R^n \rightarrow \R^m$, $X
-       \righarrow Ax$ is linear $T(ax + by) = aAx + bAy = aTx + bYy$.
+       \rightarrow Ax$ is linear $T(ax + by) = aAx + bAy = aTx + bYy$.
     3. Let $k$ be a square-integrable function on $[a, b]^2$ and $X=L_2[a, b]$,
        then define $f\mapsto\int_{a}^{b} h(x, \cdot) f(x)\ dx$[fn:8] [fn:9]
 ** Theorem about linear operators
@@ -462,7 +462,7 @@
    can choose the function identical to $1$, then the norm is exactly equal to
    $1$.
 
-   Define $c = \{x_n \in l_1 \vert \exits N \in \N\colon x_n = 0, \forall n >
+   Define $c = \{x_n \in l_1 \vert \exists N \in \N \colon x_n = 0, \forall n >
    N\}$, with the $l_1$ norm. We define the operator $T\colon (x_1, x_2, x_3,
    \cdots) = (x_1, 2x_2, 3x_3, \cdots)$ is unbounded, we can compute $\Vert T
    e_i \Vert = i$, so if we have the sequence but the $\Vert e_i \Vert = 1$.
@@ -590,7 +590,7 @@
    The algebraic dual space. For defining a vector vector space, we need the
    basic operations $+$ (addition) and $.$ scalar multiplication, which can be
    defined as follows: we take two functionals $f_1$ and $f_2$ and a scalar
-   $\alpa$, is easy to write $(f_1 + f_2)(x) = f_1(x) + f_2(x)$ etc. This part
+   $\alpha$, is easy to write $(f_1 + f_2)(x) = f_1(x) + f_2(x)$ etc. This part
    is obvious.
 
    We can also consider the dual of the dual space $X^{**}$, the second
@@ -613,7 +613,7 @@
 
    Now we have two representations in $z_j$, $j = 1, \cdots, m$. It follows that
    $\beta_j = \sum_{i=1}{n} \gamma_{ji} \alpha_i$ and that $y = Tx$ is
-   determined by knowing the coefficients $\gamm_{ji}$, which can be written in
+   determined by knowing the coefficients $\gamma_{ji}$, which can be written in
    matrix form as
 
    $$T_\mu = [\gamma_{ji}]_{j=1, \cdots m; i =1, \cdots m}$$
@@ -647,7 +647,7 @@
    $g_3(x) = Kf_3(x) = f_3(\phi(x)) = \lambda^2 x_1^2 = \lambda^2 f_3(x)$
 
    Thus $g = Kf = \alpha_1 \lambda f_1 + \alpha_2[\mu f_2 + (\lambda^2 -
-   \mu)f_3] + \alpha_3 \lambda^2 f_3 = \lapha_1\lambda f_1 + \alpha_2 \mu f_2 +
+   \mu)f_3] + \alpha_3 \lambda^2 f_3 = \alpha_1\lambda f_1 + \alpha_2 \mu f_2 +
    (\alpha_2(\lambda^2 - \mu) + \alpha_3 \lambda^2)f_3$
 
    Now we can write this as a matrix.
@@ -742,6 +742,104 @@
    $(y_n)_n \in l^p$, then $f\colon l^p \rightarrow \R$, $(x_n)_n \mapsto \sum
    x_n y_n$ is a bounded linear functional. The norm of this functional is
    $\Vert f \Vert = \Vert y \Vert_q$.
+* Lecture 11 <2018-11-20 Tue>
+** About $l^p$ and $l^q$
+   $\frac{1}{q} + \frac1p = 1$, $(y_n)_n \in L^q$, $f\colon l^p \rightarrow \R$,
+   $(x_n)_n \mapsto \sum x_n y_n$
+
+   Note that $\sum \vert x_n y_n\vert \le \Vert x \Vert_p \cdot \Vert x \Vert_q$
+   done to the Holder inequality.
+** Theorem
+   For $1\le p < \infty$, $(l^p)' \equiv l^q$ and an isometric isomorphism is
+   given by $T \colon l^q \rightarrow (l^p)'$, $(Ty)(x) = \sum_{n=1}^{\infty}
+   x_n y_n$.
+*** Proof
+    $\Vert Tt \Vert_{l^p}' = \Vert y \Vert_q$ as shown above and $T$ is linear.
+    The $N(T)$ is only the sequence $0$, meaning that the mapping is injective.
+    Show that the mapping is also surjective. So for any given functional, we
+    need to find a corresponding $y$.
+
+    Take any $x' \in (l^p)^{*}$ and define $y = (y_n)_n$ with $y_n = x'(e_n)$
+    then $y \in l^q$: Fix $N \in \N$ for $p > 1$, (can be shown for $p=1$)
+    construct the sequence: $\sum_{n=1}^{N} \vert y_n \vert^q = \vert_{n=1}^{N}
+    \vert y_n \vert^q = \sum \frac{\vert y_n \vert^q}{y_n} y_n = \sum
+    \frac{\vert y_n\vert^q}{y_n} x'(e_n) = x'(\sum \frac{\vert y_n \vert^q}{y_n}
+    e_n$ (this is using the linearity). Now we can use that $x'$ is bounded.
+
+    $X'(\sum \frac{\vert y_n \vert^q}{y_n} e_n \le \Vert X' \Vert \sum \vert
+    y_n\vert^q}{y_n} e_n \Vert = \Vert X'\Vert \left(\sum (\vert
+    y_n\vert^{q-1})^p\right)^{1/p} = \Vert X'\Vert \left( \vert y_n
+    \vert^q\right)^{1/p}$
+
+    Here $\frac1p + \frac1q = 1$ implies that $\frac1p = \frac{q-1}{q} \implies
+    (q-1)p = q$.
+
+    Divide by $\sum_{i=1}^{N} \vert y_n \vert^q)^{1/p}$, then
+    $\left(\sum_{n=1}^{N} \vert y_n \vert^q\right)^{1-1/p} \le \Vert X'\Vert$.
+    For $N \rightarrow \infty$, we obtain $\Vert y \Vert_q \le \Vert X'\Vert <
+    \infty$
+
+    We have shown $y\in l^q$, i.e., for each functional $x'$, we can find such a
+    $y$. Now, $(T_y)(e_n) = (y_n)$ and also we define $y_n = X'(e_n)$. This
+    means that it is really an isomorphism.
+
+    Thus $Ty = x'$ on span $\{e_1, \cdots,\}$ which is a basis of $l^p$.
+** About reflexiveness
+    The dual of $l^\infty$ is not $l^1$, but a different one.
+** Inner Product spaces and Hilbert spaces 
+*** Definition
+    In vector spaces we have addition and scalar multiplication. In normed
+    vector spaces, we additionally have a norm $\Vert . \Vert$ which gives us
+    lengths of vectors. A norm induces a metric by $d(x, y) = \Vert x - y
+    \Vert$.
+
+    However, we have not yet defined the notion of orthogonality in $\R^n$. Two
+    vectors are orthogonal if $\langle x, y \rangle = x^{T} y = x \cdot y = 0$.
+
+    The inner product induces a norm and thus also a metric by $\Vert x \vert =
+    \langle x, x \rangle^{1/2}$. Here $\langle x, x \rangle = x^{T} x =
+    \sum_{i=1}^{n} \hat{x}_i = \Vert x \Vert_2^2$ induces the standard Euclidean
+    norm.
+
+    With the inner product, we can thus compute angles in $\R^n$. This concept
+    will be generalized in what follows. The resulting space with the inner
+    product is called an inner product space. Inner product spaces that are
+    complete are called *Hilbert spaces*
+
+    | normed space        | complete normed space = Banach Space         |
+    | inner product space | complete inner product space = Hilbert space |
+*** Definition
+    Let $X$ be a vector space. A mapping $\langle ., \cdot \rangle \colon X
+    \times X \rightarrow K$ ($=\R$ or $=\C$ as usual) is called an inner product
+    space (or scalar product.) if 
+    1. $\langle x_1 + x_2 , y \rangle = \langle x_n , y \rangle + \langle x_2, y\rangle$, $x_1, x_2, y \in X$
+    2. $\langle \lambda x, y \rangle = \lambda \langle x, y \rangle$, $x, y, \in X, \lambda \in K$.
+    3. $\langle x, y\rangle = \overline{\langle y, x \rangle}$
+    4. $\langle x, x \rangle \ge 0$, for all $x\in X$.
+    5. $\langle x, x \rangle = 0 \iff x = 0$.
+*** Remark
+    It follows $\langle x, y_1 + y_2 \rangle = \overline{\langle y_1 + y_2, x
+    \rangle} = \overline{\langle y_1, x\rangle} + \overline{\langle y_2,
+    x\rangle}$ and
+
+    $\langle x, \lambda y\rangle = \lambda \langle x, y\rangle$ similarly.
+*** Theorem
+    Let $X$ be a vector space and $\langle . , . \rangle$ an inner product, then
+    $\vert \langle x, y \rangle\vert^2 = \langle x, x \rangle \cdot \langle y, y
+    \rangle$ for all $x, y \in X$. Equality when $x$ and $y$ are linearly
+    dependent.
+**** Proof
+     For arbitrary $\lambda \in K$, we can write $0 \le \langle x + \lambda y,
+     x + \lambda y \rangle = \langle x, x \rangle + \langle \lambda y, x
+     \rangle + \langle x, \lambda y \rangle + \langle \lambda x, \lambda y
+     \rangle$.
+
+     Now it's kinda easy to see when we put $\lambda = -\frac{\langle x, y
+     \rangle}{\langle y, y \rangle}$ for $y \neq 0$.
+*** Lemma
+    Assigning $x \mapsto \langle x, x \rangle^{1/2}$ indeed defines a norm.
+**** Proof
+     The proof is not too hard hence skipped.
 * Footnotes
 
 [fn:10] We didn't prove this.
