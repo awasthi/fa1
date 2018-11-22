@@ -840,7 +840,76 @@
     Assigning $x \mapsto \langle x, x \rangle^{1/2}$ indeed defines a norm.
 **** Proof
      The proof is not too hard hence skipped.
+* Lecture 12 <2018-11-22 Thu>
+** Definition
+   A normed space $(X, \Vert . \Vert)$ is called an inner product space (or
+   pre-Hilbert space) if an inner product $\langle ., .\rangle$ exits such that
+   $\langle x, x \rangle^{1/2} = \Vert X \Vert$ for all $x\in X$.
+
+   An easy example is $\R^n$ with the standard inner product.
+
+   We have seen that an inner product induces a norm. What about the other case?
+   Given a norm, can we get an inner product? We can do this in the following way:
+
+   $\langle x, y \rangle = \frac{1}{4}(\Vert x + y \Vert^2 - \Vert x - y
+   \Vert^2)$ (for real numbers.)
+
+   $\langle x, y\rangle = \frac{1}{4}\left(\Vert x + y\Vert^2 - \Vert x - y
+   \Vert^2 + i \Vert x +iy\Vert^2 - i\Vert x - iy\Vert^2\right)$. For complex
+   numbers.[fn:11]
+
+   Furthermore, the so-called parallelogram law holds:
+
+   $\Vert x + y \Vert^2 + \Vert x - y \Vert^2 = 2(\Vert x \Vert^2 + \Vert y
+   \Vert^2)$, this can be noticed easily. It's called Parallelogram law because
+   it has something to do with parallelograms.
+** Lemma
+   The inner product is a continuous mapping from $X \times X$ to $K$.
+*** Proof
+    Let $x_n \rightarrow x$ and $y_n \rightarrow y$, we need to show that
+    $\langle x_n, y_n \rangle$ converges to $\langle x, y \rangle$. This is
+    straightforward to verify. It involves triangle inequality and
+    Cauchy-Schwarz.
+** Theorem (When is a normed space, an inner product space?)
+   A normed space $(\lambda, \Vert . \Vert)$ is an inner product space if and
+   only if the parallelogram law holds for all vectors.
+*** Proof
+    We have already seen that an inner product satisfies the parallelogram law.
+    Now, one have to prove this the other way around.
+
+    We consider only $\R$. We need to show that $\langle x_1 + x_2, y \rangle =
+    \langle x_1, y \rangle + \langle x_2, y \rangle$.
+
+    Define $\langle x, y \rangle = \frac{1}{4}(\Vert x + y \Vert^2 - \Vert x-
+    y\Vert^2)$ as shown, then, $\langl x_1 + x_2, y \rangle =
+    \frac{1}{4}\left(\Vert x_1 + x_2 + y \Vert^2 - \Vert x_1 +x_2 - y \Vert^2$.
+
+    Some lengthy calculations and we end up with the result.
+** Examples
+   1. $\C^n$ with the inner product $\langle x, y \rangle = \sum x_i \bar{y_i}$
+      is a Hilbert space.
+   2. $l_2$ is a Hilbert space with $\langle x, y \rangle = \sum x_i \bar{y}_i$
+   3. $l_2(\Omega)$ where $\Omega \in \R^n$ is an open subset is a Hilbert space
+      with $\langle f, g \rangle = \int f(x)\overline{g(x)} dx$
+   4. $C([a, b]) with $\langle f, g \rangle = \int_{a}^{b} f(x)g(x)\, dx$ (only
+      real-valued functions.) This is apparently not a Hilbert space. This is an
+      inner product space. This example is similar to an exercise in one of the
+      tutorials.
+   5. Let $\R^{m\times n}$ denote the set of all real $m\times n$ matrices.
+      Define $\langle A, B\rangle = \tr(A^TB)$. For $A = (a_{ij}), B= (b_{ij})$,
+      we obtain $[A^TB]_{ij} = \sum [A^T]_{ik} [B]_{kj} = \sum a_{ki}b{kj}$ and
+      $\tr(A^TB) = \sum_{i}(A^TB)_{ii} = \sum_i\sum_j a_{ki}b_{ki}$. Then
+      induced norm, is $\Vert A \Vert = \sum A, A\rangle^{1/2} = \left(\sum_i
+      \sum_k a_{ki}^2\right)^{1/2} = \Vert A \Vert_F$, i.e., the Frobenius norm.
+
+      Apparently, we can use the parallelogram law to show that $l^p$ when
+      $p\neq 2$ is not a Hilbert space.
 * Footnotes
+
+[fn:11] Apparently the $1$ norm cannot be induced by an inner product. There is
+something more going on here. That's because the statement is only true if
+$\langle x, x \rangle = \Vert x \Vert^2$, i.e., the space should already be
+induced by an inner product. This is not true in the first place for $l^1$ norm.
 
 [fn:10] We didn't prove this.
 
