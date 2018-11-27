@@ -904,7 +904,88 @@
 
       Apparently, we can use the parallelogram law to show that $l^p$ when
       $p\neq 2$ is not a Hilbert space.
+* Lecture 13 <2018-11-27 Tue>
+** Example (parallelogram law is invalid)
+   The space $l^p$ for $p \neq 2$ is not a Hilbert space since it does not
+   satisfy the parallelogram law.
+
+   Define $x = (1, 1, 0, \cdots)$ and $y = (1, -1,0, \cdots)$. Both of them are
+   in $l^p$.
+
+   The norm of $x$ is $2^{1/p}$ and it is same as the norm of $y$.
+
+   The norm of $x +y$ is $2$.
+
+   The norm is $x - y$ is $2$.
+
+   The parallelogram law says $4 + 4 = 4(4^{1/p})$ which is not true for $p \neq
+   2$.
+** Orthogonality
+   With the aid of the inner product, we can now introduce the notion of
+   orthogonality as already mentioned above.
+   
+   Let $X$ be an inner product space, then $x, y \in X$ are called *orthogonal*
+   denoted by $x \perp y$ if $\langle x, y \rangle = 0$.
+
+   Two subsets $A$ and $B$ are orthogonal if $\langle x, y \rangle = 0$ for
+   every $x\in A$ and $y\in B$.
+
+   Now, given a set $A$, we want to know the set of all elements that are
+   orthogonal to $A$. $A^{\perp} =\{y \in X\vert x \perp y, \forall x \in A\}$
+   is called orthogonal complement of $A$.
+
+   $A^{\perp}$ is a closed subset of $X$. (Kinda easy to see in terms of
+   continuity of the inner product and $y$ being the inverse of a closed set)
+   The proof in the class used the fact that if a sequence in $A^\perp$
+   converges, then the limit will be orthogonal to $x$ as well.
+** Definition
+   Given the elements $x, y$ of a vector space $X$, the segment joining $X$ and
+   $Y$ is defined as $\{z \vert z = \alpha x + (1-\alpha)y, 0 \le \alpha \le
+   1\}$
+
+   A subset $A \subset X$ is said to be *convex* if for every combination $x, y
+   \in A$ is in the set $A$.
+** Theorem
+   Let $H$ be a Hilbert space and $K \subset H$ closed and convex. Furthermore,
+   let $x_0 \in H$, then there exists a unique $x$ in the set $A$ which has the
+   shortest distance with $\Vert x - x_0 \Vert = \inf_{y \in K} \Vert y =
+   x_0\Vert$[fn:12]
+*** Proof
+    If $x_0 \in K$ simply choose $x = x_0$. The proof is easy.
+** Lemma
+   Let $K$ be a closed and convex subset of $H$. For $x \in K$, the following
+   statements are equivalent:
+
+   1. $\Vert x_0 - x\Vert = \inf_{y\in Y} \Vert x_0 - y\Vert$
+   2. $Re \langle x_0 - x, y -x \rangle \le 0$ for all $y \in K$.
+*** Proof
+    Geometric interpretation: assume that $K=\R$, then $\langle a, b\rangle =
+    \Vert a \Vert \Vert b\Vert \cos(a, b)$ and $\langle a, b \rangle <0$ implies
+    the angle is obtuse.
+
+    Thus $Re\langle x_0 - x, y - x\rnagle \le 0$ means that the angle between
+    $x_0 - x$ and $y-x$ is obtuse ($K = \R$)
+** Definition
+   A vector space $X$ is defined to be the direct sum of the subspaces $Y$ and
+   $Z$, denoted by $Y = Y \oplus Z$ if each $x \in X$ have a unique
+   decomposition such that $x = y + z$, where $y\in Y$ and $z \in Z$.
+
+   The mapping defined above is in general a non-linear projection. (a diagram
+   was drawn about circles)
+
+   Reminder: a projection onto a vector space is a mapping $P$ with $P^2 = P$
+** Theorem
+   Let $U \neq \{0\}$ be a closed subspace (now just a subspace, not convex) of
+   a Hilbert space $H$. Then there exists a linear projection $P_u$ from $H$
+   onto $U$ with $\Vert P_u \Vert = 1$ and $N(P_u) = U^{\perp}$. Furthermore,
+   $Id - P_u$ is a projection onto $U^{\perp}$ with $\Vert Id - P_u\Vert = 1$.
+   It holds that we can split this Hilbert space into $H = U \oplus U^{\perp}$.
+   And this i a linear projection [fn:13]
 * Footnotes
+
+[fn:13] In general projection need not be linear, but here it is linear.
+
+[fn:12] This is similar to the theorem we did in Discrete Geometry 1
 
 [fn:11] Apparently the $1$ norm cannot be induced by an inner product. There is
 something more going on here. That's because the statement is only true if
