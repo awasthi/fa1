@@ -881,7 +881,7 @@
     \langle x_1, y \rangle + \langle x_2, y \rangle$.
 
     Define $\langle x, y \rangle = \frac{1}{4}(\Vert x + y \Vert^2 - \Vert x-
-    y\Vert^2)$ as shown, then, $\langl x_1 + x_2, y \rangle =
+    y\Vert^2)$ as shown, then, $\langle x_1 + x_2, y \rangle =
     \frac{1}{4}\left(\Vert x_1 + x_2 + y \Vert^2 - \Vert x_1 +x_2 - y \Vert^2$.
 
     Some lengthy calculations and we end up with the result.
@@ -981,7 +981,265 @@
    $Id - P_u$ is a projection onto $U^{\perp}$ with $\Vert Id - P_u\Vert = 1$.
    It holds that we can split this Hilbert space into $H = U \oplus U^{\perp}$.
    And this i a linear projection [fn:13]
+* Lecture 15 <2018-12-06 Thu> 
+** Review (Bessel's inequality)
+   $\sum \vert \langle x, e_i \rangle \vert^2 \le \Vert x\Vert^2$
+   
+   Some inequality that happened last Thursday.
+** Fourier coefficients
+   The inner product $\langle x_i, e_i\rangle$ are called Fourier coefficients.
+
+   If $\{e_i \vert i \in \N\}$ is a orthonormal basis, we obtain equality $\Vert
+   x \Vert^2 = \sum \vert \langle x_i, e_i \rangle \vert^2$.
+** Lemma
+   Let $\{e_i, i \in \N\}$ be an orthonormal system and $x,y \in H$. Then you
+   can show that $\sum_{i=1}^{\infty} \vert\langle x_i, e_i \rangle \langle e_i
+   y\rangle \vert < \infty$.
+*** Proof
+    The proof simply uses the Holder's inequality.
+
+    $\sum \vert \langle x, e_i \rangle \langle e_i, y\rangle \vert \le (\sum
+    \vert \langle x, e_i \rangle \vert^2)^{1/2} (\sum \vert \langle e_i, y
+    \rangle \vert^2)^{1/2} \le \Vert x \Vert \Vert y \Vert < \infty$
+** Difference between orthonormal basis and orthonormal system
+   Consider $\R^3$, then $e_1$ and $e_2$ form an orthonormal system. But it is
+   not a basis, clearly.
+
+   One can calculate the bessel's inequality thing.
+
+   There was something about Paiseval's equality which was mentioned in the
+   lecture.
+** Theorem
+   For an infinite-dimensional Hilbert space $H$. The following statements are equivalent
+
+   1. $H$ is separable.
+   2. All orthonormal basis are countable.
+   3. There is at least one orthonormal basis
+*** Proof (idea)
+    1 to 2. Start with an orthonormal basis, we must show that it must be
+    countable. Take two vectors $e_i$ and $e_j \in S$, then $\Vert e_i - e_j
+    \Vert^2 = \sum \langle e_i - e_j, e_i - e_j\rangle= \Vert e_i\Vert^2 + \Vert
+    e_j \Vert^2 = 2$. This means that the distance between two basis vectors are
+    always two.
+
+    Take the neighbourhood $B(e_i, \frac\sqrt{2}{3}) \cap B(e_j \sqrt{2}, 3) =
+    \emptyset$. It is empty in $S$.
+
+    This is apparently similar to the fact that $l^\infty$ is not separable?
+
+    So if $S$ were uncountable, then we could have an uncountable number of
+    disjoint sets. This contradicts the fact that $H$ is separable. Why? $H$ has
+    a countable basis, but then if we have a set of disjoint open sets, then we
+    can define an injection between our uncountable set and the countable set.
+
+    2 to 3 is clear.
+
+    3 to 1. The idea is that we take linear coefficients that are rational. Then
+    we show that this set is dense in $H$ and then you're done.
+** How does non-separable Hilbert spaces?
+   Consider the space of functions $f\colon \R \rightarrow \R$ with the property
+   that $f(x)\neq 0$ only for a countable set and the property that $\Vert f
+   \Vert < \infty$, where $\Vert \cdot \Vert$ is the norm induced by the inner
+   product. $\langle f, g \rangle = \sum_{x\in \R} f(x)g(x)$
+
+   How do we show that this is not separable? 
+
+   Define $f_y(X) = 1$ when $x \neq y$ and $0$ otherwise. For $y_0 \neq y_1,
+   \Vert f_{y_0} - f_{y_1} \Vert = \Vert f_{y_0}\Vert^2 - 2\langle f_{y_0},
+   f_{y_1}\rangle + \Vert f_{y_1}\Vert^2 = 2$
+
+   We obtain an uncountable number of disjoint sets. Thus the space cannot be
+   separable.
+** Fourier series
+   We consider the space $L^2[0, 2\pi]$, we define the set of basis functions:
+   $S = \{\frac{1}{\sqrt{2\pi}} I} \cup \{\frac{1}{\sqrt{\pi} \cos(nx)}\} \cup
+   \{\frac{1}{\sqrt{\pi}}\sin(nx)\}$ See example 3.18 (iii).
+
+   The inner product is defined by $\langle f, g \rangle = \int_0^{2\pi}
+   f(x)g(x)\ dx$. We can use the following identities to show that $S$ is indeed
+   an orthonormal system.
+
+   $\int_0^{2\pi} \cos(mx) \cos(nx)\dx$ is $0$ when $m\neq n$ and $2\pi$, when
+   $m$ and $n$ are $0$, and it is $\pi$ if $m = n$, but not both $0$.
+
+   Similarly, for the $\sin$, $\int_{0}^{2\pi} \sin{mx}\sin{nx}\ dx$ is $0$,
+   when $m\neq n$ or $m=n=0$ or $\pi$, when $m=n\neq 0$.
+
+   Also $\int_0^{2\pi} \sin mx \cos nx\ dx = 0$. Thus $\langle
+   \frac{1}{\sqrt{\pi}} \cos mx, \frac{1}{\sqrt{\pi}} \cos nx\rangle =
+   \delta_{m, n}$ for $m \neq 0, n \neq 0$.
+
+   Holds the same for all other combinations. Hence $S$ is an orthonormal
+   system.
+** Example
+   A trigonometric series is defined by $a_0 + \sum_{n=1}^\infty][a_k \cos(kx) +
+   b_k \sin(kx)]$. Let $f$ be $2\pi$ periodic and continuous. Then the
+   coefficients are defined by
+
+   $a_0 = \frac{1}{2 \pi} \int_{0}^{2\pi} f(x)\ dx, a_k = \frac{1}{\pi}
+   \int_0^{2\pi} f(x) \cos(kx)\ dx, b_k = \frac{1}{\pi} \int_0^{2\pi}
+   f(x)\sin(kx)\ dx$.
+
+   We and write the Fourier series as $\tilde{a_0} \frac{1}{\sqrt{2\pi}} I
+   +\sum_{n=1}^{\infty} \tilde{a}_n \frac{1}{\sqrt{\pi} \cos(kx) + \tilde{b}_n
+   \frac{1}{\sqrt{\pi} \sin(kx)}$.
+
+   We know that $\tilde{a}_0 = a_0 \sqrt{2\pi} = \langle f, \frac{1}{\sqrt{2\pi}}I\rangle$.
+
+   Similarly, we can express everything as a an inner product.
+
+   That is, we write $f$ as $\sum_{e\in S} \langle f, e \rangle e$
+** Example
+   Let us consider the so called square wave function defined by, $f(x) = 1$
+   between $0$ and $\pi$ and it is $-1$ between $\pi$ and $2\pi$.
+
+   We can get that $a_k = 0$. $b_k = 1$ if $k$ is odd and $-1$ if $k$ is even.
+
+   Another function is the sawtooth function.
+* Lecture 16 <2018-12-11 Tue>
+** Theorem
+   Suppose $e_n$ is an orthonormal sequence in a Hilbert space $H$ (if an
+   orthonormal set is countable, then we can arrange it as a sequence)
+
+   1. The series $\sum_{i=1}^{\infty} a_ne_n$ converges if and only if
+      $\sum_{n=1}^{\infty} \vert a_n \vert^2$ converges.
+   2. If $\sum_{n=1}^{\infty} a_ne_n$ converges, then the coefficients $a_n$ are
+      the Fourier coefficients $\langle x, e_n\rangle$ where $x$ is the element
+      in $H$ we are approximating. Thus we can write $x = \sum_{n=1}^{\infty}
+      \langle x, e_n \rangle e_n$.
+*** Proof
+    $H$ and $\R$ are both complete. Thus, a Cauchy sequence in $H$ converge if
+    and only if the corresponding sequence in $\R$ is cauchy. To show this,
+    define, $s_n = \sum_{k=1}^{n} a_ke_k$ and $\delta_n = \sum_{k=1}^{n} \vert
+    a_n \vert^2$.
+
+    Due to orthonormality, $\Vert s_n - s_m \Vert^2= \Vert \sum_{n=m+1}^{n} a_k
+    e_k \Vert^2 = \sum_{k=m+1}^{n} \vert a_k\vert^2 = \delta_n - \delta_m$. Here
+    we assume without loss of generality that $n > m$. Thus, the second
+    statement can be seen as follows: $\langle s_n, e_j \rangle = \langle
+    \sum_{k=1}^{n} a_n e_n , e_j \rangle = \sum_{k=1}^{n} a_n \rangle e_n, e_j
+    \rangle = a_j$ for ($j \le n$)
+
+    Since by assumption, $s_n \rightarrow x$ for $n\rightarrow \infty$.
+
+    $a_j = \langle s_n, e_j \rangle \rightarrow \langle x, e_j \rightarrow$, (we
+    have shown that the inner product is continuous.)
+
+    Thus $a_j = \langle x, e_j \rangle$
+** Orthonormal Polynomials
+   [fn:14] Instead of using trigonometric basis functions for the Fourier
+   analysis, we can use sets of orthonormal polynomials. Example, Legendre,
+   Hermite or Laguerre Polynomials.
+** Legendre Polynomials
+   The Legendre Polynomials can be defined in terms of the generating functions
+   $H(x, \gamma) = \frac{1}{(1-2x\gamma + \gamma^2)^{1/2}}$ This can be
+   developed in a power series in $r$ so that $H(x, \gamma) = P_0(x) +
+   P_1(x)\gamma + P_2(x) \gamma^2 + \cdots$
+
+   Set $y = 2x\gamma - \gamma^2$, use $(1-y)^{-1/2} = \sum \binom{2k}{k}
+   \frac{y^k}{2^{2k}}$.
+
+   This will eventually result in $P_0(x) = 1, P_1(x) = x, P_2(x) =
+   \frac{1}{2}(3x^2 - 1), P_3(x) = \frac{1}{2}(5x^3 - 3x)$.
+
+   These polynomials are called Legendre polynomials and it holds that $P_n(-x)
+   = (-1)^nP_n(x)$. Furthermore, $P_n(1) =1$ and using the previous property,
+   $P_n(-1) = (-1)^n$.
+
+   The polynomials can be defined recursively by $P_0(x) = 1, P_0(x) = x$, and
+   $(n+1)P_{n+1}(x) - (2n+1)xP_n(x) + nP_{n-1}(x) = 0$.
+
+   For instance, $2P_2(x) = 3x\cdot x + 1 = 0 \implies P_2(x) =
+   \frac{1}{2}(3x^2 - 1)$.
+
+   If we can now define the inner product $\langle f, g\rangle = \int_{-1}^{1}
+   f(x) g(x)\ dx$, then $\langle P_n(x), P_m(x) \rangle = 0$ for $m\neq n$. That
+   is, we defined a set of orthogonal, but not yet orthonormal functions. The
+   normalized Legendre polynomials, denoted by lower case $p_n$ are $p_n(x) =
+   (\frac{2n+1}{2})^{1/2} P_n(x)$.
+
+   Any function on $(-1, 1)$ can now be expanded in a series of Legendre
+   polynomials, similar to the standard Fourier expansion.
+** Hermite polynomials
+   Hermite polynomials are orthogonal on $(-\infty, \infty)$ with the weight
+   function $\exp{-x^2/2}$. Define $\phi(x) = \exp{-x^2/2}$, then $\phi'(x) =
+   -x\phi(x)$, $\phi''(x) = (x^2 - 1)\phi(x)$. We define $H_n(x) = (-1)^n
+   \exp(x^2/2) \frac{d^n}{d x^n2} \phi(x)$ to be the Hermite polynomial.
+
+   This can be defined recursively by $H_{n+1}(x) = xH_n(x) - H_n(x')$. We then
+   obtain, $\int_{-\infty}^{\infty} \exp{-x^2/2} H_m(x) H_n(x) = \delta_{m,n} n!
+   \sqrt{2\pi}$.
+
+   That is, the polynomials are orthogonal with respect to the inner product
+   $\langle f, g \rangle = \int_{-\infty}^{\infty} f(x) g(x) \exp{-x^2/2}\ dx$,
+   but not orthogonal.
+
+   The normalized Hermite Polynomials are given by $H_n(x)/((n!) \sqrt{2\pi})$.
+   We can expand, and arbitrary function $f(x)$ in an series of Hermite
+   polynomials. $f(x) = \sum_{n=0}^{\infty} a_n H_n(x)$, where $a_n =
+   \frac{1}{n! \sqrt{2\pi}} \langle f, H_k\rangle$
+** Laguerre Polynomials
+   The last set of orthonormal polynomials we want to consider are the so-called
+   Laguerre polynomials which are orthogonal on $(0, \infty)$ with weight
+   function $\rho(x) = x^ae^{-x}$, with $a> -1$. $a$ is typically zero.
+
+   We define $\phi_n(x)=x^{a+n} \exp{-x}$ and $L_n^a(x) = (-1)^n x^{-a} \exp{x}
+   \frac{d^n}{dx^n} \phi_n(x)$
+
+   The laguerre Polynomials are orthogonal with respect to $\langle f, g\rangle
+   = \int^{0}^{\infty} f(x) g(x) x^a \exp^{-x}\ dx$.
+
+   The Laguerre polynomials can be defined recursively and be used for series
+   expansions.
+* Homeworks
+** Homework 8
+*** 8.1
+    A subset $M$ of a vector space is said to be convex if for two points $m_1,
+    m_2$ in $M$, the line segment joining $m_1$ and $m_2$ lies in $M$, i.e.,
+    $\lambda m_1 + (1-\lambda)m_2 \in M$.
+
+    Given $n$ vectors $x_1, \cdots, x_n\in M$ and $\alpha_i \in K$ such that
+    $\sum_1^n \alpha_i = 1$, we need to show that $\sum_1^n \alpha_i x_i \in M$.
+
+    We'll prove this by induction on $n$.
+
+    The base case $n=1$ is trivially true, since the only case is $\alpha_1 = 1$
+    and $1\cdot x_1 \in M$. Now we assume that the statement is true for $n-1$
+    vectors.
+
+    The sum $\alpha_1x_1 + \cdots + \alpha_{n-1}x_{n-1} + \alpha_nx_n=
+    (\sum_1^{n-1}\alpha_i)(\lambda\alpha_1 x_1 + \cdots +
+    \lambda\alpha{n-1}x_{n-1}) + \alpha_n x_n$. Where $\lambda =
+    \frac{1}{\sum_1^{n-1} \alpha_i}$. Notice that $\sum_1^{n-1} \lambda_i
+    \alpha_i = 1$, thus we can use the inductive hypothesis to see that
+    $\lambda\alpha_1 x_1 + \cdots + \lambda\alpha{n-1}x_{n-1} = y \in M$. Now,
+    $(\sum_1^{n-1}\alpha_i)y + \alpha_n x_n \in M$ by convexity, since
+    $\sum_1^{n-1}\alpha_i + \alpha_n = 1$.
+    
+    Hence by induction, the statement is true for all values of $n$.
+*** 8.2
+    If $y \in M$ and $x - y \in M^{\perp}$, then $\langle x - y, y \rangle = 0
+    \iff \langle x, y \rangle = \langle y, y \rangle$.
+
+    From 1, we know that $y = P_Mx$ if and only if $y \in M$ and $x - y \in
+    M^\perp$,
+
+    Let $a = P_M x$ and $b = P_m y$, then $a, b \in M$ and $x-a, y-b \in
+    M^\perp$.
+
+    $$\langle P_M x, y \rangle = \langle a, y \rangle = \langle a, y \rangle - \langle a, y - b \rangle =
+    \langle a, b\rangle$$
+
+    Similarly
+
+    $$\langle x, P_M y \rangle = \langle b, x \rangle = \langle b, x \rangle - \langle b, x - a \rangle =
+    \langle a, b\rangle$$
+
+    Thus $\langle a, b \rangle = \langle P_M x, y \rangle = \langle x, P_M y
+    \rangle = \langle a, b\rangle$.
 * Footnotes
+
+[fn:14] All the details were not proven. Just a detour.
 
 [fn:13] In general projection need not be linear, but here it is linear.
 
