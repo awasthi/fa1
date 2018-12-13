@@ -1191,6 +1191,162 @@
 
    The Laguerre polynomials can be defined recursively and be used for series
    expansions.
+* Lecture 17 <2018-12-13 Thu>
+** Adjoint operators
+   We now want to introduce the adjoint operator of a bounded linear operator
+   but first we need a few auxiliary results. (Something like Reiz's
+   representation theorem for bilinear forms.)
+
+   The representation theorem states that, given a bounded linear functional $f$
+   on $H$, it can be written as $f(x) = \langle x, z\rangle$ for $z \in H$ (this
+   element was uniquely, defined.)
+
+   Let $h$ denote a sesquilinear functional (linear in the first,
+   conjugate-linear in the second argument.) Here conjugate-linear means $h(x,
+   ay_1 + by_2) = \overline{a}h(x, y_1) + \overline{b}h(x, y_2)$.
+
+   For normed spaces, $X$ and $Y$, $h$ is said to be bounded if $\exists c$ such
+   that $\vert h(x, y) \vert \le c \Vert x \Vert \Vert y \Vert$, for all $x, y$.
+   If this property holds we call it a bounded sesquilinear form (form and
+   functional are used interchangeably)
+
+   Furthermore, $\Vert h \Vert = \sup \frac{\vert{h(x, h)}}{\Vert x \Vert \cdot
+   \Vert y \Vert} = \sup_{\Vert x \Vert = 1, \Vert y \Vert = 1} \vert h(x,
+   y)\vert$. That is, $\vert h(x, y) \vert \le \Vert h \Vert \cdot \Vert x \Vert
+   \cdot \Vert y \Vert$.
+
+   We can now extend the representation theorem to sesquilinear forms.
+** Theorem
+   Given a bounded sesquilinear form, $h \colon H_1 \times H_2 \rightarrow K$
+   ($K$ is a field here), for two Hilbert spaces $H_1$ and $H_2$, then $h$ has a
+   representation $h(x, y) = \langle S x, y \rangle$, where $S$ is uniquely
+   defined linear operator with $\Vert S \Vert = \Vert h \Vert$.
+*** Proof
+    For $x$ fixed, $\overline{h(x, y)}$ is a linear functional (complex
+    conjugate is required, otherwise, it would only be semi-linear in $y$.)
+
+    Using the representation theorem, there exits a vector $z$ such that, we can
+    write the linear functional in the form $\overline{h(x, y)} = \langle y, z
+    \rangle$, now $h(x, y) = \overline{\langle y, z \rangle} = \langle z,
+    y\rangle$ Here $x$ was fixed.
+
+    If $x$ is not fixed, then $z$ depends on $x$ and define the operator $S$ by
+    $Sx = z$, i.e., $h(x, h) = \langle Sx, y \rangle$.
+
+    Now, we need to prove that $S$ is linear, is uniquely defined and is also
+    bounded.
+
+    The linearity of $S$ follows from the definition since $\langle S(ax_1 +
+    bx_2), y \rangle = h(ax_1 + bx_2, y)$ and $h$ is linear in the first
+    argument.
+
+    Boundedness of $S$, $\Vert S \Vert = \sup_{x \neq 0} \frac{\Vert S x
+    \Vert}{\Vert x \Vert} = \sup_{x \neq 0} \frac{\langle Sx,
+    Sx\rangle^{1/2}}{\Vert x \Vert} = \sup_{x\neq 0, Sx \neq 0} \frac{\langle
+    Sx, Sx \rangle}{\Vert x \Vert \cdot \Vert S x \Vert} \le \sup_{x \neq 0, y
+    \neq 0} \frac{\vert \langle Sx, y \rangle \vert}{\Vert x \Vert \cdot \Vert y
+    \Vert} = \sup_{x \neq 0, y \neq 0} \frac{\vert h(x, y)\vert}{\Vert y \Vert}
+    = \Vert h \Vert$. Thus $\Vert S \Vert \le \Vert h \Vert$.
+
+    $\Vert h \Vert = \sup_{x \neq 0, y \neq 0} \frac{h(x, h)}{\Vert x \Vert
+    \cdot \Vert y \Vert} = \sup\frac{\Vert Sx, y \rangle}{\Vert x \Vert \Vert y
+    \Vert} \le \sup \frac{\Vert Sx \Vert \cdot \Vert y \Vert}{\Vert x \Vert
+    \cdot \Vert y \Vert} = \Vert S \Vert$.
+
+    It follows that $\Vert S \Vert = \Vert h \Vert$.
+    
+    The uniqueness of $S$: Assume that there are two functions $S$ and $T$ with
+    the same properties, then $\langle (S - T) x, y \rangle = 0$ for all $x, y$.
+    This means that $S = T$.
+** Definition
+   Given two Hilbert spaces $H_1$ and $H_2$ and a bounded linear operator $T
+   \colon H_1 \rightarrow H-2$, then adjoint operator, denoted by $T^{*}$ is
+   defined by $\langle Tx, y\rangle = \langle x, T^{*}y \rangle$ for all $x \in
+   H_1, y \in H_2$
+
+   We need to show that the operator is really defined. But then we can use the
+   previous theorem to show this.
+** Theorem
+   The operator $T^{*}$ exists and is unique. Furthermore, $\Vert T^{*}\Vert =
+   \Vert T \Vert$.
+*** Proof
+    We define a sesquilinear form by $h(y, x) = \langle y, Tx\rangle$, then
+    inner product is sesquilinear and $T$ is linear. Conjugate linearity can be
+    seen as follows: $h(y, ax_1 + bx_2) = \langle y, T(ax_1+bx_2) \rangle =
+    \langle y, aTx_2 + bTx_2 \rangle = \bar{a}\langle y, Tx_1\rangle +
+    \bar{y}\langle y, Tx_2 \rangle = \bar{a}h(y, x_1) + \bar{y}h(y, x_2)$.
+    
+    Also, $\vert h(x, y) \vert = \vert \langle y, Tx \rangle \vert \le \Vert y
+    \Vert \cdot \Vert Tx \Vert \le \Vert T \Vert \cdot \Vert x \Vert \cdot \Vert
+    y\Vert$.
+
+    Thus, $\Vert h \Vert \le \Vert T \Vert$. Now we will show that $\Vert T
+    \Vert \le \Vert h\Vert$.
+
+    On the other hand, $\Vert h \Vert = \sup_{x \neq 0, y \neq 0} \frac{\vert
+    \langle y, Tx \rangle\vert}{\Vert y \Vert \cdot \Vert x \Vert} \ge \sup_{x
+    \neq 0, Tx \neq 0} \frac{\langle Tx, Tx \rangle}{\Vert Tx \Vert \cdot \Vert
+    Tx \Vert \Vert x \Vert} = \Vert T \Vert$.
+
+    It follows that $\Vert h \Vert = \Vert T \Vert$.
+
+    Now we can use the representation theorem for sesquilinear forms: there
+    exits $S$ such that $h(y, x) = \langle Sy, x \rangle$ and we define $T^{*} =
+    S$. Thus, $T^{*}$ is bounded and uniquely defined.
+
+    It holds that $\Vert T^{*}\Vert = \Vert S \Vert = \Vert h \Vert$ and $\Vert
+    h \Vert = \Vert T \Vert$. Together, $\Vert T^{*} = \Vert T \Vert$ as
+    claimed. We also need to show that this satisfies the definition of the
+    adjoint operator before.
+
+    We need to show that $h(y, x) = \langle y , Tx\rangle$ and $h(y, x) =
+    \langle T^{*}y, x \rangle$. Now $\langle x, T^{*}y \rangle =
+    \overline{\langle T^{*}y, x\rangle = \overline{\langle y, Tx \rangle} =
+    \langle Tx, y \rangle$ so that $T^{*}$ has the properties we were looking
+    for $t$.
+** Examples of Adjoint operators
+*** Example 1
+    Let $A \in \R^{n \times n}$, define $T \colon \R^n \rightarrow \R^n$ by $Tx
+    = Ax$. The adjoint operator satisfies $\langle Tx, y \rangle = \langle x,
+    T^{*}y\rangle$, i.e., $\langle Tx, y\rangle = \langle Ax, y \rangle =
+    (Ax)^ty = x^t A^{t}y = x^{t} (A^{t}y) = \langle x, T^{*} y \rangle$.
+
+    That is, the adjoint operator is given by the transposed matrix $A^{T}$ or
+    $A^{H}$ if $A \in \C^{m \times n}$.
+*** Example 2
+    Let $X \subset \R^d$ and $p_\tau\colon X \times X \rightarrow \R$ be the
+    transition density function associated with the stochastic process
+    $\{X_t\}_t$. That is, $p_\tau(x, y)$ is the probability that the process
+    starting in $x$ goes to $y$ in time $\tau$. We define two operators and
+    assume that they are well defined on $L^2$.
+
+    $(P_\tau) p(x) = \int_X p_\tau(y, x) p(y) dy$. (Perjon-Frobenius operator)
+
+    $(K_\tau f)(x) = \int p_\tau(x, y) f(y) dy$. (Koopman operator.)
+
+    Now, we want to show that $p_\tau$ and $K_\tau$ are adjoint with respect to
+    $\langle f ,g \rangle = \int f(x)g(x) dx$.
+*** Example 3
+    For any $x \in \R^n$, define $T$ by $T(x_1, \cdots, x_n) = (0, x_1, \cdots,
+    x_{n-1})$, i.e., right-shift operator. Now we want to find the adjoint
+    $T^{*}$.
+
+    The adjoint operator is the left shift operator. (One can see this by
+    representing $T$ as a matrix, now use the fact that the adjoint of a matrix
+    is the transpose.)
+
+    $T^{*}(x_1, \cdots, x_n) = (x_2,\cdots, x_n, 0)$ (the left shift operator)
+*** Example 5 (Adjoint operator does not exist)
+    The adjoint operator does not always exist. Consider the space of all real
+    valued polynomials along with the inner product $\langle f, g \rangle =
+    \int_0^1 f(x) g(x)\ dx$. Define the operator $T = \frac{d}{dx}$ to be the
+    differentiation operator. Recall that $\frac{d}{dx}$ is not bounded. We only
+    showed that it exist for bounded.
+
+    $\langle f, T^{*} g\rangle = \langle Tf, t \rangle = \int_0^1 f'(x)g(x)\ dx
+    = [fg]_0^1 - \int_0^1 f(x)g'(x)\ dx = [fg](1) - [fg](0) - \langle f,
+    Tg\rangle$ (integration by parts.) Thus $\langle f, (T^{*} + T) g \rangle =
+    (fg)(1) - (fg)(0)$. We now define a function $f$ with $f(0) = f(1) = 0$.
 * Homeworks
 ** Homework 8
 *** 8.1
