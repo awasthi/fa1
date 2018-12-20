@@ -1488,6 +1488,149 @@
    version of this result. The identity says that the norm of the function is
    same as the $l_2$ norm of the coefficients. The above result says something
    similar.)
+* Lecture 19 <2018-12-20 Thu> 
+** Planchevel's theorem
+   $\langle F, G \rangle = \langle f, g \rangle$
+
+   To prove Plancherel's theorem, we write $f(x) = \frac{1}{\sqrt{2\pi}}
+   \int_{-\infty}^{\infty} F(\omega) e^{i\omega x}\ d\omega$ and use the
+   definition of the Fourier transform
+
+   $$f(x) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(s)
+   e^{-i\omega s}\ ds e^{i\omega x}\ d\omega$$
+
+   Then $\langle f, g \rangle = \int_{-\infty}^{\infty}[\frac{1}{2\pi}
+   \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(s) e^{-i\omega s}\ ds
+   e^{i\omega x} dx \overline{g(x)}\ dx$
+
+   This is equal to $-\int_{-\infty}^{\infty}\left [\frac{1}{\sqrt{2\pi}
+   \int_{-\infty}^{\infty} f(s) e^{-i\omega s}\ ds\right ]\left[
+   \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \overline{g(x)} e^{i\omega x}\
+   dx\right] \ d\omega$
+
+   Note that $\overline{\exp{z}} = \exp{\oveline{z}}$ and thus.
+
+   The above thing end up being $\int_{-\infty}^{\infty} F(\omega)
+   \overline{G(\omega)}\ d\omega = \langle F, G \rangle$.
+
+   Brief reminder: We used several properties of complex numbers in the last
+   examples, e.g., $\overline{z_1 z_2} = \overline{z_1} \cdot \overline{z_2}$
+   and $\overline{\exp{z}} = \exp{\overline{z}}$. They can be seen very easily.
+** Lemma
+   Given a bounded linear operator $T \colon H_1 \rightarrow H_2$, it holds that 
+
+   1. $T$ is an isometry $\iff$
+   2. $\langle Tx, Ty\rangle = \langle x, y \rangle$.
+*** Proof
+    1 to 2.
+
+    Using the polarization identity (related to the Parallelogram law, for $K=
+    \R$.)
+
+    We start with $\langle Tx, Ty\rangle = \frac{1}{4}\left( \Vert Tx + Ty
+    \Vert^2 - \Vert Tx - Ty\Vert^2\right)$ (this is the polarization identity)
+
+    this can further be written as $\frac{1}{4} \left( \Vert T(x + y)\Vert^2 -
+    \Vert T(x - y)\Vert^2\right)$
+
+    Because of the isometry property, we see that this is equal to
+    $\frac{1}{4}\left(\Vert x + y \Vert^2 - \Vert x - y \Vert^2) = \langle x, y
+    \rangle$.
+
+    Analogously, one can show it for $K= \C$.
+
+    2 to 1.
+
+    $\Vert Tx \Vert^2 = \langle Tx, Tx\rangle = \langle x, x \rangle = \Vert x
+    \Vert^2$
+
+    This implies that a length-preserving operator (an isometry) also preserves
+    angles.
+** Lemma
+   For $K = \C$ and a linear $T \colon H \rightarrow H$ it holds that
+
+   1. $T$ is self-adjoint if and only if $\langle Tx, x\rangle \in \R$ for all
+      $x \in H$.
+
+   This doesn't make sense in Real valued vector spaces and only make sense in
+   Complex valued spaces.
+*** Proof
+    $\langle Tx, x \rangle = \langle x, Tx\rangle$ (here we are using
+    self-adjointness)
+
+    But $\overline{\langle x, Tx\rangle} = \langle Tx, x\rangle$. Thus clearly,
+    it is real valued.
+
+    To show the other way around, we use a commonly used trick
+    
+    First consider $\langle T(x + y), x + y \rangle \in \R$
+
+    Now we use the linearity of the inner product $\langle Tx , x \rangle +
+    \langle Tx , y \rangle + \langle Ty, x\rangle + \langle Ty, y\rangle$.
+
+    Two terms on the right is in $\R$ by definition (the left most and the right
+    most.)
+
+    If we compute the complex conjugate, we obtain: $\langle T(x + y), x +
+    y\rangle = \langle Tx, x\rangle + \langle y, Tx\rangle + \langle x,
+    Ty\rangle + \langle Ty, y\rangle$.
+
+    Hence, $\langle Tx, y\rangle + \langle Ty, x \rangle = \langle y,
+    Tx\rangle + \langle x, Ty\rangle$
+
+    Now we'll use the same thing for linear combination with $i$ included.
+
+    Similarly $\langle T(x - iy), x - iy\rangle = \langle Tx, x\rangle + \langle
+    -iTy, x\rangle + \langle Tx, -iy\rangle + \langle -iTy, -iy\rangle$
+
+    This is equal to $\langle Tx, x \rnagle - i \langle Ty, x \rangle + i\langle
+    Tx, y \rangle + \langle Ty, y\rangle$.
+
+    Complex conjugate and subtraction of the two equations results in: $\langle
+    Tx, y \rangle + \langle Ty, x\rangle = - \langle y, Tx\rangle + \langle x,
+    Ty\rangle$
+
+    We have something similar before,
+
+    Add the equations to get $\langle Tx, y\langle = \langle x, Ty\rangle$,
+    which is what we wanted to show.
+** Theorem
+   If a bounded linear operator is self-adjoint, then $\Vert T \Vert =
+   \sup_{\Vert x \Vert \le 1} \vert \langle Tx, x \rangle\vert$.
+*** Proof
+    The proof again uses the Parallelogram law.
+
+    $\vert \langle Tx, x \rangle \vert \le \Vert Tx \Vert \Vert x \Vert \le
+    \Vert T \Vert \cdot \Vert x \Vert^2$. Thus $\Vert T \Vert \ge \sup_{\Vert x
+    \Vert \le 1} \Vert \langle Tx, x \rangle \vert$.
+
+    On the other hand, define $M = \sup_{\Vert x \Vert \le 1} \vert \langle Tx,
+    x\rangle \vert$.
+
+    $\langle T(x + y), x + y\rangle - \langle T(x - y), x-y\rangle = \langle Tx,
+    x\rangle + \langle Tx, y \rangle + \langle Ty, x \rangle + \langle Ty,
+    y\rangle - [\langle \langle Tx, x\rangle - \langle Tx, y\rangle - \langle
+    Ty, x\rangle + \langle Ty, y\rangle]$.
+
+    This is equal to $\langle Tx, y \rangle + \langle Ty, x \rangle + \langle
+    Tx, y\rangle + \langle Ty, x \rangle = \langle Tx, y\rangle +
+    \overline{\langle Tx, y\rangle} + \langle Tx, y\rangle + \overline{\langle
+    Tx, y\rangle} = 4 \operatorname{Re} \langle Tx, y\rangle$
+
+    $\vert 4 \operatorname{Re} \langle Tx, y \rangle \vert \le \Vert \langle
+    T(x + y), x+y\rangle \vert + \vert \langle T(x-y), x-y\rangle \vert \le M
+    \cdot \left(\Vert x + y \Vert^2 + \Vert x- y \Vert^2\right) = 2 M(\Vert x
+    \Vert^2 + \Vert y \Vert^2)$ This uses parallelogram law.
+
+    Note that for arbitrary $z \colon \vert \langle Tz, z\rangle \vert = \Vert
+    z\Vert^2 \langle T \frac{z}{\Vert z}, \frac{z}{\Vert z\Vert}\rangle \le
+    \Vert z \Vert^2 \cdot M$
+
+    For $\Vert x \Vert \le 1$ and $\Vert y \Vert \le 1$: $\Vert
+    \operatorname{Re} \langle Tx, y \rangle \vert \le M$. Set $y =
+    \frac{Tx}{\Vert Tx\vert}$. Set $y = \frac{Tx}{\Vert Tx \Vert}$, then $\vert
+    \operatorname{Re} \langle Tx, \frac{Tx}{\Vert Tx\Vert}\vert = \Vert Tx \Vert
+    \le M$
 * Homeworks
 ** Homework 8
 *** 8.1
