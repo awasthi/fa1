@@ -8,6 +8,7 @@
 #+LATEX_HEADER: \def\Q{\mathbb{Q}}
 #+LATEX_HEADER: \def\pos{\operatorname{pos}}
 #+LATEX_HEADER: \def\conv{\operatorname{Conv}}
+#+LATEX_HEADER: \def\sgn{\operatorname{sgn}}
 #+LATEX_HEADER: \usepackage[T1]{fontenc}
 * Lecture 2 <2018-10-17 Wed>
 
@@ -1631,6 +1632,143 @@
     \frac{Tx}{\Vert Tx\vert}$. Set $y = \frac{Tx}{\Vert Tx \Vert}$, then $\vert
     \operatorname{Re} \langle Tx, \frac{Tx}{\Vert Tx\Vert}\vert = \Vert Tx \Vert
     \le M$
+* Lecture 20 <2019-01-08 Tue>
+  We finished Metric space, Banach spaces etc.
+** Reproducing Kernel Hilbert spaces
+*** Kernels and their properties
+    We will consider similarity measures of the form $k \colon X \times X
+    \rightarrow \R$, where $X$ is a non-empty set.
+*** Definition
+    A function $k \colon X times X \rightarrow \R$ is called kernel if there
+    exists a real Hilbert space $H$ and a map $\phi \colon X \rightarrow H$ such
+    that for all $x, x' \in X$, we know that $k(x, x') = \langle \phi(x),
+    \phi(x') \rangle_H$.
+
+    We call $\phi$ feature map and $H$, the feature space of $k$.
+*** Example
+    A particularly simple similarity measure on $\R^n$ is the standard inner
+    product on $\R^n$. $k(x, x') = \langle x, x'\rangle = x^T x' = \sum x_i
+    x_i'$. Why is this a similarity measure? If we have two vectors that are
+    orthogonal, then the similarity would be zero. Whereas if they are parallel,
+    the inner product is closer. [fn:17]
+
+    Let $x$ and $x'$ be vectors of unit length, then $k(x, x') = 1$ if $x = x'$
+    (high similarity) and $h(x, x') = 0$ if $x \perp x'$ (low similarity).
+*** Lemma
+    Let $X$ be as above and $f_n \colon X \righarrow \R$ and $n \in \N$ be
+    functions such that $(f_n(x))_n\in l_2$ for all $x\in X$. Then $k(x, x') =
+    \sum_{n = 1}^{\infty} f_n(x) f_n(x')$ defines a kernel.
+**** Proof
+     Holder's inequality yields that $\sum_{n=1}^{\infty} \vert f_n(x)
+     f_n(x')\vert \le \Vert (f_n(x_n)) \Vert_{l_2} \cdot \Vert f_n(x')
+     \Vert_{l_2}$. 
+
+     Thus, by definition, of $f_n(x)$, the series converges absolutely, which
+     means it also converges. Then one can define the Hilbert space to be $l^2$
+     and $\phi \colon X\righarrow H$ by $\phi(x) = (f_n(x))_n$, then $k(x, x') =
+     \langle \phi(x), \phi(x')\rangle_H$ and defines a kernel. This completes
+     the proof
+*** Remark
+    Almost all kernels have such a representation which can be constructed
+    explicitly (Mercer feature space will be introduced later)
+
+    Kernel based methods and reproducing kernel Hilbert spaces are often in
+    machine learning. Let us consider a simple classification problem.
+*** Example
+    Assume that we have two classes of objects (e.g., sick/healthy) We are then
+    given a new object and we have to assign it to one of the two classes.
+
+    Mathematically, we can formalize this as follows: Give training data $x_1,
+    \cdots, x_m$ and labels $y_1, \cdots, y_m$ with $x_i \in X$ and $y_i \in
+    \{-1, 1\}$. Here $1$ would means that the person is sick and $-1$, that the
+    person is healthy. Find a function $f\colon X \rightarrow \{-1, 1\}$ that
+    assigns a new object a label (this is an instance of supervised learning)
+
+    The first idea could be to assign a new data to the class with closer mean:
+
+    $c_{+} = \frac{1}{m_{ +}} \sum_{y_i = 1} x_i$ and $c_{-} = \frac{1}{m_{-}}
+    \sum_{y_i = 1} x_i$ where $m_{ +}$ and $m_{-}$ are the number of instances
+    of objects with $y_i = 1$ and $y_i = -1$ respectively.
+
+    We now compare the midpoint between $c_{+}$ and $c_{-}$, i.e., $c \colon
+    \frac{1}{2}(c_{ +} + c_{-})$, and check whether a new data point $x$
+    encloses an angle smaller than $\pi/2$ with the vector, $w = c_{ +} - c_{-}$
+    which connects $c_{ +}$ and $c_{-}$.
+
+    If the sign of the cosine of the angle between $x - c$ and $w$ is $1$, we
+    assign by $+1$, otherwise to $-1$. Thus $y = \operatorname{sgn}(\langle x -
+    c, w \rangle) = \operatorname{sgn}(\langle x - \frac{1}{c_{ +} + c_{-}}, c_{
+    +} - c_{-})$, this can be shown to be same as $\operatorname{sgn} (\langle
+    x, c_{ +} - \langle x, c_{-}\rangle + b)$ with $b = \frac{1}{2} \left(\Vert
+    c_{-1}\Vert^2 - \Vert c_{ +}\Vert^2 \right)$.
+
+    Instead of computing the inner product in the state space, we first
+    translate the data using $\phi$ and compute the inner product in feature
+    space using the kernel $k$, $y = \operatorname{sgn}[\langle x, \frac{1}{m_{
+    +}} \sum_{y_i = 1} x_i \rangle - \langle x, \frac{1}{m_{-}} \sum_{y_i = -1}
+    \sum x_i + b]$. This is same as $\operatorname{sgn}[\frac{1}{m_{ +}
+    \sum_{y_i = 1} \langle x, x_i \rangle - \frac{1}{m} \sum_{y_i = -1} \langle
+    x, x_i \rangle + b]$.
+
+    Kernelization, $y = \operatorname{sgn} [\frac{1}{m^{ +}} \sum_{y_i = 1}
+    \langle \phi(x), \phi(x) \rangle - \frac{1}{m_{-}} \sum_{y_i = -1} \langle
+    \phi(x), \phi(x_i) \rangle + \tilde{b}]$. Where $b$ is given by $\tilde{b} =
+    \frac{1}{2} = \frac{1}{2} [ \frac{1}{m^2} \sum_{y_i = -1, y_j = -1} h(x_i,
+    x_j) - \frac{1}{m^2_{ +}} \sum_{y_i = 1, y_j = 1} h(x_i, x_j)$
+
+    This results in a non-linear version of the classification algorithm. Note
+    that $\phi(x)$ does not need to be computed explicitly only kernel
+    evaluations are required. This is (one aspect of) the so called kernel
+    trick.
+
+    If we now choose for instance, $k(x, x') = (1 + \langle x, x'\rangle)^2$
+    also, the "circle example" introduced above can be classified.
+*** Example
+    Let $X = \R^2$ and the kernel $k(x, x') = (1 + \langle x, x'\rangle)^2$. We
+    obtain, $k(x, x') = (1 + x_1 x_1' + x_2x_2')^2 = \cdots = 1 + 2x_1x_1' +
+    2x_2 x_2' + 2x_n x_1'x_2x_2' + \lambda_1^2 \lambda'_1^2 + \lambda_2^2
+    x_2'^2$.
+
+    We can rewrite this as an inner product of two vectors.
+
+    $(1, \sqrt(2)x_1, \sqrt{2}x_2, \sqrt{2}x_1x_2, x_1^2, x_2^2)^t$ and $(1,
+    \sqrt{2}x_1', \sqrt{2}x_2', \sqrt{2}x_1'x_2', x_1^2' x_2'^2)^t$. This is
+    $\langle \phi(x), \phi'(x)\rangle$.
+
+    The feature space contains all monomials of order up to and including two.
+    The inner product in the six dimensional feature space can be computed
+    efficiently in the two dimensional state space. In general, for $\R^d$, the
+    kernel $k(x, x') = (c + \langle x, x'\rangle)^p$ contains all monomials of
+    order up to $p$.
+*** Remark
+    The feature space representation is not unqiue. That is, we have $h(x, x') =
+    \langle \phi_1(x), \phi_1(x')\rangle$ and $h(x, x') = \langle \phi_2(x),
+    \phi_2(x')\rangle$, $\phi_1$ and $\phi_2$ might be different 9also the
+    associated hilbert spaces might be completely different) This however, does
+    in general not matter since the goal is to write algorithms, in terms of
+    kernel evaluations.
+*** Lemma
+    1. Given a kernel $k$, then $\alpha \cdot k$ for $\alpha > 0$ is a kernel.
+    2. Given kernels $k_1$ and $k_2$, $k_1 + k_2$ is a kernel.
+    3. Also $k_1 \cdot k_2$ is a kernel.
+**** Proof
+     $k(x, x') = \langle \phi(x), \phi(x') \rangle$, thus $(\alpha k)(x, x') =
+     \langle \sqrt{\alpha} \phi(x), \sqrt{\alpha} \phi(x')\rangle$.
+
+     $k_1(x, x') = \lanlge \phi_1(x), \phi_2(x) \rangle$, $k_2(x, x') = \langle
+     \phi_2(x), \phi_2(x') \rangle$, define $\phi(x) = (\phi_1(x),
+     \phi_2(x))^t$, then, $\langle \phi(x), \phi(x')\rangle = \langle
+     [\phi_1(x), \phi_2(x)]^t, [\phi_1(x), \phi_2(x)]^t\rangle = \langle
+     \phi_1(x), \phi_1(x') \rangle + \langle \phi_2(x), \phi_2(x') \rangle =
+     k_1(x, x') + k_2(x, x')$
+
+     $k_1(x, x')k_2(x, x') = \sum_{i}\phi_1^{i}(x) \phi_n^{i}(x')
+     \sum_{j}\phi_2^j(x) \phi_2^j(x') = \sum_{i, j} [\phi_1^i(x)
+     \phi_2^j(x)][\phi_1^i(x') \phi_2^j(x')]$
+
+     This can be written as $\langle (\phi_1 \otimes \phi_2)(x), (\phi_1 \otimes
+     \phi_2)(x') \rangle$. This is the tensor product of $\phi_1$ and $\phi_2$,
+     i.e., $(\phi_1 \otimes \phi_2)_{ij} = \phi_i^{i} \phi_2^{j}$.
 * Homeworks
 ** Homework 8
 *** 8.1
@@ -1678,6 +1816,8 @@
     Thus $\langle a, b \rangle = \langle P_M x, y \rangle = \langle x, P_M y
     \rangle = \langle a, b\rangle$.
 * Footnotes
+
+[fn:17] The notion of similarity measure is not precise.
 
 [fn:16] In linear algebra, the equivalence is symmetric.
 
