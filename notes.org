@@ -1769,6 +1769,126 @@
      This can be written as $\langle (\phi_1 \otimes \phi_2)(x), (\phi_1 \otimes
      \phi_2)(x') \rangle$. This is the tensor product of $\phi_1$ and $\phi_2$,
      i.e., $(\phi_1 \otimes \phi_2)_{ij} = \phi_i^{i} \phi_2^{j}$.
+* Lecture 21 <2019-01-10 Thu>
+** Positive Definite
+   Given a Kernel $K$ and data $x_1, \cdots, x_m \in X$, the $m \times m$ matrix
+   $G = (g_{ij})$ with $g_{ij} = k(X_i, X_j)$ is called Gram matrix.
+** Definition
+   A kernel $k \colon X \times X \rightarrow \R$ is called positive definite if
+   for all $m$, for all $X_1, \cdots, X_m \in X$, for all $\alpha_1, \cdots,
+   \alpha_m$, we have $\sum_{i, j = 1}^{n} \alpha_i\alpha_j k(x_i, x_j) =
+   \alpha^T G \alpha \ge 0$ for all vectors $\alpha$.
+
+   Furthermore, $k$ is said to be *strictly positive definite*, if for mutually
+   different $X_1, \cdots, X_m$ equality $\alpha^T G \alpha = 0$ holds for
+   $\alpha = 0$. (this is an additional condition) The kernel $k$ is called
+   *symmetric* if $k(x, x') = k(x', x)$ for all $x, x' \in X$.
+** Remark
+   What we call positive definite is also sometimes called positive
+   semi-definite and what we call strictly positive definite is called positive
+   definite.
+** Property
+   A symmetric matrix $G$ is positive definite if and only if eigenvalues are
+   non-negative. We're talking about Real, meaning that the Eigenvalues are
+   positive.
+** Remark
+   The term kernel dates back to analysis of integral operators of the form
+   $(T_k f)(x) = \int k(x, x') f(x') dx'$.
+** Lemma (Cauchy-Schwarz for kernels)
+   If $k$ is symmetric and positive definite (in short, s.p.d in what follows)
+   then $k(x_1, x_2)^2 \le k(x_1, x_2)k(x_2, x_2)$
+*** Proof
+    Consider the Gram Matrix $G=$
+    
+    | $k(x_1, x_2)$ | $k(x_1, x_2)$ |
+    | $k(x_2, x_1)$ | $k(x_2, x_2)$ |
+    
+    Which is by definition s.p.d. Remember that the product of all eigenvalues
+    is equal to the determinant of the matrix. We now know that all the
+    eigenvalues are non-negative, which means that the determinant is
+    non-negative.
+
+    The determinant is $k(x_1, x_2)k(x_2, x_2) - k(x_1, x_2)^2 \ge 0$. Thus we
+    have the theorem.
+** The reproducing kernel map
+   Let $k$ be a s.p.d kernel and $X$ a non-empty set.
+** Definition (Canonical feature map)
+   Let $\R^X = \{ f\colon X \rightarrow \R \}$ denote the set of all functions
+   from $X$ to $\R$. We define $\phi \colon X \rightarrow \R^X$ by $x\mapsto
+   k(\cdot, x)$. (Note that we assign each point in $X$ a function.)
+
+   Thus, $\phi(x)(x') = k(x', x) = k(x, x')$ We can now define functions by
+   $f(\cdot) = \sum \alpha_i [\phi(x_i)](\cdot) = \sum_{i = 1}^{n} \alpha_i
+   k(\cdot, x_i)$ for $m \in \N$, $\alpha_i \in \R$ and $x_1, \cdots, x_m \in
+   X$.
+
+   Given two functions $f = \sum_{i=1}^{m} \alpha_i k(\cdot, x_i)$ and $g =
+   \sum_{j = 1}^{m'} \beta_j k(\cdot, x_j')$ we define an inner product by
+   $\langle f, g \rangle = \sum_{i=1}^{m} \sum_{j = 1}^{m'} \alpha_i \beta_j
+   k(x_i, x_j')$
+** Lemma
+   This new inner product $\langle \cdot, \cdot \rangle$ itself defines s.p.d
+   kernel.
+*** Proof
+    Symmetry follows from the symmetry of the $k$. We have to show that for
+    arbitrary function $f_1, \cdots, f_m$ and coefficients $\alpha_1, \cdots,
+    \alhpa_m$, $\sum_{i, j} \alpha_i \alpha_j \langle f_i, f_j \rangle = \langle
+    \sum_{i} \alpha_i f_i, \sum_{j} \alpha_j f_j \rangle = \langle f,
+    \tilde{f}\rangle$
+
+    Let $\tilde{f}$ be within $\tilde{f} = \sum_{i = 1}^{m^2} \tilde{\alpha}_i
+    k(\cdot, \tilde{x}_i)$, then $\langle \tilde{f}, \tilde{f}\rangle = \sum_{i,
+    j} \tilde{\alpha}_i \tilde{\alpha}_i k(\tilde{x}_i, \tilde{x}_j) \ge 0$,
+    since $k$ is pd. This completes the proof?
+
+    Given $f = \sum_{i = 1}^{n} \alpha_i k(\cdot, x_i)$, we obtain $\langle f,
+    k(\cdot, x) \rangle = \sum_{i=1}^{n} \alpha_i k(x, x_i) = f(x)$
+
+    This is called the reproducing property. Thus, function evaluations can now
+    be interpreted as inner products in an inner product space. In particular,
+    we obtain $\langle k(\cdot, x), k(\cdot, x') \rangle = k(x, x')$ Since we
+    defined $\phi(x) = k(\cdot, x)$, this yields, $\langle \phi(x), \phi(x')
+    \rangle = k(x, x')$.
+
+    This derivation showed that we can construct a feature map $\phi$ given a
+    kernel $k$. Similarly, a feature map, defines as s.p.d. kernel, via $k(x,
+    x') = \langle \phi(x), \phi(x') \rangle$ since $\sum_{i, j} \alpha_i
+    \alpha_j(x_i, x_j) = \langle \sum_{i} \alpha_i \phi(x_i),
+    \sum\alpha_j\phi(x_j)\rangle = \Vert \sum \alpha_i \phi(x_i) \Vert^2 \ge 0$.
+** The reproducing kernel Hilbert space
+   The space of functions given by $f = \sum_{i = 1}^{m} \alpha_i k(\cdot, x_i)$
+   along with the inner product $\langle \cdot, \cdot \rangle$ defines an inner
+   product space or pre-Hilbert space. We can now complete this space by adding
+   limit points of sequences that converge in the norm $\Vert \cdot \Vert =
+   \langle \cdot, \cdot \rangle^{1/2}$ induced by the inner product.
+
+   1. $\langle f, h(\cdot, x)\rangle = f(x)$ for $f\in H$.
+   2. $H = \operatorname{span}\{k(\cdot, x) \vert x\in X\}$
+
+   There are equivalent definitions using evaluation functionals $\delta_x f =
+   f(x)$ see Stienward/Christmann (Support Vector Machines.)
+** Lemma
+   The RKHS uniquely determines the reproducing kernel $k$
+*** Proof
+    Assume $k_1$ and $k_2$ are reproducing kernels, then $\langle h_1(\cdot, x),
+    k(\cdot, x') \rangle$ The reproducing property of Kernel $k_2$.
+
+    We may now swap the two arguments, $\langle k_2(\cdot, x'), k_1(\cdot, x)
+    \rangle = k_2(x', x) = k_2(x, x')$
+** Mercer Feature space
+   It is possible to derive an explicit representation of the feature space
+   where features are (possibly infinite-dimensional) vectors (unlike the
+   canonical feature map, where we assign functions to all $x \in X$.) The
+   resulting Mercer representation is helpful for understanding RKHS.
+
+   Let $X$ be compact and $K$ a continuous kernel in what follows:.
+** Definition
+   Given a kernel $K$, the integral operator $S_k \colon L_2(\mu) \rightarrow H$
+   is defined by the operator $S_k f(x) = \int h(x, x') f(x') d \mu(X')$ and
+   $T_k(\mu) \rightarrow L_2(\mu)$ by $T_k = S_k^{*} S_k$.
+
+   If you are not familiar with measures think of $d \mu(x')$ as $dx'$, i.e.,
+   the standard Lebesgue measure.
 * Homeworks
 ** Homework 8
 *** 8.1
@@ -1861,4 +1981,4 @@ sequences converges.
 [fn:2] Look up at proofs of this fact
 
 [fn:1] A14 1126 tutorial
-
+ 
