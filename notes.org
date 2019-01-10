@@ -1,11 +1,14 @@
 #+TITLE: Functional Analysis 1
 #+LATEX_HEADER: \usepackage[left=2cm, right=2cm, bottom=2cm, top=2cm]{geometry}
 #+LATEX_HEADER: \usepackage{parskip}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{mathrsfs}
 #+LATEX_HEADER: \def\R{\mathbb{R}}
 #+LATEX_HEADER: \def\C{\mathbb{C}}
 #+LATEX_HEADER: \def\N{\mathbb{N}}
 #+LATEX_HEADER: \def\Z{\mathbb{Z}}
 #+LATEX_HEADER: \def\Q{\mathbb{Q}}
+#+LATEX_HEADER: \def\tr{\operatorname{tr}}
 #+LATEX_HEADER: \def\pos{\operatorname{pos}}
 #+LATEX_HEADER: \def\conv{\operatorname{Conv}}
 #+LATEX_HEADER: \def\sgn{\operatorname{sgn}}
@@ -502,7 +505,7 @@
     continuous, $\Vert Tx - Tx_0 \Vert < \varepsilon$. Now $\Vert Tx - Tx_0\Vert
     = \Vert T \delta/\Vert y \Vert y \Vert = \frac{\delta}{\Vert y \Vert}\Vert T
     y \Vert < \varepsilon$ Multiplying by $\Vert y \Vert / \delta$, we get
-    $\Vert T y \Vert < \varepsilon/\delta$\cdot \Vert y \Vert$ We call the last
+    $\Vert T y \Vert < \varepsilon/\delta \cdot \Vert y \Vert$ We call the last
     term $\gamma$.
 
     The second part of the proof shows that continuity in one point suffices to
@@ -767,10 +770,10 @@
     \frac{\vert y_n\vert^q}{y_n} x'(e_n) = x'(\sum \frac{\vert y_n \vert^q}{y_n}
     e_n$ (this is using the linearity). Now we can use that $x'$ is bounded.
 
-    $X'(\sum \frac{\vert y_n \vert^q}{y_n} e_n \le \Vert X' \Vert \sum \vert
+    $X'\left(\sum \frac{\vert y_n \vert^q}{y_n} e_n\right) \le \Vert X' \Vert \sum \vert
     y_n\vert^q}{y_n} e_n \Vert = \Vert X'\Vert \left(\sum (\vert
-    y_n\vert^{q-1})^p\right)^{1/p} = \Vert X'\Vert \left( \vert y_n
-    \vert^q\right)^{1/p}$
+    y_n\vert^{(q-1)\cdot p})\right)^{1/p} = \Vert X'\Vert \left( \vert y_n
+    \vert^q\right)^{1/p}$[fn:19]
 
     Here $\frac1p + \frac1q = 1$ implies that $\frac1p = \frac{q-1}{q} \implies
     (q-1)p = q$.
@@ -964,7 +967,7 @@
     \Vert a \Vert \Vert b\Vert \cos(a, b)$ and $\langle a, b \rangle <0$ implies
     the angle is obtuse.
 
-    Thus $Re\langle x_0 - x, y - x\rnagle \le 0$ means that the angle between
+    Thus $Re\langle x_0 - x, y - x\rangle \le 0$ means that the angle between
     $x_0 - x$ and $y-x$ is obtuse ($K = \R$)
 ** Definition
    A vector space $X$ is defined to be the direct sum of the subspaces $Y$ and
@@ -1023,8 +1026,8 @@
     e_j \Vert^2 = 2$. This means that the distance between two basis vectors are
     always two.
 
-    Take the neighbourhood $B(e_i, \frac\sqrt{2}{3}) \cap B(e_j \sqrt{2}, 3) =
-    \emptyset$. It is empty in $S$.
+    Take the neighbourhood $B(e_i, \frac{\sqrt{2}}{3}) \cap B(e_j \sqrt{2}, 3) =
+    \emptyset$. It is empty in $S$.[fn:18]
 
     This is apparently similar to the fact that $l^\infty$ is not separable?
 
@@ -1060,7 +1063,7 @@
    f(x)g(x)\ dx$. We can use the following identities to show that $S$ is indeed
    an orthonormal system.
 
-   $\int_0^{2\pi} \cos(mx) \cos(nx)\dx$ is $0$ when $m\neq n$ and $2\pi$, when
+   $\int_0^{2\pi} \cos(mx) \cos(nx)\ dx$ is $0$ when $m\neq n$ and $2\pi$, when
    $m$ and $n$ are $0$, and it is $\pi$ if $m = n$, but not both $0$.
 
    Similarly, for the $\sin$, $\int_{0}^{2\pi} \sin{mx}\sin{nx}\ dx$ is $0$,
@@ -1082,8 +1085,8 @@
    f(x)\sin(kx)\ dx$.
 
    We and write the Fourier series as $\tilde{a_0} \frac{1}{\sqrt{2\pi}} I
-   +\sum_{n=1}^{\infty} \tilde{a}_n \frac{1}{\sqrt{\pi} \cos(kx) + \tilde{b}_n
-   \frac{1}{\sqrt{\pi} \sin(kx)}$.
+   +\sum_{n=1}^{\infty} \tilde{a}_n \frac{1}{\sqrt{\pi}} \cos(kx) + \tilde{b}_n
+   \frac{1}{\sqrt{\pi} \sin(kx)}$
 
    We know that $\tilde{a}_0 = a_0 \sqrt{2\pi} = \langle f, \frac{1}{\sqrt{2\pi}}I\rangle$.
 
@@ -1188,7 +1191,7 @@
    \frac{d^n}{dx^n} \phi_n(x)$
 
    The laguerre Polynomials are orthogonal with respect to $\langle f, g\rangle
-   = \int^{0}^{\infty} f(x) g(x) x^a \exp^{-x}\ dx$.
+   = \int_{0}^{\infty} f(x) g(x) x^a \exp^{-x}\ dx$.
 
    The Laguerre polynomials can be defined recursively and be used for series
    expansions.
@@ -1302,7 +1305,7 @@
 
     We need to show that $h(y, x) = \langle y , Tx\rangle$ and $h(y, x) =
     \langle T^{*}y, x \rangle$. Now $\langle x, T^{*}y \rangle =
-    \overline{\langle T^{*}y, x\rangle = \overline{\langle y, Tx \rangle} =
+    \overline{\langle T^{ *}y, x\rangle} = \overline{\langle y, Tx \rangle} =
     \langle Tx, y \rangle$ so that $T^{*}$ has the properties we were looking
     for $t$.
 ** Examples of Adjoint operators
@@ -1358,7 +1361,7 @@
    Since the integral must be zero for all $p$, it follows that $x^2(1-x^2)[(T +
    T^{*})g](x) = 0$. The term $x^2(1-x^2)$ is positive for all $x \in (0, 1)$
    and only zero for $x=0$ and $x=1$. Thus $(T + T^{*})g$ must be zero for all
-   $g$. This implies that $T + T^{*} = 0$ and as a consequence $\lange f, (T +
+   $g$. This implies that $T + T^{*} = 0$ and as a consequence $\langle f, (T +
    T^{*})g \rangle = 0$.
 
    However, $\langle f, (T + T^{*}) g \rangle = (fg)(1) - (fg)(0)$ which is
@@ -1432,9 +1435,9 @@
 
    Self-adjoint operators are obviously normal.
 ** Example
-   From a previous example, we know that for $T \colon x \rightarrrow Ax$ for a
+   From a previous example, we know that for $T \colon x \rightarrow Ax$ for a
    matrix $A \in \R^{n\times m}$, the adjoint is given by $T^{*} \colon y
-   \rightarrrow A^{T}y$.
+   \rightarrow A^{T}y$.
 
    Thus self-adjointness means $A^{T} = A$ and $A$ must be symmetric. Unitary
    means $A^{T}A = I_n$ thus $m=n$ and $A$ must be orthogonal (unitary if $A$ is
@@ -1502,14 +1505,14 @@
 
    Then $\langle f, g \rangle = \int_{-\infty}^{\infty}[\frac{1}{2\pi}
    \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} f(s) e^{-i\omega s}\ ds
-   e^{i\omega x} dx \overline{g(x)}\ dx$
+   e^{i\omega x} dx \overline{g(x)}]\ dx$
 
-   This is equal to $-\int_{-\infty}^{\infty}\left [\frac{1}{\sqrt{2\pi}
-   \int_{-\infty}^{\infty} f(s) e^{-i\omega s}\ ds\right ]\left[
+   This is equal to $-\int_{-\infty}^{\infty}\left[\frac{1}{\sqrt{2\pi}}
+   \int_{-\infty}^{\infty} f(s) e^{-i\omega s}\ ds\right]\left[
    \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \overline{g(x)} e^{i\omega x}\
    dx\right] \ d\omega$
 
-   Note that $\overline{\exp{z}} = \exp{\oveline{z}}$ and thus.
+   Note that $\overline{\exp{z}} = \exp{\overline{z}}$ and thus.
 
    The above thing end up being $\int_{-\infty}^{\infty} F(\omega)
    \overline{G(\omega)}\ d\omega = \langle F, G \rangle$.
@@ -1535,7 +1538,7 @@
     \Vert T(x - y)\Vert^2\right)$
 
     Because of the isometry property, we see that this is equal to
-    $\frac{1}{4}\left(\Vert x + y \Vert^2 - \Vert x - y \Vert^2) = \langle x, y
+    $\frac{1}{4}\left(\Vert x + y \Vert^2 - \Vert x - y \Vert^2\right) = \langle x, y
     \rangle$.
 
     Analogously, one can show it for $K= \C$.
@@ -1584,7 +1587,7 @@
     Similarly $\langle T(x - iy), x - iy\rangle = \langle Tx, x\rangle + \langle
     -iTy, x\rangle + \langle Tx, -iy\rangle + \langle -iTy, -iy\rangle$
 
-    This is equal to $\langle Tx, x \rnagle - i \langle Ty, x \rangle + i\langle
+    This is equal to $\langle Tx, x \rangle - i \langle Ty, x \rangle + i\langle
     Tx, y \rangle + \langle Ty, y\rangle$.
 
     Complex conjugate and subtraction of the two equations results in: $\langle
@@ -1655,7 +1658,7 @@
     Let $x$ and $x'$ be vectors of unit length, then $k(x, x') = 1$ if $x = x'$
     (high similarity) and $h(x, x') = 0$ if $x \perp x'$ (low similarity).
 *** Lemma
-    Let $X$ be as above and $f_n \colon X \righarrow \R$ and $n \in \N$ be
+    Let $X$ be as above and $f_n \colon X \rightarrow \R$ and $n \in \N$ be
     functions such that $(f_n(x))_n\in l_2$ for all $x\in X$. Then $k(x, x') =
     \sum_{n = 1}^{\infty} f_n(x) f_n(x')$ defines a kernel.
 **** Proof
@@ -1665,7 +1668,7 @@
 
      Thus, by definition, of $f_n(x)$, the series converges absolutely, which
      means it also converges. Then one can define the Hilbert space to be $l^2$
-     and $\phi \colon X\righarrow H$ by $\phi(x) = (f_n(x))_n$, then $k(x, x') =
+     and $\phi \colon X\rightarrow H$ by $\phi(x) = (f_n(x))_n$, then $k(x, x') =
      \langle \phi(x), \phi(x')\rangle_H$ and defines a kernel. This completes
      the proof
 *** Remark
@@ -1706,7 +1709,7 @@
     translate the data using $\phi$ and compute the inner product in feature
     space using the kernel $k$, $y = \operatorname{sgn}[\langle x, \frac{1}{m_{
     +}} \sum_{y_i = 1} x_i \rangle - \langle x, \frac{1}{m_{-}} \sum_{y_i = -1}
-    \sum x_i + b]$. This is same as $\operatorname{sgn}[\frac{1}{m_{ +}
+    \sum x_i + b]$. This is same as $\operatorname{sgn}[\frac{1}{m_{ +}}
     \sum_{y_i = 1} \langle x, x_i \rangle - \frac{1}{m} \sum_{y_i = -1} \langle
     x, x_i \rangle + b]$.
 
@@ -1755,7 +1758,7 @@
      $k(x, x') = \langle \phi(x), \phi(x') \rangle$, thus $(\alpha k)(x, x') =
      \langle \sqrt{\alpha} \phi(x), \sqrt{\alpha} \phi(x')\rangle$.
 
-     $k_1(x, x') = \lanlge \phi_1(x), \phi_2(x) \rangle$, $k_2(x, x') = \langle
+     $k_1(x, x') = \langle \phi_1(x), \phi_2(x) \rangle$, $k_2(x, x') = \langle
      \phi_2(x), \phi_2(x') \rangle$, define $\phi(x) = (\phi_1(x),
      \phi_2(x))^t$, then, $\langle \phi(x), \phi(x')\rangle = \langle
      [\phi_1(x), \phi_2(x)]^t, [\phi_1(x), \phi_2(x)]^t\rangle = \langle
@@ -1832,7 +1835,7 @@
 *** Proof
     Symmetry follows from the symmetry of the $k$. We have to show that for
     arbitrary function $f_1, \cdots, f_m$ and coefficients $\alpha_1, \cdots,
-    \alhpa_m$, $\sum_{i, j} \alpha_i \alpha_j \langle f_i, f_j \rangle = \langle
+    \alpha_m$, $\sum_{i, j} \alpha_i \alpha_j \langle f_i, f_j \rangle = \langle
     \sum_{i} \alpha_i f_i, \sum_{j} \alpha_j f_j \rangle = \langle f,
     \tilde{f}\rangle$
 
@@ -1936,6 +1939,10 @@
     Thus $\langle a, b \rangle = \langle P_M x, y \rangle = \langle x, P_M y
     \rangle = \langle a, b\rangle$.
 * Footnotes
+
+[fn:19] Possible typo here
+
+[fn:18] A possible typo
 
 [fn:17] The notion of similarity measure is not precise.
 
