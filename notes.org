@@ -5,6 +5,7 @@
 #+LATEX_HEADER: \usepackage{mathrsfs}
 #+LATEX_HEADER: \def\R{\mathbb{R}}
 #+LATEX_HEADER: \def\C{\mathbb{C}}
+#+LATEX_HEADER: \def\Re{\operatorname{Re}}
 #+LATEX_HEADER: \def\N{\mathbb{N}}
 #+LATEX_HEADER: \def\Z{\mathbb{Z}}
 #+LATEX_HEADER: \def\Q{\mathbb{Q}}
@@ -1642,7 +1643,7 @@
     We will consider similarity measures of the form $k \colon X \times X
     \rightarrow \R$, where $X$ is a non-empty set.
 *** Definition
-    A function $k \colon X times X \rightarrow \R$ is called kernel if there
+    A function $k \colon X \times X \rightarrow \R$ is called kernel if there
     exists a real Hilbert space $H$ and a map $\phi \colon X \rightarrow H$ such
     that for all $x, x' \in X$, we know that $k(x, x') = \langle \phi(x),
     \phi(x') \rangle_H$.
@@ -1892,6 +1893,335 @@
 
    If you are not familiar with measures think of $d \mu(x')$ as $dx'$, i.e.,
    the standard Lebesgue measure.
+* Lecture 22 Skipped
+* Lecture 23
+** Example
+   $X = \R^2$, then $p(x) = X_1 +\vert X_2 \vert$ is sublinear since $p(x + y) =
+   X_1 + Y_1 + (X_2 + Y_2) \le X_1 + \vert X_1 \vert + \vert Y_2 \vert = p(x) +
+   p(y)$ and $p(\alpha X) = \alpha X_1 + \vert \alpha X_2 \vert = \alpha X_1 +
+   \alpha \vert X_2 \vert = \alpha p(x)$ for $\alpha > 0$.
+
+   We now assume that there is such a functional $p$ that majorizes $f$ on $z$.
+   We can then extend $f$ from $z$ to X$ such that the extension $\tilde{f}$ is
+   still linear and majorized by on $X$. More precisely: 
+** Theorem (Hahn-Banach for real vector spaces)
+   Suppose $X$ is a real vector space and $p$ a sublinear functional on $X$. Let
+   $f$ be a linear functional defined on a subspace $Z$ of $X$ with $f(x) \le
+   p(x), \forall x \in Z$
+
+   Then $f$ can be extended to a *linear* functional $\tilde{f}$ on $X$ such
+   that $\tilde{l}(x) \le p(x)$.
+
+   Extension here means that $\tilde{f}(x) = f(x), \forall x \in Z$
+*** Proof
+    The proof is lengthy. We first show that the set $E$ of all linear
+    extensions $g$ of $f$ with $g(x) \le p(x)$ or the domain $D(g)$ defines a
+    partial ordering. Clearly $E$ is non-empty since $f \in E$. We now need a
+    relationship $\le$ on $E$, $g \le h$ if $h$ is an extension of $g$.
+
+    Extension means that $D(g)$ is a subset of $D(h)$ ($D(g) \subset D(h)$) and
+    $g(x) = h(x) \forall x \in D(g)$.
+
+    Given any chain (totally ordered set). $C \subset E$, define $\hat{g}(x) =
+    g(x), \forall x \in D(g)$, where $g \in C$. Now consider the union of all
+    these extensions.
+
+    The domain of $D(\hat{g}) = \cup_{g \in C} D(g)$ and $\hat{g}$ is linear
+    (all functionals $g \in C$ are linear functionals and extensions of $f$)
+
+    Observe that $g \le \hat{g}$ for all $g\in C$ since $D(\hat{g})$ is the
+    union of all the domains of the $g \in C$.
+
+    Thus $\hat{g}$ is an upper bound. As $C \subset E$ was an arbitrary chain,
+    we can apply Zorn's lemma: this tells us that the partially ordered set has
+    a maximal element, denoted by $\tilde{f}$ and $\tilde{f}(x) \le p(x)$ since
+    all $g \in E$ are majorized by $p$ by definition.
+
+    We now have to show that $D(\tilde{f}) = X$. This is shown by contradiction,
+    by assuming that $D(\tilde{f}) \neq X$.
+
+    If $D(\tilde{f}) \neq X$, we can find $y_n \in X \setminus D(\tilde{f})$.
+    Let $y_1$ be the subspace of $X$ spanned by $D(\tilde{f})$ and $y_1$. Thus
+    any element in this subspace can be written as $x = y + \alpha y_1$, $y \in
+    D(\tilde{f})$.
+
+    To show that the representation is unique, assume that $y + \alpha y_1 =
+    \tilde{y} + \beta y_1, y, \tilde{y} \in D(\hat{f})$.
+
+    Rewritten as $(y - \tilde{y}) = (\beta - \alpha)y_1$, this implies $y =
+    \tilde{y}$ and $\alpha = \beta$. $0$ is the only element $D(\tilde{f})$ and
+    span of $\{y_1\}$ have in common.
+
+    Define a functional on $y_1$ by $g_1(y + \alpha y_1) = \tilde{f}(y) + \alpha
+    c$. For a specific $c \in \R$, this functional extends $f$, which would
+    contradict the Zorn's lemma, since an extension is possible and Zorn's lemma
+    told us that this is the maximal element.
+
+    $g_1(C_n(y + \alpha y_1) + c_2(\tilde{y} + \beta y_1)) = g_1((c_1y + c_2
+    \tilde{y}) + (c_1 \alpha + c_2 \beta) \cdot y_1)$. This is equal to
+    $\tilde{f}(c_1 y + c_2 \hat{y}) + (c_1 \alpha + c_2 \beta) \cdot c$.
+
+    Now, we use the linearity of $\tilde{f}$ and write as $c_1 \tilde{f}(y) +
+    c_2 \hat{f}(\tilde{y}) + c c_1\alpha + c c_2 \beta = c_1 g_1(y + \alpha
+    y_1) + c_2g_1(\tilde{y} + \beta y_1)$. Now, we showed that the functional is
+    linear.
+
+    Additionally, $g_1(y) = \tilde{f}(y)$ for $\alpha = 0$.
+
+    That is $y_1$ is an extension of $\tilde{f}$ and contradicts the maximality
+    of $\tilde{f}$, provided that we can find $c$ such that $g_1(x) \le p(x)$.
+    We haven't shown this part, we'll skip it since it's very technical. One can
+    look at Kreizig's book.
+** Theorem (Hahn-Banach generalized)
+   Given a real or complex vector space and a real valued function $p$ with
+   $p(x + y) \le p(x) + p(y)$ and and $p(\alpha x) = \vert \alpha \vert \cdot
+   p(x)$. Let $f$ be again a linear functional defined on a subspace $z$ of $X$
+   with $\vert f(x) \vert \le p(x)$. Then there exists a linear extension
+   $\tilde{f}$ on $X$ such that $\vert \tilde{f}(x) \vert \le p(x)$, for all $x
+   \in X$.
+** Theorem (Hahn-Banach theorem for normed spaces)
+   Suppose $f$ defined on a subspace $z$ of the normed space $X$ is a bounded
+   linear functional. Then there is a bounded linear functional $\tilde{f}$ on
+   the entire space $X$ that extends $f$ and $\Vert \tilde{f} \Vert_X = \Vert f
+   \Vert_z$
+
+   Here $\Vert \tilde{f} \Vert_X = \sup_{x \in X, \Vert X \Vert = 1} \vert
+   \tilde{f}(x) \vert$, $\Vert f \Vert_z = \sup_{x \in z, \Vert x \Vert = 1}
+   \vert f(x) \vert$.
+*** Proof
+    Assume $Z \neq \{0\}$ (otherwise $f = 0$ and $\tilde{f} = 0$.) We now define
+    a sublinear functional, $p(x) = \Vert f \Vert_z \cdot \Vert X \Vert$ and
+    show that $p(x + y) \le p(x) + p(y)$, and $p(\alpha x) = \vert \alpha \vert
+    p(x)$ to apply Theorem 5.8 (The generalized Hahn-Banach theorem)
+
+    $p(x + y) = \Vert f \Vert_z \cdot \Vert x + y\Vert \le \Vert f \Vert_z \Vert
+    X \Vert + \Vert f \Vert_z \cdot \Vert y \Vert = p(x) + p(y)$
+
+    $p(\alpha x) = \Vert f \Vert_z \cdot \Vert \alpha X \Vert = \Vert \alpha
+    \Vert\cdot \Vert f \Vert_Z \cdot \Vert x \Vert = \vert \alpha \vert p(x)$.
+
+    Since $\vert f(x) \vert \le \Vert f\Vert_z \cdot \Vert X \Vert = p(x)$, $f$
+    is majorized by $p$ on $z$.
+
+    Thus, there is $\tilde{f}$ on $X$ with $\vert \tilde{f}(x) \vert \le p(x)$.
+
+    Now, $\Vert \tilde{f} \Vert_X = \sup_{x \in X, \Vert X \Vert = 1} \vert
+    \hat{f}(x) \vert \le \sup_{x \in X, \Vert x \Vert = 1} \vert p(x) \vert =
+    \sup_{x \in X, \Vert x \Vert = 1} \Vert f \Vert_z \cdot \Vert X \Vert =
+    \Vert f \Vert_Z$.
+
+    But $Z$ is as subset of $X$ so $\Vert f \Vert_Z \le \Vert \tilde{f} \Vert_x
+    \implies \Vert \tilde{f} \Vert_X = \Vert f \Vert_z$.
+** Theorem
+   Given arbitrary $x_0 \in X$, where $X$ is a normed space, there exits a
+   bounded linear functional $\tilde{f}$ on $X$ with $\Vert \tilde{f}\Vert = 1$,
+   and $\tilde{f}(x_0) = \Vert X_0 \Vert$.
+*** Proof
+    Define $z = \span\{x_0\}$ and $f(x) = f(\alpha x_0) = \alpha \Vert X_0
+    \Vert$, Then $f$ is obviously a bounded space.
+
+    $\vert f(x) \vert = \vert f(\alpha x_0) \vert = \vert \alpha \vert \Vert X_0
+    \Vert = \Vert \alpha X_0 \Vert = \Vert X \Vert$.
+
+    So that $\Vert f \Vert = \sup \frac{\vert f(x) \vert}{\Vert X \Vert} =
+    \frac{\Vert \lambda \Vert}{\Vert X \Vert} = 1$. Using Theorem 5.9
+    (Hahn-Banach for normed spaces) $f$ can be extended to the entire $X$ such
+    that $\Vert f \Vert_z = \Vert \tilde{f} \Vert_X = 1$. Since $\tilde{f} = f$,
+    we obtain $\tilde{f}(x_0)= \Vert X_0\Vert$.[fn:20]
+** Geometric version
+   There are also geometric versions of Hahn-Banach theorems which we will
+   consider now. The goal is to separate convex sets in a normed space by
+   bounded linear functionals.
+
+   First we need another version of Hahn-Banach: 
+** Theorem
+   Let $Z$ be again a subspace of the complex vector space $X$ and $p \colon X
+   \rightarrow \R$ sublinear. Assume $f \colon Z \rightarrow \C$ is linear with
+   $\operatorname{Re} f(x) \le p(x), \forall x \in Z$. Then there exists
+   $\tilde{f} \colon X \rightarrow \C$ that extends $f$ with $\operatorname{Re}
+   \tilde{f}(x) \le p(x)$, for all $x \in X$.
+
+   *Reminder*: $U$ is called convex if for all $x, y \in U$, also $\lambda x +
+    (1 - \lambda) y \in U, \forall \lambda \in [0, 1]$
+
+    The separation problem is defined as follows: Assume $U$ and $V$ are two
+    convex sets, we can find a functional $x' \in X', x' \neq 0$, with $\sup_{x
+    \in U} X'(x) \le \inf_{x \in V} X'(x)$ for $K = \R$, or $\sup_{x \in U}
+    \operatorname{Re} x'(x) \le \inf_{x \in V} \operatorname{Re} x'(x)$ for $K =
+    \mathbb{C}$.
+
+    A picture was drawn.
+
+    #+BEGIN_SRC artist
+                                     |        --/-------\--
+                   -------           |       /             \
+                 -/       \-         |       |             |
+                /           \        |       \     V       /
+               /       U     \       |        --\       /--
+               |             |       |           -------
+               \             /       |
+                \           /        |
+                 -\       /-         |
+                   -------           |
+                                     |
+                                     |
+    #+END_SRC
+    
+    Here $U$ and $V$ are convex sets $U$ and $V$ and we need a separating line
+    that separates two convex sets.
+* Lecture 24
+** An example about a question
+   $X = \R^2$ and $p(x) = x_1 + x_2$. sublinear.
+
+   Let $f$ on $\span \{(1, 0)^T\}$ be defined by $f(x) = x_1$.
+
+   Define $g((\lambda_,0)^t + \alpha (0, 1)^t) = f((x_n, 0)^t) = x_1$, i.e., $c
+   = 0$ as suggested.
+
+   But now $g_1(x) \le p(x), \forall x \in X$. Take $x = (1, -1)^t$, then
+   $g_1(x)= 1, p(x) = 0$. A contradiction.
+** Minkowski Functional
+   Let $X$ be a vector space and $A \subset X$ a subset. We define the Minkowski
+   functional by $p_A(x) = \inf \{l > 0 \colon \frac{1}{l} x \in A\}$.
+
+   The set $A$ is called absorbing if $p_A(x) < \infty \forall x \in X$.
+** Example
+   Consider $\R^2$ and $A = \{x, \vert x \vert < 1\}$.
+
+   #+BEGIN_SRC artist
+                  ---+---          /-
+               --/   |   \--   /---
+              /      |      X--
+             /       |  /--- \
+     --------+-------+-------+----------
+             \       |       /
+              \      |      /
+               --\   |   /--
+                  ---+---
+                     |
+                     |
+                     |
+   #+END_SRC
+
+   Given any $x \in \R^2$, we write $x = \Vert x \Vert \cdot x_0$ where $\Vert
+   x_0 \Vert = 1$, thus $x_0 \in A$. $p_A(x) = \inf \{\lambda > 0 \vert
+   \frac{1}{\lambda}x \in A\} = \Vert x \Vert$. Since for $l = \Vert x \Vert$,
+   $\frac{1}{\Vert x \Vert} \Vert x \Vert$, $x_0 \notin A$.
+
+   Kind of easy to see.
+
+   For $\lambda < \Vert x \Vert$, $\vert \frac{1}{\lambda} x \vert >
+   \frac{1}{\Vert x \Vert} \cdot \Vert x \Vert = 1$. Thus $\frac{1}{\lambda}
+   \notin A$.
+** Lemma 5.14
+   Given a normed space $X$ and $U \subset X$ convex. Assume $0$ is an interior
+   point of $U$, then 
+   1. $U$ is absorbing, more precisely, if $\{x \colon \Vert x \Vert < \epsilon
+      \} \subset U$, then $p_u(x) \le \frac{1}{\varepsilon} \Vert x \Vert$.
+   2. $p_n$ is sublinear.
+   3. If $U$ is open, then $U = p_u^{-1}([0, 1))$.
+*** Proof
+    Note that $0$ must really be contained in $U$.
+
+    1. Since $0$ is an interior point, there exists a neighbourhood of $0$ in $U$.
+       We can then proceed as in the example above.
+    2. $p_n(lx) = lp_n(x)$, for $l > 0$, clear from the definition, need to show
+       that $p_n(x + y) \le p_n(x) + p_n(y)$. For arbitrarily $\varepsilon > 0$,
+       choose $l$ and $\mu$ such that $l \le p_n(x) + \varepsilon$, $\mu \le
+       p_n(y) + \varepsilon$ and $\frac{1}{l} x \in U$, $\frac{1}{\mu} y \in U$,
+       $U$ is convex so that $\alpha \frac{1}{l} x + (1- \alpha) \frac{1}{\mu} y
+       \in U$.
+
+       $\frac{1}{1 + \mu} x + \frac{1}{1 + \mu} y = \frac{1}{1 + \mu}(x + y)$,
+       now $\frac{1}{\lambda + \mu} (x + y) \in U$.
+
+       $p_u(x + y)$ must be smaller than $l + \mu$ (since $p_n$ is the infimum),
+       i.e., $p_u(x +y) \le l + \mu \le p_u(x) + \varepsilon + p_u(y) +
+       \varepsilon$, but $\varepsilon > 0$ was arbitrary so that $p_u$ is indeed
+       sublinear.
+    3. $p_u(x) < 1$ implies that $\exists l < 1$ with $\frac{1}{l} x \in U$.
+       Since $U$ is convex and $0 \in U$. $\lambda \frac{1}{\lambda} x + (1- l)
+       0 \in U \implies x \in U$.
+
+       $p_u(x) \ge 1$ implies $\exists l < 1 \colon \frac{1}{\lambda} x\in
+       U^{c}$ (the complement of $U$)
+
+       Now since $U$ is by definition open, $U^{c}$ is closed and it follows
+       that $\lim_{l < 1, \lambda \rightarrow 1} \frac{1}{\lambda} x \in U^c$.
+** Lemma 5.15
+   Let $X$ be a normed space and $V \subset X$ convex and open with $0 \notin
+   V$. Then there exists a linear functional $x' \in X'$ with the property that
+   $\operatorname{Re}(x'(x)) < 0, \forall x \in V$
+*** Proof
+    We show only the real valued case. In what follows, we use the notation $A
+    \pm B = \{a \pm b \colon a \in A, b \in B\}$
+
+    Note that $A + B$ and $A - B$ are convex.
+
+    Assume $c_i = a_i + b_i$, $i = 1, 2$, then $\lambda c_1 + (1-\lambda)c_2 =
+    \lambda a_1 + (1-\lambda)a_2 + \lambda b_1 + (1-\lambda)b_2 \in A + B$. One
+    can do the same for $A - B$.
+
+    Now we can start with the proof: Choose arbitrary $x_0 \in V$, define $y_0 =
+    -x_0$ and $U = V - \{x_0\}$. Since $V$ is open, so is $U$ (the same set,
+    just moved by $x_0$)
+
+    Furthermore, $U$ is convex (one-point sets are convex and the "difference"
+    of two convex sets is convex.)
+
+    It holds that $y_0 \in U = \{v - x_0, v \in V\}$ since otherwise $v = 0 \in
+    V$.
+
+    But $0 \in U$, choose $v = x_0$. Consider now $p_u(x) = \inf \{\lambda
+    \colon \frac{1}{\lambda} x \in U\}$. According to Lemma 5.14, $p_n$ is a
+    real-valued sublinear functional. Since $y_0 \in U$, $p_u(y_0) \ge 1$.
+    Define $y = \span \{y_0\}$ and the functional $y'(ty_0) = t p_u(y_0)$.
+
+    For $t \le 0$, $y'(ty_0) \le 0 \le p_u(ty_0)$.
+
+    $t > 0 \colon y'(ty_0) = p_u(t, y_0)$. We combine these and get $y'(ty_0)
+    \le p_u(t y_0)$.
+
+    Due to the Hahn-Banach theorem, there exists $x' \in X'$ that extends $y'$
+    and $x'(x) \le p_u(x)$.
+
+    $x'$ is continuous with lemma 5.14,
+    1. $\vert x'(x) \vert = \max\{x'(x), x'(-x)\} \le \max \{p_u(x), p_u(-x)\}
+       \le \frac{1}{\varepsilon} \Vert x \Vert$.
+
+    Now, $x'(y_0) = p_u(y_0) \ge 1$. Any $x \in V$ can be written as $x = u +
+    x_0 = u - y_0$ and $x'$ is linear, thus, $x'(x) = x'(u) - x'(y_0) < 0.$ This
+    is $\le p_u(u)$. $\in [0, 1]$ See Lemma 5.14 (iii)
+** Theorem
+   (Hahn-Banach separation version) Let $X$ be a normed space and $V_1, V_2
+   \subset X$ convex. Moreover, assume $V_1$ is open and $V_1 \cap V_2 =
+   \emptyset$. Then there exists $x' \in X'$ such that $\operatorname{Re}
+   x'(v_1) < \operatorname{Re} x'(v_2) \forall v_1 \in V_1, v_2 \in V_2$.
+*** Proof
+    Define $V= V_1 - V_2$ and apply the previous theorem.
+** Theorem 5.17 (Hahn-Banach separation version)
+   Let $X$ be a normed space $V \subset X$ closed and convex. For $X \notin V$,
+   there exists $x' \in X$ with $\Re x'(x) < \inf \{\Re x'(v) \vert v \in V\}$.
+** Theorem (Uniform boundedness theorem)
+   Unlike the Hahn-Banach theorem, the next fundamental theorems require
+   completeness. The uniform boundedness theorem will be derived using the
+   so-called Baire's category theorem.
+** Definition (Category)
+   We call a subset $M$ of a metric space $X$:
+   1. *rare* (nowhere dense) in $X$ if the closure $\bar{M}$ has no interior
+      points.
+   2. *meager* (of first category) in $X$ if $M$ is the union of countably many
+      rare sets.
+   3. *nonmeager* (of second category) in $X$ if $M$ is not meager in $X$.
+
+   First category means "small", e.g., $\Z$ is meager in $\R$. To see this,
+   first note that $\Z$ is closed in $\R$ since $\R \setminus \Z = \cup_{n \in
+   \Z} (n, n+1)$ and hence $\Z$ is closed.
+
+   Consequently $\Z$ is closed. Now $\Z$ can be written as the union of
+   countably many sets $\Z = \cup_{n \in Z} \{n\}$. Each set $\{n\}$ is nowhere
+   dense in $\R$ because $\overline{\{n\}} = \{n\}$ and the interior of $\{n\} =
+   \emptyset$. In a similar way, it can be shown that $Q$ is meager in $\R$.
 * Homeworks
 ** Homework 8
 *** 8.1
@@ -1939,6 +2269,9 @@
     Thus $\langle a, b \rangle = \langle P_M x, y \rangle = \langle x, P_M y
     \rangle = \langle a, b\rangle$.
 * Footnotes
+
+[fn:20] Recall that the norm is not a linear functional, if it were, then things
+would be lot easier.
 
 [fn:19] Possible typo here
 
