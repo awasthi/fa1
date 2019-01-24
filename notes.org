@@ -2222,6 +2222,140 @@
    countably many sets $\Z = \cup_{n \in Z} \{n\}$. Each set $\{n\}$ is nowhere
    dense in $\R$ because $\overline{\{n\}} = \{n\}$ and the interior of $\{n\} =
    \emptyset$. In a similar way, it can be shown that $Q$ is meager in $\R$.
+* Lecture 25
+** Baire Category theorem
+   Something about pointwise convergence implying the global.
+
+   Let $X \neq \emptyset$ be a complete metric space, then $X$ is non-meager (of
+   second category) in itself.
+   
+   Thus for complete $X$ with $X = \cup_{n = 1}^{\infty} A_k$ where $A_k$ is
+   closed, at least one $A_k$ must contain a non-empty open subset.
+
+   As a result, $\R$ is of second category. (This is also clear before, but can
+   now be deduced from the theorem), while $\N, \Z, and \Q$ are not of second
+   category.
+
+   We can now derive the *uniform boundedness theorem* which states that if a
+   sequence of bounded linear operators $T_k \colon X \rightarrow Y$, $X$
+   complete converges at every point $x \in X$, then the sequence is uniformly
+   bounded.
+** Theorem (Uniform boundedness theorem)
+   Given a sequence of linear bounded operators $T_k \colon X \rightarrow Y$
+   from Banach space $X$ into a normed space $Y$ such that $(\Vert T_k X
+   \Vert)_k$ is bounded for all $x \in X$, i.e., $\Vert T_k X \Vert \le C_x$ for
+   all $k$, then the sequence of the norms $(\Vert T_n \Vert)_n$ is bounded.
+   That is, $\exists c \colon \Vert T_n \Vert \le c$ for all $n$. ("point wise
+   boundedness implies uniform boundedness".)
+*** Proof
+    If we write the space $X = \cup_{k = 1}^{\infty} A_k$ at least one $A_k$
+    contains a non-empty open set. For any $k\in N$, define $A_k = \{X \colon
+    \Vert T_n x \Vert \le k, \forall n\}$.
+
+    The sets $A_n$ are closed (use continuity of operators $T_k$ and continuity
+    of the norm.) Since $\Vert T_n X \Vert \le c_x$, $\forall x \in X$, any $x$
+    belongs to one of the sets $A_k$ and $X = \cup_{n = 1}^{\infty} A_k$.
+
+    $X$ is by assumption complete, thus due to Baire's category theorem at least
+    one of the sets $A_k$ contains an open ball, i.e., $\exists k_0 \in \N, x_0
+    \in X, r > 0 \colon B_o = B(x_0, r) \in A_{k_0}$.
+
+    Let $x \neq 0$ be arbitrary, define $z = x_0 + rx$, where $r = \frac{r}{2
+    \Vert x \Vert}$, then $\Vert z - x_0 \Vert = \Vert r x\Vert = \Vert
+    \frac{r}{2 \Vert x \Vert} \cdot x \Vert < r$. It follows that $z \in B_o$
+    and that thus $\Vert T_k z \Vert \le k_0, \forall n \in \N$.
+
+    By definition, also $x_0 \in B_0$, and $\Vert T_n x_0 \Vert \le n_0 \forall
+    n \in \N$. We can write $x$ as $x = \frac{1}{r}(z - x_0)$, then $$\Vert T_n
+    X \Vert = \Vert T_n (\frac{1}{r}(z - x_0)) \Vert = \frac{1}{r} \Vert T_n z -
+    T_n x_0 \Vert < \frac{1}{\gamma}\left(\Vert T_n z \Vert + \Vert T_n x_0
+    \Vert \right)\le \frac{2 \Vert x \Vert}{\gamma} \cdot 2 l_0 = 4 \frac{\Vert
+    x \Vert}{r} k_0$$
+
+    For all $n$, $\Vert T_n Vert = \sup_{\Vert x\Vert = 1} \Vert T_n x \Vert =
+    \frac{4}{r}k_0 \equiv c$ We just showed that the sequence of operators is
+    bounded by $c$.
+** Example
+   Suppose $1 < p < \infty$ and $\frac{1}{p} + \frac{1}{q} = 1$, as usual. If
+   the sequence $\alpha_n$ is such that $\sum_{i = 1}^{\infty} \alpha_i x_i$
+   converges for all $x \in l^p$, then $\alpha = (\alpha_i)_{i} \in l^q$.
+*** Proof
+    We define a $f_n(x) = \sum_{i =1}^{\infty} \alpha_i x_i$ and $f(x) = \sum_{i
+    =1}^{\infty} \alpha_i x_i$. Both $f_n$ and $f$ are linear and using Holder's
+    inequality $\vert f_n(x) \vert \le (\vert \alpha_i \vert^q)^{1/q} (\sum
+    \vert x_i \vert)^{1/p} \le (\sum \vert \alpha_i\vert^q)^{1/q} \Vert x
+    \Vert_q$
+
+    We see that $f_n$ is bounded for every $x \in l^p$ with the previous
+    theorem, it follows that $$\vert f(x) \vert = \vert \sum_{i = 1}^{\infty}
+    \alpha_i x_i \vert \le \Vert f \Vert \left(\sum_{i=1}^{\infty} \vert x_i
+    \vert^p \right)^{1/p}$$
+
+    Note that $(f_n)_n$ converges pointwise to $f$.
+
+    We now define $x_i = \bar{\alpha}_i \cdot \vert \alpha_i \vert^{q-2}$ if $1
+    \le i \le n$ and $\alpha_i \neq 0$ and $0$ otherwise. For any fixed $n$,
+    then $(x_i)_i \in l^p$ (only finitely many entries $\neq 0$) and $\vert x_i
+    \vert^p = (\vert \bar{x_i} \vert \cdot \vert \alpha_i \vert^{q-2})^p = \vert
+    \alpha_i \vert^{p(q-1)} = \vert \alpha_i \vert^{q} = \alpha_i x_i$ for $i =
+    1, \cdots, n$.
+
+    First $\frac{1}{p} + \frac{1}{q} = 1 \implies p(q-1) = q$, second, $\alpha_i
+    x_i = \alpha_i \overline{\alpha}_i \vert \alpha_i \vert^{q-2} = \vert
+    \alpha_i\vert^q$
+
+    Thus, $$(\sum_{i = 1}^{n} \vert \alpha_i \vert^q)^{1/p}(\sum_{i=1}^{n} \vert
+    \alpha_i \vert^{1})^{1/p} = \sum_{i=1}^{n} \vert \alpha_i \vert ^ q =
+    \sum_{i=1}^{n} \aplha_i x_i \le \Vert f \Vert (\sum_{i=1}^{q} \vert x_i
+    \vert)^{1/p} = \Vert f \Vert \left(\sum \vert \alpha_i \vert \right)^{1/p}$$
+
+    It follows that $(\sum_{i=1}^{n} \vert \alpha_i \vert^q)^{1/q} \le \Vert
+    f\Vert$ for any $n \in \N$ and thus $(\sum_{i=1}^{\infty} \vert \alpha_i
+    \vert^q)^{1/q} < \infty$ and $\vert \alpha_i)_i \in l^q$.
+** Example
+   Let $p$ be the space of polynomials, write $p(x) = \sum_{i = 0}^{\infty}
+   \alpha_i x^i$. (For a polynomial of degree $N_p$, $\alpha_i = 0 \forall i >
+   N_p$)
+
+   Define $\Vert p \Vert = \max_i \vert \alpha_i \vert$. Then $(P, \Vert \cdot
+   \Vert)$ is not complete.
+*** Proof
+    We want to use the uniform boundedness theorem and thus define $f_n(0) = 0$
+    and $f_n(p) = \sum_{i=0}^{n - 1}\alpha_i$, $f_n$ is a linear functional.
+    Consider $p = \sum_{i=0}^{\infty} \alpha_i x^i$ and $q = \sum_{i=0}^{\infty}
+    p_i x^i$, then $f_n(cp + dp) =f_n(\sum_{i = 0}^{\infty}(c\alpha_i + d
+    \beta_i) x^i) = \sum_{i = 0}^{n-1}(c\alpha_i + d \beta_i) = c \sum_{i
+    =0}^{n-1} \alpha_i + d \sum_{i = 0}^{n-1} \beta_i = c f_n(p) = d f_n(q)$.
+
+    Furthermore, $\vert f_n(p) \vert = \vert \sum_{i=0}^{n-1} \alpha_i\vert \le
+    n \cdot \max \vert \alpha_i \vert = n \cdot \Vert p \Vert$. We now fix $p$
+    and analyse $(f_n(p))_n$. Let $N_p$ denote again the degree of $p$, then at
+    most $N_p + 1$ coefficients are nonzero so that, $\vert f_n(p) \vert \le
+    (N_p + 1) \Vert p \Vert$
+
+    We have shown pointwise boundedness and want to prove that $\Vert f_n
+    \Vert_n$ is not bounded. We select $p_n(x) = \sum x^i$. Thus, $\Vert p_n
+    \Vert = 1$ and $f_n(p) = n$, but $\Vert f_n \Vert = \sup_{\Vert p \Vert = 1}
+    \vert f_n(np) \vert \ge n$. $(\Vert f_n \Vert)_n$ is unbounded. Using the
+    uniform boundedness theorem, $p$ cannot be complete,
+** Open mapping theorem
+   We can now approach the third fundamental theorem. We start with a definition.
+** Definition (Open map)
+   A mapping between metric spaces is called open if it maps open sets to open
+   sets.
+** Example
+   Consider $x \mapsto \sin(x)$, then $(0, 2\pi)$ is mapped to $[0, 1]$, i.e.,
+   non-open set.
+
+   Let $f \colon \R^2 \rightarrow \R$, $(x, y) \mapsto x$ is open if it is a
+   projection onto the first coordinate. The set, $A = \{(x, y) \vert x \ge 0, x
+   \cdot y \ge 1\}$ is closed.
+
+   (Note that the sets such as $[0, \infty)$ are closed, every sequence of
+   non-negative numbers that converges has a non-negative limit in $[0,
+   \infty)$. Another way to look at $(\infty, \infty)$ is clearly open.)
+
+   $f(A) = (0, \infty)$ and thus open.
 * Homeworks
 ** Homework 8
 *** 8.1
@@ -2268,6 +2402,13 @@
 
     Thus $\langle a, b \rangle = \langle P_M x, y \rangle = \langle x, P_M y
     \rangle = \langle a, b\rangle$.
+** Announcement
+   24.1 last exercise sheet
+   21.1 test exam
+   
+   4.2 no tutorial
+   12.2 last tutorial.
+   14.2 exam
 * Footnotes
 
 [fn:20] Recall that the norm is not a linear functional, if it were, then things
