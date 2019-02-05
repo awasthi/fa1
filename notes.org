@@ -2356,6 +2356,194 @@
    \infty)$. Another way to look at $(\infty, \infty)$ is clearly open.)
 
    $f(A) = (0, \infty)$ and thus open.
+* Lecture 26
+** Repetition
+   1. Continuous map: open set set inverted to open. Similarly for closed
+   2. Image of a compact set is compact
+   3. continuous function maps Connected sets to connected set.
+   4. Definition of disconnected. We can write $X$ and $A \cup B$ where $A$ and
+      $B$ are open and they are disjoint.
+   5. Some counter examples in the other direction.
+      1. Preimages of connected sets need to not be connected. $f(x) = \vert x
+         \vert$, then $f^{-1}([1, 2]) = [-2, -1] \cup [1, 2]$.
+      2. $f(x) = \frac{1}{1 + x^2}$
+** Theorem
+   Let $X, Y$ be normed spaces and $T \colon X \rightarrow Y$ be a linear
+   mapping. Then the following statements are equivalent.
+   
+   1. $T$ is open.
+   2. $T$ maps open balls around $0$ to neighbourhoods of $0$, to be more
+      precise. $U_r = \{x \in X \colon \Vert x \Vert < r\}$ and $V_\varepsilon =
+      \{y \in Y \colon \Vert y \Vert < \varepsilon\}$
+   3. There was something that I missed.
+** Example
+   Let $c_0 = \{(x_n)_n \colon x_n \in K \textup{ and } \lim_{n \rightarrow
+   \infty} x_n = 0\}$ (set of all sequences converging to $0$) We define a
+   mapping $T \colon l^\infty \rightarrow c_0$ by $x_n = \frac{1}{n} x_n$. Since
+   every sequence in $l^\infty$ is bounded, $(\frac{1}{n} x_n)_n$ converges to
+   zero. Consider $U_1 = \{(x_n)_n \in l^\infty \colon \Vert x_n \Vert < 1\}$
+
+   $T(U_1) = \{(\frac{1}{n} x_n)_n \in c_0 \colon \Vert x \Vert_\infty < 1\}$
+   This is same as $\{(x_n) \in c_0 \colon \vert x_n \vert < \frac{1}{n} \forall
+   n \in \N\}$
+
+   $V_\varepsilon = \{(y_n)_n \in c_0 \colon \Vert (y_n)\Vert < \varepsilon \}$
+
+   For all $\varepsilon > 0$ we can find a sequence $V_\varepsilon$ that is not
+   in $T(U_n)$. It follows that $T$ cannot be open. An open linear mapping is
+   surjective. This can be seen as follows:
+
+   Take any $y \in Y$. We have that $V_\varepsilon \subset T(U_1)$. We now
+   define $\tilde{y} = \frac{\varepsilon}{2 \Vert y \Vert} \cdot y$ So that
+   $\tilde{y} \in V_\varepsilon$. Thus, there exists an $x \in U_1$ with $T(x) =
+   \tilde{y}$. Then $T(2 \frac{\Vert y \Vert}{\varepsilon} x}$ I missed the rest
+   of the proof.
+** Corollory
+   Given Banach spaces $X$ And $Y$ and a bijective continuous linear operator $T
+   \colon X \rightarrow Y$, then the inverse operator $T^{-1}$ is continuous.
+** Corollory
+   Let $\Vert \cdot \Vert_1$ and $\Vert \cdot \Vert_2$ be norms on $X$ such that
+   $(X, \Vert \cdot \Vert)$ and $(X, \Vert \cdot Vert_2)$ are complete, then if
+   $\Vert \cdot \Vert_2 \le c \cdot \Vert \cdot \Vert_1$ for some $c > 0$, then
+   also $\Vert \cdot \Vert_1 \le c' \Vert \cdot \Vert_2$ for some $c' > 0$.
+* Lecture 27
+  Mock exam
+* Lecture 28 <2019-02-05 Tue>
+** Corollary
+   Let $\Vert \cdot \Vert_1$ and $\Vert \cdot \Vert_2$ be norms of $X$ such that
+   $(X, \Vert \cdot \Vert_1)$ and $(X, \Vert \cdot \Vert_2)$ are complete. Then
+   if $\Vert \cdot \Vert_2 \le c \cdot \Vert \cdot \Vert_1$ for some $c > 0$,
+   then also $\Vert \cdot \Vert_1 \le c' \Vert \cdot \Vert_2$ for some $c' > 0$.
+*** Proof
+    Define $T$ to be the identity map $(X, \Vert \cdot \Vert_1) \mapsto (X,
+    \Vert \cdot \Vert_2)$. Then $T$ is of course bounded. Hence the inverse
+    $T^{-1}$ is also bounded, i.e., there exists a constant $c'$ such that the
+    inverse $\Vert T^{-1} x\Vert_1 = \Vert x \Vert_1 \le c' \Vert x \Vert_2$
+
+    This relies on the fact that the two norms are complete. Otherwise this need
+    not be true.
+** Example
+   The following example illustrates that completeness is indeed required.
+
+   Consider the space $C^{1}[0, 1]$ the space of continuously differentiable
+   spaces on the interval $[0, 1]$ with the norms $\Vert \cdot \Vert_1 = \max_{x
+   \in [0, 1]} \vert f(x) \vert$ and $\Vert f\Vert_2 = \Vert f \Vert_1+ \Vert
+   f'\Vert_1$
+
+   Now $\Vert f \Vert_1 \le \Vert f \Vert_2$, i.e., $c =1$ in the corollary
+   before. But the norms are not equivalent. For $f_n(x) = \frac{1}{n} \sin
+   (nx)$. These functions are continuously differentiable. Now $\Vert f_n
+   \Vert_2 = \Vert f_n \Vert_1 + \Vert f_n'\Vert \rightarrow 1$ and not zero.
+
+   It follows that $C^{-1}[0, 1]$ cannot be a Banach space for both norms.
+
+   Here the the one norm is complete, but on the other hand, the two norm is
+   complete.
+
+   To see that the one norm is complete, construct a function that is not
+   differentiable, i.e., $f(x) = \vert x - \frac{1}{2}\vert$. By the Weistrass
+   approximation theorem, there exists a sequence of polynomials converging to
+   $f$. All these polynomials are differentiable, but the limit is not. The
+   completion would give use $C^{0}[0, 1]$, the space of all continuous
+   functions.
+
+   *This completes the fundamental theorem chapter*
+** Spectral theory
+   Eigenvalues and eigenvectors of matrices play an important role in the
+   analysis of stability etc. We will now extend this framework to operators on
+   normed and also in particular, Hilbert spaces.
+
+   Reminder: Let $X$ and $Y$ be normed spaces. An operator $T \colon X
+   \rightarrow Y$ is called compact linear operator if $T$ is linear and maps
+   bounded subsets $M \subset X$ to relatively compact sets $T(M)$, i.e.
+   $\overline{T(M)}$ is compact.
+
+   Some properties:
+   1. Every compact linear operator $T$ is bounded and thus continuous (consider
+      $U = \{x \in X \vert \Vert x \Vert = 1\}$, $U$ is bounded and since $T$ is
+      by definition compact, $\overlin{T(U)}$ is compact and hence bounded. 
+   2. $T$ is compact if and only if it maps every bounded sequence $x_n$ in $X$
+      onto a sequence $(Tx_n)$ in $Y$ which has a convergent subsequence.
+   3. The compact linear operators from $X$ to $Y$ form a vector space, i.e.,
+      $T_1 + T_2$ is compact if $T_1, T_2$ are compact.
+** Definition
+   Let $X$ be a normed space $X$ and $T \colon X \rightarrow X$ an operator. We
+   call $X \neq 0$ with $Tx = \lambda x$ eigenvector (or eigenfunction) if $X$
+   is a function space and $\lambda$ the corresponding eigenvalue.
+** Example
+   In some example long time ago, we computed the eigenfunctions of the Koopman
+   operator given by $Kf = f \circ \phi$ for $\phi \colon \R^2 \rightarrow
+   \R^2$, $\phi(x)=$
+
+   | $\lambda x_1$                            |
+   | $\mu x_2 + (\lambda^2 - \mu)\lambda_1^2$ |
+
+   $e_1 = x_1, \varphi_2 = x_1^2, e_3 = x_2 - x_1^2$ are eigenfunctions
+   corresponding to $l_1 = l, l_2 = \lamda^2, \lambda_3 = \mu$.
+
+   $Tx = \lambda x$ implies that $tx - \lambda x = (T - \lambda Id) x = 0$.
+   Thus, the operator $T - \lambda Id$ is not injective. Furthermore, for an
+   eigenvalue $\lambda$ and eigenvector $x$, we obtain,$\Vert T x \Vert = \Vert
+   \lambda x \Vert = \vert \lambda \vert \cdot \Vert x \Vert \implies \vert l
+   \vert < \Vert T \Vert$.
+
+   For an operator on a fininte-dimensional space injectivity and subjectivity
+   are equivalent. For inifinite dimensional operator, this is in general not
+   the case, e.g., $l^2$ with the right shift operator $R$ is injective and not
+   surjective. On the other hand, the left-shift operator: $(x_1, \x_2, \cdots)
+   \mapsto (x_2, x_3, \cdots)$ surjective/not injective.
+
+   Eigenvalues and eigenvectors of the right-shift operator.
+
+   $Rx = (0, x_1, x_2, \cdots,) = \lambda(x_1, x_2, \cdots)$
+
+   Thus $0 = \lambda x_1$, either $\lambda = 0$ or $x_1 = 0$. If $\lambda = 0
+   \implies x = 0$ which is not a nonzero vector. If $x_1 = 0$, then $x_1 =
+   \lambda x_2$. Thus $x = 0$, $R$ has no eigenvalues.
+
+   Eigenvalues and eigenvectors of the left-shift operator. $Lx = (x_1, x_3,
+   \cdots) = \lambda(x_1, x_2, \cdots)$ Thus $x_2 = \lambda x_1$, $x_3 = \lambda
+   x_2$ and so on. Without loss of generality, we can say that $x_1$ is $1$, and
+   eigenvectors are of the form $(1, \lambda, \lamba^2, \cdots)$ Now $\Vert x
+   \Vert_2 = \sum_{n = 0}^{\infty} \vert \lambda^k \vert^2 < \infty$ for $\vert
+   \lambda\vert < 1$
+
+   The shift operator are not compact. (We can see this by taking a sequence of
+   unit vectors.)
+
+   Thus, we study not only eigenvalues, but the more general spectrum defined by
+   $\sigma (T) = \{ \lambda \vert \lambda_{Id} - T \textup{ is not
+   bijective}\}$. Sometimes $\lamba_{Id} - T$, where $Id$ is the identity
+   operator is written in short as $\lambda - T$.
+
+   The spectrum of the right shift operator is $\sigma(R) = \{\vert \lambda
+   \vert \le 1\}$ For $\lambda = 0$, $-T$ is not bijective, take $y = (1, 0, 0,
+   \cdots)$, then $y$ is not the image of a point $x \in X$. Assume $\vert
+   lambda \vert \le 1, \lambda \neq 0$. Suppose there is $x \in X$ with
+   $(\lambda_{Id} - \R)x = y$
+
+   $\lambda x - Rx = (\lambda x_1, \lambda x_2 - x_1, \cdots) = (1, 0, 0,
+   \cdots)$ This implies that $x_1 = \frac1\lambda = \frac{1}{\lambda^2},
+   \cdots$ not in $l^2$ for $\vert \lambda \vert \le 1$.
+
+   If $T$ is bijective and $X$ complete, then the inverse $T^{-1}$ is
+   automatically continuous. Given continuous linear operator $T \colon X
+   \rightarrow X$ on a Banach space $X$, we define $T^{0} = Id$ and $T^n = T
+   \circl \cdots \circ T$ ($n$ times)
+** Theorem
+   Let $T$ be as above and $\Vert T \Vert \le 1$. Then $\sum_{n=0}^{\infty} T^n$
+   converges and $Id - T$ is invertible with $(id - T)^{-1} =
+   \sum_{n=0}^{\infty} T^n$ Furthermore $\Vert (Id - T)^{-1}\Vert \le (1 - \Vert
+   T \Vert)^{-1}$.
+*** Proof
+    We define $S_n = \sum_{n = 0}^{n} T^k$, then for $n > m$, we obtain $\Vert
+    S_n - S_m \Vert = \Vert \sum_{k = m+1}^{n} T^k\Vert \le \sum_{k = m+1}^{n}
+    \Vert T^k\Vert \le \sum_{k=m+1}^{n} \Vert T \Vert^k$.
+
+    Since $\Vert T \Vert < 1$, $(S_n)_n$ is a Cauchy Sequence in the space of
+    linear operators on $X$. Now, $X$ is complete and consequently the space of
+    linear operators, thus $S = \sum_{k=0}^{\infty} T^k =\lim_{n \rightarrow
+    \infty} S_k$ exists.
 * Homeworks
 ** Homework 8
 *** 8.1
@@ -2409,6 +2597,8 @@
    4.2 no tutorial
    12.2 last tutorial.
    14.2 exam
+** Test
+   No koopman operator.
 * Footnotes
 
 [fn:20] Recall that the norm is not a linear functional, if it were, then things
