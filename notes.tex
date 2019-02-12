@@ -1,4 +1,4 @@
-% Created 2019-02-07 Thu 11:42
+% Created 2019-02-11 Mon 17:09
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -29,11 +29,11 @@
 \def\conv{\operatorname{Conv}}
 \def\sgn{\operatorname{sgn}}
 \usepackage[T1]{fontenc}
-\author{Harikrishnan Mulackal}
+\author{Hari}
 \date{\today}
 \title{Functional Analysis 1}
 \hypersetup{
- pdfauthor={Harikrishnan Mulackal},
+ pdfauthor={Hari},
  pdftitle={Functional Analysis 1},
  pdfkeywords={},
  pdfsubject={},
@@ -45,17 +45,17 @@
 \tableofcontents
 
 \section{Lecture 2 \textit{<2018-10-17 Wed>}}
-\label{sec:orgdbad238}
+\label{sec:orgc48bdc1}
 
 \subsection{Examples of metric spaces}
-\label{sec:org550fe7a}
+\label{sec:orgd2105f3}
 
 \subsubsection{The set of continuous functions \(C[a, b]\)}
-\label{sec:org3bd1341}
+\label{sec:org50e02c5}
 With a metric \(d(f, g) = \max\vert f(x) - g(x)\vert\)
 
 \subsubsection{The space \(l^p\) of sequences \(x=(x_1, x_2 \cdots,)\) with \(\Vert x \Vert _p < \infty\).}
-\label{sec:org7aa4c61}
+\label{sec:org97f1670}
 The metric is the norm of the difference. 
 
 To prove that this is indeed a metric, we need the Minkowiski inequality.
@@ -77,34 +77,34 @@ Minkowski: \url{https://en.wikipedia.org/wiki/Minkowski\_inequality}
 For \(p=q=2\), we obtain the Cauchy-Schwarz inequality. 
 
 \subsection{Definitions involving metric spaces}
-\label{sec:org16b7609}
+\label{sec:org3402326}
 
 \subsubsection{Open ball}
-\label{sec:org8061aa9}
+\label{sec:orgce4e77e}
 \(B(x_0, r)\) is the set of all points \(x\) such that the distance from \(x\) to \(x_0\) is less than \(r\).
 
 \subsubsection{Closed ball}
-\label{sec:org8ee38ee}
+\label{sec:orga6b99df}
 Similar to open ball, except that the distance can be less than or \emph{equal to} \(r\).
 
 \subsubsection{Sphere}
-\label{sec:org23440d5}
+\label{sec:org5e492c4}
 The set of all points \(x\) such that the distance from \(x_0\) to \(x\) is exactly \(r\).
 
 \subsubsection{Relation}
-\label{sec:org36e4531}
+\label{sec:org16b9069}
 If we subtract a sphere from the closed ball, we get the open ball.
 
 \subsubsection{Definition of open}
-\label{sec:org7f0088d}
+\label{sec:org34272fb}
 For every point \(x\), we can find an epsilon ball that is inside the set. 
 
 \subsubsection{Definition of closed}
-\label{sec:orga03aeee}
+\label{sec:orgddf2941}
 Basically the complement of the set is open.
 
 \subsubsection{Remark (\(\varepsilon\) neighbourhood)}
-\label{sec:orga0eaacb}
+\label{sec:orge3ef890}
 An open ball \(B(x_0, \varepsilon)\) of radius \(\varepsilon\) is often called
 an \(\varepsilon\) neighbourhood. A neighbourhood of \(X\) is that contains an
 \(\varepsilon\) neighbourhood of \(X\)
@@ -112,12 +112,12 @@ an \(\varepsilon\) neighbourhood. A neighbourhood of \(X\) is that contains an
 We will use these definition for separable spaces.
 
 \subsubsection{Interior point}
-\label{sec:orgc079ec5}
+\label{sec:org3184c07}
 We call \(x_0\) an interior point if there exist an neighbourhood of \(x_0\)
 contained inside the space.
 
 \subsubsection{Continuity}
-\label{sec:orgcf02ee5}
+\label{sec:org7598aa4}
 About a function from one metric space to another. It's basically the
 standard definition. (the definition in the lecture was an \(\varepsilon\),
 \(\delta\) definition.) 
@@ -126,22 +126,22 @@ The definition was about continuity at a point \(x\). Then a function is
 defined to be continuous if it is continuous at every point \(x\).
 
 \subsubsection{Accumulation point}
-\label{sec:org7d8b8fc}
+\label{sec:org2e29c1c}
 \(A\) be a subset of \(X\). Then \(x_0 \in X\) (not necessarily in \(A\)) is called
 accumulation point of \(A\) if every neighbourhood of \(X_0\) contains at least
 one point \(y \in A\), \(y \neq x_0\).
 
 \section{Lecture 3 \textit{<2018-10-23 Tue>}}
-\label{sec:orgaf352ae}
+\label{sec:org819056d}
 \footnote{A14 1126 tutorial}
 \subsection{More definitions}
-\label{sec:orgab2cd72}
+\label{sec:org2b4e20f}
 \subsubsection{Closure of a set}
-\label{sec:org80022cd}
+\label{sec:orgf0b1f65}
 \subsubsection{A dense subset of \(X\)}
-\label{sec:org5b67c3a}
+\label{sec:orgcce544f}
 \subsubsection{Separable}
-\label{sec:orga0b47d0}
+\label{sec:orgc3dede4}
 If there is a countable subset that is dense in \(X\). \(X\) is defined to be
 separable.
 
@@ -156,50 +156,50 @@ functions are there? The number of such elements are uncountable. (The
 proof of this theorem is similar to how \(\{0, 1\}^\N\) is uncountable.)\footnote{Look up at proofs of this fact}
 \end{enumerate}
 \subsubsection{Definition of convergence}
-\label{sec:org67768fc}
+\label{sec:org5c8ebb9}
 Definition was about the limit of distance going to 0. Note that the limit
 \(X\) must be a point in \(X\) (Why?)
 \subsubsection{Definition of bounded set}
-\label{sec:org7341601}
+\label{sec:org079d67a}
 \subsubsection{Definition of boundedness of a sequence}
-\label{sec:orge1d6e66}
+\label{sec:org7a142e6}
 \subsubsection{Lemma}
-\label{sec:org4574f02}
+\label{sec:orga5539c4}
 If \(x_n\) is convergent, then it is bounded the limit is unique.
 \subsubsection{Lemma}
-\label{sec:org529e3b6}
+\label{sec:org670574c}
 If \(x_n\) converges to \(x\) and \(y_n\) converges to \(y\), then \(d(x_n, y_n)\)
 converges to \(d(x, y)\).
 \subsubsection{About convergence and Cauchy sequences}
-\label{sec:orgbcaf3cd}
+\label{sec:org1d399fe}
 \subsubsection{Completeness}
-\label{sec:org93aaf1e}
+\label{sec:orgfa18d21}
 The idea that if a sequence is Cauchy, then it is convergent.
 \subsubsection{Theorem about subsets of complete metric space}
-\label{sec:org952f8e0}
+\label{sec:org81e7086}
 \(X\) be a metric space. A subspace \(A\) of \(X\) is complete if and only if \(A\) is closed in \(X\).
 \subsubsection{Condition about continuity with respect to convergence}
-\label{sec:org7a7b6f0}
+\label{sec:org93e0bc0}
 A map \(T\colon X \rightarrow Y\) is continuous if and only if \(x_n
     \rightarrow x_0 \implies T(x_n) \rightarrow T(x_0)\).
 \subsubsection{Definition of isometry between metric spaces}
-\label{sec:org6edf1eb}
+\label{sec:org1200619}
 \subsection{Theorem: \(C[a, b]\) is complete}
-\label{sec:org7f1f373}
+\label{sec:org433cda6}
 Given a closed interval \([a, b]\), the \(C[a, b]\) is complete. 
 \subsubsection{Proof}
-\label{sec:orgfe83786}
+\label{sec:org52bb590}
 Given a Cauchy sequence in this space. We use the completeness of \(\R\) to
 define a function to which the Cauchy sequence will converge to. We need
 uniform convergence here.
 \subsection{The set of polynomials on a \([a, b]\) is not complete}
-\label{sec:org6235b47}
+\label{sec:org93405a0}
 \(p_n(x) = \sum_i \left(\frac{x}{2}\right)^i\). 
 
 \section{Lecture 4 \textit{<2018-10-25 Thu>}}
-\label{sec:org7fe3ee3}
+\label{sec:org97dce78}
 \subsection{Clarification}
-\label{sec:org83aec21}
+\label{sec:org2a1d3ec}
 Some sources say that an Isometry need not be surjective. 
 
 Let \(T\colon X \rightarrow Y\) be injective and \(d(x, y) = \tilde{d}(Tx, Ty)
@@ -219,10 +219,10 @@ that if a sequence is Cauchy, then it has a limit in the space. Which means
 that the limit must also be continuous. (Kinda similar to how uniform
 convergence works.)
 \subsection{Normed spaces and Banach spaces}
-\label{sec:orga2f3974}
+\label{sec:org5889c32}
 A Banach space is just a complete normed space.
 \subsubsection{Norm}
-\label{sec:org2275219}
+\label{sec:org16bc5d0}
 A metric space can be obtained by equipping a vector space with a metric
 defined in terms of the union, resulting in the \textbf{normed space}. Complete
 normed spaces are called \textbf{Banach space}.
@@ -240,36 +240,36 @@ again a normed space.
 Similarly, the set of all bounded linear functionals is a normed space, the
 dual space \(X'\) of \(X\).
 \subsubsection{Vector space}
-\label{sec:orgbf59aaf}
+\label{sec:org28ccb26}
 I didn't write this down. But it's pretty clear. 
 \subsubsection{Examples}
-\label{sec:org7273f78}
+\label{sec:org9f384f2}
 \begin{enumerate}
 \item \(\R^n\)
 \item \(C[a, b]\). It's kinda clear how to define a vector space structure on it.
 \end{enumerate}
 \subsubsection{Subspace}
-\label{sec:orge3be810}
+\label{sec:org0664b2e}
 We defined a subspace of a vector space. 
 \subsubsection{Span}
-\label{sec:orgb542fea}
+\label{sec:org7c76928}
 Span was defined.
 \subsubsection{Linear independence}
-\label{sec:orgbd8c9e1}
+\label{sec:org8ffb0c7}
 \subsubsection{Definition of dimension}
-\label{sec:org6c38ec7}
+\label{sec:org7d746cc}
 \subsubsection{Basis of space}
-\label{sec:orgb7c7e75}
+\label{sec:org025f866}
 To construct basis for finite dimensional spaces are clear. 
 
 One can prove the existence of a basis for infinite dimensional spaces, but
 the proof is not constructive.
 \subsection{Normed spaces}
-\label{sec:org565c0fa}
+\label{sec:org15cdaaf}
 \subsubsection{Definition of a norm}
-\label{sec:orgf464587}
+\label{sec:orgd6d36b4}
 \subsubsection{Examples}
-\label{sec:orgc852df5}
+\label{sec:org3ea28c1}
 \begin{enumerate}
 \item \(\R^n\)
 \item \(C[a, b]\) with \(\Vert f \Vert\) with \(\Vert f\Vert = \max_{x \in [a, b]}
@@ -281,15 +281,15 @@ the set of all Lebesgue measurable functions from \(\Omega \rightarrow
 We can show that this space is a Banach space.
 \end{enumerate}
 \section{Lecture 5 \textit{<2018-10-30 Tue>}}
-\label{sec:org3acd762}
+\label{sec:org65fd766}
 \subsection{Remark}
-\label{sec:org5ffe731}
+\label{sec:org433bc49}
 Not every metric is induced by a norm.
 
 Assume discrete metric is induced by a norm, i.e., \(d(x, y) = \Vert x -
    y\Vert\). The proof is easy.
 \subsection{Convergence of sequences in normed spaces}
-\label{sec:orgea60cc3}
+\label{sec:org4f17dc1}
 \begin{enumerate}
 \item A sequence \((x_n)\) in a normed space \(X\) is convergent if there is an \(x\in
       X\) with \(\lim_{n\rightarrow \infty} \Vert x_n - x\Vert = 0\). We write again
@@ -298,7 +298,7 @@ Assume discrete metric is induced by a norm, i.e., \(d(x, y) = \Vert x -
 exists \(N\), \(\Vert x_m - x_m \Vert < \epsilon\) for all \(m, n > N\). \footnote{This might be needed for the next exercises.}
 \end{enumerate}
 \subsection{Absolute convergence}
-\label{sec:org25a03e5}
+\label{sec:org7a73e52}
 A series \(S\) is called absolutely convergent if \(\sum \Vert x_i \Vert\)
 converges. If \(X\) is complete, absolute convergence implies convergence.
 
@@ -316,7 +316,7 @@ continue doing this \((a_1, b_1, a_2, b_2, \cdots)\). \(S_n\) will be the partia
 sums. Then \(\sum x_i\) converges to \(a+b\), but \(\sum \vert x_i \vert\)
 converges to \(a - b = 1\).
 \subsection{Definition of basis}
-\label{sec:org55f628d}
+\label{sec:org4832150}
 We can now define a basis as follows: Assume that the normed space \(X\)
 contains a sequence \((e_n)_n\). Such that every \(x \in X\) in the normed space
 \(X\), can be expressed in terms of \((e_n)_n\), i.e., every \(x\) can be expressed
@@ -326,13 +326,13 @@ expansion is also unique.
 
 If such a basis exists, then \(X\) is separable.
 \subsection{Theorem about completeness}
-\label{sec:org27fa49e}
+\label{sec:org13e345e}
 Every finite dimensional subspace \(Y\) of a complete normed space \(X\) is
 complete, which implies that all finite dimensional normed spaces are
 complete. \footnote{The proof wasn't done in the class. But the idea is the all Cauchy
 sequences converges.}
 \subsection{Norm equivalence}
-\label{sec:org42c378b}
+\label{sec:org167a9df}
 We have two norms. We want to say when two norms are equivalent.
 
 A norm \(\Vert \Vert_1\) on \(X\) is said to be equivalent to a norm \(\Vert
@@ -358,23 +358,23 @@ evaluate to \(1/{n+1}\). The contradiction is the fact that the maximal norm
 would be \(1\) always, whereas, the Lebesgue norm would tend to \(0\) as
 \(n\rightarrow \infty\). There is a clear contradiction here.
 \subsection{Compactness in metric spaces}
-\label{sec:orgae819b0}
+\label{sec:orge721d44}
 A metric space is defined to be compact if every sequence in \(X\) has a
 convergent subsequence. A subset \(M\) of \(X\) is defined to be compact if \(M\)
 considered as a subspace is compact, i.e., every sequence has a convergent
 subsequence and the limit is in \(M\).
 \subsection{Theorem}
-\label{sec:org3b2b92e}
+\label{sec:org52875a2}
 If \(X\) is a finite-dimensional normed space, then any subset \(M \subset X\)
 is compact if and only if \$M is closed and bounded.
 
 Consider the sequence \(\{x_n\}\) with \(x_n = (-1)^n\), then \((x_n)\) does not
 converge, but it has convergent subsequences.
 \subsection{Bolzano-Weistrass theorem}
-\label{sec:org6f7fb33}
+\label{sec:org629d8b1}
 Any bounded sequence \((x_n) \in l^{\infty}\) has a convergent subsequence.
 \subsubsection{Proof}
-\label{sec:org9b18573}
+\label{sec:org693e091}
 Without loss of generality, we assume that all elements are with \([0, 1]\),
 otherwise we an shift it and normalize it (can we do this?) Divide the
 interval \(\{0, 1/2\}\) and \(\{1/2, 1\}\), then one of them must have
@@ -384,31 +384,31 @@ infinitely many points.) We can repeat this process again and the length of
 the intervals go to zero. It is clear how to construct a convergent
 subsequence.
 \subsubsection{Extension to bounded sub-sequences in \(\R^n\).}
-\label{sec:org36127e2}
-\section{Lecture 5 \textit{<2018-11-01 Thu>}}
-\label{sec:org36f887e}
+\label{sec:orgecc6d1a}
+\section{Lecture 6 \textit{<2018-11-01 Thu>}}
+\label{sec:orgd7810e2}
 \subsection{Review}
-\label{sec:orga21ae16}
+\label{sec:org333cb16}
 In \(\R^n\), the compact subsets are the closed and bounded subsets so that
 close-ness and boundedness can be used to define compactness. This can only
 be used for finite dimensional cases.
 \subsection{Riesz's lemma}
-\label{sec:org8f4dac7}
-Given a normed space \(X\) with a closed subspace \(y\) and a subspace \(z\) such
-that \(y\) is a subset of \(z\). Given any number \(\theta\in (0, 1)\), there
+\label{sec:org00c7ef4}
+Given a normed space \(X\) with a closed subspace \(Y\) and a subspace \(Z\) such
+that \(Y\) is a subset of \(Z\). Given any number \(\theta\in (0, 1)\), there
 exists, \(z\in Z\) such that \(\vert z \vert = 1\), and the distance \(\Vert z - y
    \Vert \ge \theta\), for all \(y \in Y\).
 \subsubsection{Proof}
-\label{sec:org045b1b9}
+\label{sec:orgabf9259}
 Let \(v\in Z \setminus Y\), define \(a = \inf_{y \in Y} \Vert v - y\Vert\) to
 be the distance to \(y\). Since \(y\) is closed, \(a>0\). Choose \(\theta \in (0,
     1)\), then there exits a \(y_0 \in y\), with \(a \le \Vert v - y_0 \Vert \le
     \frac{a}{\theta}\).
 
 Define \(z = \vert{1}{\Vert V = y_0}(V-y_0)\). Clearly, \(\Vert z\Vert = 1\).
-Furthermore, given \(y\in Y\), it holds that \(\Vert z - y\Vert =
+Furthermore, given \(y\in Y\), it holds that $$\Vert z - y\Vert =
     \Vert\frac{1}{\Vert v - y_0\Vert}(v -y_0) - y\Vert = \frac{1}{\Vert v -
-    y_0\Vert} \Vert v - y_0 - \Vert v-y_0\Vert\cdot y\Vert\).
+    y_0\Vert} \left\Vert v - y_0 - \Vert v-y_0\Vert\cdot y\right\Vert$$
 
 Since \(Y\) is a subspace, \(y_1 \in Y\) and \(\Vert v - y_1\Vert \ge a\) (since a
 is the infimum.)
@@ -416,7 +416,7 @@ is the infimum.)
 \(\Vert z - y\Vert = \frac{1}{\Vert v - y_0\Vert} \Vert V - y_1\Vert \le
     \frac{\theta}{a}a = \theta\)
 \subsection{Theorem}
-\label{sec:org405ec9e}
+\label{sec:orgf4a3734}
 If the closed unit ball \(M=\{X \vert \Vert X \Vert \le 1\}\) of a normed space
 \(X\) is compact, then \(X\) is finite-dimensional.
 
@@ -424,24 +424,24 @@ The proof uses Riesz's lemma. Assume that \(M\) is compact set but \(\dim X =
    \infty\), this leads to a contradiction. Compact sets have compact images
 under continuous mappings.
 \subsection{Theorem}
-\label{sec:orgbf0d84c}
+\label{sec:org106ded6}
 Suppose \(X\) and \(Y\) are metric spaces and \(T \colon X \rightarrow X\) is
 continuous. Then any compact subset of \(X\) is mapped to a compact subset of
 \(Y\).
 \subsubsection{Proof}
-\label{sec:orgccdb33b}
+\label{sec:org8d51548}
 Proof is easy.
 \subsection{Corollary}
-\label{sec:org7ee910c}
+\label{sec:org3306531}
 Given a continuous mapping \(T \colon M \rightarrow \R\), where \(M\) is a
 compact subset of \(X\). Then \(T\) assumes a maximum and a minimum at some
 points of \(M\).
 \subsubsection{Proof}
-\label{sec:org9209340}
+\label{sec:org9a32241}
 The proof is easy. It's something like take the infimum, it has to be a
 point in the space because closed.
 \subsection{Example}
-\label{sec:orga57582a}
+\label{sec:org4b65f6b}
 The closed unit ball \(M=\{f \colon \Vert f \Vert \le 1 \}\) of \(C[0, 1]\) is
 not compact. To see this, define \(f(X) = \max(1 - \vert X \vert, 0)\) and
 \(f_n(X) = f(2n\cdot (n+1)(x - \frac{1}{n}))\) (functions with center \(1/n\) and
@@ -452,10 +452,10 @@ Now \(f_n \in C[0, 1]\) and \(\Vert f_n \Vert_\infty = 1\). Since supports of \(
 \(\Vert f_n f_m\Vert = \max_{X \in \{0, 1\}} \vert f_n(X) - f_m(X)\vert = 1\)
 and the sequence does not have a convergent subsequence.
 \subsection{Linear Operators}
-\label{sec:orge3d293c}
+\label{sec:orge70b3db}
 We now consider linear operators and their properties.
 \subsubsection{Definition}
-\label{sec:org38caa83}
+\label{sec:org25fc64e}
 Let \(T\) be an operator, \(D(T)\) its domain and \(R(T)\) its range. The operator
 is called linear if \(T(x + y) = Tx+Ty\) and \(T(\alpha x) = \alpha Tx\)
 
@@ -465,12 +465,12 @@ The null set \(N(T)\) is defined \(N(T) = \{x \in D(T) \colon Tx = 0\}\)
 
 In particular, linearity implies \(T0 = 0\).
 \subsubsection{Example}
-\label{sec:orgf35030b}
+\label{sec:org9259b5e}
 Define \(T\) by \((Tf)(x) = \int_{a}{x} f(\tilde x) d \tilde x\) for \(f\in C[a,
     b]\). Then \(T(cf + cg) = cTf + dTg\). It is easy to show that the operator is
 linear.
 \subsubsection{Example}
-\label{sec:orgaaef481}
+\label{sec:org4e99ad7}
 \begin{enumerate}
 \item Let \(X\) be the space of all polynomials defined on \([a, b]\). We can define a
 linear operator to be the derivative, \(Tf = f'\). \footnote{This is an unbounded operator. We still haven't defined what bounded
@@ -487,7 +487,7 @@ one idea is to find a linear function to a higher dimensional space and then one
 may be able to separate the points in the higher dimensional space.}
 \end{enumerate}
 \subsection{Theorem about linear operators}
-\label{sec:org3c0cccc}
+\label{sec:orgeaef860}
 Suppose that \(T\) is linear, then
 \begin{enumerate}
 \item \(R(T)\) is a vector space
@@ -496,10 +496,10 @@ Suppose that \(T\) is linear, then
 
 I think \(R\) and \(N\) are range and kernel, respectively. The proof is kinda
 easy.
-\section{Lecture 6 \textit{<2018-11-06 Tue>}}
-\label{sec:org106a91b}
+\section{Lecture 7 \textit{<2018-11-06 Tue>}}
+\label{sec:org464c733}
 \subsection{Regarding convergence of a function}
-\label{sec:org064743b}
+\label{sec:org0d014d4}
 \(\sup(f_n)\subset [0, 2/n]\), \(f_n(0) = 0\), consider fixed \(x\in [0, 1]\).
 Given any \(\varepsilon > 0\), choose \(N > 2/X\), then \(X > 2/N > 2/N\) for
 \(n>N\). Thus \(x \in \sup(f_n)\) and \(f_n(x) = 0\), \(f_n\) converges point-wise to
@@ -507,7 +507,7 @@ Given any \(\varepsilon > 0\), choose \(N > 2/X\), then \(X > 2/N > 2/N\) for
 
 \(f_n(x) = f(2n(n+1)(x - 1/2))\)
 \subsection{Injectivity of operators}
-\label{sec:org17821be}
+\label{sec:org561c906}
 If \(T\) is injective, there exists \(T^{-1}\colon R(T) \rightarrow D(T)\) with
 \(T^{-1}y =x\) for \(Tx =y\), i.e., the inverse of \(T\). It follows that \(T^{-1}Tx
    = T^{-1}Ty = x\) and \(TT^{-1}y = Tx = y\).
@@ -520,7 +520,7 @@ surjective. When \(m > n\), then \(T\) can be surjective, when the Rank of \(A =
    m\), but it cannot be injective. If \(m = n\), then \(T\) is bijective if and only
 if the rank of \(A = m = n\).
 \subsection{Theorem}
-\label{sec:orga00efc4}
+\label{sec:org2941d83}
 Given vector spaces \(X\) and \(Y\), and a linear operator \(T \colon D(T)
    \rightarrow Y\), then
 \begin{enumerate}
@@ -531,7 +531,7 @@ linear operator.
 \(T^{-1}\) exists, then \(\dim R(T) = \dim D(T)\).
 \end{enumerate}
 \subsubsection{Proof}
-\label{sec:orga671843}
+\label{sec:org0c98eff}
 Assume that \(T^{-1}\) exists then \(T\) is injective and \(Tx = 0 \implies x =
     0\). Conversely, assume \(Tx_1 = Tx_2\), then \(Tx_1 - Tx_2 = T(x_1 - x_2) = 0\).
 Thus, by assumption \(x_1 - x_2 = 0 \implies x_1 = x_2\) and \(T\) is injective.
@@ -561,12 +561,12 @@ exists, we obtain in similar fashion that the \(\dim D(T) \le \dim R(T)\).
 Thus, \(\dim R(T) = \dim D(T)\).
 \end{enumerate}
 \subsection{Lemma}
-\label{sec:org3057004}
+\label{sec:org6ed8104}
 Let \(X, Y, Z\) be vector spaces \(T \colon X \rightarrow Y\), and \(S \colon Y
    \rightarrow Z\) bijective operators, then we claim that \((ST)^{-1} = T^{-1}
    S^{-1}\).
 \subsection{Definition: Bounded operators}
-\label{sec:orge8f4872}
+\label{sec:orgeb9deb2}
 Given normed spaces \(X\) and \(Y\) and a linear operator, \(T \colon D(T)
    \rightarrow Y\), \(D(T) \subset X\), \(T\) is defined to be bounded if there
 exists a constant \(c\) such that \(\Vert Tx \Vert \le c \Vert x \Vert\) and this
@@ -580,7 +580,7 @@ straightforward to verify that this satisfies the properties for norm.
 For bounded linear operators, the bound can be computed by the supremum over
 \(\Vert x \Vert = 1\). This is straightforward to see.
 \subsection{Example}
-\label{sec:orgf91aa17}
+\label{sec:org827887b}
 Given \(A \in \R^{n \times n}\), the linear operator \(T \colon \R^{n}
    \rightarrow \R^{n}\) is bounded since \((\sup_{\Vert x \Vert= 1} \Vert A x
    \Vert)^2 = \sup x^{T} A^{T} A x = \lambda \max(A^T A)\), the largest
@@ -608,10 +608,10 @@ Define \(c = \{x_n \in l_1 \vert \exists N \in \N \colon x_n = 0, \forall n >
    \cdots) = (x_1, 2x_2, 3x_3, \cdots)\) is unbounded, we can compute \(\Vert T
    e_i \Vert = i\), so if we have the sequence but the \(\Vert e_i \Vert = 1\).
 \subsection{Theorem}
-\label{sec:orgc178a0e}
+\label{sec:org2172154}
 Every linear operator on a finite dimensional normed space is bounded.
 \subsubsection{Proof}
-\label{sec:orgad9fd1e}
+\label{sec:org1d804fe}
 Let \(n\) be the dimension of \(X\) and \(\{e_1, \cdots, e_n\}\) a basis.
 
 Any \(x\in X\) can be written as \(X = \sum \alpha_i e_i\), thus \(\Vert Tx \Vert
@@ -622,17 +622,17 @@ norm. Since all norms on finite-dimensional spaces are equivalent, there
 exist \(c\) such that \(\Vert x \Vert_0 \le c \Vert x \Vert\). Thus \(\Vert T
     x\Vert \le \max \Vert T e_i \Vert \cdot c \cdot \Vert x \Vert\) and \(T\) is
 bounded.
-\section{Lecture 7 \textit{<2018-11-08 Thu>}}
-\label{sec:org63d263b}
+\section{Lecture 8 \textit{<2018-11-08 Thu>}}
+\label{sec:orgf84f619}
 \subsection{Theorem about Bounded operators}
-\label{sec:orgbdc21ac}
+\label{sec:orge819f74}
 For linear operators, continuity and boundedness are equivalent.
 
 Continuity of \(T\) means that \(\forall \varepsilon > 0\), there exists a
 \(\delta > 0\), such that \(\Vert x - x_0 \Vert < \delta \implies \vert Tx -
    Tx_0 \vert < \varepsilon\).
 \subsubsection{Proof}
-\label{sec:org84fcde5}
+\label{sec:orgcfb4cb9}
 There is nothing to show for \(T=0\), now we assume that \(T\) is not the zero
 operator, i.e., \(\exists r\) such that \(\Vert T x \Vert \le r \Vert x \Vert\).
 Using linearity, we can write that \(\Vert Tx - Tx_0\Vert = \Vert T (x -
@@ -654,17 +654,17 @@ The second part of the proof shows that continuity in one point suffices to
 show boundedness. And boundedness means continuity at all points. Thus
 continuity at one point implies continuity at all points. Pretty interesting!
 \subsection{Corollary}
-\label{sec:org0246dc8}
+\label{sec:org9ff134c}
 Given a linear bounded operator \(T\), it holds that 
 \begin{enumerate}
 \item \(x_n \rightarrow x\) implies that \(Tx_n \rightarrow Tx\)
 \item The null space of such an operator is closed
 \end{enumerate}
 \subsubsection{Proof}
-\label{sec:org2c464ed}
+\label{sec:org8bb7e45}
 These are basically properties of continuous functions.
 \subsection{Definition}
-\label{sec:orga2e7dfb}
+\label{sec:org44f61ca}
 We write that \(T_1 = T_2\) if \(D(T_1) = D(T_2)\) and \(T_1x = T_2x\) for all \(x
    \in D(T_1) = D(T_2)\). Furthermore \(T\vert_B\) denotes the restriction to the
 set \(B\), i.e., \(T\vert_B \colon B \rightarrow Y\) with \(T\vert_B x = Tx\) for
@@ -677,28 +677,28 @@ Example of extension. The set \(X = Y = \R\), define \(T\) by \(Tx=x\), and \$D(
 [0, 1]. Then \(\tilde{T}\) defined by \(\tilde{T}x = \vert x \vert\) with
 \(D(\tilde{T}) = [-1, 1]\) is an extension of \(T\)
 \subsection{Theorem}
-\label{sec:org4d31ad2}
+\label{sec:orgf6d0ac5}
 If \(T \colon D(T) \rightarrow Y\) is a bounded linear operator, \(D(T)\), part
 of a normed space, \(Y\), a Banach space, then there is an extension
-\(\tilde{T}\colon \bar{D(T)} \rightarrow Y\) with \(\Vert \tilde{T} \Vert =
+\(\tilde{T}\colon \overline{D(T)} \rightarrow Y\) with \(\Vert \tilde{T} \Vert =
    \Vert T \Vert\). Furthermore, \(\tilde{T}\) is a bounded linear operator.
 \subsubsection{Proof}
-\label{sec:orge643de0}
-For any \(x \in \bar{D}(T)\) consider the sequence \((x_n)_n\) in \(D(T)\) that
+\label{sec:org5eba59f}
+For any \(x \in \overline{D}(T)\) consider the sequence \((x_n)_n\) in \(D(T)\) that
 converges to \(x\).
 
 \(\Vert Tx_n - Tx_m \Vert = \Vert T(x_n - x_m)\Vert \le \Vert T \Vert \Vert
     x_n - x_m\Vert\). Since \(x_m\) converges, \(Tx_n\) is Cauchy and converges as we
 assumed \(Y\) to be complete. The rest of the argument is trivial.
 \subsection{Linear functionals}
-\label{sec:orgcb4d707}
+\label{sec:orga6be8a3}
 A functional is a map from \(X\) to \(\R\) or \(\C\). Given a functional \(f\),
 \(D(f)\) denotes the domain, \(R(f)\) denotes the range of \(f\). 
 
 For functionals, we typically write \(f(x)\) and not \(fx\), although \(f\) is
 still an operator.
 \subsubsection{Example}
-\label{sec:org89a2e83}
+\label{sec:org48b1e29}
 \begin{enumerate}
 \item For a normed space \(X\), \(\Vert . \Vert \colon X \rightarrow \R\) is a functional.
 \item For \(X=\R\), and \(x_0 \in X\), \(f\colon X\rightarrow \R\), \(x\mapsto x_0^{T}x
@@ -707,7 +707,7 @@ still an operator.
 if \(X\) is a real or \(\C\), if \(X\) is a complex space.
 \end{enumerate}
 \subsubsection{Example}
-\label{sec:orgd266da3}
+\label{sec:orgbc3ed6e}
 \begin{enumerate}
 \item The norm functional is not a linear functional. \(\Vert \alpha x + \beta y
        \Vert \neq \alpha \Vert x \Vert + \beta \Vert y \Vert\). This is not true
@@ -721,17 +721,17 @@ that for \(f\) in \(C[a, b]\), \(l(f) = \int_{a}^{b} f(x) dx\), then it is
 straightforward to verify that this is linear.
 \end{enumerate}
 \subsubsection{Remark}
-\label{sec:org94cad0e}
+\label{sec:orgcc0bff2}
 Similarly, boundedness is again defined as: A linear functional is bounded
 if there exists a constant \(c\) such that \(\vert f(x) \vert \le c \cdot \Vert
     x \Vert\). and \(\Vert v \Vert = \sup \vert f(x) \vert / \Vert x \Vert =
     \sup_{\Vert x \Vert = 1} \vert f(x) \vert\).
 \subsubsection{Theorem}
-\label{sec:org03abda7}
+\label{sec:orga5a3f72}
 Let \(f\colon D(f) \rightarrow K\) be a linear functional, then \(f\) is
 continuous if and only if it is bounded.
 \subsubsection{Example}
-\label{sec:org7edf41b}
+\label{sec:org86ec16e}
 \begin{enumerate}
 \item For integrable functions on \([a, b]\), it is easy to see that the integral
 functional is bounded.
@@ -740,10 +740,10 @@ element \(a\) in \(l_2\) and setting \(f(x) = \sum a_i x_i\). Due to
 Cauchy-Schwarz inequality \(\vert \langle x, y\rangle\vert \le \Vert x
        \Vert \cdot \Vert y \Vert\).
 \end{enumerate}
-\section{Lecture 8 \textit{<2018-11-07 Wed>}}
-\label{sec:orgf0944a7}
+\section{Lecture 9 \textit{<2018-11-07 Wed>}}
+\label{sec:orga437c83}
 \subsection{Example}
-\label{sec:orgb63e20f}
+\label{sec:org7e16801}
 \((x_n)_n\), it's basically a sequence of sequences. \(x_n \in l_\infty\).
 
 \(\delta_X f = f(x)\).
@@ -752,7 +752,7 @@ The evaluation functional \(\delta_X\) on \(C[a, b]\) with norm \(\Vert \cdot
    \Vert_\infty\) is bounded. But it might be unbounded with respect to another
 norm.
 \subsection{Linear functionals}
-\label{sec:orgf30cade}
+\label{sec:org31684ee}
 The set of all linear functionals forms a vector space denoted by \(X^{*}\).
 
 The algebraic dual space. For defining a vector vector space, we need the
@@ -767,9 +767,9 @@ between \(X\) and \(X^{**}\).
 
 There was an example with \(V\) along with an orthogonal basis.
 \subsection{Definition of isomorphism of vector spaces}
-\label{sec:org35ede2c}
+\label{sec:org9fac77d}
 \subsection{About finite linear operators}
-\label{sec:org3aa6ac3}
+\label{sec:org5ba82e5}
 Let us now consider finite dimensional vector spaces. Any linear operator
 between two finite-dimensional vector space can be regarded as a matrix. To
 see this we have two finite dimensional spaces \(X\) and \(Y\) and a linear
@@ -790,7 +790,7 @@ $$T_\mu = [\gamma_{ji}]_{j=1, \cdots m; i =1, \cdots m}$$
 
 Then \(\beta = T_\mu \alpha\).
 \subsection{Example}
-\label{sec:org19a7fcc}
+\label{sec:orgc74c8f3}
 Consider the discrete dynamical system \(\phi \colon \R^2 \rightarrow \R^2\) by
 \(\phi(x) = [\lambda x_n, \mu x_2 + (\lambda^2 - \mu)x^2n]^T\)
 
@@ -798,15 +798,15 @@ The Korpman operator \(K\) is an infinite-dimensional operator defined by \(Kf =
    f\circ \phi\), i.e., \((Kf)(\lambda) = f(\phi(x))\) for \(f \in L_{\infty}\). This
 operator apparently plays an important role in Dynamical system.
 \section{Lecture 10 \textit{<2018-11-15 Thu>}}
-\label{sec:orgca086a2}
+\label{sec:org3caf6ad}
 \subsection{Koopman operator}
-\label{sec:orgfaad19f}
+\label{sec:org5292286}
 \(Kf = f\circ I\)
 
 Consider the discrete dynamical system \(\phi \colon \R^2 \rightarrow \R^2\) by
 \(\phi(x) = [\lambda x_n, \mu x_2 + (\lambda^2 - \mu)x^2n]^T\)
 
-Then the space is spanned by functions \$$\backslash${x\(_{\text{1}}\), x\(_{\text{2}}\), x\(_{\text{1}}^{\text{2}}\)$\backslash$} forms a so-called
+Then the space is spanned by functions \(\{x_1, x_2, x_1^2\}\) forms a so-called
 Koopman-invariant subspace. Let \(f_1(\bf{x}) = x_1\), \(f_2(\bf{x}) = x_2\),
 \(f_e(\bf{x}) = x_n^2\), then any function from this subspace can be written as
 \(f = \sum_{i=1}^{3} \alpha_i f_i\) and \(g=Kf = K\sum(\alpha_i f_i) = \sum
@@ -858,7 +858,7 @@ eigenfunctions. Corresponding to the eigenvalues
 \(\lambda_3 = \mu; Ke_3 = [\mu X_2 + (\lambda^2 - \mu)x_1^2 - \lambda^2 x_n^2]
    = \mu x_2 - \mu x_n^2 = \mu(x_2 - x_n^2) = \mu \varphi_3\)
 \subsection{Matrix representation}
-\label{sec:org8ac0887}
+\label{sec:org57643ec}
 Assume now again that \(X\) is a vector space with \(\dim X = n\) and that
 \(\{x_1, \cdots, x_n\}\) forms a basis. Given a linear functional \(f\), we
 obtain for \(X = \sum_{i=1}^{n} \alpha_i X_i\) that \(f(x) = f(\sum \alpha_i
@@ -871,19 +871,19 @@ defines a linear functional. A special set of functionals is defined as
 follows: \(f_j(x_i) = \delta_{ij}\). It's one when \(i=j\), and \(0\) otherwise. We
 call this the dual basis of \(\{x_1, \cdots, x_n\}\).
 \subsection{Theorem}
-\label{sec:orgffe8fc7}
+\label{sec:org56d8402}
 Let \(X\) be again an \(n\) dimensional vector space with basis \(\{x_1, \cdots,
    x_n\}\). Then \(\{f_1, \cdots, f_n\}\) as defined above is a basis of \(X^{*}\).
 As a result, we have \(\dim X^{*} = \dim X\).
 \subsubsection{Proof}
-\label{sec:org70cc91a}
+\label{sec:orgc94f85c}
 It's kinda easy. We just show that the maps \(f_j\) is a basis and we're done.
 \subsection{Theorem}
-\label{sec:org2de53b0}
+\label{sec:orgc106408}
 A finite-dimensional vector space is algebraically reflexive, i.e., the
 canonical embedding is an isomorphism between \(X\) and \(X^{**}\).
 \subsection{Normed space of operators}
-\label{sec:org0fd79c9}
+\label{sec:org0ba0054}
 Let \(X\) and \(Y\) be arbitrary normed spaces, then the set \(B(X, Y)\) of all
 bounded linear operators from \(X\) to \(Y\) is again a normed space.
 
@@ -894,11 +894,11 @@ We need addition, scalar multiplication and a norm, and define:
 \item \(\Vert T\Vert\) is the supremum norm that we have already defined.
 \end{enumerate}
 \subsection{Theorem}
-\label{sec:orge5e8163}
+\label{sec:org9c36de4}
 \(B(X, Y)\) is a Banach space if \(Y\) is a Banach space, i.e., \(B(X, Y)\) is
 complete if \(Y\) is complete.\footnote{We didn't prove this.}
 \subsection{Definition}
-\label{sec:orgc05c342}
+\label{sec:orgfbb0f26}
 The set of all bounded linear functionals on \(X\) is a normed space with
 \(\Vert f \Vert = \sup \vert f x\vert / \Vert x \Vert\) for \(x \neq 0\).
 
@@ -909,7 +909,7 @@ continuous/topological dual) and is denoted by  \(X'\).
 Remark: The algebraic dual space \(X^{*}\) contains all linear functionals of
 \(X\), whereas \(X'\) contains only the bounded linear operators. 
 \subsection{About \(X'\) and \(X^{*}\)}
-\label{sec:org5d28b01}
+\label{sec:orgd3871a5}
 The space of all bounded linear functionals on \(X\), given by \(X'\), forms a
 linear subspace of \(X^{*}\).
 
@@ -920,7 +920,7 @@ Using triangle inequality, we can see that \(af + bg\) is bounded if \(f\) and
 \(g\) are bounded. For scalars multiplication, it is similarly true. Thus it
 forms a linear subspace.
 \subsection{Examples}
-\label{sec:orga52a0a5}
+\label{sec:org025ac02}
 \begin{enumerate}
 \item \((\R^n)' = \R^n\)
 \item \((l^1)' = l^{\infty}\)
@@ -928,27 +928,27 @@ forms a linear subspace.
 Here \(=\) means there exists an isomorphism.
 \end{enumerate}
 \subsection{About \(l^p\) and \(l^q\)}
-\label{sec:orga41566d}
+\label{sec:org8ed5132}
 Given \(1 \le p \le \infty\), with \(\frac{1}{p} + \frac{1}{q} = 1\). Take any
 \((y_n)_n \in l^p\), then \(f\colon l^p \rightarrow \R\), \((x_n)_n \mapsto \sum
    x_n y_n\) is a bounded linear functional. The norm of this functional is
 \(\Vert f \Vert = \Vert y \Vert_q\).
 \section{Lecture 11 \textit{<2018-11-20 Tue>}}
-\label{sec:org0a7bb3b}
+\label{sec:org93c9870}
 \subsection{About \(l^p\) and \(l^q\)}
-\label{sec:org337615d}
+\label{sec:org15a68e1}
 \(\frac{1}{q} + \frac1p = 1\), \((y_n)_n \in L^q\), \(f\colon l^p \rightarrow \R\),
 \((x_n)_n \mapsto \sum x_n y_n\)
 
 Note that \(\sum \vert x_n y_n\vert \le \Vert x \Vert_p \cdot \Vert x \Vert_q\)
 done to the Holder inequality.
 \subsection{Theorem}
-\label{sec:org5f72cca}
+\label{sec:org154678a}
 For \(1\le p < \infty\), \((l^p)' \equiv l^q\) and an isometric isomorphism is
 given by \(T \colon l^q \rightarrow (l^p)'\), \((Ty)(x) = \sum_{n=1}^{\infty}
    x_n y_n\).
 \subsubsection{Proof}
-\label{sec:org5105eb6}
+\label{sec:orga046bd0}
 \(\Vert Tt \Vert_{l^p}' = \Vert y \Vert_q\) as shown above and \(T\) is linear.
 The \(N(T)\) is only the sequence \(0\), meaning that the mapping is injective.
 Show that the mapping is also surjective. So for any given functional, we
@@ -980,12 +980,12 @@ means that it is really an isomorphism.
 
 Thus \(Ty = x'\) on span \(\{e_1, \cdots,\}\) which is a basis of \(l^p\).
 \subsection{About reflexiveness}
-\label{sec:org2ca718a}
+\label{sec:org527b8d9}
 The dual of \(l^\infty\) is not \(l^1\), but a different one.
 \subsection{Inner Product spaces and Hilbert spaces}
-\label{sec:org2cb2916}
+\label{sec:org8975544}
 \subsubsection{Definition}
-\label{sec:org3bb64d8}
+\label{sec:org97dd677}
 In vector spaces we have addition and scalar multiplication. In normed
 vector spaces, we additionally have a norm \(\Vert . \Vert\) which gives us
 lengths of vectors. A norm induces a metric by \(d(x, y) = \Vert x - y
@@ -1011,7 +1011,7 @@ inner product space & complete inner product space = Hilbert space\\
 \end{tabular}
 \end{center}
 \subsubsection{Definition}
-\label{sec:org34702c4}
+\label{sec:org951a6bf}
 Let \(X\) be a vector space. A mapping \(\langle ., \cdot \rangle \colon X
     \times X \rightarrow K\) (\(=\R\) or \(=\C\) as usual) is called an inner product
 space (or scalar product.) if 
@@ -1023,21 +1023,21 @@ space (or scalar product.) if
 \item \(\langle x, x \rangle = 0 \iff x = 0\).
 \end{enumerate}
 \subsubsection{Remark}
-\label{sec:orgda48e2c}
+\label{sec:org4920318}
 It follows \(\langle x, y_1 + y_2 \rangle = \overline{\langle y_1 + y_2, x
     \rangle} = \overline{\langle y_1, x\rangle} + \overline{\langle y_2,
     x\rangle}\) and
 
 \(\langle x, \lambda y\rangle = \lambda \langle x, y\rangle\) similarly.
 \subsubsection{Theorem}
-\label{sec:orga806577}
+\label{sec:orge4de91c}
 Let \(X\) be a vector space and \(\langle . , . \rangle\) an inner product, then
 \(\vert \langle x, y \rangle\vert^2 = \langle x, x \rangle \cdot \langle y, y
     \rangle\) for all \(x, y \in X\). Equality when \(x\) and \(y\) are linearly
 dependent.
 \begin{enumerate}
 \item Proof
-\label{sec:org82a7086}
+\label{sec:org4fbd4bf}
 For arbitrary \(\lambda \in K\), we can write \(0 \le \langle x + \lambda y,
      x + \lambda y \rangle = \langle x, x \rangle + \langle \lambda y, x
      \rangle + \langle x, \lambda y \rangle + \langle \lambda x, \lambda y
@@ -1047,17 +1047,17 @@ Now it's kinda easy to see when we put \(\lambda = -\frac{\langle x, y
      \rangle}{\langle y, y \rangle}\) for \(y \neq 0\).
 \end{enumerate}
 \subsubsection{Lemma}
-\label{sec:org90d5d6f}
+\label{sec:orgd418bf3}
 Assigning \(x \mapsto \langle x, x \rangle^{1/2}\) indeed defines a norm.
 \begin{enumerate}
 \item Proof
-\label{sec:orgcafa9ef}
+\label{sec:org79946a3}
 The proof is not too hard hence skipped.
 \end{enumerate}
 \section{Lecture 12 \textit{<2018-11-22 Thu>}}
-\label{sec:orga24923d}
+\label{sec:org2e62540}
 \subsection{Definition}
-\label{sec:org1e1a498}
+\label{sec:org69263d9}
 A normed space \((X, \Vert . \Vert)\) is called an inner product space (or
 pre-Hilbert space) if an inner product \(\langle ., .\rangle\) exits such that
 \(\langle x, x \rangle^{1/2} = \Vert X \Vert\) for all \(x\in X\).
@@ -1083,20 +1083,20 @@ Furthermore, the so-called parallelogram law holds:
    \Vert^2)\), this can be noticed easily. It's called Parallelogram law because
 it has something to do with parallelograms.
 \subsection{Lemma}
-\label{sec:org59806b6}
+\label{sec:org27d734c}
 The inner product is a continuous mapping from \(X \times X\) to \(K\).
 \subsubsection{Proof}
-\label{sec:org50c83dd}
+\label{sec:org6f07355}
 Let \(x_n \rightarrow x\) and \(y_n \rightarrow y\), we need to show that
 \(\langle x_n, y_n \rangle\) converges to \(\langle x, y \rangle\). This is
 straightforward to verify. It involves triangle inequality and
 Cauchy-Schwarz.
 \subsection{Theorem (When is a normed space, an inner product space?)}
-\label{sec:org1248861}
+\label{sec:org19e9f3a}
 A normed space \((\lambda, \Vert . \Vert)\) is an inner product space if and
 only if the parallelogram law holds for all vectors.
 \subsubsection{Proof}
-\label{sec:orgd652f33}
+\label{sec:orgaf7f69e}
 We have already seen that an inner product satisfies the parallelogram law.
 Now, one have to prove this the other way around.
 
@@ -1109,7 +1109,7 @@ Define \(\langle x, y \rangle = \frac{1}{4}(\Vert x + y \Vert^2 - \Vert x-
 
 Some lengthy calculations and we end up with the result.
 \subsection{Examples}
-\label{sec:org7452ea5}
+\label{sec:org60b92c4}
 \begin{enumerate}
 \item \(\C^n\) with the inner product \(\langle x, y \rangle = \sum x_i \bar{y_i}\)
 is a Hilbert space.
@@ -1131,9 +1131,9 @@ Apparently, we can use the parallelogram law to show that \(l^p\) when
 \(p\neq 2\) is not a Hilbert space.
 \end{enumerate}
 \section{Lecture 13 \textit{<2018-11-27 Tue>}}
-\label{sec:org7e599d6}
+\label{sec:org894707a}
 \subsection{Example (parallelogram law is invalid)}
-\label{sec:org378f36b}
+\label{sec:orgbae9fc6}
 The space \(l^p\) for \(p \neq 2\) is not a Hilbert space since it does not
 satisfy the parallelogram law.
 
@@ -1149,7 +1149,7 @@ The norm is \(x - y\) is \(2\).
 The parallelogram law says \(4 + 4 = 4(4^{1/p})\) which is not true for \(p \neq
    2\).
 \subsection{Orthogonality}
-\label{sec:org2d39d2e}
+\label{sec:org03d81cf}
 With the aid of the inner product, we can now introduce the notion of
 orthogonality as already mentioned above.
 
@@ -1168,7 +1168,7 @@ continuity of the inner product and \(y\) being the inverse of a closed set)
 The proof in the class used the fact that if a sequence in \(A^\perp\)
 converges, then the limit will be orthogonal to \(x\) as well.
 \subsection{Definition}
-\label{sec:orgd8c507f}
+\label{sec:org1ccb98c}
 Given the elements \(x, y\) of a vector space \(X\), the segment joining \(X\) and
 \(Y\) is defined as \(\{z \vert z = \alpha x + (1-\alpha)y, 0 \le \alpha \le
    1\}\)
@@ -1176,16 +1176,16 @@ Given the elements \(x, y\) of a vector space \(X\), the segment joining \(X\) a
 A subset \(A \subset X\) is said to be \textbf{convex} if for every combination \(x, y
    \in A\) is in the set \(A\).
 \subsection{Theorem}
-\label{sec:org6e36671}
+\label{sec:org47d98f8}
 Let \(H\) be a Hilbert space and \(K \subset H\) closed and convex. Furthermore,
 let \(x_0 \in H\), then there exists a unique \(x\) in the set \(A\) which has the
 shortest distance with \(\Vert x - x_0 \Vert = \inf_{y \in K} \Vert y =
    x_0\Vert\)\footnote{This is similar to the theorem we did in Discrete Geometry 1}
 \subsubsection{Proof}
-\label{sec:org9439acd}
+\label{sec:orgbcdfaea}
 If \(x_0 \in K\) simply choose \(x = x_0\). The proof is easy.
 \subsection{Lemma}
-\label{sec:org17a7763}
+\label{sec:orgaaf781c}
 Let \(K\) be a closed and convex subset of \(H\). For \(x \in K\), the following
 statements are equivalent:
 
@@ -1194,7 +1194,7 @@ statements are equivalent:
 \item \(Re \langle x_0 - x, y -x \rangle \le 0\) for all \(y \in K\).
 \end{enumerate}
 \subsubsection{Proof}
-\label{sec:org3153ad8}
+\label{sec:org4f3e3dc}
 Geometric interpretation: assume that \(K=\R\), then \(\langle a, b\rangle =
     \Vert a \Vert \Vert b\Vert \cos(a, b)\) and \(\langle a, b \rangle <0\) implies
 the angle is obtuse.
@@ -1202,7 +1202,7 @@ the angle is obtuse.
 Thus \(Re\langle x_0 - x, y - x\rangle \le 0\) means that the angle between
 \(x_0 - x\) and \(y-x\) is obtuse (\(K = \R\))
 \subsection{Definition}
-\label{sec:orgbadfc26}
+\label{sec:orgcae7851}
 A vector space \(X\) is defined to be the direct sum of the subspaces \(Y\) and
 \(Z\), denoted by \(Y = Y \oplus Z\) if each \(x \in X\) have a unique
 decomposition such that \(x = y + z\), where \(y\in Y\) and \(z \in Z\).
@@ -1212,7 +1212,7 @@ was drawn about circles)
 
 Reminder: a projection onto a vector space is a mapping \(P\) with \(P^2 = P\)
 \subsection{Theorem}
-\label{sec:org5a78d66}
+\label{sec:org40c4f0e}
 Let \(U \neq \{0\}\) be a closed subspace (now just a subspace, not convex) of
 a Hilbert space \(H\). Then there exists a linear projection \(P_u\) from \(H\)
 onto \(U\) with \(\Vert P_u \Vert = 1\) and \(N(P_u) = U^{\perp}\). Furthermore,
@@ -1220,32 +1220,32 @@ onto \(U\) with \(\Vert P_u \Vert = 1\) and \(N(P_u) = U^{\perp}\). Furthermore,
 It holds that we can split this Hilbert space into \(H = U \oplus U^{\perp}\).
 And this i a linear projection \footnote{In general projection need not be linear, but here it is linear.}
 \section{Lecture 15 \textit{<2018-12-06 Thu>}}
-\label{sec:org49122db}
+\label{sec:orgdc70262}
 \subsection{Review (Bessel's inequality)}
-\label{sec:orgf7fd0c0}
+\label{sec:org023a960}
 \(\sum \vert \langle x, e_i \rangle \vert^2 \le \Vert x\Vert^2\)
 
 Some inequality that happened last Thursday.
 \subsection{Fourier coefficients}
-\label{sec:org196abd1}
+\label{sec:org17e2a1e}
 The inner product \(\langle x_i, e_i\rangle\) are called Fourier coefficients.
 
 If \(\{e_i \vert i \in \N\}\) is a orthonormal basis, we obtain equality \(\Vert
    x \Vert^2 = \sum \vert \langle x_i, e_i \rangle \vert^2\).
 \subsection{Lemma}
-\label{sec:org5668f32}
+\label{sec:orge22438b}
 Let \(\{e_i, i \in \N\}\) be an orthonormal system and \(x,y \in H\). Then you
 can show that \(\sum_{i=1}^{\infty} \vert\langle x_i, e_i \rangle \langle e_i
    y\rangle \vert < \infty\).
 \subsubsection{Proof}
-\label{sec:org2c94468}
+\label{sec:org34da32c}
 The proof simply uses the Holder's inequality.
 
 \(\sum \vert \langle x, e_i \rangle \langle e_i, y\rangle \vert \le (\sum
     \vert \langle x, e_i \rangle \vert^2)^{1/2} (\sum \vert \langle e_i, y
     \rangle \vert^2)^{1/2} \le \Vert x \Vert \Vert y \Vert < \infty\)
 \subsection{Difference between orthonormal basis and orthonormal system}
-\label{sec:org6268c54}
+\label{sec:org4cb5c3d}
 Consider \(\R^3\), then \(e_1\) and \(e_2\) form an orthonormal system. But it is
 not a basis, clearly.
 
@@ -1254,7 +1254,7 @@ One can calculate the bessel's inequality thing.
 There was something about Paiseval's equality which was mentioned in the
 lecture.
 \subsection{Theorem}
-\label{sec:org8f8c384}
+\label{sec:orge5150d6}
 For an infinite-dimensional Hilbert space \(H\). The following statements are equivalent
 
 \begin{enumerate}
@@ -1263,7 +1263,7 @@ For an infinite-dimensional Hilbert space \(H\). The following statements are eq
 \item There is at least one orthonormal basis
 \end{enumerate}
 \subsubsection{Proof (idea)}
-\label{sec:org48d4b56}
+\label{sec:org760fd41}
 1 to 2. Start with an orthonormal basis, we must show that it must be
 countable. Take two vectors \(e_i\) and \(e_j \in S\), then \(\Vert e_i - e_j
     \Vert^2 = \sum \langle e_i - e_j, e_i - e_j\rangle= \Vert e_i\Vert^2 + \Vert
@@ -1285,7 +1285,7 @@ can define an injection between our uncountable set and the countable set.
 3 to 1. The idea is that we take linear coefficients that are rational. Then
 we show that this set is dense in \(H\) and then you're done.
 \subsection{How does non-separable Hilbert spaces?}
-\label{sec:orgf18f098}
+\label{sec:org6ce4400}
 Consider the space of functions \(f\colon \R \rightarrow \R\) with the property
 that \(f(x)\neq 0\) only for a countable set and the property that \(\Vert f
    \Vert < \infty\), where \(\Vert \cdot \Vert\) is the norm induced by the inner
@@ -1300,7 +1300,7 @@ Define \(f_y(X) = 1\) when \(x \neq y\) and \(0\) otherwise. For \(y_0 \neq y_1,
 We obtain an uncountable number of disjoint sets. Thus the space cannot be
 separable.
 \subsection{Fourier series}
-\label{sec:org4596f4e}
+\label{sec:orge406c33}
 We consider the space \(L^2[0, 2\pi]\), we define the set of basis functions:
 \(S = \{\frac{1}{\sqrt{2\pi}} I\} \cup \{\frac{1}{\sqrt{\pi} \cos(nx)}\} \cup
    \{\frac{1}{\sqrt{\pi}}\sin(nx)\}\) See example 3.18 (iii).
@@ -1322,7 +1322,7 @@ Also \(\int_0^{2\pi} \sin mx \cos nx\ dx = 0\). Thus \(\langle
 Holds the same for all other combinations. Hence \(S\) is an orthonormal
 system.
 \subsection{Example}
-\label{sec:org4f60f42}
+\label{sec:org2ad9ad3}
 A trigonometric series is defined by \(a_0 + \sum_{n=1}^\infty][a_k \cos(kx) +
    b_k \sin(kx)]\). Let \(f\) be \(2\pi\) periodic and continuous. Then the
 coefficients are defined by
@@ -1341,7 +1341,7 @@ Similarly, we can express everything as a an inner product.
 
 That is, we write \(f\) as \(\sum_{e\in S} \langle f, e \rangle e\)
 \subsection{Example}
-\label{sec:org0d56015}
+\label{sec:orgf2f4e12}
 Let us consider the so called square wave function defined by, \(f(x) = 1\)
 between \(0\) and \(\pi\) and it is \(-1\) between \(\pi\) and \(2\pi\).
 
@@ -1349,9 +1349,9 @@ We can get that \(a_k = 0\). \(b_k = 1\) if \(k\) is odd and \(-1\) if \(k\) is 
 
 Another function is the sawtooth function.
 \section{Lecture 16 \textit{<2018-12-11 Tue>}}
-\label{sec:org5b1f65a}
+\label{sec:orga2e00e4}
 \subsection{Theorem}
-\label{sec:orgc560d66}
+\label{sec:orge7a7744}
 Suppose \(e_n\) is an orthonormal sequence in a Hilbert space \(H\) (if an
 orthonormal set is countable, then we can arrange it as a sequence)
 
@@ -1364,7 +1364,7 @@ in \(H\) we are approximating. Thus we can write \(x = \sum_{n=1}^{\infty}
       \langle x, e_n \rangle e_n\).
 \end{enumerate}
 \subsubsection{Proof}
-\label{sec:orgfc9165c}
+\label{sec:orgafc8300}
 \(H\) and \(\R\) are both complete. Thus, a Cauchy sequence in \(H\) converge if
 and only if the corresponding sequence in \(\R\) is cauchy. To show this,
 define, \(s_n = \sum_{k=1}^{n} a_ke_k\) and \(\delta_n = \sum_{k=1}^{n} \vert
@@ -1384,12 +1384,12 @@ have shown that the inner product is continuous.)
 
 Thus \(a_j = \langle x, e_j \rangle\)
 \subsection{Orthonormal Polynomials}
-\label{sec:orgb98674c}
+\label{sec:org5baaff0}
 \footnote{All the details were not proven. Just a detour.} Instead of using trigonometric basis functions for the Fourier
 analysis, we can use sets of orthonormal polynomials. Example, Legendre,
 Hermite or Laguerre Polynomials.
 \subsection{Legendre Polynomials}
-\label{sec:org008904d}
+\label{sec:org9b1ff99}
 The Legendre Polynomials can be defined in terms of the generating functions
 \(H(x, \gamma) = \frac{1}{(1-2x\gamma + \gamma^2)^{1/2}}\) This can be
 developed in a power series in \(r\) so that \(H(x, \gamma) = P_0(x) +
@@ -1420,7 +1420,7 @@ normalized Legendre polynomials, denoted by lower case \(p_n\) are \(p_n(x) =
 Any function on \((-1, 1)\) can now be expanded in a series of Legendre
 polynomials, similar to the standard Fourier expansion.
 \subsection{Hermite polynomials}
-\label{sec:orgcd0ca9e}
+\label{sec:org3a58c10}
 Hermite polynomials are orthogonal on \((-\infty, \infty)\) with the weight
 function \(\exp{-x^2/2}\). Define \(\phi(x) = \exp{-x^2/2}\), then \(\phi'(x) =
    -x\phi(x)\), \(\phi''(x) = (x^2 - 1)\phi(x)\). We define \(H_n(x) = (-1)^n
@@ -1439,7 +1439,7 @@ We can expand, and arbitrary function \(f(x)\) in an series of Hermite
 polynomials. \(f(x) = \sum_{n=0}^{\infty} a_n H_n(x)\), where \(a_n =
    \frac{1}{n! \sqrt{2\pi}} \langle f, H_k\rangle\)
 \subsection{Laguerre Polynomials}
-\label{sec:org78c464c}
+\label{sec:org959467c}
 The last set of orthonormal polynomials we want to consider are the so-called
 Laguerre polynomials which are orthogonal on \((0, \infty)\) with weight
 function \(\rho(x) = x^ae^{-x}\), with \(a> -1\). \(a\) is typically zero.
@@ -1453,9 +1453,9 @@ The laguerre Polynomials are orthogonal with respect to \(\langle f, g\rangle
 The Laguerre polynomials can be defined recursively and be used for series
 expansions.
 \section{Lecture 17 \textit{<2018-12-13 Thu>}}
-\label{sec:orgbe0f528}
+\label{sec:org6827432}
 \subsection{Adjoint operators}
-\label{sec:org446f149}
+\label{sec:org9d559e3}
 We now want to introduce the adjoint operator of a bounded linear operator
 but first we need a few auxiliary results. (Something like Reiz's
 representation theorem for bilinear forms.)
@@ -1480,13 +1480,13 @@ Furthermore, \(\Vert h \Vert = \sup \frac{\vert{h(x, h)}}{\Vert x \Vert \cdot
 
 We can now extend the representation theorem to sesquilinear forms.
 \subsection{Theorem}
-\label{sec:orgb31f807}
+\label{sec:orga385c4d}
 Given a bounded sesquilinear form, \(h \colon H_1 \times H_2 \rightarrow K\)
 (\(K\) is a field here), for two Hilbert spaces \(H_1\) and \(H_2\), then \(h\) has a
 representation \(h(x, y) = \langle S x, y \rangle\), where \(S\) is uniquely
 defined linear operator with \(\Vert S \Vert = \Vert h \Vert\).
 \subsubsection{Proof}
-\label{sec:org6a32bd9}
+\label{sec:org7f59168}
 For \(x\) fixed, \(\overline{h(x, y)}\) is a linear functional (complex
 conjugate is required, otherwise, it would only be semi-linear in \(y\).)
 
@@ -1524,7 +1524,7 @@ The uniqueness of \(S\): Assume that there are two functions \(S\) and \(T\) wit
 the same properties, then \(\langle (S - T) x, y \rangle = 0\) for all \(x, y\).
 This means that \(S = T\).
 \subsection{Definition}
-\label{sec:orgf5358d2}
+\label{sec:org1bb090c}
 Given two Hilbert spaces \(H_1\) and \(H_2\) and a bounded linear operator \(T
    \colon H_1 \rightarrow H-2\), then adjoint operator, denoted by \(T^{*}\) is
 defined by \(\langle Tx, y\rangle = \langle x, T^{*}y \rangle\) for all \(x \in
@@ -1533,11 +1533,11 @@ defined by \(\langle Tx, y\rangle = \langle x, T^{*}y \rangle\) for all \(x \in
 We need to show that the operator is really defined. But then we can use the
 previous theorem to show this.
 \subsection{Theorem}
-\label{sec:org92563d0}
+\label{sec:orgfbaf07e}
 The operator \(T^{*}\) exists and is unique. Furthermore, \(\Vert T^{*}\Vert =
    \Vert T \Vert\).
 \subsubsection{Proof}
-\label{sec:org5bb9b12}
+\label{sec:org96c4c52}
 We define a sesquilinear form by \(h(y, x) = \langle y, Tx\rangle\), then
 inner product is sesquilinear and \(T\) is linear. Conjugate linearity can be
 seen as follows: \(h(y, ax_1 + bx_2) = \langle y, T(ax_1+bx_2) \rangle =
@@ -1573,9 +1573,9 @@ We need to show that \(h(y, x) = \langle y , Tx\rangle\) and \(h(y, x) =
     \langle Tx, y \rangle\) so that \(T^{*}\) has the properties we were looking
 for \(t\).
 \subsection{Examples of Adjoint operators}
-\label{sec:orgfbb0dbb}
+\label{sec:orgc675dd7}
 \subsubsection{Example 1}
-\label{sec:orgc34c4e0}
+\label{sec:org1d6a0bd}
 Let \(A \in \R^{n \times n}\), define \(T \colon \R^n \rightarrow \R^n\) by \(Tx
     = Ax\). The adjoint operator satisfies \(\langle Tx, y \rangle = \langle x,
     T^{*}y\rangle\), i.e., \(\langle Tx, y\rangle = \langle Ax, y \rangle =
@@ -1584,7 +1584,7 @@ Let \(A \in \R^{n \times n}\), define \(T \colon \R^n \rightarrow \R^n\) by \(Tx
 That is, the adjoint operator is given by the transposed matrix \(A^{T}\) or
 \(A^{H}\) if \(A \in \C^{m \times n}\).
 \subsubsection{Example 2}
-\label{sec:org8bd0ba2}
+\label{sec:org9cce037}
 Let \(X \subset \R^d\) and \(p_\tau\colon X \times X \rightarrow \R\) be the
 transition density function associated with the stochastic process
 \(\{X_t\}_t\). That is, \(p_\tau(x, y)\) is the probability that the process
@@ -1598,7 +1598,7 @@ assume that they are well defined on \(L^2\).
 Now, we want to show that \(p_\tau\) and \(K_\tau\) are adjoint with respect to
 \(\langle f ,g \rangle = \int f(x)g(x) dx\).
 \subsubsection{Example 3}
-\label{sec:org4cb625c}
+\label{sec:org07c673e}
 For any \(x \in \R^n\), define \(T\) by \(T(x_1, \cdots, x_n) = (0, x_1, \cdots,
     x_{n-1})\), i.e., right-shift operator. Now we want to find the adjoint
 \(T^{*}\).
@@ -1609,7 +1609,7 @@ is the transpose.)
 
 \(T^{*}(x_1, \cdots, x_n) = (x_2,\cdots, x_n, 0)\) (the left shift operator)
 \subsubsection{Example 5 (Adjoint operator does not exist)}
-\label{sec:org2b0ea74}
+\label{sec:orga3deac2}
 The adjoint operator does not always exist. Consider the space of all real
 valued polynomials along with the inner product \(\langle f, g \rangle =
     \int_0^1 f(x) g(x)\ dx\). Define the operator \(T = \frac{d}{dx}\) to be the
@@ -1621,9 +1621,9 @@ showed that it exist for bounded.
     Tg\rangle\) (integration by parts.) Thus \(\langle f, (T^{*} + T) g \rangle =
     (fg)(1) - (fg)(0)\). We now define a function \(f\) with \(f(0) = f(1) = 0\).
 \section{Lecture 18 \textit{<2018-12-18 Tue>}}
-\label{sec:org1690675}
+\label{sec:orgc963596}
 \subsection{Continuation on the example}
-\label{sec:org766c4ce}
+\label{sec:org650928d}
 \(\langle f, (T^{*} + T)g \rangle = (fg)(1) - (fg)(0), f(x) = x^2(1-x^2)p(x)\).
 
 \(0 = \langle f, (T^{*} + T)g\rangle = \int_{0}^{1} x^2 (1-x^2)[(T +
@@ -1638,7 +1638,7 @@ and only zero for \(x=0\) and \(x=1\). Thus \((T + T^{*})g\) must be zero for al
 However, \(\langle f, (T + T^{*}) g \rangle = (fg)(1) - (fg)(0)\) which is
 certainly not \(0\) for all \(f\) and \(g\), thus \(T^{*}\) cannot exist.
 \subsection{Lemma}
-\label{sec:orgaab92a6}
+\label{sec:orga44a179}
 Given two inner product spaces \(X\) and \(Y\) and a bounded linear operator \(Q
    \colon X \rightarrow Y\)
 
@@ -1648,7 +1648,7 @@ Given two inner product spaces \(X\) and \(Y\) and a bounded linear operator \(Q
       \rangle = 0, \forall x \in X\) then \(Q = 0\).
 \end{enumerate}
 \subsubsection{Proof}
-\label{sec:org1e03811}
+\label{sec:org17260ba}
 The first part is easy. We'll show the second part.
 
 \(0 = \langle Q(ax_1, x_2), ax_1, x_2 \rangle = \vert a\vert^2 \langle Q x_1,
@@ -1698,7 +1698,7 @@ all \(x, y\). From the previous lemma (part 1), we have that \(T^{**} - T = 0\).
 \item \(\Vert S S^{*} \Vert = \Vert S^{*} S \Vert = \Vert S \Vert^2\).
 \end{enumerate}
 \subsection{Definition (unitary)}
-\label{sec:org26acabf}
+\label{sec:org00f75ff}
 Let \(T \colon H_1 \rightarrow H_2\) be a bounded linear operator
 
 \begin{enumerate}
@@ -1719,7 +1719,7 @@ Normal: \(\langle Tx, Ty \rangle = \langle T^{*}Tx, y \rangle = \langle
 
 Self-adjoint operators are obviously normal.
 \subsection{Example}
-\label{sec:orgb66d764}
+\label{sec:org2644e21}
 From a previous example, we know that for \(T \colon x \rightarrow Ax\) for a
 matrix \(A \in \R^{n\times m}\), the adjoint is given by \(T^{*} \colon y
    \rightarrow A^{T}y\).
@@ -1730,7 +1730,7 @@ complex).
 
 The operator is normal if the matrix \(A\) is normal, i..e, \(A^{T}A = AA^{T}\).
 \subsection{Example}
-\label{sec:org9ecd863}
+\label{sec:orgc62eca7}
 Let us consider the Peran-Frobenius and Koopman operator from a previous
 example again. A system is said to be reversible if the detailed balance
 condition is fulfilled.
@@ -1747,7 +1747,7 @@ $$\langle P_\tau f, g \rangle_{\pi^{-1}} = \int\int p_\tau(y, x)\ dx$$
 
 More calculations follow and we'll get the result.
 \subsection{Example}
-\label{sec:org65a878f}
+\label{sec:org6610a49}
 Suppose \(A \in \C^{n \times n}\) is a self-adjoint matrix, i.e., \(A = A^{*}\).
 Define \(u = e^{iA} = \sum_{h=0}^{\infty} (iA)^n/{h!}\). Since for any \(B \in
    \C^{n\times n}\): \((B^n)^{*} = (B^{*})^n\) and \((iA)^{*} = TA^{*} = -iA^{*} =
@@ -1759,7 +1759,7 @@ Define \(u = e^{iA} = \sum_{h=0}^{\infty} (iA)^n/{h!}\). Since for any \(B \in
 As \(iA\) and \(-iA\) commute, it holds that \(e^{iA}e^{-iA} = I\). As a result,
 \(U\) is unitary.
 \subsection{Example}
-\label{sec:org6539e9f}
+\label{sec:org4e084f3}
 For a function \(f \in L^1(\mathbb{R}) \cap L^2(\R)\), we define the Fourier
 transform as follows:
 
@@ -1781,9 +1781,9 @@ version of this result. The identity says that the norm of the function is
 same as the \(l_2\) norm of the coefficients. The above result says something
 similar.)
 \section{Lecture 19 \textit{<2018-12-20 Thu>}}
-\label{sec:orge5d1974}
+\label{sec:orge5de53a}
 \subsection{Planchevel's theorem}
-\label{sec:org0d15596}
+\label{sec:orgb53a17f}
 \(\langle F, G \rangle = \langle f, g \rangle\)
 
 To prove Plancherel's theorem, we write \(f(x) = \frac{1}{\sqrt{2\pi}}
@@ -1811,7 +1811,7 @@ Brief reminder: We used several properties of complex numbers in the last
 examples, e.g., \(\overline{z_1 z_2} = \overline{z_1} \cdot \overline{z_2}\)
 and \(\overline{\exp{z}} = \exp{\overline{z}}\). They can be seen very easily.
 \subsection{Lemma}
-\label{sec:org26214a6}
+\label{sec:orgb2cbc29}
 Given a bounded linear operator \(T \colon H_1 \rightarrow H_2\), it holds that 
 
 \begin{enumerate}
@@ -1819,7 +1819,7 @@ Given a bounded linear operator \(T \colon H_1 \rightarrow H_2\), it holds that
 \item \(\langle Tx, Ty\rangle = \langle x, y \rangle\).
 \end{enumerate}
 \subsubsection{Proof}
-\label{sec:orgea44452}
+\label{sec:org95ede76}
 1 to 2.
 
 Using the polarization identity (related to the Parallelogram law, for \(K=
@@ -1845,7 +1845,7 @@ Analogously, one can show it for \(K= \C\).
 This implies that a length-preserving operator (an isometry) also preserves
 angles.
 \subsection{Lemma}
-\label{sec:org9eae76c}
+\label{sec:org741da57}
 For \(K = \C\) and a linear \(T \colon H \rightarrow H\) it holds that
 
 \begin{enumerate}
@@ -1856,7 +1856,7 @@ For \(K = \C\) and a linear \(T \colon H \rightarrow H\) it holds that
 This doesn't make sense in Real valued vector spaces and only make sense in
 Complex valued spaces.
 \subsubsection{Proof}
-\label{sec:orgfa17932}
+\label{sec:orga6b903b}
 \(\langle Tx, x \rangle = \langle x, Tx\rangle\) (here we are using
 self-adjointness)
 
@@ -1897,11 +1897,11 @@ We have something similar before,
 Add the equations to get \(\langle Tx, y\langle = \langle x, Ty\rangle\),
 which is what we wanted to show.
 \subsection{Theorem}
-\label{sec:org109fe90}
+\label{sec:orgfd80658}
 If a bounded linear operator is self-adjoint, then \(\Vert T \Vert =
    \sup_{\Vert x \Vert \le 1} \vert \langle Tx, x \rangle\vert\).
 \subsubsection{Proof}
-\label{sec:org327658e}
+\label{sec:org02d40a7}
 The proof again uses the Parallelogram law.
 
 \(\vert \langle Tx, x \rangle \vert \le \Vert Tx \Vert \Vert x \Vert \le
@@ -1936,16 +1936,16 @@ For \(\Vert x \Vert \le 1\) and \(\Vert y \Vert \le 1\): \(\Vert
     \operatorname{Re} \langle Tx, \frac{Tx}{\Vert Tx\Vert}\vert = \Vert Tx \Vert
     \le M\)
 \section{Lecture 20 \textit{<2019-01-08 Tue>}}
-\label{sec:orgd6ce028}
+\label{sec:org447ccc8}
 We finished Metric space, Banach spaces etc.
 \subsection{Reproducing Kernel Hilbert spaces}
-\label{sec:org6e917e4}
+\label{sec:org528fa1a}
 \subsubsection{Kernels and their properties}
-\label{sec:org714ff21}
+\label{sec:org45643d4}
 We will consider similarity measures of the form \(k \colon X \times X
     \rightarrow \R\), where \(X\) is a non-empty set.
 \subsubsection{Definition}
-\label{sec:org4693883}
+\label{sec:orgdc5dcfc}
 A function \(k \colon X \times X \rightarrow \R\) is called kernel if there
 exists a real Hilbert space \(H\) and a map \(\phi \colon X \rightarrow H\) such
 that for all \(x, x' \in X\), we know that \(k(x, x') = \langle \phi(x),
@@ -1953,7 +1953,7 @@ that for all \(x, x' \in X\), we know that \(k(x, x') = \langle \phi(x),
 
 We call \(\phi\) feature map and \(H\), the feature space of \(k\).
 \subsubsection{Example}
-\label{sec:orga77b500}
+\label{sec:orgcbec977}
 A particularly simple similarity measure on \(\R^n\) is the standard inner
 product on \(\R^n\). \(k(x, x') = \langle x, x'\rangle = x^T x' = \sum x_i
     x_i'\). Why is this a similarity measure? If we have two vectors that are
@@ -1963,13 +1963,13 @@ the inner product is closer. \footnote{The notion of similarity measure is not p
 Let \(x\) and \(x'\) be vectors of unit length, then \(k(x, x') = 1\) if \(x = x'\)
 (high similarity) and \(h(x, x') = 0\) if \(x \perp x'\) (low similarity).
 \subsubsection{Lemma}
-\label{sec:orgf2adb51}
+\label{sec:orgd883030}
 Let \(X\) be as above and \(f_n \colon X \rightarrow \R\) and \(n \in \N\) be
 functions such that \((f_n(x))_n\in l_2\) for all \(x\in X\). Then \(k(x, x') =
     \sum_{n = 1}^{\infty} f_n(x) f_n(x')\) defines a kernel.
 \begin{enumerate}
 \item Proof
-\label{sec:orgde41b56}
+\label{sec:orgac3d188}
 Holder's inequality yields that \(\sum_{n=1}^{\infty} \vert f_n(x)
      f_n(x')\vert \le \Vert (f_n(x_n)) \Vert_{l_2} \cdot \Vert f_n(x')
      \Vert_{l_2}\). 
@@ -1981,14 +1981,14 @@ and \(\phi \colon X\rightarrow H\) by \(\phi(x) = (f_n(x))_n\), then \(k(x, x') 
 the proof
 \end{enumerate}
 \subsubsection{Remark}
-\label{sec:org725b654}
+\label{sec:org71a7c11}
 Almost all kernels have such a representation which can be constructed
 explicitly (Mercer feature space will be introduced later)
 
 Kernel based methods and reproducing kernel Hilbert spaces are often in
 machine learning. Let us consider a simple classification problem.
 \subsubsection{Example}
-\label{sec:org3c81aaf}
+\label{sec:org249c3fc}
 Assume that we have two classes of objects (e.g., sick/healthy) We are then
 given a new object and we have to assign it to one of the two classes.
 
@@ -2038,7 +2038,7 @@ trick.
 If we now choose for instance, \(k(x, x') = (1 + \langle x, x'\rangle)^2\)
 also, the "circle example" introduced above can be classified.
 \subsubsection{Example}
-\label{sec:orgf3c1db0}
+\label{sec:org08a769c}
 Let \(X = \R^2\) and the kernel \(k(x, x') = (1 + \langle x, x'\rangle)^2\). We
 obtain, \(k(x, x') = (1 + x_1 x_1' + x_2x_2')^2 = \cdots = 1 + 2x_1x_1' +
     2x_2 x_2' + 2x_n x_1'x_2x_2' + \lambda_1^2 \lambda'_1^2 + \lambda_2^2
@@ -2056,7 +2056,7 @@ efficiently in the two dimensional state space. In general, for \(\R^d\), the
 kernel \(k(x, x') = (c + \langle x, x'\rangle)^p\) contains all monomials of
 order up to \(p\).
 \subsubsection{Remark}
-\label{sec:orgab00ea3}
+\label{sec:org2ecca58}
 The feature space representation is not unqiue. That is, we have \(h(x, x') =
     \langle \phi_1(x), \phi_1(x')\rangle\) and \(h(x, x') = \langle \phi_2(x),
     \phi_2(x')\rangle\), \(\phi_1\) and \(\phi_2\) might be different 9also the
@@ -2064,7 +2064,7 @@ associated hilbert spaces might be completely different) This however, does
 in general not matter since the goal is to write algorithms, in terms of
 kernel evaluations.
 \subsubsection{Lemma}
-\label{sec:org02b330f}
+\label{sec:org10c3be5}
 \begin{enumerate}
 \item Given a kernel \(k\), then \(\alpha \cdot k\) for \(\alpha > 0\) is a kernel.
 \item Given kernels \(k_1\) and \(k_2\), \(k_1 + k_2\) is a kernel.
@@ -2072,7 +2072,7 @@ kernel evaluations.
 \end{enumerate}
 \begin{enumerate}
 \item Proof
-\label{sec:orgab4ea22}
+\label{sec:org318b07f}
 \(k(x, x') = \langle \phi(x), \phi(x') \rangle\), thus \((\alpha k)(x, x') =
      \langle \sqrt{\alpha} \phi(x), \sqrt{\alpha} \phi(x')\rangle\).
 
@@ -2092,13 +2092,13 @@ This can be written as \(\langle (\phi_1 \otimes \phi_2)(x), (\phi_1 \otimes
 i.e., \((\phi_1 \otimes \phi_2)_{ij} = \phi_i^{i} \phi_2^{j}\).
 \end{enumerate}
 \section{Lecture 21 \textit{<2019-01-10 Thu>}}
-\label{sec:org66f4a87}
+\label{sec:org7570595}
 \subsection{Positive Definite}
-\label{sec:org3707732}
+\label{sec:orgf71b931}
 Given a Kernel \(K\) and data \(x_1, \cdots, x_m \in X\), the \(m \times m\) matrix
 \(G = (g_{ij})\) with \(g_{ij} = k(X_i, X_j)\) is called Gram matrix.
 \subsection{Definition}
-\label{sec:org628b3ee}
+\label{sec:org4d5b7f0}
 A kernel \(k \colon X \times X \rightarrow \R\) is called positive definite if
 for all \(m\), for all \(X_1, \cdots, X_m \in X\), for all \(\alpha_1, \cdots,
    \alpha_m\), we have \(\sum_{i, j = 1}^{n} \alpha_i\alpha_j k(x_i, x_j) =
@@ -2109,25 +2109,25 @@ different \(X_1, \cdots, X_m\) equality \(\alpha^T G \alpha = 0\) holds for
 \(\alpha = 0\). (this is an additional condition) The kernel \(k\) is called
 \textbf{symmetric} if \(k(x, x') = k(x', x)\) for all \(x, x' \in X\).
 \subsection{Remark}
-\label{sec:org89c00e4}
+\label{sec:org8a3a771}
 What we call positive definite is also sometimes called positive
 semi-definite and what we call strictly positive definite is called positive
 definite.
 \subsection{Property}
-\label{sec:org31c28b8}
+\label{sec:org3939827}
 A symmetric matrix \(G\) is positive definite if and only if eigenvalues are
 non-negative. We're talking about Real, meaning that the Eigenvalues are
 positive.
 \subsection{Remark}
-\label{sec:orgcb02784}
+\label{sec:org3851316}
 The term kernel dates back to analysis of integral operators of the form
 \((T_k f)(x) = \int k(x, x') f(x') dx'\).
 \subsection{Lemma (Cauchy-Schwarz for kernels)}
-\label{sec:orgcd7d3a6}
+\label{sec:orgcd086dc}
 If \(k\) is symmetric and positive definite (in short, s.p.d in what follows)
 then \(k(x_1, x_2)^2 \le k(x_1, x_2)k(x_2, x_2)\)
 \subsubsection{Proof}
-\label{sec:orge2d1300}
+\label{sec:org8a77a3c}
 Consider the Gram Matrix \(G=\)
 
 \begin{center}
@@ -2145,10 +2145,10 @@ non-negative.
 The determinant is \(k(x_1, x_2)k(x_2, x_2) - k(x_1, x_2)^2 \ge 0\). Thus we
 have the theorem.
 \subsection{The reproducing kernel map}
-\label{sec:org7aac99f}
+\label{sec:orgb8dc516}
 Let \(k\) be a s.p.d kernel and \(X\) a non-empty set.
 \subsection{Definition (Canonical feature map)}
-\label{sec:orgd241b4c}
+\label{sec:org3c7168f}
 Let \(\R^X = \{ f\colon X \rightarrow \R \}\) denote the set of all functions
 from \(X\) to \(\R\). We define \(\phi \colon X \rightarrow \R^X\) by \(x\mapsto
    k(\cdot, x)\). (Note that we assign each point in \(X\) a function.)
@@ -2163,11 +2163,11 @@ Given two functions \(f = \sum_{i=1}^{m} \alpha_i k(\cdot, x_i)\) and \(g =
 \(\langle f, g \rangle = \sum_{i=1}^{m} \sum_{j = 1}^{m'} \alpha_i \beta_j
    k(x_i, x_j')\)
 \subsection{Lemma}
-\label{sec:orge317211}
+\label{sec:org3323553}
 This new inner product \(\langle \cdot, \cdot \rangle\) itself defines s.p.d
 kernel.
 \subsubsection{Proof}
-\label{sec:org0bce6ed}
+\label{sec:orgb9c26d7}
 Symmetry follows from the symmetry of the \(k\). We have to show that for
 arbitrary function \(f_1, \cdots, f_m\) and coefficients \(\alpha_1, \cdots,
     \alpha_m\), \(\sum_{i, j} \alpha_i \alpha_j \langle f_i, f_j \rangle = \langle
@@ -2194,7 +2194,7 @@ kernel \(k\). Similarly, a feature map, defines as s.p.d. kernel, via \(k(x,
     \alpha_j(x_i, x_j) = \langle \sum_{i} \alpha_i \phi(x_i),
     \sum\alpha_j\phi(x_j)\rangle = \Vert \sum \alpha_i \phi(x_i) \Vert^2 \ge 0\).
 \subsection{The reproducing kernel Hilbert space}
-\label{sec:orga54e5e2}
+\label{sec:org60f21e2}
 The space of functions given by \(f = \sum_{i = 1}^{m} \alpha_i k(\cdot, x_i)\)
 along with the inner product \(\langle \cdot, \cdot \rangle\) defines an inner
 product space or pre-Hilbert space. We can now complete this space by adding
@@ -2209,17 +2209,17 @@ limit points of sequences that converge in the norm \(\Vert \cdot \Vert =
 There are equivalent definitions using evaluation functionals \(\delta_x f =
    f(x)\) see Stienward/Christmann (Support Vector Machines.)
 \subsection{Lemma}
-\label{sec:org2200751}
+\label{sec:org853182d}
 The RKHS uniquely determines the reproducing kernel \(k\)
 \subsubsection{Proof}
-\label{sec:orgf8ff992}
+\label{sec:orgfc00b7e}
 Assume \(k_1\) and \(k_2\) are reproducing kernels, then \(\langle h_1(\cdot, x),
     k(\cdot, x') \rangle\) The reproducing property of Kernel \(k_2\).
 
 We may now swap the two arguments, \(\langle k_2(\cdot, x'), k_1(\cdot, x)
     \rangle = k_2(x', x) = k_2(x, x')\)
 \subsection{Mercer Feature space}
-\label{sec:orgb51d103}
+\label{sec:org3b9bc24}
 It is possible to derive an explicit representation of the feature space
 where features are (possibly infinite-dimensional) vectors (unlike the
 canonical feature map, where we assign functions to all \(x \in X\).) The
@@ -2227,7 +2227,7 @@ resulting Mercer representation is helpful for understanding RKHS.
 
 Let \(X\) be compact and \(K\) a continuous kernel in what follows:.
 \subsection{Definition}
-\label{sec:org50494f8}
+\label{sec:orgaab42ea}
 Given a kernel \(K\), the integral operator \(S_k \colon L_2(\mu) \rightarrow H\)
 is defined by the operator \(S_k f(x) = \int h(x, x') f(x') d \mu(X')\) and
 \(T_k(\mu) \rightarrow L_2(\mu)\) by \(T_k = S_k^{*} S_k\).
@@ -2235,11 +2235,11 @@ is defined by the operator \(S_k f(x) = \int h(x, x') f(x') d \mu(X')\) and
 If you are not familiar with measures think of \(d \mu(x')\) as \(dx'\), i.e.,
 the standard Lebesgue measure.
 \section{Lecture 22 Skipped}
-\label{sec:org49712e3}
+\label{sec:org49d6362}
 \section{Lecture 23}
-\label{sec:orgc5cb90c}
+\label{sec:org243c8a8}
 \subsection{Example}
-\label{sec:orgfebbcc4}
+\label{sec:org2c49ec2}
 \(X = \R^2\), then \(p(x) = X_1 +\vert X_2 \vert\) is sublinear since \(p(x + y) =
    X_1 + Y_1 + (X_2 + Y_2) \le X_1 + \vert X_1 \vert + \vert Y_2 \vert = p(x) +
    p(y)\) and \(p(\alpha X) = \alpha X_1 + \vert \alpha X_2 \vert = \alpha X_1 +
@@ -2249,7 +2249,7 @@ We now assume that there is such a functional \(p\) that majorizes \(f\) on \(z\
 We can then extend \(f\) from \(z\) to X\$ such that the extension \(\tilde{f}\) is
 still linear and majorized by on \(X\). More precisely: 
 \subsection{Theorem (Hahn-Banach for real vector spaces)}
-\label{sec:org9dadc15}
+\label{sec:orgde73877}
 Suppose \(X\) is a real vector space and \(p\) a sublinear functional on \(X\). Let
 \(f\) be a linear functional defined on a subspace \(Z\) of \(X\) with \(f(x) \le
    p(x), \forall x \in Z\)
@@ -2259,7 +2259,7 @@ that \(\tilde{l}(x) \le p(x)\).
 
 Extension here means that \(\tilde{f}(x) = f(x), \forall x \in Z\)
 \subsubsection{Proof}
-\label{sec:orgff01f02}
+\label{sec:org47b07a4}
 The proof is lengthy. We first show that the set \(E\) of all linear
 extensions \(g\) of \(f\) with \(g(x) \le p(x)\) or the domain \(D(g)\) defines a
 partial ordering. Clearly \(E\) is non-empty since \(f \in E\). We now need a
@@ -2319,7 +2319,7 @@ of \(\tilde{f}\), provided that we can find \(c\) such that \(g_1(x) \le p(x)\).
 We haven't shown this part, we'll skip it since it's very technical. One can
 look at Kreizig's book.
 \subsection{Theorem (Hahn-Banach generalized)}
-\label{sec:org21f58cd}
+\label{sec:org9dec39e}
 Given a real or complex vector space and a real valued function \(p\) with
 \(p(x + y) \le p(x) + p(y)\) and and \(p(\alpha x) = \vert \alpha \vert \cdot
    p(x)\). Let \(f\) be again a linear functional defined on a subspace \(z\) of \(X\)
@@ -2327,7 +2327,7 @@ with \(\vert f(x) \vert \le p(x)\). Then there exists a linear extension
 \(\tilde{f}\) on \(X\) such that \(\vert \tilde{f}(x) \vert \le p(x)\), for all \(x
    \in X\).
 \subsection{Theorem (Hahn-Banach theorem for normed spaces)}
-\label{sec:org33e993e}
+\label{sec:org017c7b9}
 Suppose \(f\) defined on a subspace \(z\) of the normed space \(X\) is a bounded
 linear functional. Then there is a bounded linear functional \(\tilde{f}\) on
 the entire space \(X\) that extends \(f\) and \(\Vert \tilde{f} \Vert_X = \Vert f
@@ -2337,7 +2337,7 @@ Here \(\Vert \tilde{f} \Vert_X = \sup_{x \in X, \Vert X \Vert = 1} \vert
    \tilde{f}(x) \vert\), \(\Vert f \Vert_z = \sup_{x \in z, \Vert x \Vert = 1}
    \vert f(x) \vert\).
 \subsubsection{Proof}
-\label{sec:orgaba16d3}
+\label{sec:orgd22206b}
 Assume \(Z \neq \{0\}\) (otherwise \(f = 0\) and \(\tilde{f} = 0\).) We now define
 a sublinear functional, \(p(x) = \Vert f \Vert_z \cdot \Vert X \Vert\) and
 show that \(p(x + y) \le p(x) + p(y)\), and \(p(\alpha x) = \vert \alpha \vert
@@ -2362,12 +2362,12 @@ Now, \(\Vert \tilde{f} \Vert_X = \sup_{x \in X, \Vert X \Vert = 1} \vert
 But \(Z\) is as subset of \(X\) so \(\Vert f \Vert_Z \le \Vert \tilde{f} \Vert_x
     \implies \Vert \tilde{f} \Vert_X = \Vert f \Vert_z\).
 \subsection{Theorem}
-\label{sec:org1244603}
+\label{sec:orgdfb9c0a}
 Given arbitrary \(x_0 \in X\), where \(X\) is a normed space, there exits a
 bounded linear functional \(\tilde{f}\) on \(X\) with \(\Vert \tilde{f}\Vert = 1\),
 and \(\tilde{f}(x_0) = \Vert X_0 \Vert\).
 \subsubsection{Proof}
-\label{sec:org06ea1d3}
+\label{sec:org74b187a}
 Define \(z = \span\{x_0\}\) and \(f(x) = f(\alpha x_0) = \alpha \Vert X_0
     \Vert\), Then \(f\) is obviously a bounded space.
 
@@ -2381,14 +2381,14 @@ that \(\Vert f \Vert_z = \Vert \tilde{f} \Vert_X = 1\). Since \(\tilde{f} = f\),
 we obtain \(\tilde{f}(x_0)= \Vert X_0\Vert\).\footnote{Recall that the norm is not a linear functional, if it were, then things
 would be lot easier.}
 \subsection{Geometric version}
-\label{sec:org10588dc}
+\label{sec:orgd5f14bd}
 There are also geometric versions of Hahn-Banach theorems which we will
 consider now. The goal is to separate convex sets in a normed space by
 bounded linear functionals.
 
 First we need another version of Hahn-Banach: 
 \subsection{Theorem}
-\label{sec:org838658f}
+\label{sec:org0343ebf}
 Let \(Z\) be again a subspace of the complex vector space \(X\) and \(p \colon X
    \rightarrow \R\) sublinear. Assume \(f \colon Z \rightarrow \C\) is linear with
 \(\operatorname{Re} f(x) \le p(x), \forall x \in Z\). Then there exists
@@ -2424,9 +2424,9 @@ A picture was drawn.
 Here \(U\) and \(V\) are convex sets \(U\) and \(V\) and we need a separating line
 that separates two convex sets.
 \section{Lecture 24}
-\label{sec:org7993a42}
+\label{sec:org50504ed}
 \subsection{An example about a question}
-\label{sec:org070811e}
+\label{sec:org046f726}
 \(X = \R^2\) and \(p(x) = x_1 + x_2\). sublinear.
 
 Let \(f\) on \(\span \{(1, 0)^T\}\) be defined by \(f(x) = x_1\).
@@ -2437,13 +2437,13 @@ Define \(g((\lambda_,0)^t + \alpha (0, 1)^t) = f((x_n, 0)^t) = x_1\), i.e., \(c
 But now \(g_1(x) \le p(x), \forall x \in X\). Take \(x = (1, -1)^t\), then
 \(g_1(x)= 1, p(x) = 0\). A contradiction.
 \subsection{Minkowski Functional}
-\label{sec:orge43f710}
+\label{sec:orgcf4142d}
 Let \(X\) be a vector space and \(A \subset X\) a subset. We define the Minkowski
 functional by \(p_A(x) = \inf \{l > 0 \colon \frac{1}{l} x \in A\}\).
 
 The set \(A\) is called absorbing if \(p_A(x) < \infty \forall x \in X\).
 \subsection{Example}
-\label{sec:org1fd65d5}
+\label{sec:org67a2ecc}
 Consider \(\R^2\) and \(A = \{x, \vert x \vert < 1\}\).
 
 \begin{verbatim}
@@ -2472,7 +2472,7 @@ For \(\lambda < \Vert x \Vert\), \(\vert \frac{1}{\lambda} x \vert >
    \frac{1}{\Vert x \Vert} \cdot \Vert x \Vert = 1\). Thus \(\frac{1}{\lambda}
    \notin A\).
 \subsection{Lemma 5.14}
-\label{sec:orge5a3e3e}
+\label{sec:orgb7fcc9f}
 Given a normed space \(X\) and \(U \subset X\) convex. Assume \(0\) is an interior
 point of \(U\), then 
 \begin{enumerate}
@@ -2482,7 +2482,7 @@ point of \(U\), then
 \item If \(U\) is open, then \(U = p_u^{-1}([0, 1))\).
 \end{enumerate}
 \subsubsection{Proof}
-\label{sec:org1c51f73}
+\label{sec:orgc3191de}
 Note that \(0\) must really be contained in \(U\).
 
 \begin{enumerate}
@@ -2513,12 +2513,12 @@ Now since \(U\) is by definition open, \(U^{c}\) is closed and it follows
 that \(\lim_{l < 1, \lambda \rightarrow 1} \frac{1}{\lambda} x \in U^c\).
 \end{enumerate}
 \subsection{Lemma 5.15}
-\label{sec:org4f7b408}
+\label{sec:org884b362}
 Let \(X\) be a normed space and \(V \subset X\) convex and open with \(0 \notin
    V\). Then there exists a linear functional \(x' \in X'\) with the property that
 \(\operatorname{Re}(x'(x)) < 0, \forall x \in V\)
 \subsubsection{Proof}
-\label{sec:orgcfadd0f}
+\label{sec:orge58910a}
 We show only the real valued case. In what follows, we use the notation \(A
     \pm B = \{a \pm b \colon a \in A, b \in B\}\)
 
@@ -2561,25 +2561,25 @@ Now, \(x'(y_0) = p_u(y_0) \ge 1\). Any \(x \in V\) can be written as \(x = u +
     x_0 = u - y_0\) and \(x'\) is linear, thus, \$x'(x) = x'(u) - x'(y\(_{\text{0}}\)) < 0.\$ This
 is \(\le p_u(u)\). \(\in [0, 1]\) See Lemma 5.14 (iii)
 \subsection{Theorem}
-\label{sec:orgb008e9a}
+\label{sec:org36e2d1a}
 (Hahn-Banach separation version) Let \(X\) be a normed space and \(V_1, V_2
    \subset X\) convex. Moreover, assume \(V_1\) is open and \(V_1 \cap V_2 =
    \emptyset\). Then there exists \(x' \in X'\) such that \(\operatorname{Re}
    x'(v_1) < \operatorname{Re} x'(v_2) \forall v_1 \in V_1, v_2 \in V_2\).
 \subsubsection{Proof}
-\label{sec:org2bb8df5}
+\label{sec:org80d47d6}
 Define \(V= V_1 - V_2\) and apply the previous theorem.
 \subsection{Theorem 5.17 (Hahn-Banach separation version)}
-\label{sec:orge1552ff}
+\label{sec:org383d4ec}
 Let \(X\) be a normed space \(V \subset X\) closed and convex. For \(X \notin V\),
 there exists \(x' \in X\) with \(\Re x'(x) < \inf \{\Re x'(v) \vert v \in V\}\).
 \subsection{Theorem (Uniform boundedness theorem)}
-\label{sec:orgb4e3fef}
+\label{sec:org4c9da4a}
 Unlike the Hahn-Banach theorem, the next fundamental theorems require
 completeness. The uniform boundedness theorem will be derived using the
 so-called Baire's category theorem.
 \subsection{Definition (Category)}
-\label{sec:org7ffe601}
+\label{sec:org62bbebd}
 We call a subset \(M\) of a metric space \(X\):
 \begin{enumerate}
 \item \textbf{rare} (nowhere dense) in \(X\) if the closure \(\bar{M}\) has no interior
@@ -2598,9 +2598,9 @@ countably many sets \(\Z = \cup_{n \in Z} \{n\}\). Each set \(\{n\}\) is nowhere
 dense in \(\R\) because \(\overline{\{n\}} = \{n\}\) and the interior of \(\{n\} =
    \emptyset\). In a similar way, it can be shown that \(Q\) is meager in \(\R\).
 \section{Lecture 25}
-\label{sec:org11e5dc0}
+\label{sec:org3349adc}
 \subsection{Baire Category theorem}
-\label{sec:org94c3a88}
+\label{sec:orge44739f}
 Something about pointwise convergence implying the global.
 
 Let \(X \neq \emptyset\) be a complete metric space, then \(X\) is non-meager (of
@@ -2618,7 +2618,7 @@ sequence of bounded linear operators \(T_k \colon X \rightarrow Y\), \(X\)
 complete converges at every point \(x \in X\), then the sequence is uniformly
 bounded.
 \subsection{Theorem (Uniform boundedness theorem)}
-\label{sec:orga7c88f6}
+\label{sec:orgac3ae8c}
 Given a sequence of linear bounded operators \(T_k \colon X \rightarrow Y\)
 from Banach space \(X\) into a normed space \(Y\) such that \((\Vert T_k X
    \Vert)_k\) is bounded for all \(x \in X\), i.e., \(\Vert T_k X \Vert \le C_x\) for
@@ -2626,7 +2626,7 @@ all \(k\), then the sequence of the norms \((\Vert T_n \Vert)_n\) is bounded.
 That is, \(\exists c \colon \Vert T_n \Vert \le c\) for all \(n\). ("point wise
 boundedness implies uniform boundedness".)
 \subsubsection{Proof}
-\label{sec:orgc195467}
+\label{sec:orgb3918eb}
 If we write the space \(X = \cup_{k = 1}^{\infty} A_k\) at least one \(A_k\)
 contains a non-empty open set. For any \(k\in N\), define \(A_k = \{X \colon
     \Vert T_n x \Vert \le k, \forall n\}\).
@@ -2655,12 +2655,12 @@ For all \(n\), \(\Vert T_n Vert = \sup_{\Vert x\Vert = 1} \Vert T_n x \Vert =
     \frac{4}{r}k_0 \equiv c\) We just showed that the sequence of operators is
 bounded by \(c\).
 \subsection{Example}
-\label{sec:org3590b2b}
+\label{sec:orgb5c085a}
 Suppose \(1 < p < \infty\) and \(\frac{1}{p} + \frac{1}{q} = 1\), as usual. If
 the sequence \(\alpha_n\) is such that \(\sum_{i = 1}^{\infty} \alpha_i x_i\)
 converges for all \(x \in l^p\), then \(\alpha = (\alpha_i)_{i} \in l^q\).
 \subsubsection{Proof}
-\label{sec:org1df6af0}
+\label{sec:org612332f}
 We define a \(f_n(x) = \sum_{i =1}^{\infty} \alpha_i x_i\) and \(f(x) = \sum_{i
     =1}^{\infty} \alpha_i x_i\). Both \(f_n\) and \(f\) are linear and using Holder's
 inequality \(\vert f_n(x) \vert \le (\vert \alpha_i \vert^q)^{1/q} (\sum
@@ -2694,7 +2694,7 @@ It follows that \((\sum_{i=1}^{n} \vert \alpha_i \vert^q)^{1/q} \le \Vert
     f\Vert\) for any \(n \in \N\) and thus \((\sum_{i=1}^{\infty} \vert \alpha_i
     \vert^q)^{1/q} < \infty\) and \(\vert \alpha_i)_i \in l^q\).
 \subsection{Example}
-\label{sec:orgb9a1a80}
+\label{sec:org53d0052}
 Let \(p\) be the space of polynomials, write \(p(x) = \sum_{i = 0}^{\infty}
    \alpha_i x^i\). (For a polynomial of degree \(N_p\), \(\alpha_i = 0 \forall i >
    N_p\))
@@ -2702,7 +2702,7 @@ Let \(p\) be the space of polynomials, write \(p(x) = \sum_{i = 0}^{\infty}
 Define \(\Vert p \Vert = \max_i \vert \alpha_i \vert\). Then \((P, \Vert \cdot
    \Vert)\) is not complete.
 \subsubsection{Proof}
-\label{sec:orgd64ffc8}
+\label{sec:orgb0652bb}
 We want to use the uniform boundedness theorem and thus define \(f_n(0) = 0\)
 and \(f_n(p) = \sum_{i=0}^{n - 1}\alpha_i\), \(f_n\) is a linear functional.
 Consider \(p = \sum_{i=0}^{\infty} \alpha_i x^i\) and \(q = \sum_{i=0}^{\infty}
@@ -2722,14 +2722,14 @@ We have shown pointwise boundedness and want to prove that \(\Vert f_n
     \vert f_n(np) \vert \ge n\). \((\Vert f_n \Vert)_n\) is unbounded. Using the
 uniform boundedness theorem, \(p\) cannot be complete,
 \subsection{Open mapping theorem}
-\label{sec:orgfad41c1}
+\label{sec:orgc2b0f56}
 We can now approach the third fundamental theorem. We start with a definition.
 \subsection{Definition (Open map)}
-\label{sec:orgbaf3677}
+\label{sec:org1f3fd27}
 A mapping between metric spaces is called open if it maps open sets to open
 sets.
 \subsection{Example}
-\label{sec:org2614afe}
+\label{sec:org25d9704}
 Consider \(x \mapsto \sin(x)\), then \((0, 2\pi)\) is mapped to \([0, 1]\), i.e.,
 non-open set.
 
@@ -2743,9 +2743,9 @@ non-negative numbers that converges has a non-negative limit in \([0,
 
 \(f(A) = (0, \infty)\) and thus open.
 \section{Lecture 26}
-\label{sec:org7045983}
+\label{sec:org36cc804}
 \subsection{Repetition}
-\label{sec:orgb1826e9}
+\label{sec:orgc609a58}
 \begin{enumerate}
 \item Continuous map: open set set inverted to open. Similarly for closed
 \item Image of a compact set is compact
@@ -2760,7 +2760,7 @@ non-negative numbers that converges has a non-negative limit in \([0,
 \end{enumerate}
 \end{enumerate}
 \subsection{Theorem}
-\label{sec:orgf4b80cc}
+\label{sec:org2da9fa2}
 Let \(X, Y\) be normed spaces and \(T \colon X \rightarrow Y\) be a linear
 mapping. Then the following statements are equivalent.
 
@@ -2772,7 +2772,7 @@ precise. \(U_r = \{x \in X \colon \Vert x \Vert < r\}\) and \(V_\varepsilon =
 \item There was something that I missed.
 \end{enumerate}
 \subsection{Example}
-\label{sec:org5141b66}
+\label{sec:org6fa01b3}
 Let \(c_0 = \{(x_n)_n \colon x_n \in K \textup{ and } \lim_{n \rightarrow
    \infty} x_n = 0\}\) (set of all sequences converging to \(0\)) We define a
 mapping \(T \colon l^\infty \rightarrow c_0\) by \(x_n = \frac{1}{n} x_n\). Since
@@ -2795,28 +2795,28 @@ define \(\tilde{y} = \frac{\varepsilon}{2 \Vert y \Vert} \cdot y\) So that
    \tilde{y}\). Then \(T(2 \frac{\Vert y \Vert}{\varepsilon} x}\) I missed the rest
 of the proof.
 \subsection{Corollory}
-\label{sec:orgbaedc4c}
+\label{sec:orge6d1e3d}
 Given Banach spaces \(X\) And \(Y\) and a bijective continuous linear operator \(T
    \colon X \rightarrow Y\), then the inverse operator \(T^{-1}\) is continuous.
 \subsection{Corollory}
-\label{sec:org3adc4fb}
+\label{sec:org9272c1a}
 Let \(\Vert \cdot \Vert_1\) and \(\Vert \cdot \Vert_2\) be norms on \(X\) such that
 \((X, \Vert \cdot \Vert)\) and \((X, \Vert \cdot \Vert_2)\) are complete, then if
 \(\Vert \cdot \Vert_2 \le c \cdot \Vert \cdot \Vert_1\) for some \(c > 0\), then
 also \(\Vert \cdot \Vert_1 \le c' \Vert \cdot \Vert_2\) for some \(c' > 0\).
 \section{Lecture 27}
-\label{sec:org9ed571a}
+\label{sec:orgd819b20}
 Mock exam
 \section{Lecture 28 \textit{<2019-02-05 Tue>}}
-\label{sec:org61a74e3}
+\label{sec:orgb1aa8c9}
 \subsection{Corollary}
-\label{sec:org6100ff2}
+\label{sec:org362358d}
 Let \(\Vert \cdot \Vert_1\) and \(\Vert \cdot \Vert_2\) be norms of \(X\) such that
 \((X, \Vert \cdot \Vert_1)\) and \((X, \Vert \cdot \Vert_2)\) are complete. Then
 if \(\Vert \cdot \Vert_2 \le c \cdot \Vert \cdot \Vert_1\) for some \(c > 0\),
 then also \(\Vert \cdot \Vert_1 \le c' \Vert \cdot \Vert_2\) for some \(c' > 0\).
 \subsubsection{Proof}
-\label{sec:org9a93efc}
+\label{sec:orge199c53}
 Define \(T\) to be the identity map \((X, \Vert \cdot \Vert_1) \mapsto (X,
     \Vert \cdot \Vert_2)\). Then \(T\) is of course bounded. Hence the inverse
 \(T^{-1}\) is also bounded, i.e., there exists a constant \(c'\) such that the
@@ -2825,7 +2825,7 @@ inverse \(\Vert T^{-1} x\Vert_1 = \Vert x \Vert_1 \le c' \Vert x \Vert_2\)
 This relies on the fact that the two norms are complete. Otherwise this need
 not be true.
 \subsection{Example}
-\label{sec:org14a1ab7}
+\label{sec:org6b4c5b9}
 The following example illustrates that completeness is indeed required.
 
 Consider the space \(C^{1}[0, 1]\) the space of continuously differentiable
@@ -2852,7 +2852,7 @@ functions.
 
 \textbf{This completes the fundamental theorem chapter}
 \subsection{Spectral theory}
-\label{sec:orgc1fbb8e}
+\label{sec:org91113bc}
 Eigenvalues and eigenvectors of matrices play an important role in the
 analysis of stability etc. We will now extend this framework to operators on
 normed and also in particular, Hilbert spaces.
@@ -2873,12 +2873,12 @@ onto a sequence \((Tx_n)\) in \(Y\) which has a convergent subsequence.
 \(T_1 + T_2\) is compact if \(T_1, T_2\) are compact.
 \end{enumerate}
 \subsection{Definition}
-\label{sec:org971a383}
+\label{sec:org26012e7}
 Let \(X\) be a normed space \(X\) and \(T \colon X \rightarrow X\) an operator. We
 call \(X \neq 0\) with \(Tx = \lambda x\) eigenvector (or eigenfunction) if \(X\)
 is a function space and \(\lambda\) the corresponding eigenvalue.
 \subsection{Example}
-\label{sec:org026715a}
+\label{sec:org68255ae}
 In some example long time ago, we computed the eigenfunctions of the Koopman
 operator given by \(Kf = f \circ \phi\) for \(\phi \colon \R^2 \rightarrow
    \R^2\), \(\phi(x)=\)
@@ -2943,13 +2943,13 @@ automatically continuous. Given continuous linear operator \(T \colon X
    \rightarrow X\) on a Banach space \(X\), we define \(T^{0} = Id\) and \(T^n = T
    \circl \cdots \circ T\) (\(n\) times)
 \subsection{Theorem}
-\label{sec:orgaf1eb43}
+\label{sec:org82f4f9a}
 Let \(T\) be as above and \(\Vert T \Vert \le 1\). Then \(\sum_{n=0}^{\infty} T^n\)
 converges and \(Id - T\) is invertible with \((id - T)^{-1} =
    \sum_{n=0}^{\infty} T^n\) Furthermore \(\Vert (Id - T)^{-1}\Vert \le (1 - \Vert
    T \Vert)^{-1}\).
 \subsubsection{Proof}
-\label{sec:org95234aa}
+\label{sec:orgaae7ce6}
 We define \(S_n = \sum_{n = 0}^{n} T^k\), then for \(n > m\), we obtain \(\Vert
     S_n - S_m \Vert = \Vert \sum_{k = m+1}^{n} T^k\Vert \le \sum_{k = m+1}^{n}
     \Vert T^k\Vert \le \sum_{k=m+1}^{n} \Vert T \Vert^k\).
@@ -2959,9 +2959,9 @@ linear operators on \(X\). Now, \(X\) is complete and consequently the space of
 linear operators, thus \(S = \sum_{k=0}^{\infty} T^k =\lim_{n \rightarrow
     \infty} S_k\) exists.
 \section{Lecture 29 \textit{<2019-02-07 Thu>}}
-\label{sec:orgcc97422}
+\label{sec:org2f0dd7b}
 \subsection{Proof of Von Neumann series}
-\label{sec:org21a2197}
+\label{sec:org59e148b}
 \((Id - T)S_n =S_n - TS_n = S_n(Id - T) = \sum_{n=0}^{n} T^k -\sum_{k =
    1}^{n+1} T^k = Id - T^{n+1} \rightarrow Id\) as \(n \rightarrow \infty\) because
 \(T^n \rightarrow 0\) as \(n \rightarrow \infty\).
@@ -2975,12 +2975,12 @@ The norm inequality follows from \(\Vert (Id - T)^{-1}\Vert = \Vert
 
 (See example 2.8 convergence of geometric series.)
 \subsection{Lemma}
-\label{sec:org4df2d24}
+\label{sec:org0d1a21a}
 Let \(X\) be a normed space and \(T\colon X \rightarrow X\) a compact operator.
 Furthermore, let \(\lambda \neq 0\). Then we can show that the null space of
 this operator \(\lambda - T\) is finite dimensional.
 \subsubsection{Proof}
-\label{sec:orge8e5793}
+\label{sec:org3ace41a}
 Define \(S = \lambda - T\). Let \((x_n)_n\) be a bounded sequence in the null
 space of this operator \(N(S)\). Since \(T\) is compact, we know that there
 exists a convergent subsequence \((Tx_{n_k})\). As the subsequence is in
@@ -2990,7 +2990,7 @@ exists a convergent subsequence \((Tx_{n_k})\). As the subsequence is in
 Since every bounded sequence has a convergent subsequence, \(\dim N(S)\) is
 finite.
 \subsection{Remark}
-\label{sec:org32e96a3}
+\label{sec:org631637d}
 Let \(X\) be a normed space. The following statements are equivalent.
 \begin{enumerate}
 \item \(\dim X < \infty\)
@@ -2998,7 +2998,7 @@ Let \(X\) be a normed space. The following statements are equivalent.
 \item Every bounded sequence in \(X\) has a convergent subsequence.
 \end{enumerate}
 \subsection{Dimension of \(N(\lambda - T)\)}
-\label{sec:orgfc58e1b}
+\label{sec:org2813771}
 The dimension of \(N(\lambda - T)\) is an indicator how far away from
 injectivity the operator \(\lambda - T\) is. Similarly, the lack of subjectivity is
 characterized by the co-dimension, the co-dimension of the range \(R(\lambda -
@@ -3007,7 +3007,7 @@ characterized by the co-dimension, the co-dimension of the range \(R(\lambda -
 For compact operators and \(\lambda \neq 0\), \(\dim N(\lambda -T) =
    \operatorname{codim} R(\lambda - T)\).
 \subsection{Brief reminder: Quotient space}
-\label{sec:orgdd3817b}
+\label{sec:orgd352f7b}
 Let \(X\) be a vector space and \(Y\) a subspace. We write \(x_1 \sim x_2\) and say
 that \(x_1\) and \(x_2\) are equivalent if \(x_1 - x_2 \in y\). This is an
 equivalence relation: \(x \sim x\) (reflexivity), \(x \sim y \implies y \sim x\)
@@ -3020,24 +3020,24 @@ Defining \([x_1] + [x_2] = [x_1 + x_2]\) and \(\alpha[x] = [\alpha x]\), we
 obtain a vector space. The codimension of \(y\) as \(\operatorname{codim} = \dim
    X / Y\).
 \subsection{Simple example}
-\label{sec:org8055aa3}
+\label{sec:orgbf1f822}
 \(X = \R^4\) and the subspace \(Y = \{(a, b, 0, 0)^T, a, b \in \R\}\) Then \(x_1
    \sim x_2\) if \(x_1 - x_2 \in Y\), i.e., the last two entries of \(x_1\) and \(x_2\)
 must be identical, e.g., \((1, 2, 3, 4, 5)^t \sim (-5, 7, 3, 4)^t\)
 \subsection{Lemma}
-\label{sec:orgb37095f}
+\label{sec:org1d41d46}
 Given a Hilbert space \(H\) and a compact linear operator \$T \(\colon\) H
 \(\rightarrow\) H. If \(\lambda \neq 0\), then \(R(\lambda - T)\) is closed. This
 leads to the following result
 \subsection{Theorem}
-\label{sec:org9e9782c}
+\label{sec:orgf425159}
 Let \(H\) be again a Hilbert space and \(T \colon H \rightarrow H\) a compact
 linear operator and \(\lambda \neq 0\), then \(\dim N(\lambda - T) = \dim
    N(\bar{\lambda} - T^{*}) = \operatorname{codim} R(\lambda - T)\)
 
 The operator \(\lambda - T\) is thus surjective if and only if it is injective.
 \subsection{Corollory (Fredholm alternative)}
-\label{sec:orgab878ac}
+\label{sec:org3f5ca36}
 As before, \(H\) is a Hilbert space, \(T\) a compact operator, \(\lambda \neq 0\).
 Then either the homogeneous equation \((\lambda - T)x = \lambda x - T x = 0\)
 has only the trivial solution \(x = 0\) and the inhomogeneous equation \(\lambda
@@ -3050,12 +3050,12 @@ if \(y \in (N(\bar{\lambda} - T^{*}))^\perp\).
 Let us consider a "linear algebra" version of Fredholm's alternative. We
 replace \(\lambda - T\) by a real matrix \(A\) so that \(A^{*} = A^{T}\)
 \subsection{Corollary}
-\label{sec:org332e0bf}
+\label{sec:orgb990ed1}
 Let \(A\) be a real \(m\times n\) matrix and \(b \in \R^m\). There exists a
 solution \(x\) of the inhomogeneous equation \(Ax = b\) if and only if \(b \in
    N(A^{T})^\perp\).
 \subsubsection{Proof}
-\label{sec:org310aebd}
+\label{sec:orgbc55964}
 \(\Leftarrow\) Assume \(b \in N(A^{t})^\perp\). \(N(A^{t}) = \{x \vert A^{t} x =
     0\}\). Given now \(x\) with \(A^{t}x = 0\) we know that \(\langle b, x\rangle =
     b^{t}x = 0\).
@@ -3068,11 +3068,11 @@ solution \(x\) of the system \(Ax = b\).
 \(\langle b, z \rangle = \langle Ax, z\rangle = \langle x, A^{t} z \rangle =
     \langle x, 0 \rangle = 0\). Thus, \(b \in N(A^{t})^\perp\).
 \subsection{Corollary}
-\label{sec:org6fc2011}
+\label{sec:orgddda369}
 Given \(A \in \R^{n\times m}\). Then \(A\) maps \(\R^n\) to \(\R^m\). \(A\) is
 subjective if and only if the solution \(A^{t}x = 0\) is \(x = 0\).
 \subsubsection{Proof}
-\label{sec:org1db71e1}
+\label{sec:org738dfe0}
 \(\Leftarrow\) Suppose \(x = 0\) is the only solution of \(A^{t}x = 0\), then
 \(N(A^{t}) = \{0\}\) and \(N(A^{t}) = \R^m\) using the previous corollary, there
 exists for arbitrary \(b \in \R^m\) a solution such that \(Ax = b\). If we can
@@ -3087,7 +3087,7 @@ surjective.
 If we choose one particular \(b\), then we can show something. \(b = x\),
 \(A^{t}x = 0 and x^{t}x = 0\), this means that \(x = 0\)
 \subsection{Example}
-\label{sec:org381c0a9}
+\label{sec:org7c68b80}
 Consider the equation 
 \begin{enumerate}
 \item \(u = Tu + f\) where \(Tu = \int_D k(\cdot, y) u(y) dy\) and \(D \subset \R^n\)
@@ -3104,11 +3104,11 @@ now tells us that (1) is solvable for any \(f\) as longs as (2') admits only
 the trivial \(u_0 = 0\).
 \end{enumerate}
 \section{Homeworks}
-\label{sec:org88163cf}
+\label{sec:org2d4351c}
 \subsection{Homework 8}
-\label{sec:org390fd21}
+\label{sec:org1a9518b}
 \subsubsection{8.1}
-\label{sec:orga446437}
+\label{sec:orgbe29c76}
 A subset \(M\) of a vector space is said to be convex if for two points \(m_1,
     m_2\) in \(M\), the line segment joining \(m_1\) and \(m_2\) lies in \(M\), i.e.,
 \(\lambda m_1 + (1-\lambda)m_2 \in M\).
@@ -3133,7 +3133,7 @@ The sum \(\alpha_1x_1 + \cdots + \alpha_{n-1}x_{n-1} + \alpha_nx_n=
 
 Hence by induction, the statement is true for all values of \(n\).
 \subsubsection{8.2}
-\label{sec:orgdcdd84d}
+\label{sec:orgb999c02}
 If \(y \in M\) and \(x - y \in M^{\perp}\), then \(\langle x - y, y \rangle = 0
     \iff \langle x, y \rangle = \langle y, y \rangle\).
 
@@ -3154,7 +3154,7 @@ $$\langle x, P_M y \rangle = \langle b, x \rangle = \langle b, x \rangle - \lang
 Thus \(\langle a, b \rangle = \langle P_M x, y \rangle = \langle x, P_M y
     \rangle = \langle a, b\rangle\).
 \subsection{Announcement}
-\label{sec:org8edffc5}
+\label{sec:org6c9dfe2}
 24.1 last exercise sheet
 21.1 test exam
 
@@ -3162,34 +3162,47 @@ Thus \(\langle a, b \rangle = \langle P_M x, y \rangle = \langle x, P_M y
 12.2 last tutorial.
 14.2 exam
 \subsection{Test}
-\label{sec:orge7749a9}
+\label{sec:org887f3df}
 No koopman operator.
 \section{Study}
-\label{sec:org86963db}
+\label{sec:org69a84b9}
 \subsection{Example absolute convergence}
-\label{sec:org27ca271}
+\label{sec:orgd121c29}
 \subsection{About properties of \(l_0\) and \(l_\infty\)}
-\label{sec:org5869b28}
+\label{sec:orgc102df2}
 \subsection{Riesz's lemma}
-\label{sec:orgfde748d}
+\label{sec:orgdd461cb}
 Application to closed ball being compact and this being same as equivalent to
 infinite dimensionality.
 \subsection{Derivative operator}
-\label{sec:orga483d5e}
+\label{sec:orgd699844}
 \subsection{For linear operators injective and bijective are equivalent for finite dimensional case?}
-\label{sec:orgcc1b079}
+\label{sec:orgdaeba7a}
 Theorem 6.3
 \subsection{About equivalence of \(l^p\) and \(l^q\)}
-\label{sec:org13e7ddf}
+\label{sec:org3bd746f}
 \subsection{Integral normed space}
-\label{sec:org53dbc02}
+\label{sec:org19b87b4}
 Why is \(C[a, b]\) with the integral norm not an inner product space?
 \subsection{Besel's inequality and fourier coefficients}
-\label{sec:orgb01f86f}
+\label{sec:orgdbe6cd5}
 \subsection{Orthonormal Polynomials}
-\label{sec:org56b694e}
-\subsection{Planchvechal's theorem}
-\label{sec:org42f60aa}
+\label{sec:orgd679153}
+\subsection{{\bfseries\sffamily TODO} Planchvechal's theorem}
+\label{sec:org248ca06}
 \subsection{When is \(l_p\) a subset of \(l_q\)?}
-\label{sec:orge535a52}
+\label{sec:org49c8229}
+\subsection{Counterexamples}
+\label{sec:org4393a06}
+\begin{enumerate}
+\item \(l^\infty\) is not separable.
+\item Absolute convergence: see 4.3 \hyperref[sec:org7a73e52]{Absolute convergence}
+\item Unbounded operator. For the space of polynomials on \([a, b]\), the operator
+\(Tf = f'\) is unbounded. This is because, for the sequence \(p_n = x^n\),
+\(\Vert p_n \Vert \rightarrow 0\) as \(n \rightarrow \infty\), but \(\Vert
+      p_n'\Vert \rightarrow \infty\) as \(n\rightarrow \infty\).
+\end{enumerate}
+\subsection{Theorem 7.4}
+\label{sec:orgd82574c}
+I don't really understand theorem 7.4. I think 
 \end{document}

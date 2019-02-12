@@ -1,4 +1,5 @@
 #+TITLE: Functional Analysis 1
+#+AUTHOR: Hari
 #+LATEX_HEADER: \usepackage[left=2cm, right=2cm, bottom=2cm, top=2cm]{geometry}
 #+LATEX_HEADER: \usepackage{parskip}
 #+LATEX_HEADER: \usepackage{amsmath}
@@ -14,7 +15,7 @@
 #+LATEX_HEADER: \def\conv{\operatorname{Conv}}
 #+LATEX_HEADER: \def\sgn{\operatorname{sgn}}
 #+LATEX_HEADER: \usepackage[T1]{fontenc}
-* Lecture 2 <2018-10-17 Wed>
+* Lecture 2 <2019-10-17 Thu>
 
 ** Examples of metric spaces
 
@@ -287,14 +288,14 @@
     the intervals go to zero. It is clear how to construct a convergent
     subsequence.
 *** Extension to bounded sub-sequences in $\R^n$.
-* Lecture 5 <2018-11-01 Thu>
+* Lecture 6 <2018-11-01 Thu>
 ** Review
    In $\R^n$, the compact subsets are the closed and bounded subsets so that
    close-ness and boundedness can be used to define compactness. This can only
    be used for finite dimensional cases.
 ** Riesz's lemma
-   Given a normed space $X$ with a closed subspace $y$ and a subspace $z$ such
-   that $y$ is a subset of $z$. Given any number $\theta\in (0, 1)$, there
+   Given a normed space $X$ with a closed subspace $Y$ and a subspace $Z$ such
+   that $Y$ is a subset of $Z$. Given any number $\theta\in (0, 1)$, there
    exists, $z\in Z$ such that $\vert z \vert = 1$, and the distance $\Vert z - y
    \Vert \ge \theta$, for all $y \in Y$.
 *** Proof
@@ -304,9 +305,9 @@
     \frac{a}{\theta}$.
 
     Define $z = \vert{1}{\Vert V = y_0}(V-y_0)$. Clearly, $\Vert z\Vert = 1$.
-    Furthermore, given $y\in Y$, it holds that $\Vert z - y\Vert =
+    Furthermore, given $y\in Y$, it holds that $$\Vert z - y\Vert =
     \Vert\frac{1}{\Vert v - y_0\Vert}(v -y_0) - y\Vert = \frac{1}{\Vert v -
-    y_0\Vert} \Vert v - y_0 - \Vert v-y_0\Vert\cdot y\Vert$.
+    y_0\Vert} \left\Vert v - y_0 - \Vert v-y_0\Vert\cdot y\right\Vert$$
 
     Since $Y$ is a subspace, $y_1 \in Y$ and $\Vert v - y_1\Vert \ge a$ (since a
     is the infimum.)
@@ -372,7 +373,7 @@
 
    I think $R$ and $N$ are range and kernel, respectively. The proof is kinda
    easy.
-* Lecture 6 <2018-11-06 Tue> 
+* Lecture 7 <2018-11-06 Tue>
 ** Regarding convergence of a function
    $\sup(f_n)\subset [0, 2/n]$, $f_n(0) = 0$, consider fixed $x\in [0, 1]$.
    Given any $\varepsilon > 0$, choose $N > 2/X$, then $X > 2/N > 2/N$ for
@@ -484,7 +485,7 @@
     exist $c$ such that $\Vert x \Vert_0 \le c \Vert x \Vert$. Thus $\Vert T
     x\Vert \le \max \Vert T e_i \Vert \cdot c \cdot \Vert x \Vert$ and $T$ is
     bounded.
-* Lecture 7 <2018-11-08 Thu> 
+* Lecture 8 <2018-11-08 Thu>
 ** Theorem about Bounded operators
    For linear operators, continuity and boundedness are equivalent.
 
@@ -533,10 +534,10 @@
 ** Theorem
    If $T \colon D(T) \rightarrow Y$ is a bounded linear operator, $D(T)$, part
    of a normed space, $Y$, a Banach space, then there is an extension
-   $\tilde{T}\colon \bar{D(T)} \rightarrow Y$ with $\Vert \tilde{T} \Vert =
+   $\tilde{T}\colon \overline{D(T)} \rightarrow Y$ with $\Vert \tilde{T} \Vert =
    \Vert T \Vert$. Furthermore, $\tilde{T}$ is a bounded linear operator.
 *** Proof
-    For any $x \in \bar{D}(T)$ consider the sequence $(x_n)_n$ in $D(T)$ that
+    For any $x \in \overline{D}(T)$ consider the sequence $(x_n)_n$ in $D(T)$ that
     converges to $x$.
 
     $\Vert Tx_n - Tx_m \Vert = \Vert T(x_n - x_m)\Vert \le \Vert T \Vert \Vert
@@ -580,7 +581,7 @@
        element $a$ in $l_2$ and setting $f(x) = \sum a_i x_i$. Due to
        Cauchy-Schwarz inequality $\vert \langle x, y\rangle\vert \le \Vert x
        \Vert \cdot \Vert y \Vert$.
-* Lecture 8 <2018-11-07 Wed> 
+* Lecture 9 <2018-11-08 Thu>
 ** Example
    $(x_n)_n$, it's basically a sequence of sequences. $x_n \in l_\infty$.
 
@@ -638,7 +639,7 @@
    Consider the discrete dynamical system $\phi \colon \R^2 \rightarrow \R^2$ by
    $\phi(x) = [\lambda x_n, \mu x_2 + (\lambda^2 - \mu)x^2n]^T$
 
-   Then the space is spanned by functions $\{x_1, x_2, x_1^2\} forms a so-called
+   Then the space is spanned by functions $\{x_1, x_2, x_1^2\}$ forms a so-called
    Koopman-invariant subspace. Let $f_1(\bf{x}) = x_1$, $f_2(\bf{x}) = x_2$,
    $f_e(\bf{x}) = x_n^2$, then any function from this subspace can be written as
    $f = \sum_{i=1}^{3} \alpha_i f_i$ and $g=Kf = K\sum(\alpha_i f_i) = \sum
@@ -986,7 +987,8 @@
    $Id - P_u$ is a projection onto $U^{\perp}$ with $\Vert Id - P_u\Vert = 1$.
    It holds that we can split this Hilbert space into $H = U \oplus U^{\perp}$.
    And this i a linear projection [fn:13]
-* Lecture 15 <2018-12-06 Thu> 
+* Lecture 14 Skipped <2018-11-29 Thu>
+* Lecture 15 <2018-12-06 Thu>
 ** Review (Bessel's inequality)
    $\sum \vert \langle x, e_i \rangle \vert^2 \le \Vert x\Vert^2$
    
@@ -1493,7 +1495,7 @@
    version of this result. The identity says that the norm of the function is
    same as the $l_2$ norm of the coefficients. The above result says something
    similar.)
-* Lecture 19 <2018-12-20 Thu> 
+* Lecture 19 <2018-12-20 Thu>
 ** Planchevel's theorem
    $\langle F, G \rangle = \langle f, g \rangle$
 
@@ -1893,8 +1895,8 @@
 
    If you are not familiar with measures think of $d \mu(x')$ as $dx'$, i.e.,
    the standard Lebesgue measure.
-* Lecture 22 Skipped
-* Lecture 23
+* Lecture 22 Skipped <2019-01-17 Thu>
+* Lecture 23 <2019-01-22 Tue>
 ** Example
    $X = \R^2$, then $p(x) = X_1 +\vert X_2 \vert$ is sublinear since $p(x + y) =
    X_1 + Y_1 + (X_2 + Y_2) \le X_1 + \vert X_1 \vert + \vert Y_2 \vert = p(x) +
@@ -2069,7 +2071,7 @@
     
     Here $U$ and $V$ are convex sets $U$ and $V$ and we need a separating line
     that separates two convex sets.
-* Lecture 24
+* Lecture 24 <2019-01-24 Thu>
 ** An example about a question
    $X = \R^2$ and $p(x) = x_1 + x_2$. sublinear.
 
@@ -2669,6 +2671,117 @@
       \iff (Id - \muT) u_0 = 0 \iff (\lambda - T)u_0 = 0$. Fredholms alternative
       now tells us that (1) is solvable for any $f$ as longs as (2') admits only
       the trivial $u_0 = 0$.
+* Lecture 30 <2019-02-12 Tue>
+** Theorem
+   Let $X$ be a Banach space and $T \colon X \rightarrow X$ a compact operator.
+   Then $T$ has at most countably many eigenvalues and the eigenvalues are
+   either a finite set or a null sequence.
+
+   For self-adjoint operators, the situation is slightly easier.
+** Lemma
+   Let $H$ be a Hilbert space and $T \colon H \rightarrow H$ a compact operator.
+   1. The eigenvalues of $T$ are real.
+   2. The eigenvalues corresponding to different eigenvalues are orthogonal to
+      each other.
+   3. Either $\Vert T \Vert$ or $-\Vert T \Vert$ is an eigenvalue of $T$.
+*** Proof
+    1. Similar to the proof of symmetric matrices. Assume that $\lambda$ be an
+       eigenvalue. For $x \neq 0$, we obtain $\langle Tx, x \rangle = \langle x,
+       Tx\rangle = \overline{\langle Tx, x \rangle} = \overline{\lambda} \langle
+       x, x \rangle = \overline{\lambda} \Vert x \Vert^2$. But then $\langle Tx,
+       x \rangle = \lambda \Vert x \Vert^2$ Thus $\lambda$ must be real.
+    2. Assume $Tx = \lambda x$ and $Ty = \mu y$ for $\lambda \neq \mu$, $\langle
+       Tx, y \rangle = \langle x, Ty \rangle = \langle x, \mu y\rangle = \mu
+       \langle x, y \rangle$ 
+
+       $\langle \lambda x, y \rangle = \lambda \langle x, y \rangle$. It follows
+       that $(\lambda - \mu) \langle x, y \rangle = 0$ and $\langle x, y \rangle
+       = 0$. Here $\lambda - \mu \neq 0$.
+    3. For self-adjoint linear operators, it holds that $\Vert T \Vert =
+       \sup_{\Vert x \Vert \le 1} \vert \langle Tx, x\rangle \vert$.
+
+       There exists a sequence in $\{x \vert \Vert x \Vert \le 1\}$, denoted by
+       $(x_n)_n$ such that $\vert \langle Tx_n, x_n \rangle \vert \rightarrow
+       \Vert T \Vert$. (Since $T$ is compact, there exists a subsequence that
+       converges.)
+
+       Now, we define a scalar, $\lambda = \lim_{n\rightarrow \infty} \langle
+       Tx_n, x_n\rangle$, $y = \lim_{n \rightarrow \infty} Tx_n$, then $\Vert
+       Tx_n - \lambda x_n \Vert^2 = \langle Tx_n - \lambda x_n, Tx_n - \lambda
+       x_n \rangle$ Now, we expand everything and use the definitions.
+
+       $\Vert Tx_n\Vert^2 - 2\lambda \langle Tx_n, x_n\rangle + \lambda^2 \Vert
+       x_n\Vert^2 \le 2\lambda^2 - 2\lambda \langle Tx_1, x_n\rangle \rightarrow
+       0$.
+
+       Thus $y = \lim_{n \rightarrow \infty} Tx = \lim_{n \rightarrow \infty}
+       \lambda x_n = \lambda \lim_{n \rightarrow \infty} x_n$ and $Ty = \lambda
+       \lim_{n \rightarrow \infty} Tx_n = \lambda y\vert$, we have proven the
+       claim for $y \neq 0$. For $y = 0$, $(Tx_n)$ is a null sequence and $\Vert
+       T \Vert = \lim \vert \langle Tx_n, x_n \rangle\vert = 0$, thus $T = 0$.
+** Theorem (Spectral decomposition of compact self-adjoint operators)
+   Given a Hilbert space $H$ and a compact self-adjoint operator $T \colon H
+   \rightarrow H$. Then there exist an orthonormal system $e_1, e_2, \cdots$
+   (possibly fininte) and a null sequence $\lambda_1, \lambda_2, \cdots$ in $\R
+   \setminus \{0\}$ such that $H = N(T) \oplus \overline{\span \{e_1, e_2,
+   \cdots\}}$ and $Tx = \sum \lambda_i \langle x, e_i \rangle e_i, \forall x \in
+   H$.
+
+   (We used this in Mercer feature space representation.)
+*** Proof
+    It holds that $\Vert T \Vert = \sup \vert \lambda_i \vert$. The set of
+    eigenvalues $\{e_1, \cdots, e_2, \cdots, \}$ can be extended to form a basis
+    of $H$. This requires a basis of $N(T)$, i.e., eigenvectors corresponding to
+    the eigenvalue $0$ which can be infinite dimensional (even non-separable)
+** Corollary
+   Let $H$ be a separable Hilbert space and $T \colon H \rightarrow H$ compact
+   and self-adjoint, then $H$ admits an orthonormal basis compromising
+   eigenvectors of $T$.
+** Example
+   $A$ is the matrix
+
+   |  1 | -1 | 0 |
+   | -1 |  1 | 0 |
+   |  0 |  0 | 1 |
+
+   Then $e_1 = (\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0)^t, e_2 = (0, 0, 1)^t,
+   e_3= (-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0)^t$ and $\lambda_1 = 0,
+   \lambda_2 = 1, \lambda_3 = 2$ Take any $v = [x, y, z]^{t}$, then $\langle v,
+   e_1 \rangle = \frac{1}{\sqrt{2}} (x + y), \langle v, e_2\rangle = z, \langle
+   v, e_3 \rangle = \frac{1}{\sqrt{2}}(-x + y)$ and $v = \alpha_1 e_1 + \alpha_2
+   e_2 + \alpha_3 e_3$. Hence $Av = \lambda_1 a_1 e_1 + \lambda_2 a_2 e_2 +
+   \lambda_3 a_3 e_3 = \lambda_2 a_2 e_2 + \lambda_3 a_3 e_3$.
+
+   The *second example* $H = l^2$, $T \colon H \rightarrow H$ defined $(x_1,
+   x_2, \cdots, ) \mapsto (x_1, \frac{x_2}{2}, \frac{x_3}_3, \cdots$. Let
+   $(e_i)_i$ be the standard basis. Then $Te_i = \frac{1}{i}e_i$ and the set of
+   eigenvalues is $\{\frac{1}{i}\}_{i\in\N}$ and the corresponding
+   eigenfunctions are $\{e_i\}_{i \in N}$. (Note that $\langle Tx, y \rangle =
+   \sum_{i} \frac{1}{i} x_i y_i = \langle x, Ty \rangle$
+   
+   *Third example* Assume that $\{\varphi_{i}}_{i=1}^{N}$ forms a set of
+   functions that are orthogonal to each other with respect to $L^2$. We define
+   a kernel $k(x, x') = \sum_{i} \phi_i(x) \phi(x')$ and the associated
+   integral operator $Tf(\lambda) = \int k(x, x') f(x')\ dx'$. We then obtain.
+
+   $T\phi_j(x) = \int \sum_i \phi_i(x) \phi_j(x') \phi_j(x') dx' = \sum
+   \phi_i(x) \int \phi_i(x) \phi_j(x') dx' = \Vert \phi_j \Vert_L^2 =
+   \phi_j(x)$. Thus $\phi_j$ is an eigenfunction. To see that the operator is
+   self-adjoint,
+
+   *New example*: Let $X = [-1, 1]$, $k(x, x') = xx'$, $Tf = \int k(\cdot, x')
+   f(x') dx' = x \int x' f(x')\ dx'$ 
+
+   $f(x) = x$ is an eigenfunction: $Tf(x) = x \int_{-1}^{1} {x'x'\ dx'} = x
+   [\frac{1}{3} x'^3]_{-1}^{1} = \frac{2}{3} x = \frac{2}{3} f(x)$
+
+   Furthermore, $f(x) = 1$, $Tf(x) = x \int_{-1}^{1}x'dx' = 0$. Any $f(x)$ of
+   the form $x^{2n}$, $n \in N$, this is mapped to $0$. All the even polynomials
+   are eigenfunctions.
+
+   $f(x) = x^3 - \frac{2}{3} x$ is mapped to $0 = Tf(x) = x \int x'^4 -
+   \frac{3}{5} x'^2\ dx' = 0$. Note that these functions are not orthonormal yet.
+   
 * Homeworks
 ** Homework 8
 *** 8.1
@@ -2791,5 +2904,17 @@ sequences converges.
    Why is $C[a, b]$ with the integral norm not an inner product space?
 ** Besel's inequality and fourier coefficients
 ** Orthonormal Polynomials
-** Planchvechal's theorem
+** TODO Planchvechal's theorem
 ** When is $l_p$ a subset of $l_q$?
+** Counterexamples
+   1. $l^\infty$ is not separable.
+   2. Absolute convergence: see 4.3 [[*Absolute convergence][Absolute convergence]]
+   3. Unbounded operator. For the space of polynomials on $[a, b]$, the operator
+      $Tf = f'$ is unbounded. This is because, for the sequence $p_n = x^n$,
+      $\Vert p_n \Vert \rightarrow 0$ as $n \rightarrow \infty$, but $\Vert
+      p_n'\Vert \rightarrow \infty$ as $n\rightarrow \infty$.
+   4. Example of a normed space that is not an inner product space.
+** Theorem 7.4
+   I don't really understand theorem 7.4. I think 
+** Lemma 12.5
+   What is going on here?
